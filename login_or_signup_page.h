@@ -50,6 +50,12 @@ private slots:
 
     bool validate_Captcha(QString input_text, QLabel* targetLable);
 
+    void on_pushButton_2_clicked();
+
+    void on_pushButton_3_clicked();
+
+    void on_pushButton_clicked();
+
 private:
     Ui::Login_or_SignUp_page *ui;
 };

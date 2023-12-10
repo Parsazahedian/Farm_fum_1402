@@ -17,8 +17,8 @@
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>100</y>
+      <x>30</x>
+      <y>90</y>
       <width>391</width>
       <height>381</height>
      </rect>
@@ -42,7 +42,7 @@
        <x>130</x>
        <y>110</y>
        <width>113</width>
-       <height>22</height>
+       <height>31</height>
       </rect>
      </property>
     </widget>
@@ -128,7 +128,7 @@
      <property name="geometry">
       <rect>
        <x>130</x>
-       <y>130</y>
+       <y>150</y>
        <width>181</width>
        <height>21</height>
       </rect>
@@ -183,6 +183,23 @@
       <string/>
      </property>
     </widget>
+    <widget class="QPushButton" name="pushButton_2">
+     <property name="geometry">
+      <rect>
+       <x>250</x>
+       <y>110</y>
+       <width>31</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-image: url(:/EchomoodPassword.image/C:/Users/i/Downloads/eye.image2.png);
+</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
    </widget>
    <widget class="QGroupBox" name="groupBox_2">
     <property name="geometry">
@@ -213,9 +230,9 @@
      <property name="geometry">
       <rect>
        <x>140</x>
-       <y>80</y>
+       <y>71</y>
        <width>113</width>
-       <height>22</height>
+       <height>31</height>
       </rect>
      </property>
     </widget>
@@ -293,7 +310,7 @@
        <x>140</x>
        <y>360</y>
        <width>113</width>
-       <height>22</height>
+       <height>31</height>
       </rect>
      </property>
     </widget>
@@ -488,6 +505,38 @@
        <width>181</width>
        <height>21</height>
       </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton">
+     <property name="geometry">
+      <rect>
+       <x>260</x>
+       <y>360</y>
+       <width>31</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-image: url(:/refresh.images/C:/Users/i/Downloads/refresh.image.png);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_3">
+     <property name="geometry">
+      <rect>
+       <x>260</x>
+       <y>70</y>
+       <width>31</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-image: url(:/EchomoodPassword.image/C:/Users/i/Downloads/eye.image2.png);</string>
      </property>
      <property name="text">
       <string/>

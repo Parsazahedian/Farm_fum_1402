@@ -23,6 +23,9 @@ Login_or_SignUp_page::Login_or_SignUp_page(QWidget *parent) :
 
     ui->lineEdit_7->setValidator(new QIntValidator);
 
+    ui->lineEdit_2->setEchoMode(QLineEdit::Password);
+    ui->lineEdit_4->setEchoMode(QLineEdit::Password);
+
     time_t t;
     srand((unsigned)time(&t));
     QString captcha="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
@@ -339,11 +342,19 @@ bool Login_or_SignUp_page::validate_email(QString input_text, QLabel *targetLabl
 
 void Login_or_SignUp_page::on_SignUp_of_Signup_clicked()
 {
-    QString SignUpemailTxt = ui->lineEdit_6->text();
-    QString SignUpcaptchatxt = ui->lineEdit_9->text();
+    QString SignUpUsernameTxt = ui->lineEdit_3->text();
+    QString SignUpPasswordTxt = ui->lineEdit_4->text();
+    QString SignUpPhoneTxt = ui->lineEdit_5->text();
+    QString SignUpEmailTxt = ui->lineEdit_6->text();
+    QString SignUpInventoryTxt = ui->lineEdit_7->text();
+    QString SignUpCaptchatxt = ui->lineEdit_9->text();
 
-       validate_email(SignUpemailTxt, ui->Error_label_of_Email);
-       validate_Captcha(SignUpcaptchatxt, ui->Error_label_of_Captcha);
+       validate_username(SignUpUsernameTxt, ui->Error_label_of_username_Signup);
+       validate_password(SignUpPasswordTxt, ui->Error_label_of_password_Signup);
+       validate_phone(SignUpPhoneTxt, ui->Error_label_of_phone_signup);
+       validate_email(SignUpEmailTxt, ui->Error_label_of_Email);
+       validate_Inventory(SignUpInventoryTxt, ui->Error_label_of_inventory);
+       validate_Captcha(SignUpCaptchatxt, ui->Error_label_of_Captcha);
 
 
 }
@@ -385,11 +396,48 @@ bool Login_or_SignUp_page::validate_Captcha(QString input_text, QLabel *targetLa
 {
 
     if(input_text==cap){
-
+        targetLable->setText("");
         return true;
     }else{
         targetLable->setText("invalid captcha");
         return false;
     }
+}
+
+
+void Login_or_SignUp_page::on_pushButton_2_clicked()
+{
+    if(ui->lineEdit_2->echoMode() == QLineEdit::Password){
+        ui->pushButton_2->setStyleSheet("border-image: url(:/EchomoodPassword.image/C:/Users/i/Downloads/eye.image.png);");
+        ui->lineEdit_2->setEchoMode(QLineEdit::Normal);
+    }else{
+        ui->pushButton_2->setStyleSheet("border-image: url(:/EchomoodPassword.image/C:/Users/i/Downloads/eye.image2.png);");
+        ui->lineEdit_2->setEchoMode(QLineEdit::Password);
+    }
+}
+
+
+void Login_or_SignUp_page::on_pushButton_3_clicked()
+{
+    if(ui->lineEdit_4->echoMode() == QLineEdit::Password){
+        ui->pushButton_3->setStyleSheet("border-image: url(:/EchomoodPassword.image/C:/Users/i/Downloads/eye.image.png);");
+        ui->lineEdit_4->setEchoMode(QLineEdit::Normal);
+    }else{
+        ui->pushButton_3->setStyleSheet("border-image: url(:/EchomoodPassword.image/C:/Users/i/Downloads/eye.image2.png);");
+        ui->lineEdit_4->setEchoMode(QLineEdit::Password);
+    }
+}
+
+
+void Login_or_SignUp_page::on_pushButton_clicked()
+{
+    cap = "";
+    time_t t;
+    srand((unsigned)time(&t));
+    QString captcha="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    for(int i=0;i<8;i++){
+        cap.push_back(captcha[rand() % 62]);
+    }
+    ui->label_4->setText(cap);
 }
 

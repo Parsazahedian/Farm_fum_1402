@@ -9,4 +9,11 @@
         <file>C:/Users/i/Downloads/iran.image.png</file>
         <file>C:/Users/i/Downloads/Ukraine.image.png</file>
     </qresource>
+    <qresource prefix="/refresh.images">
+        <file>C:/Users/i/Downloads/refresh.image.png</file>
+    </qresource>
+    <qresource prefix="/EchomoodPassword.image">
+        <file>C:/Users/i/Downloads/eye.image2.png</file>
+        <file>C:/Users/i/Downloads/eye.image.png</file>
+    </qresource>
 </RCC>
