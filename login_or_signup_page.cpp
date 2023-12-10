@@ -6,13 +6,35 @@
 #include "QDebug"
 #include "QRegExpValidator"
 #include "QMessageBox"
-
+#include "QStringList"
+#include "QIcon"
 
 Login_or_SignUp_page::Login_or_SignUp_page(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::Login_or_SignUp_page)
 {
     ui->setupUi(this);
+
+    QStringList list;
+    list<< " Iran"<<" United States"<<" United Kingdom"<<" France"<<" Germany"<<" Italy"<<" Ukraine"<<" Russia";
+    ui->comboBox_2->addItem(QIcon("C:/Users/i/Downloads/iran.image.png"), list.at(0));
+    ui->comboBox_2->addItem(QIcon("C:/Users/i/Downloads/Usa.image.png"), list.at(1));
+    ui->comboBox_2->addItem(QIcon("C:/Users/i/Downloads/Uk.image.jpg"), list.at(2));
+    ui->comboBox_2->addItem(QIcon("C:/Users/i/Downloads/france.image.png"), list.at(3));
+    ui->comboBox_2->addItem(QIcon("C:/Users/i/Downloads/germany.image.png"), list.at(4));
+    ui->comboBox_2->addItem(QIcon("C:/Users/i/Downloads/italy.image.jpg"), list.at(5));
+    ui->comboBox_2->addItem(QIcon("C:/Users/i/Downloads/Ukraine.image.png"), list.at(6));
+    ui->comboBox_2->addItem(QIcon("C:/Users/i/Downloads/russia.image.jpg"), list.at(7));
+
+    ui->comboBox->addItem(QIcon("C:/Users/i/Downloads/iran.image.png"), list.at(0));
+    ui->comboBox->addItem(QIcon("C:/Users/i/Downloads/Usa.image.png"), list.at(1));
+    ui->comboBox->addItem(QIcon("C:/Users/i/Downloads/Uk.image.jpg"), list.at(2));
+    ui->comboBox->addItem(QIcon("C:/Users/i/Downloads/france.image.png"), list.at(3));
+    ui->comboBox->addItem(QIcon("C:/Users/i/Downloads/germany.image.png"), list.at(4));
+    ui->comboBox->addItem(QIcon("C:/Users/i/Downloads/italy.image.jpg"), list.at(5));
+    ui->comboBox->addItem(QIcon("C:/Users/i/Downloads/Ukraine.image.png"), list.at(6));
+    ui->comboBox->addItem(QIcon("C:/Users/i/Downloads/russia.image.jpg"), list.at(7));
+
 
     QSqlDatabase database;
     database=QSqlDatabase::addDatabase("QSQLITE");

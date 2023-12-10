@@ -1,0 +1,59 @@
+[33mcommit 414cbcaa6c091e30ae51e42eef540446475b7997[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: PARSA <parsazahedian84@gmail.com>
+Date:   Sun Dec 10 13:25:22 2023 +0330
+
+    Changing_the_design_of_SignupGroupbox_and_getready_to_start_logic_of_SignupGroupbox
+
+[33mcommit 06b5636a55eee91094cc1cc95227c087b32eefe4[m
+Author: PARSA <parsazahedian84@gmail.com>
+Date:   Sun Dec 10 12:48:12 2023 +0330
+
+    Define_Function_to_check_information_of_Player_that_login_in_Database
+
+[33mcommit 7bec73d9f961385d4db9da0a1feceefc26d9f38d[m
+Author: PARSA <parsazahedian84@gmail.com>
+Date:   Sun Dec 10 12:35:50 2023 +0330
+
+    Define_validate_Function_of_username_and_password
+
+[33mcommit d458562e78c9ee42c9e32af4c624ee20ff5005ab[m
+Author: PARSA <parsazahedian84@gmail.com>
+Date:   Sun Dec 10 11:53:31 2023 +0330
+
+    open_Database_and_start_logic_of_LoginGroupbox
+
+[33mcommit 4f7b6d9130b7e05c842a2d957e99aa1812bd8fc5[m
+Author: PARSA <parsazahedian84@gmail.com>
+Date:   Sun Dec 10 09:19:39 2023 +0330
+
+    Set_Title_of_login_or_signup_page.ui_2
+
+[33mcommit 39324fc65e509f51846dc7fb90098cf3944cf3d2[m
+Author: PARSA <parsazahedian84@gmail.com>
+Date:   Sat Dec 9 20:24:18 2023 +0330
+
+    Set_Title_of_login_or_signup_page.ui
+
+[33mcommit 394ecc4c26f267241d386ca743a4d25d4df7d89b[m
+Author: PARSA <parsazahedian84@gmail.com>
+Date:   Sat Dec 9 20:16:29 2023 +0330
+
+    The_Main_structure_of_login_or_signup_page.ui
+
+[33mcommit c3a6037f1bae6748471baabf609da01a8b24738b[m
+Author: PARSA <parsazahedian84@gmail.com>
+Date:   Sat Dec 9 20:04:28 2023 +0330
+
+    start_Login_or_SignUp_page
+
+[33mcommit 92feb47a2f239e0edbb2bbd12ac716e3491396b1[m
+Author: PARSA <parsazahedian84@gmail.com>
+Date:   Sat Dec 9 19:46:59 2023 +0330
+
+    open Database
+
+[33mcommit de9a17e6915cb0da3ef66e3ca85045252c910cbf[m[33m ([m[1;31morigin/main[m[33m)[m
+Author: PARSA <parsazahedian84@gmail.com>
+Date:   Sat Dec 9 17:58:19 2023 +0330
+
+    first_commet

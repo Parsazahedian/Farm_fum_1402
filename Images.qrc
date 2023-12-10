@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/country.images">
+        <file>C:/Users/i/Downloads/russia.image.jpg</file>
+        <file>C:/Users/i/Downloads/italy.image.jpg</file>
+        <file>C:/Users/i/Downloads/germany.image.png</file>
+        <file>C:/Users/i/Downloads/france.image.png</file>
+        <file>C:/Users/i/Downloads/Uk.image.jpg</file>
+        <file>C:/Users/i/Downloads/Usa.image.png</file>
+        <file>C:/Users/i/Downloads/iran.image.png</file>
+        <file>C:/Users/i/Downloads/Ukraine.image.png</file>
+    </qresource>
+</RCC>
