@@ -19,6 +19,8 @@ Login_or_SignUp_page::Login_or_SignUp_page(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    ui->lineEdit_7->setValidator(new QIntValidator);
+
     QStringList list;
     list<<"Choose" << " Iran"<<" United States"<<" United Kingdom"<<" France"<<" Germany"<<" Italy"<<" Ukraine"<<" Russia";
     ui->comboBox_2->addItem(list.at(0));
@@ -342,4 +344,24 @@ void Login_or_SignUp_page::on_lineEdit_4_textChanged(const QString &arg1)
     validate_password(arg1, ui->Error_label_of_password_Signup);
 }
 
+bool Login_or_SignUp_page::validate_Inventory(QString input_text, QLabel *targetLable)
+{
+    if(input_text==""){
+        targetLable->setText("this field not be empty");
+        return false;
+    }
+    if(input_text=="0"){
+        targetLable->setText("Your inventory can not be 0");
+        return false;
+    }
+    targetLable->setText("");
+    return true;
+}
+
+
+
+void Login_or_SignUp_page::on_lineEdit_7_textChanged(const QString &arg1)
+{
+    validate_Inventory(arg1, ui->Error_label_of_inventory);
+}
 

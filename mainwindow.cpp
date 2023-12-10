@@ -13,6 +13,8 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
+    qDebug() << qRound(234.34);
+
     ui->lineEdit->hide();
     ui->pushButton->hide();
     ui->pushButton_2->hide();

@@ -244,9 +244,12 @@
       <rect>
        <x>140</x>
        <y>240</y>
-       <width>113</width>
+       <width>121</width>
        <height>22</height>
       </rect>
+     </property>
+     <property name="placeholderText">
+      <string>write this in toman</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_4">

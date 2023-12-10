@@ -44,6 +44,10 @@ private slots:
 
     void on_lineEdit_4_textChanged(const QString &arg1);
 
+    bool validate_Inventory(QString input_text, QLabel* targetLable);
+
+
+    void on_lineEdit_7_textChanged(const QString &arg1);
 
 private:
     Ui::Login_or_SignUp_page *ui;
