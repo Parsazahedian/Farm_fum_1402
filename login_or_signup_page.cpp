@@ -349,12 +349,41 @@ void Login_or_SignUp_page::on_SignUp_of_Signup_clicked()
     QString SignUpInventoryTxt = ui->lineEdit_7->text();
     QString SignUpCaptchatxt = ui->lineEdit_9->text();
 
-       validate_username(SignUpUsernameTxt, ui->Error_label_of_username_Signup);
-       validate_password(SignUpPasswordTxt, ui->Error_label_of_password_Signup);
-       validate_phone(SignUpPhoneTxt, ui->Error_label_of_phone_signup);
-       validate_email(SignUpEmailTxt, ui->Error_label_of_Email);
-       validate_Inventory(SignUpInventoryTxt, ui->Error_label_of_inventory);
-       validate_Captcha(SignUpCaptchatxt, ui->Error_label_of_Captcha);
+
+
+
+
+
+
+
+       int invalidCount= 0;
+       invalidCount += validate_username(SignUpUsernameTxt, ui->Error_label_of_username_Signup);
+       invalidCount += validate_password(SignUpPasswordTxt, ui->Error_label_of_password_Signup);
+       invalidCount += validate_phone(SignUpPhoneTxt, ui->Error_label_of_phone_signup);
+       invalidCount += validate_email(SignUpEmailTxt, ui->Error_label_of_Email);
+       invalidCount += validate_Inventory(SignUpInventoryTxt, ui->Error_label_of_inventory);
+       invalidCount += validate_Captcha(SignUpCaptchatxt, ui->Error_label_of_Captcha);
+
+       if(invalidCount == 6){
+          int p=1;
+          QSqlQuery dbInstance;
+          QString query = "INSERT INTO Player (Username, Password, Phone, Email, Inventory) VALUES (:Username, :Password, :Phone, :Email, :Inventory)";
+          dbInstance.prepare(query);
+          dbInstance.bindValue(":Username", SignUpUsernameTxt);
+          dbInstance.bindValue(":Password", SignUpPasswordTxt);
+          dbInstance.bindValue(":Phone", SignUpPhoneTxt);
+          dbInstance.bindValue(":Email", SignUpEmailTxt);
+          dbInstance.bindValue(":Inventory", SignUpInventoryTxt);
+
+          if(!dbInstance.exec()){
+              p=0;
+           //   ui->lineEdit_7->setText(dbInstance.lastError().text());
+              QMessageBox::warning(this," ","This username has already exist","set another username!");
+          }
+          if(p==1){
+              QMessageBox::information(this,"The end", "wellcome noobe sag", "Gg");
+          }
+       }
 
 
 }
