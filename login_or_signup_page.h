@@ -26,6 +26,8 @@ private slots:
 
     void on_lineEdit_2_textChanged(const QString &arg1);
 
+    void on_Login_of_LoginGroupbox_clicked();
+
 private:
     Ui::Login_or_SignUp_page *ui;
 };
