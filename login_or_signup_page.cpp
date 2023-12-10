@@ -16,24 +16,25 @@ Login_or_SignUp_page::Login_or_SignUp_page(QWidget *parent) :
     ui->setupUi(this);
 
     QStringList list;
-    list<< " Iran"<<" United States"<<" United Kingdom"<<" France"<<" Germany"<<" Italy"<<" Ukraine"<<" Russia";
-    ui->comboBox_2->addItem(QIcon("C:/Users/i/Downloads/iran.image.png"), list.at(0));
-    ui->comboBox_2->addItem(QIcon("C:/Users/i/Downloads/Usa.image.png"), list.at(1));
-    ui->comboBox_2->addItem(QIcon("C:/Users/i/Downloads/Uk.image.jpg"), list.at(2));
-    ui->comboBox_2->addItem(QIcon("C:/Users/i/Downloads/france.image.png"), list.at(3));
-    ui->comboBox_2->addItem(QIcon("C:/Users/i/Downloads/germany.image.png"), list.at(4));
-    ui->comboBox_2->addItem(QIcon("C:/Users/i/Downloads/italy.image.jpg"), list.at(5));
-    ui->comboBox_2->addItem(QIcon("C:/Users/i/Downloads/Ukraine.image.png"), list.at(6));
-    ui->comboBox_2->addItem(QIcon("C:/Users/i/Downloads/russia.image.jpg"), list.at(7));
-
-    ui->comboBox->addItem(QIcon("C:/Users/i/Downloads/iran.image.png"), list.at(0));
-    ui->comboBox->addItem(QIcon("C:/Users/i/Downloads/Usa.image.png"), list.at(1));
-    ui->comboBox->addItem(QIcon("C:/Users/i/Downloads/Uk.image.jpg"), list.at(2));
-    ui->comboBox->addItem(QIcon("C:/Users/i/Downloads/france.image.png"), list.at(3));
-    ui->comboBox->addItem(QIcon("C:/Users/i/Downloads/germany.image.png"), list.at(4));
-    ui->comboBox->addItem(QIcon("C:/Users/i/Downloads/italy.image.jpg"), list.at(5));
-    ui->comboBox->addItem(QIcon("C:/Users/i/Downloads/Ukraine.image.png"), list.at(6));
-    ui->comboBox->addItem(QIcon("C:/Users/i/Downloads/russia.image.jpg"), list.at(7));
+    list<<"Choose" << " Iran"<<" United States"<<" United Kingdom"<<" France"<<" Germany"<<" Italy"<<" Ukraine"<<" Russia";
+    ui->comboBox_2->addItem(list.at(0));
+    ui->comboBox_2->addItem(QIcon("C:/Users/i/Downloads/iran.image.png"), list.at(1));
+    ui->comboBox_2->addItem(QIcon("C:/Users/i/Downloads/Usa.image.png"), list.at(2));
+    ui->comboBox_2->addItem(QIcon("C:/Users/i/Downloads/Uk.image.jpg"), list.at(3));
+    ui->comboBox_2->addItem(QIcon("C:/Users/i/Downloads/france.image.png"), list.at(4));
+    ui->comboBox_2->addItem(QIcon("C:/Users/i/Downloads/germany.image.png"), list.at(5));
+    ui->comboBox_2->addItem(QIcon("C:/Users/i/Downloads/italy.image.jpg"), list.at(6));
+    ui->comboBox_2->addItem(QIcon("C:/Users/i/Downloads/Ukraine.image.png"), list.at(7));
+    ui->comboBox_2->addItem(QIcon("C:/Users/i/Downloads/russia.image.jpg"), list.at(8));
+    ui->comboBox->addItem(list.at(0));
+    ui->comboBox->addItem(QIcon("C:/Users/i/Downloads/iran.image.png"), list.at(1));
+    ui->comboBox->addItem(QIcon("C:/Users/i/Downloads/Usa.image.png"), list.at(2));
+    ui->comboBox->addItem(QIcon("C:/Users/i/Downloads/Uk.image.jpg"), list.at(3));
+    ui->comboBox->addItem(QIcon("C:/Users/i/Downloads/france.image.png"), list.at(4));
+    ui->comboBox->addItem(QIcon("C:/Users/i/Downloads/germany.image.png"), list.at(5));
+    ui->comboBox->addItem(QIcon("C:/Users/i/Downloads/italy.image.jpg"), list.at(6));
+    ui->comboBox->addItem(QIcon("C:/Users/i/Downloads/Ukraine.image.png"), list.at(7));
+    ui->comboBox->addItem(QIcon("C:/Users/i/Downloads/russia.image.jpg"), list.at(8));
 
 
     QSqlDatabase database;
@@ -89,17 +90,20 @@ void Login_or_SignUp_page::on_Login_of_LoginGroupbox_clicked()
 {
     QString signUpUsernameTxt = ui->lineEdit->text();
     QString signUpPassTxt = ui->lineEdit_2->text();
+    QString signUpPhoneTxt = ui->lineEdit_13->text();
 
 
     int invalidCount= 0;
     invalidCount += validate_username(signUpUsernameTxt, ui->Error_label_of_username);
     invalidCount += validate_password(signUpPassTxt, ui->Error_label_of_Password);
+    invalidCount += validate_phone(signUpPhoneTxt, ui->Error_label_of_phone_2);
 
-       if(invalidCount==2){
+       if(invalidCount==3){
            QSqlDatabase database = QSqlDatabase::addDatabase("QSQLITE");
 
 
             database.setDatabaseName("e:\\schema2.db");
+
             database.setUserName("Username");
             database.setPassword("Password");
 
@@ -109,7 +113,7 @@ void Login_or_SignUp_page::on_Login_of_LoginGroupbox_clicked()
 
             QSqlQuery query(database);
 
-             QString sql = QString("SELECT * FROM Player WHERE Username='%1' AND Password='%2'").arg(signUpUsernameTxt, signUpPassTxt);
+             QString sql = QString("SELECT * FROM Player WHERE Username='%1' AND Password='%2' AND Phone='%3'").arg(signUpUsernameTxt, signUpPassTxt, signUpPhoneTxt);
              query.exec(sql);
 
              if (query.next()) {
@@ -121,5 +125,164 @@ void Login_or_SignUp_page::on_Login_of_LoginGroupbox_clicked()
              }
 
        }
+}
+
+
+void Login_or_SignUp_page::on_comboBox_2_activated(int index)
+{
+    switch (index) {
+
+    case 0:
+
+        ui->lineEdit_13->setInputMask(" ");
+        ui->lineEdit_13->setInputMask("\\Y\\o\\u\\r\\ \\C\\o\\u\\n\\t\\r\\y\\?");
+
+        break;
+
+    case 1:
+
+        ui->lineEdit_13->setInputMask(" ");
+        ui->lineEdit_13->setInputMask("\\+\\9\\8-000-000-0000");
+
+        break;
+
+    case 2:
+
+        ui->lineEdit_13->setInputMask(" ");
+        ui->lineEdit_13->setInputMask("\\+\\1-000-000-0000");
+
+
+        break;
+
+    case 3:
+
+        ui->lineEdit_13->setInputMask(" ");
+        ui->lineEdit_13->setInputMask("\\+\\4\\4-000-000-0000");
+
+        break;
+
+    case 4:
+
+        ui->lineEdit_13->setInputMask(" ");
+        ui->lineEdit_13->setInputMask("\\+\\3\\3-000-000-0000");
+
+        break;
+
+    case 5:
+
+        ui->lineEdit_13->setInputMask(" ");
+        ui->lineEdit_13->setInputMask("\\+\\4\\9-000-000-0000");
+
+        break;
+
+    case 6:
+
+        ui->lineEdit_13->setInputMask(" ");
+        ui->lineEdit_13->setInputMask("\\+\\3\\9-000-000-0000");
+
+        break;
+
+    case 7:
+
+        ui->lineEdit_13->setInputMask(" ");
+        ui->lineEdit_13->setInputMask("\\+\\3\\8\\0-000-000-0000");
+
+        break;
+
+    case 8:
+
+        ui->lineEdit_13->setInputMask(" ");
+        ui->lineEdit_13->setInputMask("\\+\\7-000-000-0000");
+
+        break;
+    }
+}
+
+
+void Login_or_SignUp_page::on_comboBox_activated(int index)
+{
+    switch (index) {
+
+    case 0:
+
+        ui->lineEdit_13->setInputMask(" ");
+        ui->lineEdit_13->setInputMask("\\Y\\o\\u\\r\\ \\C\\o\\u\\n\\t\\r\\y\\?");
+
+        break;
+
+    case 1:
+
+        ui->lineEdit_5->setInputMask(" ");
+        ui->lineEdit_5->setInputMask("\\+\\9\\8-000-000-0000");
+
+        break;
+
+    case 2:
+
+        ui->lineEdit_5->setInputMask(" ");
+        ui->lineEdit_5->setInputMask("\\+\\1-000-000-0000");
+
+
+        break;
+
+    case 3:
+
+        ui->lineEdit_5->setInputMask(" ");
+        ui->lineEdit_5->setInputMask("\\+\\4\\4-000-000-0000");
+
+        break;
+
+    case 4:
+
+        ui->lineEdit_5->setInputMask(" ");
+        ui->lineEdit_5->setInputMask("\\+\\3\\3-000-000-0000");
+
+        break;
+
+    case 5:
+
+        ui->lineEdit_5->setInputMask(" ");
+        ui->lineEdit_5->setInputMask("\\+\\4\\9-000-000-0000");
+
+        break;
+
+    case 6:
+
+        ui->lineEdit_5->setInputMask(" ");
+        ui->lineEdit_5->setInputMask("\\+\\3\\9-000-000-0000");
+
+        break;
+
+    case 7:
+
+        ui->lineEdit_5->setInputMask(" ");
+        ui->lineEdit_5->setInputMask("\\+\\3\\8\\0-000-000-0000");
+
+        break;
+
+    case 8:
+
+        ui->lineEdit_5->setInputMask(" ");
+        ui->lineEdit_5->setInputMask("\\+\\7-000-000-0000");
+
+        break;
+    }
+}
+
+bool Login_or_SignUp_page::validate_phone(QString input_text, QLabel *targetLable)
+{
+    if((input_text.length()-3) < 11){
+        targetLable->setText("invalid phone!");
+        return false;
+    } else {
+        targetLable->setText("");
+        return true;
+    }
+}
+
+
+void Login_or_SignUp_page::on_lineEdit_13_textChanged(const QString &arg1)
+{
+    validate_phone(arg1, ui->Error_label_of_phone_2);
 }
 

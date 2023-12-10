@@ -28,6 +28,14 @@ private slots:
 
     void on_Login_of_LoginGroupbox_clicked();
 
+    void on_comboBox_2_activated(int index);
+
+    void on_comboBox_activated(int index);
+
+    bool validate_phone(QString input_text, QLabel* targetLable);
+
+    void on_lineEdit_13_textChanged(const QString &arg1);
+
 private:
     Ui::Login_or_SignUp_page *ui;
 };
