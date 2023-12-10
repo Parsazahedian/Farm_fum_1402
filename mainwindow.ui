@@ -50,7 +50,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>go to signup</string>
+     <string>go to login</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="lineEdit">
