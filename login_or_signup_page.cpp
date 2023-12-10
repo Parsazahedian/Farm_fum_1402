@@ -8,6 +8,10 @@
 #include "QMessageBox"
 #include "QStringList"
 #include "QIcon"
+#include "iostream"
+#include "QString"
+#include "cstring"
+using namespace std;
 
 Login_or_SignUp_page::Login_or_SignUp_page(QWidget *parent) :
     QMainWindow(parent),
@@ -46,6 +50,14 @@ Login_or_SignUp_page::Login_or_SignUp_page(QWidget *parent) :
 Login_or_SignUp_page::~Login_or_SignUp_page()
 {
     delete ui;
+}
+
+bool Login_or_SignUp_page::endsWith(const QString &fullString, const QString &ending)
+{
+    if (fullString.length() < ending.length()) {
+           return false;
+       }
+       return equal(ending.rbegin(), ending.rend(), fullString.rbegin());
 }
 
 bool Login_or_SignUp_page::validate_username(QString input_text, QLabel *targetLable)
@@ -121,7 +133,7 @@ void Login_or_SignUp_page::on_Login_of_LoginGroupbox_clicked()
                  QMessageBox::information(this,"The end", "wellcome noobe sag", "Gg");
              } else {
                    // username and password do not exist in the database
-                 QMessageBox::warning(this," ","This username or password not exist","try again!");
+                 QMessageBox::warning(this," ","This username or password or phone not exist","try again!");
              }
 
        }
@@ -205,8 +217,8 @@ void Login_or_SignUp_page::on_comboBox_activated(int index)
 
     case 0:
 
-        ui->lineEdit_13->setInputMask(" ");
-        ui->lineEdit_13->setInputMask("\\Y\\o\\u\\r\\ \\C\\o\\u\\n\\t\\r\\y\\?");
+        ui->lineEdit_5->setInputMask(" ");
+        ui->lineEdit_5->setInputMask("\\Y\\o\\u\\r\\ \\C\\o\\u\\n\\t\\r\\y\\?");
 
         break;
 
@@ -284,5 +296,40 @@ bool Login_or_SignUp_page::validate_phone(QString input_text, QLabel *targetLabl
 void Login_or_SignUp_page::on_lineEdit_13_textChanged(const QString &arg1)
 {
     validate_phone(arg1, ui->Error_label_of_phone_2);
+}
+
+bool Login_or_SignUp_page::validate_email(QString input_text, QLabel *targetLable)
+{
+    QRegExp emailRegex("[a-zA-Z0-9@.]+");
+
+    if(input_text==""){
+        targetLable->setText("this field not be empty");
+        return false;
+    }
+    if(input_text=="@gmail.com" || input_text=="@email.com" || input_text=="@mail.um.ac"){
+        targetLable->setText("use correct email");
+        return false;
+    }
+    if(!emailRegex.exactMatch(input_text)){
+        targetLable->setText("invalid character!");
+        return false;
+    }
+    if (endsWith(input_text, "@gmail.com")  || endsWith(input_text, "@email.com") || endsWith(input_text, "@mail.um.ac")) {
+
+        targetLable->setText("");
+        qDebug() << "alsdm;amds";
+        return true;
+    }else{
+
+        targetLable->setText("");
+        QMessageBox::warning(this," ","Your email must end with one of the three characters : 1)@gmail.com 2)@email.com 3)@mail.um.ac","try again!");
+        return false;
+    }
+}
+
+
+void Login_or_SignUp_page::on_SignUp_of_Signup_clicked()
+{
+       validate_email(ui->lineEdit_6->text(), ui->Error_label_of_Email);
 }
 

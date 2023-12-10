@@ -16,6 +16,8 @@ public:
     explicit Login_or_SignUp_page(QWidget *parent = nullptr);
     ~Login_or_SignUp_page();
 
+    bool endsWith(const QString &fullString, const QString &ending);
+
 private slots:
 
     bool validate_username(QString input_text, QLabel* targetLable);
@@ -35,6 +37,11 @@ private slots:
     bool validate_phone(QString input_text, QLabel* targetLable);
 
     void on_lineEdit_13_textChanged(const QString &arg1);
+
+    bool validate_email(QString input_text, QLabel* targetLable);
+
+
+    void on_SignUp_of_Signup_clicked();
 
 private:
     Ui::Login_or_SignUp_page *ui;

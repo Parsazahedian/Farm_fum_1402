@@ -292,7 +292,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_3">
+    <widget class="QPushButton" name="SignUp_of_Signup">
      <property name="geometry">
       <rect>
        <x>150</x>
