@@ -100,15 +100,15 @@ void Login_or_SignUp_page::on_lineEdit_2_textChanged(const QString &arg1)
 
 void Login_or_SignUp_page::on_Login_of_LoginGroupbox_clicked()
 {
-    QString signUpUsernameTxt = ui->lineEdit->text();
-    QString signUpPassTxt = ui->lineEdit_2->text();
-    QString signUpPhoneTxt = ui->lineEdit_13->text();
+    QString LoginUsernameTxt = ui->lineEdit->text();
+    QString LoginPassTxt = ui->lineEdit_2->text();
+    QString LoginPhoneTxt = ui->lineEdit_13->text();
 
 
     int invalidCount= 0;
-    invalidCount += validate_username(signUpUsernameTxt, ui->Error_label_of_username);
-    invalidCount += validate_password(signUpPassTxt, ui->Error_label_of_Password);
-    invalidCount += validate_phone(signUpPhoneTxt, ui->Error_label_of_phone_2);
+    invalidCount += validate_username(LoginUsernameTxt, ui->Error_label_of_username);
+    invalidCount += validate_password(LoginPassTxt, ui->Error_label_of_Password);
+    invalidCount += validate_phone(LoginPhoneTxt, ui->Error_label_of_phone_2);
 
        if(invalidCount==3){
            QSqlDatabase database = QSqlDatabase::addDatabase("QSQLITE");
@@ -125,7 +125,7 @@ void Login_or_SignUp_page::on_Login_of_LoginGroupbox_clicked()
 
             QSqlQuery query(database);
 
-             QString sql = QString("SELECT * FROM Player WHERE Username='%1' AND Password='%2' AND Phone='%3'").arg(signUpUsernameTxt, signUpPassTxt, signUpPhoneTxt);
+             QString sql = QString("SELECT * FROM Player WHERE Username='%1' AND Password='%2' AND Phone='%3'").arg(LoginUsernameTxt, LoginPassTxt, LoginPhoneTxt);
              query.exec(sql);
 
              if (query.next()) {
@@ -293,11 +293,6 @@ bool Login_or_SignUp_page::validate_phone(QString input_text, QLabel *targetLabl
 }
 
 
-void Login_or_SignUp_page::on_lineEdit_13_textChanged(const QString &arg1)
-{
-    validate_phone(arg1, ui->Error_label_of_phone_2);
-}
-
 bool Login_or_SignUp_page::validate_email(QString input_text, QLabel *targetLable)
 {
     QRegExp emailRegex("[a-zA-Z0-9@.]+");
@@ -317,7 +312,7 @@ bool Login_or_SignUp_page::validate_email(QString input_text, QLabel *targetLabl
     if (endsWith(input_text, "@gmail.com")  || endsWith(input_text, "@email.com") || endsWith(input_text, "@mail.um.ac")) {
 
         targetLable->setText("");
-        qDebug() << "alsdm;amds";
+        qDebug() << "rpkoopo";
         return true;
     }else{
 
@@ -330,6 +325,21 @@ bool Login_or_SignUp_page::validate_email(QString input_text, QLabel *targetLabl
 
 void Login_or_SignUp_page::on_SignUp_of_Signup_clicked()
 {
-       validate_email(ui->lineEdit_6->text(), ui->Error_label_of_Email);
+    QString SignUpemailTxt = ui->lineEdit_6->text();
+
+       validate_email(SignUpemailTxt, ui->Error_label_of_Email);
 }
+
+
+void Login_or_SignUp_page::on_lineEdit_3_textChanged(const QString &arg1)
+{
+    validate_username(arg1, ui->Error_label_of_username_Signup);
+}
+
+
+void Login_or_SignUp_page::on_lineEdit_4_textChanged(const QString &arg1)
+{
+    validate_password(arg1, ui->Error_label_of_password_Signup);
+}
+
 

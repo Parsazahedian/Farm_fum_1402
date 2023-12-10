@@ -36,12 +36,14 @@ private slots:
 
     bool validate_phone(QString input_text, QLabel* targetLable);
 
-    void on_lineEdit_13_textChanged(const QString &arg1);
-
     bool validate_email(QString input_text, QLabel* targetLable);
 
-
     void on_SignUp_of_Signup_clicked();
+
+    void on_lineEdit_3_textChanged(const QString &arg1);
+
+    void on_lineEdit_4_textChanged(const QString &arg1);
+
 
 private:
     Ui::Login_or_SignUp_page *ui;
