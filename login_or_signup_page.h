@@ -46,8 +46,9 @@ private slots:
 
     bool validate_Inventory(QString input_text, QLabel* targetLable);
 
-
     void on_lineEdit_7_textChanged(const QString &arg1);
+
+    bool validate_Captcha(QString input_text, QLabel* targetLable);
 
 private:
     Ui::Login_or_SignUp_page *ui;

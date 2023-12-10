@@ -11,8 +11,10 @@
 #include "iostream"
 #include "QString"
 #include "cstring"
+#include "iomanip"
 using namespace std;
 
+QString cap="";
 Login_or_SignUp_page::Login_or_SignUp_page(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::Login_or_SignUp_page)
@@ -20,6 +22,16 @@ Login_or_SignUp_page::Login_or_SignUp_page(QWidget *parent) :
     ui->setupUi(this);
 
     ui->lineEdit_7->setValidator(new QIntValidator);
+
+    time_t t;
+    srand((unsigned)time(&t));
+    QString captcha="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    for(int i=0;i<8;i++){
+        cap.push_back(captcha[rand() % 62]);
+    }
+    ui->label_4->setText(cap);
+
+
 
     QStringList list;
     list<<"Choose" << " Iran"<<" United States"<<" United Kingdom"<<" France"<<" Germany"<<" Italy"<<" Ukraine"<<" Russia";
@@ -328,8 +340,12 @@ bool Login_or_SignUp_page::validate_email(QString input_text, QLabel *targetLabl
 void Login_or_SignUp_page::on_SignUp_of_Signup_clicked()
 {
     QString SignUpemailTxt = ui->lineEdit_6->text();
+    QString SignUpcaptchatxt = ui->lineEdit_9->text();
 
        validate_email(SignUpemailTxt, ui->Error_label_of_Email);
+       validate_Captcha(SignUpcaptchatxt, ui->Error_label_of_Captcha);
+
+
 }
 
 
@@ -363,5 +379,17 @@ bool Login_or_SignUp_page::validate_Inventory(QString input_text, QLabel *target
 void Login_or_SignUp_page::on_lineEdit_7_textChanged(const QString &arg1)
 {
     validate_Inventory(arg1, ui->Error_label_of_inventory);
+}
+
+bool Login_or_SignUp_page::validate_Captcha(QString input_text, QLabel *targetLable)
+{
+
+    if(input_text==cap){
+
+        return true;
+    }else{
+        targetLable->setText("invalid captcha");
+        return false;
+    }
 }
 
