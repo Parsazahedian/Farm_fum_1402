@@ -5,6 +5,7 @@
 #include "QSqlQuery"
 #include "QSqlQueryModel"
 #include "QDebug"
+#include "login_or_signup_page.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -72,6 +73,7 @@ void MainWindow::on_pushButton_2_clicked()
 
 void MainWindow::on_pushButton_3_clicked()
 {
-
+    Login_or_SignUp_page *k = new Login_or_SignUp_page;
+    k->show();
 }
 
