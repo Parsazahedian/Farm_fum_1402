@@ -27,6 +27,7 @@ Login_or_SignUp_page::Login_or_SignUp_page(QWidget *parent) :
 
 
     ui->lineEdit_7->setValidator(new QIntValidator);
+    ui->lineEdit_5->setValidator(new QIntValidator);
 
     ui->lineEdit_2->setEchoMode(QLineEdit::Password);
     ui->lineEdit_4->setEchoMode(QLineEdit::Password);
@@ -305,13 +306,17 @@ void Login_or_SignUp_page::on_comboBox_activated(int index)
 
 bool Login_or_SignUp_page::validate_phone(QString input_text, QLabel *targetLable)
 {
-    if((input_text.length()-3) < 11){
+    if((input_text.length()-3) < 11 && input_text!=""){
         targetLable->setText("invalid phone!");
         return false;
-    } else {
-        targetLable->setText("");
-        return true;
     }
+    if(input_text==""){
+
+        targetLable->setText("this field not be empty");
+        return false;
+    }
+    targetLable->setText("");
+    return true;
 }
 
 
@@ -331,17 +336,9 @@ bool Login_or_SignUp_page::validate_email(QString input_text, QLabel *targetLabl
         targetLable->setText("invalid character!");
         return false;
     }
-    if (endsWith(input_text, "@gmail.com")  || endsWith(input_text, "@email.com") || endsWith(input_text, "@mail.um.ac")) {
+    targetLable->setText("");
+    return true;
 
-        targetLable->setText("");
-        qDebug() << "rpkoopo";
-        return true;
-    }else{
-
-        targetLable->setText("");
-        QMessageBox::warning(this," ","Your email must end with one of the three characters : 1)@gmail.com 2)@email.com 3)@mail.um.ac","try again!");
-        return false;
-    }
 }
 
 
@@ -354,15 +351,17 @@ void Login_or_SignUp_page::on_SignUp_of_Signup_clicked()
     QString SignUpInventoryTxt = ui->lineEdit_7->text();
     QString SignUpCaptchatxt = ui->lineEdit_9->text();
 
+
        int invalidCount= 0;
        invalidCount += validate_username(SignUpUsernameTxt, ui->Error_label_of_username_Signup);
        invalidCount += validate_password(SignUpPasswordTxt, ui->Error_label_of_password_Signup);
        invalidCount += validate_phone(SignUpPhoneTxt, ui->Error_label_of_phone_signup);
        invalidCount += validate_email(SignUpEmailTxt, ui->Error_label_of_Email);
+       invalidCount += validate2_email(SignUpEmailTxt, ui->Error_label_of_Email);
        invalidCount += validate_Inventory(SignUpInventoryTxt, ui->Error_label_of_inventory);
        invalidCount += validate_Captcha(SignUpCaptchatxt, ui->Error_label_of_Captcha);
 
-       if(invalidCount == 6){
+       if(invalidCount == 7){
           int p=1;
           QSqlQuery dbInstance;
           QString query = "INSERT INTO Player (Username, Password, Phone, Email, Inventory, Player_number) VALUES (:Username, :Password, :Phone, :Email, :Inventory, :Player_number)";
@@ -381,8 +380,8 @@ void Login_or_SignUp_page::on_SignUp_of_Signup_clicked()
               QString errorMessage = dbInstance.lastError().text();
               QRegularExpressionMatch match = re.match(errorMessage);
               if (match.hasMatch()) {
-                 QString playerPhone = match.captured(1);
-                 QMessageBox::warning(this," ","the eroor with "+playerPhone+"","set another username!");
+                 QString playerLasterror = match.captured(1);
+                 QMessageBox::warning(this," ","the eroor with "+playerLasterror+"","set another username!");
               }
 
 
@@ -394,7 +393,7 @@ void Login_or_SignUp_page::on_SignUp_of_Signup_clicked()
                 int a=Player_number++;
 
               QSqlQuery q;
-              QString query = QString("UPDATE Player SET Player_number = %1 WHERE Username = %2").arg(QString::number(a)).arg(SignUpUsernameTxt);
+              QString query = QString("UPDATE Player SET Player_number = %1 WHERE Username = %2").arg((QString::number(a)),SignUpUsernameTxt);
               q.exec(query);
 
           }
@@ -459,13 +458,20 @@ void Login_or_SignUp_page::on_lineEdit_7_textChanged(const QString &arg1)
 bool Login_or_SignUp_page::validate_Captcha(QString input_text, QLabel *targetLable)
 {
 
-    if(input_text==cap){
-        targetLable->setText("");
-        return true;
-    }else{
+    if(input_text!=cap && input_text!=""){
         targetLable->setText("invalid captcha");
         return false;
     }
+    if(input_text==""){
+
+        targetLable->setText("this field not be empty");
+        return false;
+    }
+    if(input_text==cap){
+        targetLable->setText("");
+        return true;
+    }
+    return true;
 }
 
 
@@ -503,5 +509,29 @@ void Login_or_SignUp_page::on_pushButton_clicked()
         cap.push_back(captcha[rand() % 62]);
     }
     ui->label_4->setText(cap);
+}
+
+
+void Login_or_SignUp_page::on_lineEdit_6_textChanged(const QString &arg1)
+{
+    validate_email(arg1, ui->Error_label_of_Email);
+}
+
+bool Login_or_SignUp_page::validate2_email(QString input_text, QLabel *targetLable)
+{
+
+    if (endsWith(input_text, "@gmail.com")  || endsWith(input_text, "@email.com") || endsWith(input_text, "@mail.um.ac")) {
+
+        targetLable->setText("");
+        qDebug() << "endesh okeye";
+        return true;
+    }else if(input_text!=""){
+
+
+        QMessageBox::warning(this," ","Your email must end with one of the three characters : 1)@gmail.com 2)@email.com 3)@mail.um.ac","try again!");
+        return false;
+    }
+
+    return true;
 }
 

@@ -56,6 +56,10 @@ private slots:
 
     void on_pushButton_clicked();
 
+    void on_lineEdit_6_textChanged(const QString &arg1);
+
+    bool validate2_email(QString input_text, QLabel* targetLable);
+
 private:
     Ui::Login_or_SignUp_page *ui;
 };
