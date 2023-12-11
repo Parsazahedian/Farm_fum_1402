@@ -6,6 +6,7 @@
 #include "QSqlQueryModel"
 #include "QDebug"
 #include "login_or_signup_page.h"
+#include "QIntValidator"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -13,12 +14,12 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    qDebug() << qRound(234.34);
-
     ui->lineEdit->hide();
     ui->pushButton->hide();
     ui->pushButton_2->hide();
     ui->pushButton_3->hide();
+
+    ui->lineEdit->setValidator(new QIntValidator);
 
     QSqlDatabase database;
     database=QSqlDatabase::addDatabase("QSQLITE");
@@ -41,7 +42,7 @@ MainWindow::MainWindow(QWidget *parent)
         }else if(isGameStarted==1){
 
 
-            qDebug() << "aaaaaaa";
+            qDebug() << "az ghabl thabtnam karde";
             ui->pushButton_2->show();
             ui->pushButton->show();
         }
@@ -75,7 +76,21 @@ void MainWindow::on_pushButton_2_clicked()
 
 void MainWindow::on_pushButton_3_clicked()
 {
-    Login_or_SignUp_page *k = new Login_or_SignUp_page;
-    k->show();
-}
+    if(ui->lineEdit->text()==""){
 
+        ui->label->setText("this field not be empty");
+
+    }else{
+
+        ui->label->setText("");
+
+        QString Number_of_player = ui->lineEdit->text();
+
+        QSqlQuery q;
+        q.exec("UPDATE UserInput SET Number_of_players = '"+Number_of_player+"' ");
+
+        Login_or_SignUp_page *k = new Login_or_SignUp_page;
+        k->show();
+    }
+
+}

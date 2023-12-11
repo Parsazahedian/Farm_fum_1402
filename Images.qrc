@@ -12,7 +12,7 @@
     <qresource prefix="/refresh.images">
         <file>C:/Users/i/Downloads/refresh.image.png</file>
     </qresource>
-    <qresource prefix="/EchomoodPassword.image">
+    <qresource prefix="/EchomodePassword.image">
         <file>C:/Users/i/Downloads/eye.image2.png</file>
         <file>C:/Users/i/Downloads/eye.image.png</file>
     </qresource>
