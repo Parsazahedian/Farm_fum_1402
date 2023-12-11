@@ -543,6 +543,16 @@
      </property>
     </widget>
    </widget>
+   <widget class="QLineEdit" name="lineEdit_14">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>511</y>
+      <width>351</width>
+      <height>51</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

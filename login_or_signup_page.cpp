@@ -12,14 +12,19 @@
 #include "QString"
 #include "cstring"
 #include "iomanip"
+#include "QSqlError"
+#include "QRegularExpression"
 using namespace std;
 
 QString cap="";
+int Player_number;
 Login_or_SignUp_page::Login_or_SignUp_page(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::Login_or_SignUp_page)
 {
     ui->setupUi(this);
+
+
 
     ui->lineEdit_7->setValidator(new QIntValidator);
 
@@ -349,13 +354,6 @@ void Login_or_SignUp_page::on_SignUp_of_Signup_clicked()
     QString SignUpInventoryTxt = ui->lineEdit_7->text();
     QString SignUpCaptchatxt = ui->lineEdit_9->text();
 
-
-
-
-
-
-
-
        int invalidCount= 0;
        invalidCount += validate_username(SignUpUsernameTxt, ui->Error_label_of_username_Signup);
        invalidCount += validate_password(SignUpPasswordTxt, ui->Error_label_of_password_Signup);
@@ -367,24 +365,61 @@ void Login_or_SignUp_page::on_SignUp_of_Signup_clicked()
        if(invalidCount == 6){
           int p=1;
           QSqlQuery dbInstance;
-          QString query = "INSERT INTO Player (Username, Password, Phone, Email, Inventory) VALUES (:Username, :Password, :Phone, :Email, :Inventory)";
+          QString query = "INSERT INTO Player (Username, Password, Phone, Email, Inventory, Player_number) VALUES (:Username, :Password, :Phone, :Email, :Inventory, :Player_number)";
           dbInstance.prepare(query);
           dbInstance.bindValue(":Username", SignUpUsernameTxt);
           dbInstance.bindValue(":Password", SignUpPasswordTxt);
           dbInstance.bindValue(":Phone", SignUpPhoneTxt);
           dbInstance.bindValue(":Email", SignUpEmailTxt);
           dbInstance.bindValue(":Inventory", SignUpInventoryTxt);
+          dbInstance.bindValue(":Player_number", Player_number);
+
 
           if(!dbInstance.exec()){
               p=0;
-           //   ui->lineEdit_7->setText(dbInstance.lastError().text());
-              QMessageBox::warning(this," ","This username has already exist","set another username!");
+              QRegularExpression re("UNIQUE constraint failed: (\\w+\\.\\w+)");
+              QString errorMessage = dbInstance.lastError().text();
+              QRegularExpressionMatch match = re.match(errorMessage);
+              if (match.hasMatch()) {
+                 QString playerPhone = match.captured(1);
+                 QMessageBox::warning(this," ","the eroor with "+playerPhone+"","set another username!");
+              }
+
+
+            //  ui->lineEdit_14->setText(dbInstance.lastError().text());
+
           }
           if(p==1){
               QMessageBox::information(this,"The end", "wellcome noobe sag", "Gg");
+                int a=Player_number++;
+
+              QSqlQuery q;
+              QString query = QString("UPDATE Player SET Player_number = %1 WHERE Username = %2").arg(QString::number(a)).arg(SignUpUsernameTxt);
+              q.exec(query);
+
           }
        }
 
+
+
+       //    if(invalidCount == 4){
+       //       int p=1;
+       //       QSqlQuery dbInstance;
+       //       QString query = "INSERT INTO user (username, password, phone) VALUES (:username, :password, :phone)";
+       //       dbInstance.prepare(query);
+       //       dbInstance.bindValue(":username", signUpUsernameTxt);
+       //       dbInstance.bindValue(":password", signUpPassTxt);
+       //       dbInstance.bindValue(":phone", signUpPhoneTxt);
+
+       //       if(!dbInstance.exec()){
+       //           p=0;
+       //        //   ui->lineEdit_7->setText(dbInstance.lastError().text());
+       //           QMessageBox::warning(this," ","This username has already exist","set another username!");
+       //       }
+       //       if(p==1){
+       //           QMessageBox::information(this,"The end", "wellcome noobe sag", "Gg");
+       //       }
+       //    }
 
 }
 
