@@ -14,17 +14,26 @@
 #include "iomanip"
 #include "QSqlError"
 #include "QRegularExpression"
+#include "QMoveEvent"
 using namespace std;
 
 QString cap="";
-
+int Number_Of_Players;
+int Number_of_Successful_Players_in_registration=0;
+int validation_of_open_the_game;
+int i=1;
 Login_or_SignUp_page::Login_or_SignUp_page(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::Login_or_SignUp_page)
 {
     ui->setupUi(this);
 
+    ui->Login_For_Player_i->setText("Login for Player 1");
+    ui->SignUp_For_Player_i->setText("SignUp for Player 1");
 
+    ui->groupBox_2->hide();
+    ui->groupBox->move(150,80);
+    ui->groupBox_2->move(150,80);
 
     ui->lineEdit_7->setValidator(new QIntValidator);
     ui->lineEdit_5->setValidator(new QIntValidator);
@@ -68,6 +77,13 @@ Login_or_SignUp_page::Login_or_SignUp_page(QWidget *parent) :
     database=QSqlDatabase::addDatabase("QSQLITE");
     database.setDatabaseName("e:\\schema2.db");
     database.open();
+
+    QSqlQuery query;
+    query.exec("SELECT * FROM UserInput");
+    if (query.next()) {
+    Number_Of_Players = query.value("Number_of_players").toInt();
+    qDebug() << "Number_Of_Players :" <<Number_Of_Players ;
+    }
 }
 
 Login_or_SignUp_page::~Login_or_SignUp_page()
@@ -123,43 +139,106 @@ void Login_or_SignUp_page::on_lineEdit_2_textChanged(const QString &arg1)
 
 void Login_or_SignUp_page::on_Login_of_LoginGroupbox_clicked()
 {
-    QString LoginUsernameTxt = ui->lineEdit->text();
-    QString LoginPassTxt = ui->lineEdit_2->text();
-    QString LoginPhoneTxt = ui->lineEdit_13->text();
 
+    if(Number_Of_Players!=0){
 
-    int invalidCount= 0;
-    invalidCount += validate_username(LoginUsernameTxt, ui->Error_label_of_username);
-    invalidCount += validate_password(LoginPassTxt, ui->Error_label_of_Password);
-    invalidCount += validate_phone(LoginPhoneTxt, ui->Error_label_of_phone_2);
+        QString LoginUsernameTxt = ui->lineEdit->text();
+        QString LoginPassTxt = ui->lineEdit_2->text();
+        QString LoginPhoneTxt = ui->lineEdit_13->text();
+        int invalidCount= 0;
+        invalidCount += validate_username(LoginUsernameTxt, ui->Error_label_of_username);
+        invalidCount += validate_password(LoginPassTxt, ui->Error_label_of_Password);
+        invalidCount += validate_phone(LoginPhoneTxt, ui->Error_label_of_phone_2);
 
-       if(invalidCount==3){
-           QSqlDatabase database = QSqlDatabase::addDatabase("QSQLITE");
+           if(invalidCount==3){
+               QSqlDatabase database = QSqlDatabase::addDatabase("QSQLITE");
+                database.setDatabaseName("e:\\schema2.db");
+                database.setUserName("Username");
+                database.setPassword("Password");
+                if (!database.open()) {
+                    // handle error
+                }
+                QSqlQuery query(database);
 
+                 QString sql = QString("SELECT * FROM Player WHERE Username='%1' AND Password='%2' AND Phone='%3'").arg(LoginUsernameTxt, LoginPassTxt, LoginPhoneTxt);
+                 query.exec(sql);
 
-            database.setDatabaseName("e:\\schema2.db");
+                 if (query.next()) {
+                       // username and password exist in the database
+                     Number_of_Successful_Players_in_registration++;
+                     Number_Of_Players--;
+                     QMessageBox::information(this,"The end", "wellcome Player "+QString::number(i)+" ", "Gg");
 
-            database.setUserName("Username");
-            database.setPassword("Password");
+                     ui->lineEdit->setText("");
+                     ui->lineEdit_2->setText("");
+                     ui->lineEdit_13->setText("");
+                     ui->Login_For_Player_i->setText("Login for Player "+QString::number(i+1)+" ");
+                     i++;
 
-            if (!database.open()) {
-                // handle error
-            }
+                 } else {
+                       // username and password do not exist in the database
+                     QMessageBox::warning(this," ","Player "+QString::number(i)+" this information not exist","try again! or SignUP");
 
-            QSqlQuery query(database);
+                 }
+           }
+    }
 
-             QString sql = QString("SELECT * FROM Player WHERE Username='%1' AND Password='%2' AND Phone='%3'").arg(LoginUsernameTxt, LoginPassTxt, LoginPhoneTxt);
-             query.exec(sql);
+    QSqlQuery query;
+    query.exec("SELECT * FROM UserInput");
+    if (query.next()) {
+    validation_of_open_the_game = query.value("Number_of_players").toInt();
+    qDebug() << "Number_Of_Players :" << validation_of_open_the_game;
+    }
 
-             if (query.next()) {
-                   // username and password exist in the database
-                 QMessageBox::information(this,"The end", "wellcome noobe sag", "Gg");
-             } else {
-                   // username and password do not exist in the database
-                 QMessageBox::warning(this," ","This username or password or phone not exist","try again!");
-             }
+if(Number_of_Successful_Players_in_registration == validation_of_open_the_game){
 
-       }
+    ui->groupBox->hide();
+
+    qDebug() << "vorod be bazi";
+}
+/*
+    while (Number_Of_Players!=0) {
+
+        QString LoginUsernameTxt = ui->lineEdit->text();
+        QString LoginPassTxt = ui->lineEdit_2->text();
+        QString LoginPhoneTxt = ui->lineEdit_13->text();
+        int invalidCount= 0;
+        invalidCount += validate_username(LoginUsernameTxt, ui->Error_label_of_username);
+        invalidCount += validate_password(LoginPassTxt, ui->Error_label_of_Password);
+        invalidCount += validate_phone(LoginPhoneTxt, ui->Error_label_of_phone_2);
+
+           if(invalidCount==3){
+               QSqlDatabase database = QSqlDatabase::addDatabase("QSQLITE");
+                database.setDatabaseName("e:\\schema2.db");
+                database.setUserName("Username");
+                database.setPassword("Password");
+                if (!database.open()) {
+                    // handle error
+                }
+                QSqlQuery query(database);
+
+                 QString sql = QString("SELECT * FROM Player WHERE Username='%1' AND Password='%2' AND Phone='%3'").arg(LoginUsernameTxt, LoginPassTxt, LoginPhoneTxt);
+                 query.exec(sql);
+
+                 if (query.next()) {
+                       // username and password exist in the database
+                     Number_of_Successful_Players_in_registration++;
+                     Number_Of_Players--;
+                     QMessageBox::information(this,"The end", "wellcome Player "+QString::number(i)+" ", "Gg");
+
+                     ui->lineEdit->setText("");
+                     ui->lineEdit_2->setText("");
+                     ui->lineEdit_13->setText("");
+                     ui->Login_For_Player_i->setText("Login for Player "+QString::number(i+1)+" ");
+
+                 } else {
+                       // username and password do not exist in the database
+                     QMessageBox::warning(this," ","Player "+QString::number(i)+" this information not exist","try again! or SignUP");
+
+                 }
+           }
+    }
+*/
 }
 
 
@@ -528,5 +607,55 @@ bool Login_or_SignUp_page::validate2_email(QString input_text, QLabel *targetLab
     }
 
     return true;
+}
+
+
+void Login_or_SignUp_page::on_pushButton_4_clicked()
+{
+    ui->groupBox_2->hide();
+    ui->groupBox->show();
+}
+
+
+void Login_or_SignUp_page::on_signUp_of_LoginGroupbox_clicked()
+{
+    ui->groupBox->hide();
+    ui->groupBox_2->show();
+}
+
+
+void Login_or_SignUp_page::on_lineEdit_13_textChanged(const QString &arg1)
+{
+    if(arg1 == ""){
+
+        ui->Error_label_of_phone_2->setText("this field not be empty");
+    }else{
+
+        ui->Error_label_of_phone_2->setText("");
+    }
+}
+
+
+void Login_or_SignUp_page::on_lineEdit_5_textChanged(const QString &arg1)
+{
+    if(arg1 == ""){
+
+        ui->Error_label_of_phone_signup->setText("this field not be empty");
+    }else{
+
+        ui->Error_label_of_phone_signup->setText("");
+    }
+}
+
+
+void Login_or_SignUp_page::on_lineEdit_9_textChanged(const QString &arg1)
+{
+    if(arg1 == ""){
+
+        ui->Error_label_of_Captcha->setText("this field not be empty");
+    }else{
+
+        ui->Error_label_of_Captcha->setText("");
+    }
 }
 

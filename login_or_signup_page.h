@@ -60,6 +60,16 @@ private slots:
 
     bool validate2_email(QString input_text, QLabel* targetLable);
 
+    void on_pushButton_4_clicked();
+
+    void on_signUp_of_LoginGroupbox_clicked();
+
+    void on_lineEdit_13_textChanged(const QString &arg1);
+
+    void on_lineEdit_5_textChanged(const QString &arg1);
+
+    void on_lineEdit_9_textChanged(const QString &arg1);
+
 private:
     Ui::Login_or_SignUp_page *ui;
 };
