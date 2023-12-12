@@ -94,3 +94,15 @@ void MainWindow::on_pushButton_3_clicked()
     }
 
 }
+
+void MainWindow::on_lineEdit_textChanged(const QString &arg1)
+{
+    if(arg1 == ""){
+
+        ui->label->setText("this field not be empty");
+    }else{
+
+        ui->label->setText("");
+    }
+}
+
