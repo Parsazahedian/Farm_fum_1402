@@ -17,7 +17,7 @@
 using namespace std;
 
 QString cap="";
-int Player_number;
+
 Login_or_SignUp_page::Login_or_SignUp_page(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::Login_or_SignUp_page)
@@ -364,14 +364,14 @@ void Login_or_SignUp_page::on_SignUp_of_Signup_clicked()
        if(invalidCount == 7){
           int p=1;
           QSqlQuery dbInstance;
-          QString query = "INSERT INTO Player (Username, Password, Phone, Email, Inventory, Player_number) VALUES (:Username, :Password, :Phone, :Email, :Inventory, :Player_number)";
+          QString query = "INSERT INTO Player (Username, Password, Phone, Email, Inventory) VALUES (:Username, :Password, :Phone, :Email, :Inventory)";
           dbInstance.prepare(query);
           dbInstance.bindValue(":Username", SignUpUsernameTxt);
           dbInstance.bindValue(":Password", SignUpPasswordTxt);
           dbInstance.bindValue(":Phone", SignUpPhoneTxt);
           dbInstance.bindValue(":Email", SignUpEmailTxt);
           dbInstance.bindValue(":Inventory", SignUpInventoryTxt);
-          dbInstance.bindValue(":Player_number", Player_number);
+// , Player_number    :Player_number      dbInstance.bindValue(":Player_number", Player_number);
 
 
           if(!dbInstance.exec()){
@@ -390,11 +390,6 @@ void Login_or_SignUp_page::on_SignUp_of_Signup_clicked()
           }
           if(p==1){
               QMessageBox::information(this,"The end", "wellcome noobe sag", "Gg");
-                int a=Player_number++;
-
-              QSqlQuery q;
-              QString query = QString("UPDATE Player SET Player_number = %1 WHERE Username = %2").arg((QString::number(a)),SignUpUsernameTxt);
-              q.exec(query);
 
           }
        }
@@ -478,10 +473,10 @@ bool Login_or_SignUp_page::validate_Captcha(QString input_text, QLabel *targetLa
 void Login_or_SignUp_page::on_pushButton_2_clicked()
 {
     if(ui->lineEdit_2->echoMode() == QLineEdit::Password){
-        ui->pushButton_2->setStyleSheet("border-image: url(:/EchomoodPassword.image/C:/Users/i/Downloads/eye.image.png);");
+        ui->pushButton_2->setStyleSheet("border-image: url(:/EchomodePassword.image/C:/Users/i/Downloads/eye.image.png);");
         ui->lineEdit_2->setEchoMode(QLineEdit::Normal);
     }else{
-        ui->pushButton_2->setStyleSheet("border-image: url(:/EchomoodPassword.image/C:/Users/i/Downloads/eye.image2.png);");
+        ui->pushButton_2->setStyleSheet("border-image: url(:/EchomodePassword.image/C:/Users/i/Downloads/eye.image2.png);");
         ui->lineEdit_2->setEchoMode(QLineEdit::Password);
     }
 }
@@ -490,10 +485,10 @@ void Login_or_SignUp_page::on_pushButton_2_clicked()
 void Login_or_SignUp_page::on_pushButton_3_clicked()
 {
     if(ui->lineEdit_4->echoMode() == QLineEdit::Password){
-        ui->pushButton_3->setStyleSheet("border-image: url(:/EchomoodPassword.image/C:/Users/i/Downloads/eye.image.png);");
+        ui->pushButton_3->setStyleSheet("border-image: url(:/EchomodePassword.image/C:/Users/i/Downloads/eye.image.png);");
         ui->lineEdit_4->setEchoMode(QLineEdit::Normal);
     }else{
-        ui->pushButton_3->setStyleSheet("border-image: url(:/EchomoodPassword.image/C:/Users/i/Downloads/eye.image2.png);");
+        ui->pushButton_3->setStyleSheet("border-image: url(:/EchomodePassword.image/C:/Users/i/Downloads/eye.image2.png);");
         ui->lineEdit_4->setEchoMode(QLineEdit::Password);
     }
 }

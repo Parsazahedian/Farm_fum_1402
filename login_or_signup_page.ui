@@ -193,8 +193,7 @@
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">border-image: url(:/EchomoodPassword.image/C:/Users/i/Downloads/eye.image2.png);
-</string>
+      <string notr="true">border-image: url(:/EchomodePassword.image/C:/Users/i/Downloads/eye.image2.png);</string>
      </property>
      <property name="text">
       <string/>
@@ -536,7 +535,7 @@
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">border-image: url(:/EchomoodPassword.image/C:/Users/i/Downloads/eye.image2.png);</string>
+      <string notr="true">border-image: url(:/EchomodePassword.image/C:/Users/i/Downloads/eye.image2.png);</string>
      </property>
      <property name="text">
       <string/>
