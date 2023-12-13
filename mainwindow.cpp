@@ -32,7 +32,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     if (query.next()) {
        int isGameStarted = query.value("isStarted").toInt();
-        qDebug() << "cos sher" << isGameStarted;
+        qDebug() << "resume game" << isGameStarted;
 
         if(isGameStarted==0){
 

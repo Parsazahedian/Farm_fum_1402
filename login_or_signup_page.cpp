@@ -15,6 +15,7 @@
 #include "QSqlError"
 #include "QRegularExpression"
 #include "QMoveEvent"
+#include "mainwindow.h"
 using namespace std;
 
 QString cap="";
@@ -32,8 +33,8 @@ Login_or_SignUp_page::Login_or_SignUp_page(QWidget *parent) :
     ui->SignUp_For_Player_i->setText("SignUp for Player 1");
 
     ui->groupBox_2->hide();
-    ui->groupBox->move(150,80);
-    ui->groupBox_2->move(150,80);
+    ui->groupBox->move(245,5);
+    ui->groupBox_2->move(245,5);
 
     ui->lineEdit_7->setValidator(new QIntValidator);
     ui->lineEdit_5->setValidator(new QIntValidator);
@@ -97,7 +98,12 @@ bool Login_or_SignUp_page::endsWith(const QString &fullString, const QString &en
     if (fullString.length() < ending.length()) {
            return false;
        }
-       return equal(ending.rbegin(), ending.rend(), fullString.rbegin());
+    return equal(ending.rbegin(), ending.rend(), fullString.rbegin());
+}
+
+void Login_or_SignUp_page::closeMainWindow(MainWindow * mainWindow)
+{
+    mainWindow->closeWindow();
 }
 
 bool Login_or_SignUp_page::validate_username(QString input_text, QLabel *targetLable)
@@ -194,18 +200,23 @@ void Login_or_SignUp_page::on_Login_of_LoginGroupbox_clicked()
     query.exec("SELECT * FROM UserInput");
     if (query.next()) {
     validation_of_open_the_game = query.value("Number_of_players").toInt();
-    qDebug() << "Number_Of_Players :" << validation_of_open_the_game;
+    qDebug() << "validation to open the game :" << validation_of_open_the_game;
     }
 
     if(Number_of_Successful_Players_in_registration == validation_of_open_the_game){
 
-        QString a="1";
+        QString b="1";
         QSqlQuery q;
-        q.exec("UPDATE ResumeGame SET isStarted = '"+a+"' ");
+        q.exec("UPDATE ResumeGame SET isStarted = '"+b+"' ");
 
         ui->groupBox->hide();
 
-        qDebug() << "vorod be bazi";
+        qDebug() << "vorod be bazi login";
+        this->close();
+        MainWindow w;
+        closeMainWindow(&w);
+
+
     }
 
 }
@@ -467,13 +478,16 @@ void Login_or_SignUp_page::on_SignUp_of_Signup_clicked()
 
        if(Number_of_Successful_Players_in_registration == validation_of_open_the_game){
 
-           QString a="1";
+           QString c="1";
            QSqlQuery q;
-           q.exec("UPDATE ResumeGame SET isStarted = '"+a+"' ");
+           q.exec("UPDATE ResumeGame SET isStarted = '"+c+"' ");
 
            ui->groupBox->hide();
 
-           qDebug() << "vorod be bazi";
+           qDebug() << "vorod be bazi Sign up";
+           this->close();
+           MainWindow w;
+           closeMainWindow(&w);
        }
 }
 

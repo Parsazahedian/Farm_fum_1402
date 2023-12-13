@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "QLabel"
+#include "mainwindow.h"
 
 namespace Ui {
 class Login_or_SignUp_page;
@@ -17,6 +18,9 @@ public:
     ~Login_or_SignUp_page();
 
     bool endsWith(const QString &fullString, const QString &ending);
+
+    void closeMainWindow(MainWindow *mainWindow);
+
 
 private slots:
 
