@@ -95,6 +95,7 @@ void MainWindow::on_pushButton_3_clicked()
         q.exec("UPDATE UserInput SET Number_of_players = '"+Number_of_player+"' ");
 
         Login_or_SignUp_page *k = new Login_or_SignUp_page;
+        k->setWindowTitle("Registration");
         k->show();
     }
 
