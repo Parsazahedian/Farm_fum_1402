@@ -43,7 +43,7 @@ Login_or_SignUp_page::Login_or_SignUp_page(QWidget *parent) :
 
     time_t t;
     srand((unsigned)time(&t));
-    QString captcha="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    QString captcha="kKlLmMa1Ab2Bc3CnNoOpPd4De5Ef6yYzZFg7Gh8HqQrRsStTi9Ij0JuUvVwWxX";
     for(int i=0;i<8;i++){
         cap.push_back(captcha[rand() % 62]);
     }
@@ -171,7 +171,11 @@ void Login_or_SignUp_page::on_Login_of_LoginGroupbox_clicked()
 
                      ui->lineEdit->setText("");
                      ui->lineEdit_2->setText("");
-                     ui->lineEdit_13->setText("");
+                     ui->lineEdit_13->setInputMask("");
+                     ui->Error_label_of_username->setText("");
+                     ui->Error_label_of_Password->setText("");
+                     ui->Error_label_of_phone_2->setText("");
+                     ui->comboBox_2->setCurrentIndex(0);
                      ui->Login_For_Player_i->setText("Login for Player "+QString::number(i+1)+" ");
                      ui->SignUp_For_Player_i->setText("SignUp for Player "+QString::number(i+1)+" ");
                      i++;
@@ -435,6 +439,20 @@ void Login_or_SignUp_page::on_SignUp_of_Signup_clicked()
           if(p==1){
              // QMessageBox::information(this,"The end", "wellcome noobe sag", "Gg");
               Number_of_Successful_Players_in_registration++;
+              ui->lineEdit_3->setText("");
+              ui->lineEdit_4->setText("");
+              ui->lineEdit_5->setInputMask("");
+              ui->lineEdit_6->setText("");
+              ui->lineEdit_7->setText("");
+              ui->lineEdit_8->setText("");
+              ui->lineEdit_9->setText("");
+              ui->Error_label_of_username_Signup->setText("");
+              ui->Error_label_of_password_Signup->setText("");
+              ui->Error_label_of_phone_signup->setText("");
+              ui->Error_label_of_Email->setText("");
+              ui->Error_label_of_inventory->setText("");
+              ui->Error_label_of_Captcha->setText("");
+              ui->comboBox->setCurrentIndex(0);
               QMessageBox::information(this,"The end", "Player "+QString::number(i)+" your SignUp was successful", "Gg");
               i++;
               ui->Login_For_Player_i->setText("Login for Player "+QString::number(i)+" ");
