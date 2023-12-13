@@ -44,15 +44,16 @@ Login_or_SignUp_page::Login_or_SignUp_page(QWidget *parent) :
     time_t t;
     srand((unsigned)time(&t));
     QString captcha="kKlLmMa1Ab2Bc3CnNoOpPd4De5Ef6yYzZFg7Gh8HqQrRsStTi9Ij0JuUvVwWxX";
-    for(int i=0;i<8;i++){
+    for(int i=0;i<6;i++){
         cap.push_back(captcha[rand() % 62]);
     }
     ui->label_4->setText(cap);
+    qDebug()<<cap;
 
 
 
     QStringList list;
-    list<<"Choose" << " Iran"<<" United States"<<" United Kingdom"<<" France"<<" Germany"<<" Italy"<<" Ukraine"<<" Russia";
+    list<<"Select a Country" << " Iran"<<" United States"<<" United Kingdom"<<" France"<<" Germany"<<" Italy"<<" Ukraine"<<" Russia";
     ui->comboBox_2->addItem(list.at(0));
     ui->comboBox_2->addItem(QIcon("C:/Users/i/Downloads/iran.image.png"), list.at(1));
     ui->comboBox_2->addItem(QIcon("C:/Users/i/Downloads/Usa.image.png"), list.at(2));
@@ -559,7 +560,7 @@ void Login_or_SignUp_page::on_pushButton_clicked()
     time_t t;
     srand((unsigned)time(&t));
     QString captcha="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-    for(int i=0;i<8;i++){
+    for(int i=0;i<6;i++){
         cap.push_back(captcha[rand() % 62]);
     }
     ui->label_4->setText(cap);
