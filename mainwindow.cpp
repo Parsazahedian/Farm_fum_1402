@@ -45,6 +45,7 @@ MainWindow::MainWindow(QWidget *parent)
             qDebug() << "az ghabl thabtnam karde";
             ui->pushButton_2->show();
             ui->pushButton->show();
+
         }
     }
 

@@ -167,17 +167,19 @@ void Login_or_SignUp_page::on_Login_of_LoginGroupbox_clicked()
                        // username and password exist in the database
                      Number_of_Successful_Players_in_registration++;
                      Number_Of_Players--;
-                     QMessageBox::information(this,"The end", "wellcome Player "+QString::number(i)+" ", "Gg");
+                     QMessageBox::information(this,"The end", "Player "+QString::number(i)+" your login was successful", "Gg");
 
                      ui->lineEdit->setText("");
                      ui->lineEdit_2->setText("");
                      ui->lineEdit_13->setText("");
                      ui->Login_For_Player_i->setText("Login for Player "+QString::number(i+1)+" ");
+                     ui->SignUp_For_Player_i->setText("SignUp for Player "+QString::number(i+1)+" ");
                      i++;
 
                  } else {
                        // username and password do not exist in the database
                      QMessageBox::warning(this," ","Player "+QString::number(i)+" this information not exist","try again! or SignUP");
+
 
                  }
            }
@@ -190,55 +192,17 @@ void Login_or_SignUp_page::on_Login_of_LoginGroupbox_clicked()
     qDebug() << "Number_Of_Players :" << validation_of_open_the_game;
     }
 
-if(Number_of_Successful_Players_in_registration == validation_of_open_the_game){
+    if(Number_of_Successful_Players_in_registration == validation_of_open_the_game){
 
-    ui->groupBox->hide();
+        QString a="1";
+        QSqlQuery q;
+        q.exec("UPDATE ResumeGame SET isStarted = '"+a+"' ");
 
-    qDebug() << "vorod be bazi";
-}
-/*
-    while (Number_Of_Players!=0) {
+        ui->groupBox->hide();
 
-        QString LoginUsernameTxt = ui->lineEdit->text();
-        QString LoginPassTxt = ui->lineEdit_2->text();
-        QString LoginPhoneTxt = ui->lineEdit_13->text();
-        int invalidCount= 0;
-        invalidCount += validate_username(LoginUsernameTxt, ui->Error_label_of_username);
-        invalidCount += validate_password(LoginPassTxt, ui->Error_label_of_Password);
-        invalidCount += validate_phone(LoginPhoneTxt, ui->Error_label_of_phone_2);
-
-           if(invalidCount==3){
-               QSqlDatabase database = QSqlDatabase::addDatabase("QSQLITE");
-                database.setDatabaseName("e:\\schema2.db");
-                database.setUserName("Username");
-                database.setPassword("Password");
-                if (!database.open()) {
-                    // handle error
-                }
-                QSqlQuery query(database);
-
-                 QString sql = QString("SELECT * FROM Player WHERE Username='%1' AND Password='%2' AND Phone='%3'").arg(LoginUsernameTxt, LoginPassTxt, LoginPhoneTxt);
-                 query.exec(sql);
-
-                 if (query.next()) {
-                       // username and password exist in the database
-                     Number_of_Successful_Players_in_registration++;
-                     Number_Of_Players--;
-                     QMessageBox::information(this,"The end", "wellcome Player "+QString::number(i)+" ", "Gg");
-
-                     ui->lineEdit->setText("");
-                     ui->lineEdit_2->setText("");
-                     ui->lineEdit_13->setText("");
-                     ui->Login_For_Player_i->setText("Login for Player "+QString::number(i+1)+" ");
-
-                 } else {
-                       // username and password do not exist in the database
-                     QMessageBox::warning(this," ","Player "+QString::number(i)+" this information not exist","try again! or SignUP");
-
-                 }
-           }
+        qDebug() << "vorod be bazi";
     }
-*/
+
 }
 
 
@@ -441,6 +405,7 @@ void Login_or_SignUp_page::on_SignUp_of_Signup_clicked()
        invalidCount += validate_Captcha(SignUpCaptchatxt, ui->Error_label_of_Captcha);
 
        if(invalidCount == 7){
+           qDebug ()<< "Omade";
           int p=1;
           QSqlQuery dbInstance;
           QString query = "INSERT INTO Player (Username, Password, Phone, Email, Inventory) VALUES (:Username, :Password, :Phone, :Email, :Inventory)";
@@ -468,32 +433,29 @@ void Login_or_SignUp_page::on_SignUp_of_Signup_clicked()
 
           }
           if(p==1){
-              QMessageBox::information(this,"The end", "wellcome noobe sag", "Gg");
+             // QMessageBox::information(this,"The end", "wellcome noobe sag", "Gg");
+              Number_of_Successful_Players_in_registration++;
+              QMessageBox::information(this,"The end", "Player "+QString::number(i)+" your SignUp was successful", "Gg");
+              i++;
+              ui->Login_For_Player_i->setText("Login for Player "+QString::number(i)+" ");
+              ui->SignUp_For_Player_i->setText("SIgnUp for Player "+QString::number(i)+" ");
+              ui->groupBox_2->hide();
+              ui->groupBox->show();
 
           }
        }
 
 
+       if(Number_of_Successful_Players_in_registration == validation_of_open_the_game){
 
-       //    if(invalidCount == 4){
-       //       int p=1;
-       //       QSqlQuery dbInstance;
-       //       QString query = "INSERT INTO user (username, password, phone) VALUES (:username, :password, :phone)";
-       //       dbInstance.prepare(query);
-       //       dbInstance.bindValue(":username", signUpUsernameTxt);
-       //       dbInstance.bindValue(":password", signUpPassTxt);
-       //       dbInstance.bindValue(":phone", signUpPhoneTxt);
+           QString a="1";
+           QSqlQuery q;
+           q.exec("UPDATE ResumeGame SET isStarted = '"+a+"' ");
 
-       //       if(!dbInstance.exec()){
-       //           p=0;
-       //        //   ui->lineEdit_7->setText(dbInstance.lastError().text());
-       //           QMessageBox::warning(this," ","This username has already exist","set another username!");
-       //       }
-       //       if(p==1){
-       //           QMessageBox::information(this,"The end", "wellcome noobe sag", "Gg");
-       //       }
-       //    }
+           ui->groupBox->hide();
 
+           qDebug() << "vorod be bazi";
+       }
 }
 
 
