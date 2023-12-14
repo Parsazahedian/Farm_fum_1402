@@ -18,7 +18,6 @@ MainWindow::MainWindow(QWidget *parent)
     ui->pushButton->hide();
     ui->pushButton_2->hide();
     ui->pushButton_3->hide();
-
     ui->lineEdit->setValidator(new QIntValidator);
 
     QSqlDatabase database;
@@ -26,13 +25,11 @@ MainWindow::MainWindow(QWidget *parent)
     database.setDatabaseName("e:\\schema2.db");
     database.open();
 
-
     QSqlQuery query;
     query.exec("SELECT * FROM ResumeGame");
-
     if (query.next()) {
        int isGameStarted = query.value("isStarted").toInt();
-        qDebug() << "resume game" << isGameStarted;
+        qDebug() << "Resume game" << isGameStarted;
 
         if(isGameStarted==0){
 
@@ -41,14 +38,11 @@ MainWindow::MainWindow(QWidget *parent)
 
         }else if(isGameStarted==1){
 
-
             qDebug() << "az ghabl thabtnam karde";
             ui->pushButton_2->show();
             ui->pushButton->show();
-
         }
     }
-
 }
 
 MainWindow::~MainWindow()
@@ -56,27 +50,21 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-
 void MainWindow::on_pushButton_clicked()
 {
     ui->pushButton_3->show();
     ui->lineEdit->show();
-
     QString a="0";
     QSqlQuery q;
     q.exec("UPDATE ResumeGame SET isStarted = '"+a+"' ");
-
     ui->pushButton_2->hide();
     ui->pushButton->hide();
-
 }
-
 
 void MainWindow::on_pushButton_2_clicked()
 {
     qDebug() << "Go into game page";
 }
-
 
 void MainWindow::on_pushButton_3_clicked()
 {
@@ -101,7 +89,6 @@ void MainWindow::on_pushButton_3_clicked()
         k->setWindowTitle("Registration");
         k->show();
     }
-
 }
 
 void MainWindow::on_lineEdit_textChanged(const QString &arg1)

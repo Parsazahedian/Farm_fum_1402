@@ -19,8 +19,7 @@ public:
 
     bool endsWith(const QString &fullString, const QString &ending);
 
-//    void closeMainWindow(MainWindow *mainWindow);
-
+    void closeMainWindow();
 
 private slots:
 
