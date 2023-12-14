@@ -8,6 +8,8 @@
         <file>C:/Users/i/Downloads/Usa.image.png</file>
         <file>C:/Users/i/Downloads/iran.image.png</file>
         <file>C:/Users/i/Downloads/Ukraine.image.png</file>
+        <file>C:/Users/i/Downloads/brazil.image.png</file>
+        <file>C:/Users/i/Downloads/spain.image.png</file>
     </qresource>
     <qresource prefix="/refresh.images">
         <file>C:/Users/i/Downloads/refresh.image.png</file>

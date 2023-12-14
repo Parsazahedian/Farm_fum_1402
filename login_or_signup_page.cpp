@@ -54,7 +54,7 @@ Login_or_SignUp_page::Login_or_SignUp_page(QWidget *parent) :
 
 
     QStringList list;
-    list<<"Select a Country" << " Iran"<<" United States"<<" United Kingdom"<<" France"<<" Germany"<<" Italy"<<" Ukraine"<<" Russia";
+    list<<"Select a Country" << " Iran"<<" United States"<<" United Kingdom"<<" France"<<" Germany"<<" Italy"<<" Ukraine"<<" Russia"<<" Brazil"<<" Spain";
     ui->comboBox_2->addItem(list.at(0));
     ui->comboBox_2->addItem(QIcon("C:/Users/i/Downloads/iran.image.png"), list.at(1));
     ui->comboBox_2->addItem(QIcon("C:/Users/i/Downloads/Usa.image.png"), list.at(2));
@@ -64,6 +64,8 @@ Login_or_SignUp_page::Login_or_SignUp_page(QWidget *parent) :
     ui->comboBox_2->addItem(QIcon("C:/Users/i/Downloads/italy.image.jpg"), list.at(6));
     ui->comboBox_2->addItem(QIcon("C:/Users/i/Downloads/Ukraine.image.png"), list.at(7));
     ui->comboBox_2->addItem(QIcon("C:/Users/i/Downloads/russia.image.jpg"), list.at(8));
+    ui->comboBox_2->addItem(QIcon("C:/Users/i/Downloads/brazil.image.png"), list.at(9));
+    ui->comboBox_2->addItem(QIcon("C:/Users/i/Downloads/spain.image.png"), list.at(10));
     ui->comboBox->addItem(list.at(0));
     ui->comboBox->addItem(QIcon("C:/Users/i/Downloads/iran.image.png"), list.at(1));
     ui->comboBox->addItem(QIcon("C:/Users/i/Downloads/Usa.image.png"), list.at(2));
@@ -73,7 +75,8 @@ Login_or_SignUp_page::Login_or_SignUp_page(QWidget *parent) :
     ui->comboBox->addItem(QIcon("C:/Users/i/Downloads/italy.image.jpg"), list.at(6));
     ui->comboBox->addItem(QIcon("C:/Users/i/Downloads/Ukraine.image.png"), list.at(7));
     ui->comboBox->addItem(QIcon("C:/Users/i/Downloads/russia.image.jpg"), list.at(8));
-
+    ui->comboBox->addItem(QIcon("C:/Users/i/Downloads/brazil.image.png"), list.at(9));
+    ui->comboBox->addItem(QIcon("C:/Users/i/Downloads/spain.image.png"), list.at(10));
 
     QSqlDatabase database;
     database=QSqlDatabase::addDatabase("QSQLITE");
@@ -290,6 +293,21 @@ void Login_or_SignUp_page::on_comboBox_2_activated(int index)
         ui->lineEdit_13->setInputMask("\\+\\7-000-000-0000");
 
         break;
+
+    case 9:
+
+        ui->lineEdit_13->setInputMask(" ");
+        ui->lineEdit_13->setInputMask("\\+\\5\\5-000-000-0000");
+
+        break;
+
+    case 10:
+
+        ui->lineEdit_13->setInputMask(" ");
+        ui->lineEdit_13->setInputMask("\\+\\3\\4-000-000-0000");
+
+        break;
+
     }
 }
 
@@ -361,6 +379,21 @@ void Login_or_SignUp_page::on_comboBox_activated(int index)
         ui->lineEdit_5->setInputMask("\\+\\7-000-000-0000");
 
         break;
+
+    case 9:
+
+        ui->lineEdit_5->setInputMask(" ");
+        ui->lineEdit_5->setInputMask("\\+\\5\\5-000-000-0000");
+
+        break;
+
+    case 10:
+
+        ui->lineEdit_5->setInputMask(" ");
+        ui->lineEdit_5->setInputMask("\\+\\3\\4-000-000-0000");
+
+        break;
+
     }
 }
 

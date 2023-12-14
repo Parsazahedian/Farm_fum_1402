@@ -369,10 +369,10 @@
      </property>
      <property name="font">
       <font>
-       <family>MS Sans Serif</family>
+       <family>PMingLiU-ExtB</family>
        <pointsize>28</pointsize>
        <weight>50</weight>
-       <italic>true</italic>
+       <italic>false</italic>
        <bold>false</bold>
       </font>
      </property>
@@ -710,10 +710,10 @@
     <widget class="QPushButton" name="pushButton_4">
      <property name="geometry">
       <rect>
-       <x>350</x>
+       <x>370</x>
        <y>10</y>
-       <width>111</width>
-       <height>28</height>
+       <width>91</width>
+       <height>31</height>
       </rect>
      </property>
      <property name="font">
@@ -724,7 +724,7 @@
       </font>
      </property>
      <property name="text">
-      <string>Previous_Page</string>
+      <string>Login_Page</string>
      </property>
     </widget>
    </widget>

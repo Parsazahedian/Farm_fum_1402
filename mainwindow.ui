@@ -17,60 +17,87 @@
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>380</x>
-      <y>180</y>
-      <width>93</width>
-      <height>28</height>
+      <x>370</x>
+      <y>200</y>
+      <width>221</width>
+      <height>131</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>18</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="text">
-     <string>newgame</string>
+     <string>NewGame</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_2">
     <property name="geometry">
      <rect>
-      <x>270</x>
-      <y>180</y>
-      <width>93</width>
-      <height>28</height>
+      <x>140</x>
+      <y>200</y>
+      <width>221</width>
+      <height>131</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>18</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="text">
-     <string>resumegame</string>
+     <string>ResumeGame</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_3">
     <property name="geometry">
      <rect>
-      <x>330</x>
-      <y>410</y>
-      <width>93</width>
-      <height>28</height>
+      <x>290</x>
+      <y>390</y>
+      <width>131</width>
+      <height>71</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="text">
-     <string>go to login</string>
+     <string>Registration</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="lineEdit">
     <property name="geometry">
      <rect>
-      <x>320</x>
-      <y>340</y>
+      <x>300</x>
+      <y>330</y>
       <width>113</width>
-      <height>22</height>
+      <height>31</height>
      </rect>
+    </property>
+    <property name="placeholderText">
+     <string>Number Of Players</string>
     </property>
    </widget>
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>310</x>
-      <y>370</y>
+      <x>300</x>
+      <y>360</y>
       <width>181</width>
-      <height>31</height>
+      <height>21</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(255, 0, 0);</string>
     </property>
     <property name="text">
      <string/>

@@ -66,6 +66,9 @@ void MainWindow::on_pushButton_clicked()
     QSqlQuery q;
     q.exec("UPDATE ResumeGame SET isStarted = '"+a+"' ");
 
+    ui->pushButton_2->hide();
+    ui->pushButton->hide();
+
 }
 
 
