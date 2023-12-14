@@ -30,6 +30,8 @@ Login_or_SignUp_page::Login_or_SignUp_page(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    setMinimumSize(950,770);
+    setMaximumSize(950,770);
     ui->Login_For_Player_i->setText("Login for Player 1");
     ui->SignUp_For_Player_i->setText("SignUp for Player 1");
     ui->groupBox_2->hide();

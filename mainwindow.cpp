@@ -15,6 +15,8 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
+    setMinimumSize(638,600);
+    setMaximumSize(638,600);
     ui->lineEdit->hide();
     ui->pushButton->hide();
     ui->pushButton_2->hide();
@@ -64,7 +66,7 @@ void MainWindow::on_pushButton_clicked()
 
 void MainWindow::on_pushButton_2_clicked()
 {
-    qDebug() << "Go into game page";
+    qDebug() << "vorod be edame bazi ghabli";
     mainWindowPtr->close();
 }
 
