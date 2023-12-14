@@ -86,6 +86,13 @@ Login_or_SignUp_page::Login_or_SignUp_page(QWidget *parent) :
     Number_Of_Players = query.value("Number_of_players").toInt();
     qDebug() << "Number_Of_Players :" <<Number_Of_Players ;
     }
+
+    QSqlQuery query2;
+    query2.exec("SELECT * FROM UserInput");
+    if (query2.next()) {
+    validation_of_open_the_game = query2.value("Number_of_players").toInt();
+    qDebug() << "validation to open the game :" << validation_of_open_the_game;
+    }
 }
 
 Login_or_SignUp_page::~Login_or_SignUp_page()
@@ -101,10 +108,10 @@ bool Login_or_SignUp_page::endsWith(const QString &fullString, const QString &en
     return equal(ending.rbegin(), ending.rend(), fullString.rbegin());
 }
 
-void Login_or_SignUp_page::closeMainWindow(MainWindow * mainWindow)
-{
-    mainWindow->closeWindow();
-}
+//void Login_or_SignUp_page::closeMainWindow(MainWindow * mainWindow)
+//{
+//    mainWindow->closeWindow();
+//}
 
 bool Login_or_SignUp_page::validate_username(QString input_text, QLabel *targetLable)
 {
@@ -196,12 +203,6 @@ void Login_or_SignUp_page::on_Login_of_LoginGroupbox_clicked()
            }
     }
 
-    QSqlQuery query;
-    query.exec("SELECT * FROM UserInput");
-    if (query.next()) {
-    validation_of_open_the_game = query.value("Number_of_players").toInt();
-    qDebug() << "validation to open the game :" << validation_of_open_the_game;
-    }
 
     if(Number_of_Successful_Players_in_registration == validation_of_open_the_game){
 
@@ -210,11 +211,11 @@ void Login_or_SignUp_page::on_Login_of_LoginGroupbox_clicked()
         q.exec("UPDATE ResumeGame SET isStarted = '"+b+"' ");
 
         ui->groupBox->hide();
-
+        qDebug() << "Number_of_Successful_Players_in_registration in login  " <<Number_of_Successful_Players_in_registration ;
         qDebug() << "vorod be bazi login";
         this->close();
-        MainWindow w;
-        closeMainWindow(&w);
+//        MainWindow w;
+//        closeMainWindow(&w);
 
 
     }
@@ -483,11 +484,11 @@ void Login_or_SignUp_page::on_SignUp_of_Signup_clicked()
            q.exec("UPDATE ResumeGame SET isStarted = '"+c+"' ");
 
            ui->groupBox->hide();
-
+           qDebug() << "Number_of_Successful_Players_in_registration in Signup  " <<Number_of_Successful_Players_in_registration ;
            qDebug() << "vorod be bazi Sign up";
            this->close();
-           MainWindow w;
-           closeMainWindow(&w);
+//           MainWindow w;
+//           closeMainWindow(&w);
        }
 }
 
