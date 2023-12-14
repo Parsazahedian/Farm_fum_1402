@@ -8,6 +8,7 @@
 #include "login_or_signup_page.h"
 #include "QIntValidator"
 
+extern MainWindow* mainWindowPtr;
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -64,6 +65,7 @@ void MainWindow::on_pushButton_clicked()
 void MainWindow::on_pushButton_2_clicked()
 {
     qDebug() << "Go into game page";
+    mainWindowPtr->close();
 }
 
 void MainWindow::on_pushButton_3_clicked()
