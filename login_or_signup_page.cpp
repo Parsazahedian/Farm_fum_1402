@@ -16,6 +16,7 @@
 #include "QRegularExpression"
 #include "QMoveEvent"
 #include "mainwindow.h"
+#include "QMediaPlayer"
 using namespace std;
 
 QString cap="";
@@ -29,6 +30,11 @@ Login_or_SignUp_page::Login_or_SignUp_page(QWidget *parent) :
     ui(new Ui::Login_or_SignUp_page)
 {
     ui->setupUi(this);
+
+    QMediaPlayer * backmusic = new QMediaPlayer();
+    backmusic->setMedia(QUrl("C:/Users/i/Downloads/music_biiansu_nona_biiansu_longs_cinematic_drones_textures_020.mp3"));
+    backmusic->play();
+
 
     setMinimumSize(950,770);
     setMaximumSize(950,770);

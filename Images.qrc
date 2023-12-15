@@ -18,4 +18,7 @@
         <file>C:/Users/i/Downloads/eye.image2.png</file>
         <file>C:/Users/i/Downloads/eye.image.png</file>
     </qresource>
+    <qresource prefix="/sound">
+        <file>C:/Users/i/Downloads/music_biiansu_nona_biiansu_longs_cinematic_drones_textures_020.mp3</file>
+    </qresource>
 </RCC>
