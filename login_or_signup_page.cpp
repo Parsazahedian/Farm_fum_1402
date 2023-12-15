@@ -31,9 +31,9 @@ Login_or_SignUp_page::Login_or_SignUp_page(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    QMediaPlayer * backmusic = new QMediaPlayer();
-    backmusic->setMedia(QUrl("C:/Users/i/Downloads/music_biiansu_nona_biiansu_longs_cinematic_drones_textures_020.mp3"));
-    backmusic->play();
+    QMediaPlayer * backmusic2 = new QMediaPlayer();
+    backmusic2->setMedia(QUrl("C:/Users/i/Downloads/music_biiansu_septuan_biiansu_longs_cinematic_drones_textures_023.mp3"));
+    backmusic2->play();
 
 
     setMinimumSize(950,770);

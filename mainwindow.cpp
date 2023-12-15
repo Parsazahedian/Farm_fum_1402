@@ -8,12 +8,17 @@
 #include "login_or_signup_page.h"
 #include "QIntValidator"
 
+
 extern MainWindow* mainWindowPtr;
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    backmusic1 = new QMediaPlayer();
+    backmusic1->setMedia(QUrl("C:/Users/i/Downloads/music_biiansu_nona_biiansu_longs_cinematic_drones_textures_020.mp3"));
+    backmusic1->play();
 
     setMinimumSize(638,600);
     setMaximumSize(638,600);
@@ -93,6 +98,8 @@ void MainWindow::on_pushButton_3_clicked()
         k->setWindowTitle("Registration");
         k->show();
         this->close();
+        backmusic1->stop();
+
     }
 }
 
