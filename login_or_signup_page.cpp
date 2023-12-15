@@ -41,6 +41,8 @@ Login_or_SignUp_page::Login_or_SignUp_page(QWidget *parent) :
     ui->lineEdit_5->setValidator(new QIntValidator);
     ui->lineEdit_2->setEchoMode(QLineEdit::Password);
     ui->lineEdit_4->setEchoMode(QLineEdit::Password);
+
+
     time_t t;
     srand((unsigned)time(&t));
     QString captcha="kKlLmMa1Ab2Bc3CnNoOpPd4De5Ef6yYzZFg7Gh8HqQrRsStTi9Ij0JuUvVwWxX";
