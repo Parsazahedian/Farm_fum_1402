@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "QLabel"
 #include "mainwindow.h"
+#include "QMediaPlayer"
 
 namespace Ui {
 class Login_or_SignUp_page;
@@ -20,6 +21,8 @@ public:
     bool endsWith(const QString &fullString, const QString &ending);
 
     void closeMainWindow();
+
+    QMediaPlayer* Successful_login_or_SignUp;
 
 private slots:
 

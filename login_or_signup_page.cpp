@@ -34,7 +34,8 @@ Login_or_SignUp_page::Login_or_SignUp_page(QWidget *parent) :
     QMediaPlayer * backmusic2 = new QMediaPlayer();
     backmusic2->setMedia(QUrl("C:/Users/i/Downloads/music_biiansu_septuan_biiansu_longs_cinematic_drones_textures_023.mp3"));
     backmusic2->play();
-
+    Successful_login_or_SignUp = new QMediaPlayer();
+    Successful_login_or_SignUp->setMedia(QUrl("C:/Users/i/Downloads/PM_BlurryDreams_123_252.mp3"));
 
     setMinimumSize(950,770);
     setMaximumSize(950,770);
@@ -189,6 +190,7 @@ void Login_or_SignUp_page::on_Login_of_LoginGroupbox_clicked()
                        // username and password and phone exist in the database
                      Number_of_Successful_Players_in_registration++;
                      Number_Of_Players--;
+                     Successful_login_or_SignUp->play();
                      QMessageBox::information(this,"The end", "Player "+QString::number(i)+" your login was successful", "Gg");
 
                      ui->lineEdit->setText("");
@@ -440,6 +442,7 @@ void Login_or_SignUp_page::on_SignUp_of_Signup_clicked()
               ui->Error_label_of_inventory->setText("");
               ui->Error_label_of_Captcha->setText("");
               ui->comboBox->setCurrentIndex(0);
+              Successful_login_or_SignUp->play();
               QMessageBox::information(this,"The end", "Player "+QString::number(i)+" your SignUp was successful", "Gg");
               i++;
               ui->Login_For_Player_i->setText("Login for Player "+QString::number(i)+" ");
