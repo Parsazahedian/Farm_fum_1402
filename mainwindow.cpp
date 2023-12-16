@@ -16,6 +16,14 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
+ //   this->centralWidget()->setStyleSheet("C:/Users/i/Downloads/pngtree-sun-flowers-seamless-pattern-with-cute-drawing-botanical-decoration-image_322957.jpg");
+
+    QPixmap bkgnd("C:/Users/i/Downloads/back4.jpg");
+          bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
+          QPalette palette;
+          palette.setBrush(QPalette::Window, bkgnd);
+          this->setPalette(palette);
+
     backmusic1 = new QMediaPlayer();
     backmusic1->setMedia(QUrl("C:/Users/i/Downloads/music_biiansu_nona_biiansu_longs_cinematic_drones_textures_020.mp3"));
     backmusic1->play();

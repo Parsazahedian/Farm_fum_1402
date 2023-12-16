@@ -31,6 +31,24 @@ Login_or_SignUp_page::Login_or_SignUp_page(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    QPixmap bkgnd("C:/Users/i/Downloads/back9.webp");
+          bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
+          QPalette palette;
+          palette.setBrush(QPalette::Window, bkgnd);
+          this->setPalette(palette);
+      //    ui->groupBox->setPalette(palette);
+         // ui->groupBox_2->setPalette(palette);
+         ui->groupBox->setStyleSheet("QGroupBox { border-image: url(C:/Users/i/Downloads/back12.jpg); }");
+        ui->groupBox_2->setStyleSheet("QGroupBox { border-image: url(C:/Users/i/Downloads/back12.jpg); }");
+
+//          QPixmap bkgnd2("C:/Users/i/Downloads/background3.jpg");
+//                bkgnd2 = bkgnd2.scaled(ui->groupBox ->size(), Qt::IgnoreAspectRatio);
+//                QPalette palette2;
+//                palette.setBrush(QPalette::Window, bkgnd2);
+//                ui->groupBox->setPalette(palette2);
+
+//                ui->groupBox_2->setPalette(palette2);
+
     QMediaPlayer * backmusic2 = new QMediaPlayer();
     backmusic2->setMedia(QUrl("C:/Users/i/Downloads/music_biiansu_septuan_biiansu_longs_cinematic_drones_textures_023.mp3"));
     backmusic2->play();
@@ -42,8 +60,8 @@ Login_or_SignUp_page::Login_or_SignUp_page(QWidget *parent) :
     ui->Login_For_Player_i->setText("Login for Player 1");
     ui->SignUp_For_Player_i->setText("SignUp for Player 1");
     ui->groupBox_2->hide();
-    ui->groupBox->move(245,5);
-    ui->groupBox_2->move(245,5);
+    ui->groupBox->move(245,140);
+    ui->groupBox_2->move(245,30);
     ui->lineEdit_7->setValidator(new QIntValidator);
     ui->lineEdit_5->setValidator(new QIntValidator);
     ui->lineEdit_2->setEchoMode(QLineEdit::Password);
