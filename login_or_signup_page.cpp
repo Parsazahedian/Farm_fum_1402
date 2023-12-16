@@ -129,7 +129,7 @@ void Login_or_SignUp_page::closeMainWindow()
 bool Login_or_SignUp_page::validate_username(QString input_text, QLabel *targetLable)
 {
     if(input_text==""){
-        targetLable->setText("this field not be empty");
+        targetLable->setText("This field not be empty!");
         return false;
     }
     targetLable->setText("");
@@ -141,11 +141,11 @@ bool Login_or_SignUp_page::validate_password(QString input_text, QLabel *targetL
     QRegExp passwordRegex("[a-zA-Z0-9]+");
 
     if(input_text==""){
-        targetLable->setText("this field not be empty");
+        targetLable->setText("This field not be empty!");
         return false;
     }
     if(!passwordRegex.exactMatch(input_text)){
-        targetLable->setText("invalid character!");
+        targetLable->setText("Invalid character!");
         return false;
     }
     targetLable->setText("");
@@ -378,12 +378,12 @@ void Login_or_SignUp_page::on_comboBox_activated(int index)
 bool Login_or_SignUp_page::validate_phone(QString input_text, QLabel *targetLable)
 {
     if((input_text.length()-3) < 11 && input_text!=""){
-        targetLable->setText("invalid phone!");
+        targetLable->setText("Invalid phone!");
         return false;
     }
     if(input_text==""){
 
-        targetLable->setText("this field not be empty");
+        targetLable->setText("This field not be empty!");
         return false;
     }
     targetLable->setText("");
@@ -395,15 +395,15 @@ bool Login_or_SignUp_page::validate_email(QString input_text, QLabel *targetLabl
     QRegExp emailRegex("[a-zA-Z0-9@.]+");
 
     if(input_text==""){
-        targetLable->setText("this field not be empty");
+        targetLable->setText("This field not be empty!");
         return false;
     }
     if(input_text=="@gmail.com" || input_text=="@email.com" || input_text=="@mail.um.ac"){
-        targetLable->setText("use correct email");
+        targetLable->setText("Use correct email!");
         return false;
     }
     if(!emailRegex.exactMatch(input_text)){
-        targetLable->setText("invalid character!");
+        targetLable->setText("Invalid character!");
         return false;
     }
     targetLable->setText("");
@@ -505,11 +505,11 @@ void Login_or_SignUp_page::on_lineEdit_4_textChanged(const QString &arg1)
 bool Login_or_SignUp_page::validate_Inventory(QString input_text, QLabel *targetLable)
 {
     if(input_text==""){
-        targetLable->setText("this field not be empty");
+        targetLable->setText("This field not be empty!");
         return false;
     }
     if(input_text=="0"){
-        targetLable->setText("Your inventory can not be 0");
+        targetLable->setText("Your inventory can not be 0 !");
         return false;
     }
     targetLable->setText("");
@@ -525,12 +525,12 @@ bool Login_or_SignUp_page::validate_Captcha(QString input_text, QLabel *targetLa
 {
 
     if(input_text!=cap && input_text!=""){
-        targetLable->setText("invalid captcha");
+        targetLable->setText("Invalid captcha!");
         return false;
     }
     if(input_text==""){
 
-        targetLable->setText("this field not be empty");
+        targetLable->setText("This field not be empty!");
         return false;
     }
     if(input_text==cap){
@@ -611,7 +611,7 @@ void Login_or_SignUp_page::on_lineEdit_13_textChanged(const QString &arg1)
 {
     if(arg1 == ""){
 
-        ui->Error_label_of_phone_2->setText("this field not be empty");
+        ui->Error_label_of_phone_2->setText("This field not be empty!");
     }else{
 
         ui->Error_label_of_phone_2->setText("");
@@ -622,7 +622,7 @@ void Login_or_SignUp_page::on_lineEdit_5_textChanged(const QString &arg1)
 {
     if(arg1 == ""){
 
-        ui->Error_label_of_phone_signup->setText("this field not be empty");
+        ui->Error_label_of_phone_signup->setText("This field not be empty!");
     }else{
 
         ui->Error_label_of_phone_signup->setText("");
@@ -633,7 +633,7 @@ void Login_or_SignUp_page::on_lineEdit_9_textChanged(const QString &arg1)
 {
     if(arg1 == ""){
 
-        ui->Error_label_of_Captcha->setText("this field not be empty");
+        ui->Error_label_of_Captcha->setText("This field not be empty!");
     }else{
 
         ui->Error_label_of_Captcha->setText("");

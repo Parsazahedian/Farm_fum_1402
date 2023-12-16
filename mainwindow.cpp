@@ -82,11 +82,11 @@ void MainWindow::on_pushButton_3_clicked()
 {
     if(ui->lineEdit->text()==""){
 
-        ui->label->setText("this field not be empty");
+        ui->label->setText("This field not be empty!");
 
     }else if(ui->lineEdit->text()=="0"){
 
-        ui->label->setText("this field not be 0");
+        ui->label->setText("This field Can not be 0 !");
 
     }else if(ui->lineEdit->text()!="" && ui->lineEdit->text()!="0"){
 
@@ -110,11 +110,11 @@ void MainWindow::on_lineEdit_textChanged(const QString &arg1)
 {
     if(arg1 == ""){
 
-        ui->label->setText("this field not be empty");
+        ui->label->setText("This field not be empty!");
 
     }else if(arg1 == "0"){
 
-        ui->label->setText("this field not be 0");
+        ui->label->setText("This field Can not be 0 !");
 
     }else{
 
