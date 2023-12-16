@@ -33,6 +33,9 @@ MainWindow::MainWindow(QWidget *parent)
     database.setDatabaseName("e:\\schema2.db");
     database.open();
 
+    QSqlQuery query_4;
+    query_4.exec("DELETE FROM Prevnt_repetition_in_Login");
+
     QSqlQuery query;
     query.exec("SELECT * FROM ResumeGame");
     if (query.next()) {

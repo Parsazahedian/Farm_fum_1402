@@ -125,6 +125,7 @@ void Login_or_SignUp_page::closeMainWindow()
     }
 }
 
+
 bool Login_or_SignUp_page::validate_username(QString input_text, QLabel *targetLable)
 {
     if(input_text==""){
@@ -163,6 +164,11 @@ void Login_or_SignUp_page::on_lineEdit_2_textChanged(const QString &arg1)
 
 void Login_or_SignUp_page::on_Login_of_LoginGroupbox_clicked()
 {
+    QSqlDatabase database = QSqlDatabase::addDatabase("QSQLITE");
+     database.setDatabaseName("e:\\schema2.db");
+     database.setUserName("Username");
+     database.setPassword("Password");
+     QSqlQuery dbInstance;
 
     if(Number_Of_Players!=0){
 
@@ -175,10 +181,8 @@ void Login_or_SignUp_page::on_Login_of_LoginGroupbox_clicked()
         invalidCount += validate_phone(LoginPhoneTxt, ui->Error_label_of_phone_2);
 
            if(invalidCount==3){
-               QSqlDatabase database = QSqlDatabase::addDatabase("QSQLITE");
-                database.setDatabaseName("e:\\schema2.db");
-                database.setUserName("Username");
-                database.setPassword("Password");
+
+               int p=1;
                 if (!database.open()) {
                     // handle error
                 }
@@ -188,21 +192,38 @@ void Login_or_SignUp_page::on_Login_of_LoginGroupbox_clicked()
 
                  if (query.next()) {
                        // username and password and phone exist in the database
-                     Number_of_Successful_Players_in_registration++;
-                     Number_Of_Players--;
-                     Successful_login_or_SignUp->play();
-                     QMessageBox::information(this,"The end", "Player "+QString::number(i)+" your login was successful", "Gg");
 
-                     ui->lineEdit->setText("");
-                     ui->lineEdit_2->setText("");
-                     ui->lineEdit_13->setInputMask("");
-                     ui->Error_label_of_username->setText("");
-                     ui->Error_label_of_Password->setText("");
-                     ui->Error_label_of_phone_2->setText("");
-                     ui->comboBox_2->setCurrentIndex(0);
-                     ui->Login_For_Player_i->setText("Login for Player "+QString::number(i+1)+" ");
-                     ui->SignUp_For_Player_i->setText("SignUp for Player "+QString::number(i+1)+" ");
-                     i++;
+                     QString query_2 = "INSERT INTO Prevnt_repetition_in_Login (Username, Password, Phone) VALUES (:Username, :Password, :Phone)";
+                     dbInstance.prepare(query_2);
+                     dbInstance.bindValue(":Username", LoginUsernameTxt);
+                     dbInstance.bindValue(":Password", LoginPassTxt);
+                     dbInstance.bindValue(":Phone", LoginPhoneTxt);
+
+                     if(!dbInstance.exec()){
+                        // p=0;
+                         QMessageBox::warning(this," ","This player has already Logged in","set another information!");
+
+                     }else if(p==1){
+
+
+                         Number_of_Successful_Players_in_registration++;
+                         Number_Of_Players--;
+                         Successful_login_or_SignUp->play();
+                         QMessageBox::information(this,"The end", "Player "+QString::number(i)+" your login was successful", "Gg");
+
+                         ui->lineEdit->setText("");
+                         ui->lineEdit_2->setText("");
+                         ui->lineEdit_13->setInputMask("");
+                         ui->Error_label_of_username->setText("");
+                         ui->Error_label_of_Password->setText("");
+                         ui->Error_label_of_phone_2->setText("");
+                         ui->comboBox_2->setCurrentIndex(0);
+                         ui->Login_For_Player_i->setText("Login for Player "+QString::number(i+1)+" ");
+                         ui->SignUp_For_Player_i->setText("SignUp for Player "+QString::number(i+1)+" ");
+                         i++;
+                     }
+
+
 
                  } else {
                        // username and password and phone do not exist in the database
@@ -214,6 +235,8 @@ void Login_or_SignUp_page::on_Login_of_LoginGroupbox_clicked()
 
     if(Number_of_Successful_Players_in_registration == validation_of_open_the_game){
 
+        QSqlQuery query_3;
+        query_3.exec("DELETE FROM Prevnt_repetition_in_Login");
         QString b="1";
         QSqlQuery q;
         q.exec("UPDATE ResumeGame SET isStarted = '"+b+"' ");

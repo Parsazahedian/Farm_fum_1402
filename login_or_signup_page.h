@@ -5,6 +5,7 @@
 #include "QLabel"
 #include "mainwindow.h"
 #include "QMediaPlayer"
+#include <QCloseEvent>
 
 namespace Ui {
 class Login_or_SignUp_page;
