@@ -218,6 +218,8 @@ void Login_or_SignUp_page::on_Login_of_LoginGroupbox_clicked()
                          ui->Error_label_of_Password->setText("");
                          ui->Error_label_of_phone_2->setText("");
                          ui->comboBox_2->setCurrentIndex(0);
+                         ui->lineEdit_2->setEchoMode(QLineEdit::Password);
+                         ui->pushButton_2->setStyleSheet("border-image: url(:/EchomodePassword.image/C:/Users/i/Downloads/eye.image2.png);");
                          ui->Login_For_Player_i->setText("Login for Player "+QString::number(i+1)+" ");
                          ui->SignUp_For_Player_i->setText("SignUp for Player "+QString::number(i+1)+" ");
                          i++;
@@ -465,6 +467,8 @@ void Login_or_SignUp_page::on_SignUp_of_Signup_clicked()
               ui->Error_label_of_inventory->setText("");
               ui->Error_label_of_Captcha->setText("");
               ui->comboBox->setCurrentIndex(0);
+              ui->lineEdit_4->setEchoMode(QLineEdit::Password);
+              ui->pushButton_3->setStyleSheet("border-image: url(:/EchomodePassword.image/C:/Users/i/Downloads/eye.image2.png);");
               Successful_login_or_SignUp->play();
               QMessageBox::information(this,"The end", "Player "+QString::number(i)+" your SignUp was successful", "Gg");
               i++;
