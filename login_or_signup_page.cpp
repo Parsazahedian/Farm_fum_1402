@@ -201,7 +201,7 @@ void Login_or_SignUp_page::on_Login_of_LoginGroupbox_clicked()
 
                      if(!dbInstance.exec()){
                         // p=0;
-                         QMessageBox::warning(this," ","This player has already Logged in","set another information!");
+                         QMessageBox::warning(this,"Oops ","This player has already Logged in","set another information!");
 
                      }else if(p==1){
 
@@ -209,7 +209,7 @@ void Login_or_SignUp_page::on_Login_of_LoginGroupbox_clicked()
                          Number_of_Successful_Players_in_registration++;
                          Number_Of_Players--;
                          Successful_login_or_SignUp->play();
-                         QMessageBox::information(this,"The end", "Player "+QString::number(i)+" your login was successful", "Gg");
+                         QMessageBox::information(this,"Wellcom", "Player "+QString::number(i)+" your login was successful", "Gg");
 
                          ui->lineEdit->setText("");
                          ui->lineEdit_2->setText("");
@@ -229,7 +229,7 @@ void Login_or_SignUp_page::on_Login_of_LoginGroupbox_clicked()
 
                  } else {
                        // username and password and phone do not exist in the database
-                     QMessageBox::warning(this," ","Player "+QString::number(i)+" this information not exist","try again! or SignUP");
+                     QMessageBox::warning(this,"Oops ","Player "+QString::number(i)+" this information not exist","Try again or SignUP!");
 
                  }
            }
@@ -448,7 +448,7 @@ void Login_or_SignUp_page::on_SignUp_of_Signup_clicked()
               QRegularExpressionMatch match = re.match(errorMessage);
               if (match.hasMatch()) {
                  QString playerLasterror = match.captured(1);
-                 QMessageBox::warning(this," ","the eroor with "+playerLasterror+"","set another username!");
+                 QMessageBox::warning(this,"Oops"," "+playerLasterror+" has already exist","set another that!");
               }
           }
           if(p==1){            
@@ -470,7 +470,7 @@ void Login_or_SignUp_page::on_SignUp_of_Signup_clicked()
               ui->lineEdit_4->setEchoMode(QLineEdit::Password);
               ui->pushButton_3->setStyleSheet("border-image: url(:/EchomodePassword.image/C:/Users/i/Downloads/eye.image2.png);");
               Successful_login_or_SignUp->play();
-              QMessageBox::information(this,"The end", "Player "+QString::number(i)+" your SignUp was successful", "Gg");
+              QMessageBox::information(this,"Wellcom", "Player "+QString::number(i)+" your SignUp was successful", "Gg");
               i++;
               ui->Login_For_Player_i->setText("Login for Player "+QString::number(i)+" ");
               ui->SignUp_For_Player_i->setText("SIgnUp for Player "+QString::number(i)+" ");
@@ -588,7 +588,7 @@ bool Login_or_SignUp_page::validate2_email(QString input_text, QLabel *targetLab
         return true;
     }else if(input_text!=""){
 
-        QMessageBox::warning(this," ","Your email must end with one of the three characters : 1)@gmail.com 2)@email.com 3)@mail.um.ac","try again!");
+        QMessageBox::warning(this,"Hint!","Your email must end with one of the three characters :" "<ul>""<li>""1)@gmail.com""</li>" "<li>""2)@email.com""</li>" "<li>""3)@mail.um.ac""</li>""</ul>","Try again!");
         return false;
     }
 
