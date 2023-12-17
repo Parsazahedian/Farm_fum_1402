@@ -28,28 +28,28 @@ MainWindow::MainWindow(QWidget *parent)
     animation2->setStartValue(QRect(250, -1200, ui->pushButton_3->geometry().width(), ui->pushButton_3->geometry().height()));
     animation2->setEndValue(QRect(250, 390, ui->pushButton_3->geometry().width(), ui->pushButton_3->geometry().height()));
     animation2->setEasingCurve(QEasingCurve::Type::InOutBounce);
-    animation2->setDuration(6000);
+    animation2->setDuration(5000);
     animation2->start();
 
     QPropertyAnimation *animation3 = new QPropertyAnimation(ui->pushButton_2, "geometry", this);
     animation3->setStartValue(QRect(-1000, 220, ui->pushButton_2->geometry().width(), ui->pushButton_2->geometry().height()));
     animation3->setEndValue(QRect(130, 220, ui->pushButton_2->geometry().width(), ui->pushButton_2->geometry().height()));
     animation3->setEasingCurve(QEasingCurve::Type::InOutBounce);
-    animation3->setDuration(6000);
+    animation3->setDuration(5000);
     animation3->start();
 
     QPropertyAnimation *animation4 = new QPropertyAnimation(ui->pushButton, "geometry", this);
     animation4->setStartValue(QRect(1311, 220, ui->pushButton->geometry().width(), ui->pushButton->geometry().height()));
     animation4->setEndValue(QRect(329, 220, ui->pushButton->geometry().width(), ui->pushButton->geometry().height()));
     animation4->setEasingCurve(QEasingCurve::Type::InOutBounce);
-    animation4->setDuration(6000);
+    animation4->setDuration(5000);
     animation4->start();
 
     QPropertyAnimation *animation5 = new QPropertyAnimation(ui->lineEdit, "geometry", this);
     animation5->setStartValue(QRect(260, -1400, ui->lineEdit->geometry().width(), ui->lineEdit->geometry().height()));
     animation5->setEndValue(QRect(260, 330, ui->lineEdit->geometry().width(), ui->lineEdit->geometry().height()));
     animation5->setEasingCurve(QEasingCurve::Type::InOutBounce);
-    animation5->setDuration(6000);
+    animation5->setDuration(5000);
     animation5->start();
 
 
