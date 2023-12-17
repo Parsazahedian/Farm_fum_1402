@@ -69,9 +69,9 @@
     <widget class="QLabel" name="label">
      <property name="geometry">
       <rect>
-       <x>70</x>
+       <x>50</x>
        <y>410</y>
-       <width>161</width>
+       <width>181</width>
        <height>41</height>
       </rect>
      </property>
@@ -86,7 +86,7 @@
       <string notr="true">color: rgb(255, 255, 255);</string>
      </property>
      <property name="text">
-      <string>do not have account?</string>
+      <string>do not have an account?</string>
      </property>
     </widget>
     <widget class="QPushButton" name="signUp_of_LoginGroupbox">
@@ -155,7 +155,7 @@ color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0, 0, 0, 
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true"/>
+      <string notr="true">color: rgb(255, 255, 255);</string>
      </property>
      <property name="text">
       <string>Password</string>
@@ -178,7 +178,7 @@ color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0, 0, 0, 
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true"/>
+      <string notr="true">color: rgb(255, 255, 255);</string>
      </property>
      <property name="text">
       <string>Username</string>
@@ -194,7 +194,7 @@ color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0, 0, 0, 
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">color: rgb(255, 255, 255);</string>
+      <string notr="true">color: rgb(255, 0, 0);</string>
      </property>
      <property name="text">
       <string/>
@@ -217,7 +217,7 @@ color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0, 0, 0, 
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">color: rgb(255, 255, 255);</string>
+      <string notr="true">color: rgb(255, 0, 0);</string>
      </property>
      <property name="text">
       <string/>
@@ -240,7 +240,7 @@ color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0, 0, 0, 
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true"/>
+      <string notr="true">color: rgb(255, 255, 255);</string>
      </property>
      <property name="text">
       <string>Phone</string>
@@ -282,7 +282,7 @@ color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0, 0, 0, 
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(255, 255, 255, 255));</string>
+      <string notr="true">color: rgb(255, 0, 0);</string>
      </property>
      <property name="text">
       <string/>
@@ -530,7 +530,7 @@ color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0, 0, 0, 
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true"/>
+      <string notr="true">color: rgb(255, 255, 255);</string>
      </property>
      <property name="text">
       <string>Inventory</string>
@@ -563,7 +563,7 @@ color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0, 0, 0, 
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true"/>
+      <string notr="true">color: rgb(255, 255, 255);</string>
      </property>
      <property name="text">
       <string>Email</string>
@@ -586,7 +586,7 @@ color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0, 0, 0, 
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true"/>
+      <string notr="true">color: rgb(255, 255, 255);</string>
      </property>
      <property name="text">
       <string>Phone</string>
@@ -609,7 +609,7 @@ color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0, 0, 0, 
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true"/>
+      <string notr="true">color: rgb(255, 255, 255);</string>
      </property>
      <property name="text">
       <string>Password</string>
@@ -632,7 +632,7 @@ color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0, 0, 0, 
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true"/>
+      <string notr="true">color: rgb(255, 255, 255);</string>
      </property>
      <property name="text">
       <string>Username</string>
@@ -661,7 +661,7 @@ color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0, 0, 0, 
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">color: rgb(255, 255, 255);</string>
+      <string notr="true">color: rgb(255, 0, 0);</string>
      </property>
      <property name="text">
       <string/>
@@ -677,7 +677,7 @@ color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0, 0, 0, 
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">color: rgb(255, 255, 255);</string>
+      <string notr="true">color: rgb(255, 0, 0);</string>
      </property>
      <property name="text">
       <string/>
@@ -693,7 +693,7 @@ color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0, 0, 0, 
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">color: rgb(255, 255, 255);</string>
+      <string notr="true">color: rgb(255, 0, 0);</string>
      </property>
      <property name="text">
       <string/>
@@ -709,7 +709,7 @@ color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0, 0, 0, 
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">color: rgb(255, 255, 255);</string>
+      <string notr="true">color: rgb(255, 0, 0);</string>
      </property>
      <property name="text">
       <string/>
@@ -725,7 +725,7 @@ color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0, 0, 0, 
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">color: rgb(255, 255, 255);</string>
+      <string notr="true">color: rgb(255, 0, 0);</string>
      </property>
      <property name="text">
       <string/>
@@ -741,7 +741,7 @@ color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0, 0, 0, 
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">color: rgb(255, 255, 255);</string>
+      <string notr="true">color: rgb(255, 0, 0);</string>
      </property>
      <property name="text">
       <string/>

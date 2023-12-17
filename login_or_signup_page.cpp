@@ -39,8 +39,9 @@ Login_or_SignUp_page::Login_or_SignUp_page(QWidget *parent) :
     ui->groupBox->setStyleSheet("QGroupBox { border-image: url(C:/Users/i/Downloads/back12.jpg); }");
     ui->groupBox_2->setStyleSheet("QGroupBox { border-image: url(C:/Users/i/Downloads/back12.jpg); }");
 
-    QMediaPlayer * backmusic2 = new QMediaPlayer();
+    backmusic2 = new QMediaPlayer();
     backmusic2->setMedia(QUrl("C:/Users/i/Downloads/music_biiansu_septuan_biiansu_longs_cinematic_drones_textures_023.mp3"));
+    connect(backmusic2, &QMediaPlayer::stateChanged, this, &Login_or_SignUp_page::handleStateChanged);
     backmusic2->play();
     Successful_login_or_SignUp = new QMediaPlayer();
     Successful_login_or_SignUp->setMedia(QUrl("C:/Users/i/Downloads/PM_BlurryDreams_123_252.mp3"));
@@ -130,6 +131,14 @@ void Login_or_SignUp_page::closeMainWindow()
           mainWindowPtr->close();
           mainWindowPtr = nullptr;
     }
+}
+
+void Login_or_SignUp_page::handleStateChanged(QMediaPlayer::State state)
+{
+    if (state == QMediaPlayer::StoppedState)
+       {
+           backmusic2->play();
+       }
 }
 
 bool Login_or_SignUp_page::validate_username(QString input_text, QLabel *targetLable)
@@ -589,6 +598,7 @@ bool Login_or_SignUp_page::validate2_email(QString input_text, QLabel *targetLab
         return true;
     }else if(input_text!=""){
 
+        targetLable->setText("Invalid email!");
         QMessageBox::warning(this,"Hint!","Your email must end with one of this 3 characters :" "<ul>""<li>""@gmail.com""</li>" "<li>""@email.com""</li>" "<li>""@mail.um.ac""</li>""</ul>","Try again!");
         return false;
     }

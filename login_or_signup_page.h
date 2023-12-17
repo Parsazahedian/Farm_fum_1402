@@ -25,6 +25,10 @@ public:
 
     QMediaPlayer* Successful_login_or_SignUp;
 
+    QMediaPlayer * backmusic2;
+
+    void handleStateChanged(QMediaPlayer::State state);
+
 private slots:
 
     bool validate_username(QString input_text, QLabel* targetLable);

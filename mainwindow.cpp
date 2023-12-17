@@ -22,7 +22,7 @@ MainWindow::MainWindow(QWidget *parent)
     this->setPalette(palette);
 
     backmusic1 = new QMediaPlayer();
-    backmusic1->setMedia(QUrl("C:/Users/i/Downloads/music_biiansu_nona_biiansu_longs_cinematic_drones_textures_020.mp3"));
+    backmusic1->setMedia(QUrl("C:/Users/i/Downloads/music_dave_miles_movement_003.mp3"));
     backmusic1->play();
 
     setMinimumSize(638,600);
@@ -107,7 +107,6 @@ void MainWindow::on_pushButton_3_clicked()
         k->show();
         this->close();
         backmusic1->stop();
-
     }
 }
 
