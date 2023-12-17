@@ -104,6 +104,7 @@ void MainWindow::on_pushButton_3_clicked()
 
         Login_or_SignUp_page *k = new Login_or_SignUp_page;
         k->setWindowTitle("Registration");
+        k->setWindowIcon(QIcon("C:/Users/i/Downloads/businessman_3331911.png"));
         k->show();
         this->close();
         backmusic1->stop();

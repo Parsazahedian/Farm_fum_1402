@@ -215,7 +215,7 @@ void Login_or_SignUp_page::on_Login_of_LoginGroupbox_clicked()
 
                      if(!dbInstance.exec()){
                         // p=0;
-                         QMessageBox::warning(this,"Oops ","This player has already Logged in","set another information!");
+                         QMessageBox::warning(this,"Oops ","This player is already Logged in","ok");
 
                      }else if(p==1){
 
@@ -239,7 +239,7 @@ void Login_or_SignUp_page::on_Login_of_LoginGroupbox_clicked()
 
                  } else {
                        // username and password and phone do not exist in the database
-                     QMessageBox::warning(this,"Oops ","Player "+QString::number(i)+" this information not exist","Try again or SignUp!");
+                     QMessageBox::warning(this,"Oops ","Player "+QString::number(i)+" this information does not exist","Try again or SignUp!");
 
                  }
            }
@@ -458,7 +458,7 @@ void Login_or_SignUp_page::on_SignUp_of_Signup_clicked()
               QRegularExpressionMatch match = re.match(errorMessage);
               if (match.hasMatch()) {
                  QString playerLasterror = match.captured(1);
-                 QMessageBox::warning(this,"Oops"," "+playerLasterror+" has already exist","set another that!");
+                 QMessageBox::warning(this,"Oops"," "+playerLasterror+" has already exist","Choose another that!");
               }
           }
           if(p==1){            
