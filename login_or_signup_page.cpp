@@ -32,22 +32,12 @@ Login_or_SignUp_page::Login_or_SignUp_page(QWidget *parent) :
     ui->setupUi(this);
 
     QPixmap bkgnd("C:/Users/i/Downloads/back9.webp");
-          bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
-          QPalette palette;
-          palette.setBrush(QPalette::Window, bkgnd);
-          this->setPalette(palette);
-      //    ui->groupBox->setPalette(palette);
-         // ui->groupBox_2->setPalette(palette);
-         ui->groupBox->setStyleSheet("QGroupBox { border-image: url(C:/Users/i/Downloads/back12.jpg); }");
-        ui->groupBox_2->setStyleSheet("QGroupBox { border-image: url(C:/Users/i/Downloads/back12.jpg); }");
-
-//          QPixmap bkgnd2("C:/Users/i/Downloads/background3.jpg");
-//                bkgnd2 = bkgnd2.scaled(ui->groupBox ->size(), Qt::IgnoreAspectRatio);
-//                QPalette palette2;
-//                palette.setBrush(QPalette::Window, bkgnd2);
-//                ui->groupBox->setPalette(palette2);
-
-//                ui->groupBox_2->setPalette(palette2);
+    bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
+    QPalette palette;
+    palette.setBrush(QPalette::Window, bkgnd);
+    this->setPalette(palette);
+    ui->groupBox->setStyleSheet("QGroupBox { border-image: url(C:/Users/i/Downloads/back12.jpg); }");
+    ui->groupBox_2->setStyleSheet("QGroupBox { border-image: url(C:/Users/i/Downloads/back12.jpg); }");
 
     QMediaPlayer * backmusic2 = new QMediaPlayer();
     backmusic2->setMedia(QUrl("C:/Users/i/Downloads/music_biiansu_septuan_biiansu_longs_cinematic_drones_textures_023.mp3"));
@@ -66,7 +56,6 @@ Login_or_SignUp_page::Login_or_SignUp_page(QWidget *parent) :
     ui->lineEdit_5->setValidator(new QIntValidator);
     ui->lineEdit_2->setEchoMode(QLineEdit::Password);
     ui->lineEdit_4->setEchoMode(QLineEdit::Password);
-
 
     time_t t;
     srand((unsigned)time(&t));
@@ -143,7 +132,6 @@ void Login_or_SignUp_page::closeMainWindow()
     }
 }
 
-
 bool Login_or_SignUp_page::validate_username(QString input_text, QLabel *targetLable)
 {
     if(input_text==""){
@@ -200,7 +188,7 @@ void Login_or_SignUp_page::on_Login_of_LoginGroupbox_clicked()
 
            if(invalidCount==3){
 
-               int p=1;
+                int p=1;
                 if (!database.open()) {
                     // handle error
                 }
@@ -210,7 +198,6 @@ void Login_or_SignUp_page::on_Login_of_LoginGroupbox_clicked()
 
                  if (query.next()) {
                        // username and password and phone exist in the database
-
                      QString query_2 = "INSERT INTO Prevnt_repetition_in_Login (Username, Password, Phone) VALUES (:Username, :Password, :Phone)";
                      dbInstance.prepare(query_2);
                      dbInstance.bindValue(":Username", LoginUsernameTxt);
@@ -223,12 +210,10 @@ void Login_or_SignUp_page::on_Login_of_LoginGroupbox_clicked()
 
                      }else if(p==1){
 
-
                          Number_of_Successful_Players_in_registration++;
                          Number_Of_Players--;
                          Successful_login_or_SignUp->play();
                          QMessageBox::information(this,"Wellcom", "Player "+QString::number(i)+" your login was successful", "Gg");
-
                          ui->lineEdit->setText("");
                          ui->lineEdit_2->setText("");
                          ui->lineEdit_13->setInputMask("");
@@ -243,11 +228,9 @@ void Login_or_SignUp_page::on_Login_of_LoginGroupbox_clicked()
                          i++;
                      }
 
-
-
                  } else {
                        // username and password and phone do not exist in the database
-                     QMessageBox::warning(this,"Oops ","Player "+QString::number(i)+" this information not exist","Try again or SignUP!");
+                     QMessageBox::warning(this,"Oops ","Player "+QString::number(i)+" this information not exist","Try again or SignUp!");
 
                  }
            }
@@ -606,7 +589,7 @@ bool Login_or_SignUp_page::validate2_email(QString input_text, QLabel *targetLab
         return true;
     }else if(input_text!=""){
 
-        QMessageBox::warning(this,"Hint!","Your email must end with one of the three characters :" "<ul>""<li>""1)@gmail.com""</li>" "<li>""2)@email.com""</li>" "<li>""3)@mail.um.ac""</li>""</ul>","Try again!");
+        QMessageBox::warning(this,"Hint!","Your email must end with one of this 3 characters :" "<ul>""<li>""@gmail.com""</li>" "<li>""@email.com""</li>" "<li>""@mail.um.ac""</li>""</ul>","Try again!");
         return false;
     }
 
