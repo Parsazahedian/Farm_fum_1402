@@ -58,6 +58,7 @@ Login_or_SignUp_page::Login_or_SignUp_page(QWidget *parent) :
     ui->SignUp_For_Player_i->setText("SignUp for Player 1");
     ui->lineEdit_7->setValidator(new QIntValidator);
     ui->lineEdit_5->setValidator(new QIntValidator);
+    ui->lineEdit_13->setValidator(new QIntValidator);
     ui->lineEdit_2->setEchoMode(QLineEdit::Password);
     ui->lineEdit_4->setEchoMode(QLineEdit::Password);
 
@@ -234,7 +235,33 @@ void Login_or_SignUp_page::on_Login_of_LoginGroupbox_clicked()
                          ui->Error_label_of_phone_2->setText("");
                          ui->comboBox_2->setCurrentIndex(0);
                          ui->lineEdit_2->setEchoMode(QLineEdit::Password);
-                         ui->pushButton_2->setStyleSheet("border-image: url(:/EchomodePassword.image/C:/Users/i/Downloads/eye.image2.png);");
+                         ui->pushButton_2->setStyleSheet("border-radius: 15px; border-image: url(:/EchomodePassword.image/C:/Users/i/Downloads/eye.image2.png);");
+                         ui->lineEdit_3->setText("");
+                         ui->lineEdit_4->setText("");
+                         ui->lineEdit_5->setInputMask("");
+                         ui->lineEdit_5->setText("");
+                         ui->lineEdit_6->setText("");
+                         ui->lineEdit_7->setText("");
+                         ui->lineEdit_8->setText("");
+                         ui->lineEdit_9->setText("");
+                         ui->Error_label_of_username_Signup->setText("");
+                         ui->Error_label_of_password_Signup->setText("");
+                         ui->Error_label_of_phone_signup->setText("");
+                         ui->Error_label_of_Email->setText("");
+                         ui->Error_label_of_inventory->setText("");
+                         ui->Error_label_of_Captcha->setText("");
+                         ui->comboBox->setCurrentIndex(0);
+                         ui->lineEdit_4->setEchoMode(QLineEdit::Password);
+                         ui->pushButton_3->setStyleSheet("border-radius: 15px; border-image: url(:/EchomodePassword.image/C:/Users/i/Downloads/eye.image2.png);");
+                         cap = "";
+                         time_t t;
+                         srand((unsigned)time(&t));
+                         QString captcha="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+                         for(int i=0;i<6;i++){
+                             cap.push_back(captcha[rand() % 62]);
+                         }
+                         ui->label_4->setText(cap);
+                         Successful_login_or_SignUp->play();
                          ui->Login_For_Player_i->setText("Login for Player "+QString::number(i+1)+" ");
                          ui->SignUp_For_Player_i->setText("SignUp for Player "+QString::number(i+1)+" ");
                          i++;
@@ -481,7 +508,25 @@ void Login_or_SignUp_page::on_SignUp_of_Signup_clicked()
               ui->Error_label_of_Captcha->setText("");
               ui->comboBox->setCurrentIndex(0);
               ui->lineEdit_4->setEchoMode(QLineEdit::Password);
-              ui->pushButton_3->setStyleSheet("border-image: url(:/EchomodePassword.image/C:/Users/i/Downloads/eye.image2.png);");
+              ui->pushButton_3->setStyleSheet("border-radius: 15px; border-image: url(:/EchomodePassword.image/C:/Users/i/Downloads/eye.image2.png);");
+              ui->lineEdit->setText("");
+              ui->lineEdit_2->setText("");
+              ui->lineEdit_13->setInputMask("");
+              ui->lineEdit_13->setText("");
+              ui->Error_label_of_username->setText("");
+              ui->Error_label_of_Password->setText("");
+              ui->Error_label_of_phone_2->setText("");
+              ui->comboBox_2->setCurrentIndex(0);
+              ui->lineEdit_2->setEchoMode(QLineEdit::Password);
+              ui->pushButton_2->setStyleSheet("border-radius: 15px; border-image: url(:/EchomodePassword.image/C:/Users/i/Downloads/eye.image2.png);");
+              cap = "";
+              time_t t;
+              srand((unsigned)time(&t));
+              QString captcha="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+              for(int i=0;i<6;i++){
+                  cap.push_back(captcha[rand() % 62]);
+              }
+              ui->label_4->setText(cap);
               Successful_login_or_SignUp->play();
               QMessageBox::information(this,"Wellcom", "Player "+QString::number(i)+" your SignUp was successful", "Gg");
               i++;
