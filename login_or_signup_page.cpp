@@ -16,6 +16,9 @@
 #include "QRegularExpression"
 #include "QMoveEvent"
 #include "mainwindow.h"
+#include "QMediaPlayer"
+#include "QSequentialAnimationGroup"
+#include "QPropertyAnimation"
 using namespace std;
 
 QString cap="";
@@ -30,17 +33,35 @@ Login_or_SignUp_page::Login_or_SignUp_page(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    ui->groupBox_2->hide();
+    ui->groupBox->move(245,140);
+    ui->groupBox_2->move(245,30);
+
+    QPixmap bkgnd("C:/Users/i/Downloads/back9.webp");
+    bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
+    QPalette palette;
+    palette.setBrush(QPalette::Window, bkgnd);
+    this->setPalette(palette);
+    ui->groupBox->setStyleSheet("QGroupBox { border-radius: 35px; border-image: url(C:/Users/i/Downloads/back12.jpg); }");
+    ui->groupBox_2->setStyleSheet("QGroupBox { border-radius: 35px; border-image: url(C:/Users/i/Downloads/back12.jpg); }");
+
+    backmusic2 = new QMediaPlayer();
+    backmusic2->setMedia(QUrl("C:/Users/i/Downloads/music_biiansu_septuan_biiansu_longs_cinematic_drones_textures_023.mp3"));
+    connect(backmusic2, &QMediaPlayer::stateChanged, this, &Login_or_SignUp_page::handleStateChanged);
+    backmusic2->play();
+    Successful_login_or_SignUp = new QMediaPlayer();
+    Successful_login_or_SignUp->setMedia(QUrl("C:/Users/i/Downloads/PM_BlurryDreams_123_252.mp3"));
+
     setMinimumSize(950,770);
     setMaximumSize(950,770);
     ui->Login_For_Player_i->setText("Login for Player 1");
     ui->SignUp_For_Player_i->setText("SignUp for Player 1");
-    ui->groupBox_2->hide();
-    ui->groupBox->move(245,5);
-    ui->groupBox_2->move(245,5);
     ui->lineEdit_7->setValidator(new QIntValidator);
     ui->lineEdit_5->setValidator(new QIntValidator);
+    ui->lineEdit_13->setValidator(new QIntValidator);
     ui->lineEdit_2->setEchoMode(QLineEdit::Password);
     ui->lineEdit_4->setEchoMode(QLineEdit::Password);
+
     time_t t;
     srand((unsigned)time(&t));
     QString captcha="kKlLmMa1Ab2Bc3CnNoOpPd4De5Ef6yYzZFg7Gh8HqQrRsStTi9Ij0JuUvVwWxX";
@@ -116,10 +137,18 @@ void Login_or_SignUp_page::closeMainWindow()
     }
 }
 
+void Login_or_SignUp_page::handleStateChanged(QMediaPlayer::State state)
+{
+    if (state == QMediaPlayer::StoppedState)
+       {
+           backmusic2->play();
+       }
+}
+
 bool Login_or_SignUp_page::validate_username(QString input_text, QLabel *targetLable)
 {
     if(input_text==""){
-        targetLable->setText("this field not be empty");
+        targetLable->setText("This field not be empty!");
         return false;
     }
     targetLable->setText("");
@@ -131,11 +160,11 @@ bool Login_or_SignUp_page::validate_password(QString input_text, QLabel *targetL
     QRegExp passwordRegex("[a-zA-Z0-9]+");
 
     if(input_text==""){
-        targetLable->setText("this field not be empty");
+        targetLable->setText("This field not be empty!");
         return false;
     }
     if(!passwordRegex.exactMatch(input_text)){
-        targetLable->setText("invalid character!");
+        targetLable->setText("Invalid character!");
         return false;
     }
     targetLable->setText("");
@@ -154,6 +183,11 @@ void Login_or_SignUp_page::on_lineEdit_2_textChanged(const QString &arg1)
 
 void Login_or_SignUp_page::on_Login_of_LoginGroupbox_clicked()
 {
+    QSqlDatabase database = QSqlDatabase::addDatabase("QSQLITE");
+     database.setDatabaseName("e:\\schema2.db");
+     database.setUserName("Username");
+     database.setPassword("Password");
+     QSqlQuery dbInstance;
 
     if(Number_Of_Players!=0){
 
@@ -166,10 +200,8 @@ void Login_or_SignUp_page::on_Login_of_LoginGroupbox_clicked()
         invalidCount += validate_phone(LoginPhoneTxt, ui->Error_label_of_phone_2);
 
            if(invalidCount==3){
-               QSqlDatabase database = QSqlDatabase::addDatabase("QSQLITE");
-                database.setDatabaseName("e:\\schema2.db");
-                database.setUserName("Username");
-                database.setPassword("Password");
+
+                int p=1;
                 if (!database.open()) {
                     // handle error
                 }
@@ -179,24 +211,65 @@ void Login_or_SignUp_page::on_Login_of_LoginGroupbox_clicked()
 
                  if (query.next()) {
                        // username and password and phone exist in the database
-                     Number_of_Successful_Players_in_registration++;
-                     Number_Of_Players--;
-                     QMessageBox::information(this,"The end", "Player "+QString::number(i)+" your login was successful", "Gg");
+                     QString query_2 = "INSERT INTO Prevnt_repetition_in_Login (Username, Password, Phone) VALUES (:Username, :Password, :Phone)";
+                     dbInstance.prepare(query_2);
+                     dbInstance.bindValue(":Username", LoginUsernameTxt);
+                     dbInstance.bindValue(":Password", LoginPassTxt);
+                     dbInstance.bindValue(":Phone", LoginPhoneTxt);
 
-                     ui->lineEdit->setText("");
-                     ui->lineEdit_2->setText("");
-                     ui->lineEdit_13->setInputMask("");
-                     ui->Error_label_of_username->setText("");
-                     ui->Error_label_of_Password->setText("");
-                     ui->Error_label_of_phone_2->setText("");
-                     ui->comboBox_2->setCurrentIndex(0);
-                     ui->Login_For_Player_i->setText("Login for Player "+QString::number(i+1)+" ");
-                     ui->SignUp_For_Player_i->setText("SignUp for Player "+QString::number(i+1)+" ");
-                     i++;
+                     if(!dbInstance.exec()){
+                        // p=0;
+                         QMessageBox::warning(this,"Oops ","This player is already Logged in","ok");
+
+                     }else if(p==1){
+
+                         Number_of_Successful_Players_in_registration++;
+                         Number_Of_Players--;
+                         Successful_login_or_SignUp->play();
+                         QMessageBox::information(this,"Wellcom", "Player "+QString::number(i)+" your login was successful", "Gg");
+                         ui->lineEdit->setText("");
+                         ui->lineEdit_2->setText("");
+                         ui->lineEdit_13->setInputMask("");
+                         ui->Error_label_of_username->setText("");
+                         ui->Error_label_of_Password->setText("");
+                         ui->Error_label_of_phone_2->setText("");
+                         ui->comboBox_2->setCurrentIndex(0);
+                         ui->lineEdit_2->setEchoMode(QLineEdit::Password);
+                         ui->pushButton_2->setStyleSheet("border-radius: 15px; border-image: url(:/EchomodePassword.image/C:/Users/i/Downloads/eye.image2.png);");
+                         ui->lineEdit_3->setText("");
+                         ui->lineEdit_4->setText("");
+                         ui->lineEdit_5->setInputMask("");
+                         ui->lineEdit_5->setText("");
+                         ui->lineEdit_6->setText("");
+                         ui->lineEdit_7->setText("");
+                         ui->lineEdit_8->setText("");
+                         ui->lineEdit_9->setText("");
+                         ui->Error_label_of_username_Signup->setText("");
+                         ui->Error_label_of_password_Signup->setText("");
+                         ui->Error_label_of_phone_signup->setText("");
+                         ui->Error_label_of_Email->setText("");
+                         ui->Error_label_of_inventory->setText("");
+                         ui->Error_label_of_Captcha->setText("");
+                         ui->comboBox->setCurrentIndex(0);
+                         ui->lineEdit_4->setEchoMode(QLineEdit::Password);
+                         ui->pushButton_3->setStyleSheet("border-radius: 15px; border-image: url(:/EchomodePassword.image/C:/Users/i/Downloads/eye.image2.png);");
+                         cap = "";
+                         time_t t;
+                         srand((unsigned)time(&t));
+                         QString captcha="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+                         for(int i=0;i<6;i++){
+                             cap.push_back(captcha[rand() % 62]);
+                         }
+                         ui->label_4->setText(cap);
+                         Successful_login_or_SignUp->play();
+                         ui->Login_For_Player_i->setText("Login for Player "+QString::number(i+1)+" ");
+                         ui->SignUp_For_Player_i->setText("SignUp for Player "+QString::number(i+1)+" ");
+                         i++;
+                     }
 
                  } else {
                        // username and password and phone do not exist in the database
-                     QMessageBox::warning(this," ","Player "+QString::number(i)+" this information not exist","try again! or SignUP");
+                     QMessageBox::warning(this,"Oops ","Player "+QString::number(i)+" this information does not exist","Try again or SignUp!");
 
                  }
            }
@@ -204,6 +277,8 @@ void Login_or_SignUp_page::on_Login_of_LoginGroupbox_clicked()
 
     if(Number_of_Successful_Players_in_registration == validation_of_open_the_game){
 
+        QSqlQuery query_3;
+        query_3.exec("DELETE FROM Prevnt_repetition_in_Login");
         QString b="1";
         QSqlQuery q;
         q.exec("UPDATE ResumeGame SET isStarted = '"+b+"' ");
@@ -343,12 +418,12 @@ void Login_or_SignUp_page::on_comboBox_activated(int index)
 bool Login_or_SignUp_page::validate_phone(QString input_text, QLabel *targetLable)
 {
     if((input_text.length()-3) < 11 && input_text!=""){
-        targetLable->setText("invalid phone!");
+        targetLable->setText("Invalid phone!");
         return false;
     }
     if(input_text==""){
 
-        targetLable->setText("this field not be empty");
+        targetLable->setText("This field not be empty!");
         return false;
     }
     targetLable->setText("");
@@ -360,15 +435,15 @@ bool Login_or_SignUp_page::validate_email(QString input_text, QLabel *targetLabl
     QRegExp emailRegex("[a-zA-Z0-9@.]+");
 
     if(input_text==""){
-        targetLable->setText("this field not be empty");
+        targetLable->setText("This field not be empty!");
         return false;
     }
     if(input_text=="@gmail.com" || input_text=="@email.com" || input_text=="@mail.um.ac"){
-        targetLable->setText("use correct email");
+        targetLable->setText("Use correct email!");
         return false;
     }
     if(!emailRegex.exactMatch(input_text)){
-        targetLable->setText("invalid character!");
+        targetLable->setText("Invalid character!");
         return false;
     }
     targetLable->setText("");
@@ -413,7 +488,7 @@ void Login_or_SignUp_page::on_SignUp_of_Signup_clicked()
               QRegularExpressionMatch match = re.match(errorMessage);
               if (match.hasMatch()) {
                  QString playerLasterror = match.captured(1);
-                 QMessageBox::warning(this," ","the eroor with "+playerLasterror+"","set another username!");
+                 QMessageBox::warning(this,"Oops"," "+playerLasterror+" has already exist","Choose another that!");
               }
           }
           if(p==1){            
@@ -432,7 +507,28 @@ void Login_or_SignUp_page::on_SignUp_of_Signup_clicked()
               ui->Error_label_of_inventory->setText("");
               ui->Error_label_of_Captcha->setText("");
               ui->comboBox->setCurrentIndex(0);
-              QMessageBox::information(this,"The end", "Player "+QString::number(i)+" your SignUp was successful", "Gg");
+              ui->lineEdit_4->setEchoMode(QLineEdit::Password);
+              ui->pushButton_3->setStyleSheet("border-radius: 15px; border-image: url(:/EchomodePassword.image/C:/Users/i/Downloads/eye.image2.png);");
+              ui->lineEdit->setText("");
+              ui->lineEdit_2->setText("");
+              ui->lineEdit_13->setInputMask("");
+              ui->lineEdit_13->setText("");
+              ui->Error_label_of_username->setText("");
+              ui->Error_label_of_Password->setText("");
+              ui->Error_label_of_phone_2->setText("");
+              ui->comboBox_2->setCurrentIndex(0);
+              ui->lineEdit_2->setEchoMode(QLineEdit::Password);
+              ui->pushButton_2->setStyleSheet("border-radius: 15px; border-image: url(:/EchomodePassword.image/C:/Users/i/Downloads/eye.image2.png);");
+              cap = "";
+              time_t t;
+              srand((unsigned)time(&t));
+              QString captcha="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+              for(int i=0;i<6;i++){
+                  cap.push_back(captcha[rand() % 62]);
+              }
+              ui->label_4->setText(cap);
+              Successful_login_or_SignUp->play();
+              QMessageBox::information(this,"Wellcom", "Player "+QString::number(i)+" your SignUp was successful", "Gg");
               i++;
               ui->Login_For_Player_i->setText("Login for Player "+QString::number(i)+" ");
               ui->SignUp_For_Player_i->setText("SIgnUp for Player "+QString::number(i)+" ");
@@ -467,11 +563,11 @@ void Login_or_SignUp_page::on_lineEdit_4_textChanged(const QString &arg1)
 bool Login_or_SignUp_page::validate_Inventory(QString input_text, QLabel *targetLable)
 {
     if(input_text==""){
-        targetLable->setText("this field not be empty");
+        targetLable->setText("This field not be empty!");
         return false;
     }
     if(input_text=="0"){
-        targetLable->setText("Your inventory can not be 0");
+        targetLable->setText("Your inventory can not be 0 !");
         return false;
     }
     targetLable->setText("");
@@ -487,12 +583,12 @@ bool Login_or_SignUp_page::validate_Captcha(QString input_text, QLabel *targetLa
 {
 
     if(input_text!=cap && input_text!=""){
-        targetLable->setText("invalid captcha");
+        targetLable->setText("Invalid captcha!");
         return false;
     }
     if(input_text==""){
 
-        targetLable->setText("this field not be empty");
+        targetLable->setText("This field not be empty!");
         return false;
     }
     if(input_text==cap){
@@ -505,10 +601,10 @@ bool Login_or_SignUp_page::validate_Captcha(QString input_text, QLabel *targetLa
 void Login_or_SignUp_page::on_pushButton_2_clicked()
 {
     if(ui->lineEdit_2->echoMode() == QLineEdit::Password){
-        ui->pushButton_2->setStyleSheet("border-image: url(:/EchomodePassword.image/C:/Users/i/Downloads/eye.image.png);");
+        ui->pushButton_2->setStyleSheet("border-radius: 15px; border-image: url(:/EchomodePassword.image/C:/Users/i/Downloads/eye.image.png);");
         ui->lineEdit_2->setEchoMode(QLineEdit::Normal);
     }else{
-        ui->pushButton_2->setStyleSheet("border-image: url(:/EchomodePassword.image/C:/Users/i/Downloads/eye.image2.png);");
+        ui->pushButton_2->setStyleSheet("border-radius: 15px; border-image: url(:/EchomodePassword.image/C:/Users/i/Downloads/eye.image2.png);");
         ui->lineEdit_2->setEchoMode(QLineEdit::Password);
     }
 }
@@ -516,10 +612,10 @@ void Login_or_SignUp_page::on_pushButton_2_clicked()
 void Login_or_SignUp_page::on_pushButton_3_clicked()
 {
     if(ui->lineEdit_4->echoMode() == QLineEdit::Password){
-        ui->pushButton_3->setStyleSheet("border-image: url(:/EchomodePassword.image/C:/Users/i/Downloads/eye.image.png);");
+        ui->pushButton_3->setStyleSheet("border-radius: 15px; border-image: url(:/EchomodePassword.image/C:/Users/i/Downloads/eye.image.png);");
         ui->lineEdit_4->setEchoMode(QLineEdit::Normal);
     }else{
-        ui->pushButton_3->setStyleSheet("border-image: url(:/EchomodePassword.image/C:/Users/i/Downloads/eye.image2.png);");
+        ui->pushButton_3->setStyleSheet("border-radius: 15px; border-image: url(:/EchomodePassword.image/C:/Users/i/Downloads/eye.image2.png);");
         ui->lineEdit_4->setEchoMode(QLineEdit::Password);
     }
 }
@@ -550,7 +646,8 @@ bool Login_or_SignUp_page::validate2_email(QString input_text, QLabel *targetLab
         return true;
     }else if(input_text!=""){
 
-        QMessageBox::warning(this," ","Your email must end with one of the three characters : 1)@gmail.com 2)@email.com 3)@mail.um.ac","try again!");
+        targetLable->setText("Invalid email!");
+        QMessageBox::warning(this,"Hint!","Your email must end with one of this 3 characters :" "<ul>""<li>""@gmail.com""</li>" "<li>""@email.com""</li>" "<li>""@mail.um.ac""</li>""</ul>","Try again!");
         return false;
     }
 
@@ -567,13 +664,19 @@ void Login_or_SignUp_page::on_signUp_of_LoginGroupbox_clicked()
 {
     ui->groupBox->hide();
     ui->groupBox_2->show();
+    QPropertyAnimation *animation1 = new QPropertyAnimation(ui->groupBox_2, "geometry", this);
+    animation1->setStartValue(QRect(245, -1200, ui->groupBox_2->geometry().width(), ui->groupBox_2->geometry().height()));
+    animation1->setEndValue(QRect(245, 30, ui->groupBox_2->geometry().width(), ui->groupBox_2->geometry().height()));
+    animation1->setEasingCurve(QEasingCurve::Type::OutBounce);
+    animation1->setDuration(2000);
+    animation1->start();
 }
 
 void Login_or_SignUp_page::on_lineEdit_13_textChanged(const QString &arg1)
 {
     if(arg1 == ""){
 
-        ui->Error_label_of_phone_2->setText("this field not be empty");
+        ui->Error_label_of_phone_2->setText("This field not be empty!");
     }else{
 
         ui->Error_label_of_phone_2->setText("");
@@ -584,7 +687,7 @@ void Login_or_SignUp_page::on_lineEdit_5_textChanged(const QString &arg1)
 {
     if(arg1 == ""){
 
-        ui->Error_label_of_phone_signup->setText("this field not be empty");
+        ui->Error_label_of_phone_signup->setText("This field not be empty!");
     }else{
 
         ui->Error_label_of_phone_signup->setText("");
@@ -595,7 +698,7 @@ void Login_or_SignUp_page::on_lineEdit_9_textChanged(const QString &arg1)
 {
     if(arg1 == ""){
 
-        ui->Error_label_of_Captcha->setText("this field not be empty");
+        ui->Error_label_of_Captcha->setText("This field not be empty!");
     }else{
 
         ui->Error_label_of_Captcha->setText("");

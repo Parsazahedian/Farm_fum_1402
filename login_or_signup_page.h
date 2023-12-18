@@ -4,6 +4,8 @@
 #include <QMainWindow>
 #include "QLabel"
 #include "mainwindow.h"
+#include "QMediaPlayer"
+#include <QCloseEvent>
 
 namespace Ui {
 class Login_or_SignUp_page;
@@ -20,6 +22,12 @@ public:
     bool endsWith(const QString &fullString, const QString &ending);
 
     void closeMainWindow();
+
+    QMediaPlayer* Successful_login_or_SignUp;
+
+    QMediaPlayer * backmusic2;
+
+    void handleStateChanged(QMediaPlayer::State state);
 
 private slots:
 
