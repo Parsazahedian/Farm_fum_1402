@@ -17,6 +17,8 @@
 #include "QMoveEvent"
 #include "mainwindow.h"
 #include "QMediaPlayer"
+#include "QSequentialAnimationGroup"
+#include "QPropertyAnimation"
 using namespace std;
 
 QString cap="";
@@ -31,13 +33,17 @@ Login_or_SignUp_page::Login_or_SignUp_page(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    ui->groupBox_2->hide();
+    ui->groupBox->move(245,140);
+    ui->groupBox_2->move(245,30);
+
     QPixmap bkgnd("C:/Users/i/Downloads/back9.webp");
     bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
     QPalette palette;
     palette.setBrush(QPalette::Window, bkgnd);
     this->setPalette(palette);
-    ui->groupBox->setStyleSheet("QGroupBox { border-image: url(C:/Users/i/Downloads/back12.jpg); }");
-    ui->groupBox_2->setStyleSheet("QGroupBox { border-image: url(C:/Users/i/Downloads/back12.jpg); }");
+    ui->groupBox->setStyleSheet("QGroupBox { border-radius: 35px; border-image: url(C:/Users/i/Downloads/back12.jpg); }");
+    ui->groupBox_2->setStyleSheet("QGroupBox { border-radius: 35px; border-image: url(C:/Users/i/Downloads/back12.jpg); }");
 
     backmusic2 = new QMediaPlayer();
     backmusic2->setMedia(QUrl("C:/Users/i/Downloads/music_biiansu_septuan_biiansu_longs_cinematic_drones_textures_023.mp3"));
@@ -50,9 +56,6 @@ Login_or_SignUp_page::Login_or_SignUp_page(QWidget *parent) :
     setMaximumSize(950,770);
     ui->Login_For_Player_i->setText("Login for Player 1");
     ui->SignUp_For_Player_i->setText("SignUp for Player 1");
-    ui->groupBox_2->hide();
-    ui->groupBox->move(245,140);
-    ui->groupBox_2->move(245,30);
     ui->lineEdit_7->setValidator(new QIntValidator);
     ui->lineEdit_5->setValidator(new QIntValidator);
     ui->lineEdit_2->setEchoMode(QLineEdit::Password);
@@ -553,10 +556,10 @@ bool Login_or_SignUp_page::validate_Captcha(QString input_text, QLabel *targetLa
 void Login_or_SignUp_page::on_pushButton_2_clicked()
 {
     if(ui->lineEdit_2->echoMode() == QLineEdit::Password){
-        ui->pushButton_2->setStyleSheet("border-image: url(:/EchomodePassword.image/C:/Users/i/Downloads/eye.image.png);");
+        ui->pushButton_2->setStyleSheet("border-radius: 15px; border-image: url(:/EchomodePassword.image/C:/Users/i/Downloads/eye.image.png);");
         ui->lineEdit_2->setEchoMode(QLineEdit::Normal);
     }else{
-        ui->pushButton_2->setStyleSheet("border-image: url(:/EchomodePassword.image/C:/Users/i/Downloads/eye.image2.png);");
+        ui->pushButton_2->setStyleSheet("border-radius: 15px; border-image: url(:/EchomodePassword.image/C:/Users/i/Downloads/eye.image2.png);");
         ui->lineEdit_2->setEchoMode(QLineEdit::Password);
     }
 }
@@ -564,10 +567,10 @@ void Login_or_SignUp_page::on_pushButton_2_clicked()
 void Login_or_SignUp_page::on_pushButton_3_clicked()
 {
     if(ui->lineEdit_4->echoMode() == QLineEdit::Password){
-        ui->pushButton_3->setStyleSheet("border-image: url(:/EchomodePassword.image/C:/Users/i/Downloads/eye.image.png);");
+        ui->pushButton_3->setStyleSheet("border-radius: 15px; border-image: url(:/EchomodePassword.image/C:/Users/i/Downloads/eye.image.png);");
         ui->lineEdit_4->setEchoMode(QLineEdit::Normal);
     }else{
-        ui->pushButton_3->setStyleSheet("border-image: url(:/EchomodePassword.image/C:/Users/i/Downloads/eye.image2.png);");
+        ui->pushButton_3->setStyleSheet("border-radius: 15px; border-image: url(:/EchomodePassword.image/C:/Users/i/Downloads/eye.image2.png);");
         ui->lineEdit_4->setEchoMode(QLineEdit::Password);
     }
 }
@@ -616,6 +619,12 @@ void Login_or_SignUp_page::on_signUp_of_LoginGroupbox_clicked()
 {
     ui->groupBox->hide();
     ui->groupBox_2->show();
+    QPropertyAnimation *animation1 = new QPropertyAnimation(ui->groupBox_2, "geometry", this);
+    animation1->setStartValue(QRect(245, -1200, ui->groupBox_2->geometry().width(), ui->groupBox_2->geometry().height()));
+    animation1->setEndValue(QRect(245, 30, ui->groupBox_2->geometry().width(), ui->groupBox_2->geometry().height()));
+    animation1->setEasingCurve(QEasingCurve::Type::OutBounce);
+    animation1->setDuration(2000);
+    animation1->start();
 }
 
 void Login_or_SignUp_page::on_lineEdit_13_textChanged(const QString &arg1)
