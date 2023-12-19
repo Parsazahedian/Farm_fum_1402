@@ -657,12 +657,45 @@ bool Login_or_SignUp_page::validate2_email(QString input_text, QLabel *targetLab
 void Login_or_SignUp_page::on_pushButton_4_clicked()
 {
     ui->groupBox_2->hide();
+    ui->lineEdit_3->setText("");
+    ui->lineEdit_4->setText("");
+    ui->lineEdit_5->setInputMask("");
+    ui->lineEdit_6->setText("");
+    ui->lineEdit_7->setText("");
+    ui->lineEdit_8->setText("");
+    ui->lineEdit_9->setText("");
+    ui->Error_label_of_username_Signup->setText("");
+    ui->Error_label_of_password_Signup->setText("");
+    ui->Error_label_of_phone_signup->setText("");
+    ui->Error_label_of_Email->setText("");
+    ui->Error_label_of_inventory->setText("");
+    ui->Error_label_of_Captcha->setText("");
+    ui->comboBox->setCurrentIndex(0);
+    ui->lineEdit_4->setEchoMode(QLineEdit::Password);
+    ui->pushButton_3->setStyleSheet("border-radius: 15px; border-image: url(:/EchomodePassword.image/C:/Users/i/Downloads/eye.image2.png);");
+    cap = "";
+    time_t t;
+    srand((unsigned)time(&t));
+    QString captcha="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    for(int i=0;i<6;i++){
+        cap.push_back(captcha[rand() % 62]);
+    }
+    ui->label_4->setText(cap);
     ui->groupBox->show();
 }
 
 void Login_or_SignUp_page::on_signUp_of_LoginGroupbox_clicked()
 {
     ui->groupBox->hide();
+    ui->lineEdit->setText("");
+    ui->lineEdit_2->setText("");
+    ui->lineEdit_13->setInputMask("");
+    ui->Error_label_of_username->setText("");
+    ui->Error_label_of_Password->setText("");
+    ui->Error_label_of_phone_2->setText("");
+    ui->comboBox_2->setCurrentIndex(0);
+    ui->lineEdit_2->setEchoMode(QLineEdit::Password);
+    ui->pushButton_2->setStyleSheet("border-radius: 15px; border-image: url(:/EchomodePassword.image/C:/Users/i/Downloads/eye.image2.png);");
     ui->groupBox_2->show();
     QPropertyAnimation *animation1 = new QPropertyAnimation(ui->groupBox_2, "geometry", this);
     animation1->setStartValue(QRect(245, -1200, ui->groupBox_2->geometry().width(), ui->groupBox_2->geometry().height()));
