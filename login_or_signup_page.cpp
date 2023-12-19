@@ -165,6 +165,7 @@ bool Login_or_SignUp_page::validate_password(QString input_text, QLabel *targetL
     }
     if(!passwordRegex.exactMatch(input_text)){
         targetLable->setText("Invalid character!");
+        QMessageBox::warning(this,"Hint!","Your password can only contain the following characters :" "<ul>""<li>"" a-zA-Z0-9 ""</li>""</ul>","Try again!");
         return false;
     }
     targetLable->setText("");
@@ -444,6 +445,7 @@ bool Login_or_SignUp_page::validate_email(QString input_text, QLabel *targetLabl
     }
     if(!emailRegex.exactMatch(input_text)){
         targetLable->setText("Invalid character!");
+        QMessageBox::warning(this,"Hint!","Your email must not contain the following characters :" "<ul>""<li>"" * + - / $ ) ( # ^ % ""</li>""</ul>","Try again!");
         return false;
     }
     targetLable->setText("");
