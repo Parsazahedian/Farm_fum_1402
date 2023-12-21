@@ -52,8 +52,6 @@ MainWindow::MainWindow(QWidget *parent)
     animation5->setDuration(5000);
     animation5->start();
 
-
-
     QPixmap bkgnd("C:/Users/i/Downloads/back4.jpg");
     bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
     QPalette palette;
