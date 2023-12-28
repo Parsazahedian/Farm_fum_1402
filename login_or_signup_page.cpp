@@ -228,6 +228,9 @@ void Login_or_SignUp_page::on_Login_of_LoginGroupbox_clicked()
                          Number_of_Successful_Players_in_registration++;
                          Number_Of_Players--;
                          Successful_login_or_SignUp->play();
+                         QSqlQuery q;
+                         QString NumberOfPlayer = QString::number(i);
+                         q.exec("INSERT INTO Game_Players (Username, Number) VALUES ('"+LoginUsernameTxt+"', '"+NumberOfPlayer+"')");
                          QMessageBox::information(this,"Wellcom", "Player "+QString::number(i)+" your login was successful", "Gg");
                          ui->lineEdit->setText("");
                          ui->lineEdit_2->setText("");
@@ -498,7 +501,11 @@ void Login_or_SignUp_page::on_SignUp_of_Signup_clicked()
                  QMessageBox::warning(this,"Oops"," "+playerLasterror+" has already exist","Choose another that!");
               }
           }
-          if(p==1){            
+          if(p==1){
+
+              QSqlQuery q;
+              QString NumberOfPlayer = QString::number(i);
+              q.exec("INSERT INTO Game_Players (Username, Number) VALUES ('"+SignUpUsernameTxt+"', '"+NumberOfPlayer+"')");
               Number_of_Successful_Players_in_registration++;
               ui->lineEdit_3->setText("");
               ui->lineEdit_4->setText("");
@@ -536,6 +543,7 @@ void Login_or_SignUp_page::on_SignUp_of_Signup_clicked()
               ui->label_4->setText(cap);
               Successful_login_or_SignUp->play();
               QMessageBox::information(this,"Wellcom", "Player "+QString::number(i)+" your SignUp was successful", "Gg");
+
               i++;
               ui->Login_For_Player_i->setText("Login for Player "+QString::number(i)+" ");
               ui->SignUp_For_Player_i->setText("SIgnUp for Player "+QString::number(i)+" ");
