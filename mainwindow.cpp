@@ -9,6 +9,7 @@
 #include "QIntValidator"
 #include "QSequentialAnimationGroup"
 #include "QPropertyAnimation"
+#include "gamepage.h"
 
 extern MainWindow* mainWindowPtr;
 MainWindow::MainWindow(QWidget *parent)
@@ -117,6 +118,9 @@ void MainWindow::on_pushButton_clicked()
 void MainWindow::on_pushButton_2_clicked()
 {
     qDebug() << "vorod be edame bazi ghabli";
+    Gamepage *p = new Gamepage;
+    p->show();
+    backmusic1->stop();
     mainWindowPtr->close();
 }
 
