@@ -291,6 +291,8 @@ void Login_or_SignUp_page::on_Login_of_LoginGroupbox_clicked()
         qDebug() << "Number_of_Successful_Players_in_registration in login  " <<Number_of_Successful_Players_in_registration ;
         qDebug() << "vorod be bazi login";
         Gamepage *p = new Gamepage;
+        p->setWindowTitle("Farm Managment");
+        p->setWindowIcon(QIcon("C:/Users/i/Downloads/businessman_3331911.png"));
         p->show();
         backmusic2->pause();
         Successful_login_or_SignUp->pause();
@@ -561,6 +563,8 @@ void Login_or_SignUp_page::on_SignUp_of_Signup_clicked()
            qDebug() << "Number_of_Successful_Players_in_registration in Signup  " <<Number_of_Successful_Players_in_registration ;
            qDebug() << "vorod be bazi Sign up";
            Gamepage *p = new Gamepage;
+           p->setWindowTitle("Farm Managment");
+           p->setWindowIcon(QIcon("C:/Users/i/Downloads/businessman_3331911.png"));
            p->show();
            backmusic2->pause();
            Successful_login_or_SignUp->pause();

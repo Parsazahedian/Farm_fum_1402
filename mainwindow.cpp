@@ -119,6 +119,8 @@ void MainWindow::on_pushButton_2_clicked()
 {
     qDebug() << "vorod be edame bazi ghabli";
     Gamepage *p = new Gamepage;
+    p->setWindowTitle("Farm Managment");
+    p->setWindowIcon(QIcon("C:/Users/i/Downloads/businessman_3331911.png"));
     p->show();
     backmusic1->stop();
     mainWindowPtr->close();
