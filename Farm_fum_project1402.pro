@@ -11,6 +11,7 @@ CONFIG += c++11
 
 SOURCES += \
     animals.cpp \
+    barley.cpp \
     chicken.cpp \
     cow.cpp \
     gamepage.cpp \
@@ -18,17 +19,20 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     seeds.cpp \
-    sheep.cpp
+    sheep.cpp \
+    wheat.cpp
 
 HEADERS += \
     animals.h \
+    barley.h \
     chicken.h \
     cow.h \
     gamepage.h \
     login_or_signup_page.h \
     mainwindow.h \
     seeds.h \
-    sheep.h
+    sheep.h \
+    wheat.h
 
 FORMS += \
     gamepage.ui \
