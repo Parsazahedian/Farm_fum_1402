@@ -1,0 +1,25 @@
+#ifndef ANIMALS_H
+#define ANIMALS_H
+
+#include <QObject>
+#include "QTimer"
+#include "QLabel"
+
+class Animals : public QObject
+{
+    Q_OBJECT
+public:
+    Animals();
+    
+    void TurnTimerOn();
+    
+    int Product_production_time;
+    
+    Q
+    
+private:
+
+    QTimer* timer;    
+};
+
+#endif // ANIMALS_H

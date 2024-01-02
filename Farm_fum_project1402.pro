@@ -10,12 +10,14 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    animals.cpp \
     gamepage.cpp \
     login_or_signup_page.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
+    animals.h \
     gamepage.h \
     login_or_signup_page.h \
     mainwindow.h
