@@ -14,6 +14,7 @@ SOURCES += \
     barley.cpp \
     chicken.cpp \
     cow.cpp \
+    farmer.cpp \
     gamepage.cpp \
     login_or_signup_page.cpp \
     main.cpp \
@@ -27,6 +28,7 @@ HEADERS += \
     barley.h \
     chicken.h \
     cow.h \
+    farmer.h \
     gamepage.h \
     login_or_signup_page.h \
     mainwindow.h \
