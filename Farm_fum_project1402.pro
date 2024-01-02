@@ -17,6 +17,7 @@ SOURCES += \
     login_or_signup_page.cpp \
     main.cpp \
     mainwindow.cpp \
+    seeds.cpp \
     sheep.cpp
 
 HEADERS += \
@@ -26,6 +27,7 @@ HEADERS += \
     gamepage.h \
     login_or_signup_page.h \
     mainwindow.h \
+    seeds.h \
     sheep.h
 
 FORMS += \
