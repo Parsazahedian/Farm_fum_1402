@@ -15,7 +15,9 @@ public:
     
     int Product_production_time;
     
-    Q
+    int Price_of
+    
+    QLabel * TimerLabel;
     
 private:
 

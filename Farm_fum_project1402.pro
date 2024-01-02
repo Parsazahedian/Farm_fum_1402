@@ -11,16 +11,22 @@ CONFIG += c++11
 
 SOURCES += \
     animals.cpp \
+    chicken.cpp \
+    cow.cpp \
     gamepage.cpp \
     login_or_signup_page.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    sheep.cpp
 
 HEADERS += \
     animals.h \
+    chicken.h \
+    cow.h \
     gamepage.h \
     login_or_signup_page.h \
-    mainwindow.h
+    mainwindow.h \
+    sheep.h
 
 FORMS += \
     gamepage.ui \
