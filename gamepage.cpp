@@ -1011,9 +1011,66 @@ void Gamepage::on_Farmer_pushButton_clicked()
         //  button->setMinimumSize(56, 40);
            button->setMinimumSize(40, 40);
 
-//          if (i == 1 || i == 5) {
-//                 button->setEnabled(false);
-//             }
+           if(i==2 && ui->label_2->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==3 && ui->label_3->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==4 && ui->label_4->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==5 && ui->label_5->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==6 && ui->label_6->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==7 && ui->label_7->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==8 && ui->label_8->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==9 && ui->label_9->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==10 && ui->label_10->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==11 && ui->label_11->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==12 && ui->label_12->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==13 && ui->label_13->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==14 && ui->label_14->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==15 && ui->label_15->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==16 && ui->label_16->isHidden()){
+
+               button->setEnabled(false);
+           }
 
           if(i==17){
 
