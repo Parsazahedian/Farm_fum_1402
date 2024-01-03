@@ -2,12 +2,18 @@
 #define FARMER_H
 
 #include <QObject>
+#include "QVBoxLayout"
+#include "QPushButton"
 
-class Farmer
+class Farmer : public QObject
 {
     Q_OBJECT
 public:
-    Farmer();
+    Farmer(QVBoxLayout* BaseLayout);
+
+    QPushButton* pushButton;
+
+    bool Farmer_Status;
 };
 
 #endif // FARMER_H

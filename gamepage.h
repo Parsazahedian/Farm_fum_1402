@@ -15,6 +15,9 @@ public:
     explicit Gamepage(QWidget *parent = nullptr);
     ~Gamepage();
 
+private slots:
+    void on_pushButton_clicked();
+
 private:
     Ui::Gamepage *ui;
 };
