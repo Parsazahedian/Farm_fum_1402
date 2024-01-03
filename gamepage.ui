@@ -33,7 +33,7 @@
       <x>790</x>
       <y>180</y>
       <width>331</width>
-      <height>241</height>
+      <height>181</height>
      </rect>
     </property>
     <property name="title">
@@ -109,12 +109,25 @@
       <rect>
        <x>230</x>
        <y>20</y>
-       <width>93</width>
-       <height>111</height>
+       <width>71</width>
+       <height>71</height>
       </rect>
      </property>
      <property name="text">
       <string>Farmer</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="New_farm_pushButton">
+     <property name="geometry">
+      <rect>
+       <x>230</x>
+       <y>110</y>
+       <width>81</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>new farm</string>
      </property>
     </widget>
    </widget>
@@ -122,34 +135,67 @@
     <property name="geometry">
      <rect>
       <x>800</x>
-      <y>480</y>
+      <y>420</y>
       <width>91</width>
-      <height>451</height>
+      <height>541</height>
      </rect>
     </property>
-    <layout class="QVBoxLayout" name="Animals_verticalLayout"/>
+    <layout class="QVBoxLayout" name="Animals_verticalLayout">
+     <property name="spacing">
+      <number>7</number>
+     </property>
+     <property name="sizeConstraint">
+      <enum>QLayout::SetFixedSize</enum>
+     </property>
+     <property name="leftMargin">
+      <number>0</number>
+     </property>
+     <property name="bottomMargin">
+      <number>0</number>
+     </property>
+    </layout>
    </widget>
    <widget class="QWidget" name="verticalLayoutWidget_2">
     <property name="geometry">
      <rect>
       <x>910</x>
-      <y>480</y>
+      <y>420</y>
       <width>91</width>
-      <height>451</height>
+      <height>541</height>
      </rect>
     </property>
-    <layout class="QVBoxLayout" name="Seeds_verticalLayout"/>
+    <layout class="QVBoxLayout" name="Seeds_verticalLayout">
+     <property name="spacing">
+      <number>6</number>
+     </property>
+     <property name="sizeConstraint">
+      <enum>QLayout::SetFixedSize</enum>
+     </property>
+     <property name="rightMargin">
+      <number>0</number>
+     </property>
+     <property name="bottomMargin">
+      <number>0</number>
+     </property>
+    </layout>
    </widget>
    <widget class="QWidget" name="verticalLayoutWidget_3">
     <property name="geometry">
      <rect>
       <x>1020</x>
-      <y>480</y>
+      <y>420</y>
       <width>91</width>
-      <height>451</height>
+      <height>541</height>
      </rect>
     </property>
-    <layout class="QVBoxLayout" name="Farmer_verticalLayout"/>
+    <layout class="QVBoxLayout" name="Farmer_verticalLayout">
+     <property name="spacing">
+      <number>5</number>
+     </property>
+     <property name="sizeConstraint">
+      <enum>QLayout::SetFixedSize</enum>
+     </property>
+    </layout>
    </widget>
    <widget class="QLabel" name="label_13">
     <property name="geometry">
@@ -411,7 +457,7 @@
     <property name="geometry">
      <rect>
       <x>800</x>
-      <y>430</y>
+      <y>370</y>
       <width>91</width>
       <height>41</height>
      </rect>
@@ -430,7 +476,7 @@
     <property name="geometry">
      <rect>
       <x>910</x>
-      <y>430</y>
+      <y>370</y>
       <width>91</width>
       <height>41</height>
      </rect>
@@ -449,7 +495,7 @@
     <property name="geometry">
      <rect>
       <x>1020</x>
-      <y>430</y>
+      <y>370</y>
       <width>91</width>
       <height>41</height>
      </rect>

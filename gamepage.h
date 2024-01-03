@@ -30,6 +30,8 @@ private slots:
 
     void on_Farmer_pushButton_clicked();
 
+    void on_New_farm_pushButton_clicked();
+
 private:
     Ui::Gamepage *ui;
 };
