@@ -18,7 +18,7 @@
     <property name="geometry">
      <rect>
       <x>860</x>
-      <y>80</y>
+      <y>0</y>
       <width>191</width>
       <height>101</height>
      </rect>
@@ -31,7 +31,7 @@
     <property name="geometry">
      <rect>
       <x>790</x>
-      <y>180</y>
+      <y>100</y>
       <width>331</width>
       <height>181</height>
      </rect>
@@ -135,9 +135,9 @@
     <property name="geometry">
      <rect>
       <x>800</x>
-      <y>420</y>
+      <y>340</y>
       <width>91</width>
-      <height>541</height>
+      <height>621</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="Animals_verticalLayout">
@@ -159,9 +159,9 @@
     <property name="geometry">
      <rect>
       <x>910</x>
-      <y>420</y>
+      <y>340</y>
       <width>91</width>
-      <height>541</height>
+      <height>621</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="Seeds_verticalLayout">
@@ -183,9 +183,9 @@
     <property name="geometry">
      <rect>
       <x>1020</x>
-      <y>420</y>
+      <y>340</y>
       <width>91</width>
-      <height>541</height>
+      <height>621</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="Farmer_verticalLayout">
@@ -457,7 +457,7 @@
     <property name="geometry">
      <rect>
       <x>800</x>
-      <y>370</y>
+      <y>290</y>
       <width>91</width>
       <height>41</height>
      </rect>
@@ -476,7 +476,7 @@
     <property name="geometry">
      <rect>
       <x>910</x>
-      <y>370</y>
+      <y>290</y>
       <width>91</width>
       <height>41</height>
      </rect>
@@ -495,7 +495,7 @@
     <property name="geometry">
      <rect>
       <x>1020</x>
-      <y>370</y>
+      <y>290</y>
       <width>91</width>
       <height>41</height>
      </rect>

@@ -81,9 +81,67 @@ void Gamepage::on_Chicken_pushButton_clicked()
         //  button->setMinimumSize(56, 40);
            button->setMinimumSize(40, 40);
 
-//          if (i == 1 || i == 5) {
-//                 button->setEnabled(false);
-//             }
+           if(i==2 && ui->label_2->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==3 && ui->label_3->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==4 && ui->label_4->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==5 && ui->label_5->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==6 && ui->label_6->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==7 && ui->label_7->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==8 && ui->label_8->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==9 && ui->label_9->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==10 && ui->label_10->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==11 && ui->label_11->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==12 && ui->label_12->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==13 && ui->label_13->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==14 && ui->label_14->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==15 && ui->label_15->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==16 && ui->label_16->isHidden()){
+
+               button->setEnabled(false);
+           }
+
 
           if(i==17){
 
@@ -108,112 +166,112 @@ void Gamepage::on_Chicken_pushButton_clicked()
                case 1:
 
                    // Perform action for Button 1
-                   ch->pushButton->move(500, 100);
+                   ch->pushButton->move(150, 180);
                    ch->pushButton->setParent(this);
                    ch->pushButton->show();
 
                    break;
                case 2:
                    // Perform action for Button 2
-                   ch->pushButton->move(400, 100);
+                   ch->pushButton->move(540, 180);
                    ch->pushButton->setParent(this);
                    ch->pushButton->show();
 
                    break;
                case 3:
                    // Perform action for Button 2
-                   ch->pushButton->move(300, 100);
+                   ch->pushButton->move(1260, 180);
                    ch->pushButton->setParent(this);
                    ch->pushButton->show();
 
                    break;
                case 4:
                    // Perform action for Button 2
-                   ch->pushButton->move(200, 100);
+                   ch->pushButton->move(1650, 180);
                    ch->pushButton->setParent(this);
                    ch->pushButton->show();
 
                    break;
                case 5:
                    // Perform action for Button 2
-                   ch->pushButton->move(500, 200);
+                   ch->pushButton->move(150, 410);
                    ch->pushButton->setParent(this);
                    ch->pushButton->show();
 
                    break;
                case 6:
                    // Perform action for Button 2
-                   ch->pushButton->move(500, 600);
+                   ch->pushButton->move(540, 410);
                    ch->pushButton->setParent(this);
                    ch->pushButton->show();
 
                    break;
                case 7:
                    // Perform action for Button 2
-                   ch->pushButton->move(500, 600);
+                   ch->pushButton->move(1260, 410);
                    ch->pushButton->setParent(this);
                    ch->pushButton->show();
 
                    break;
                case 8:
                    // Perform action for Button 2
-                   ch->pushButton->move(550, 160);
+                   ch->pushButton->move(1650, 410);
                    ch->pushButton->setParent(this);
                    ch->pushButton->show();
 
                    break;
                case 9:
                    // Perform action for Button 2
-                   ch->pushButton->move(480, 410);
+                   ch->pushButton->move(150, 640);
                    ch->pushButton->setParent(this);
                    ch->pushButton->show();
 
                    break;
                case 10:
                    // Perform action for Button 2
-                   ch->pushButton->move(480, 410);
+                   ch->pushButton->move(540, 640);
                    ch->pushButton->setParent(this);
                    ch->pushButton->show();
 
                    break;
                case 11:
                    // Perform action for Button 2
-                   ch->pushButton->move(480, 410);
+                   ch->pushButton->move(1260, 640);
                    ch->pushButton->setParent(this);
                    ch->pushButton->show();
 
                    break;
                case 12:
                    // Perform action for Button 2
-                   ch->pushButton->move(480, 410);
+                   ch->pushButton->move(1650, 640);
                    ch->pushButton->setParent(this);
                    ch->pushButton->show();
 
                    break;
                case 13:
                    // Perform action for Button 2
-                   ch->pushButton->move(480, 410);
+                   ch->pushButton->move(150, 870);
                    ch->pushButton->setParent(this);
                    ch->pushButton->show();
 
                    break;
                case 14:
                    // Perform action for Button 2
-                   ch->pushButton->move(480, 410);
+                   ch->pushButton->move(540, 870);
                    ch->pushButton->setParent(this);
                    ch->pushButton->show();
 
                    break;
                case 15:
                    // Perform action for Button 2
-                   ch->pushButton->move(480, 410);
+                   ch->pushButton->move(1260, 870);
                    ch->pushButton->setParent(this);
                    ch->pushButton->show();
 
                    break;
                case 16:
                    // Perform action for Button 2
-                   ch->pushButton->move(480, 410);
+                   ch->pushButton->move(1650, 870);
                    ch->pushButton->setParent(this);
                    ch->pushButton->show();
 
@@ -267,9 +325,67 @@ void Gamepage::on_Sheep_pushButton_clicked()
         //  button->setMinimumSize(56, 40);
            button->setMinimumSize(40, 40);
 
-//          if (i == 1 || i == 5) {
-//                 button->setEnabled(false);
-//             }
+           if(i==2 && ui->label_2->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==3 && ui->label_3->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==4 && ui->label_4->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==5 && ui->label_5->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==6 && ui->label_6->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==7 && ui->label_7->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==8 && ui->label_8->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==9 && ui->label_9->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==10 && ui->label_10->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==11 && ui->label_11->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==12 && ui->label_12->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==13 && ui->label_13->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==14 && ui->label_14->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==15 && ui->label_15->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==16 && ui->label_16->isHidden()){
+
+               button->setEnabled(false);
+           }
+
 
           if(i==17){
 
@@ -294,112 +410,112 @@ void Gamepage::on_Sheep_pushButton_clicked()
                case 1:
 
                    // Perform action for Button 1
-                   sheep->pushButton->move(500, 100);
+                   sheep->pushButton->move(150, 180);
                    sheep->pushButton->setParent(this);
                    sheep->pushButton->show();
 
                    break;
                case 2:
                    // Perform action for Button 2
-                   sheep->pushButton->move(400, 100);
+                   sheep->pushButton->move(540, 180);
                    sheep->pushButton->setParent(this);
                    sheep->pushButton->show();
 
                    break;
                case 3:
                    // Perform action for Button 2
-                   sheep->pushButton->move(300, 100);
+                   sheep->pushButton->move(1260, 180);
                    sheep->pushButton->setParent(this);
                    sheep->pushButton->show();
 
                    break;
                case 4:
                    // Perform action for Button 2
-                   sheep->pushButton->move(200, 100);
+                   sheep->pushButton->move(1650, 180);
                    sheep->pushButton->setParent(this);
                    sheep->pushButton->show();
 
                    break;
                case 5:
                    // Perform action for Button 2
-                   sheep->pushButton->move(500, 200);
+                   sheep->pushButton->move(150, 410);
                    sheep->pushButton->setParent(this);
                    sheep->pushButton->show();
 
                    break;
                case 6:
                    // Perform action for Button 2
-                   sheep->pushButton->move(500, 600);
+                   sheep->pushButton->move(540, 410);
                    sheep->pushButton->setParent(this);
                    sheep->pushButton->show();
 
                    break;
                case 7:
                    // Perform action for Button 2
-                   sheep->pushButton->move(500, 600);
+                   sheep->pushButton->move(1260, 410);
                    sheep->pushButton->setParent(this);
                    sheep->pushButton->show();
 
                    break;
                case 8:
                    // Perform action for Button 2
-                   sheep->pushButton->move(550, 160);
+                   sheep->pushButton->move(1650, 410);
                    sheep->pushButton->setParent(this);
                    sheep->pushButton->show();
 
                    break;
                case 9:
                    // Perform action for Button 2
-                   sheep->pushButton->move(480, 410);
+                   sheep->pushButton->move(150, 640);
                    sheep->pushButton->setParent(this);
                    sheep->pushButton->show();
 
                    break;
                case 10:
                    // Perform action for Button 2
-                   sheep->pushButton->move(480, 410);
+                   sheep->pushButton->move(540, 640);
                    sheep->pushButton->setParent(this);
                    sheep->pushButton->show();
 
                    break;
                case 11:
                    // Perform action for Button 2
-                   sheep->pushButton->move(480, 410);
+                   sheep->pushButton->move(1260, 640);
                    sheep->pushButton->setParent(this);
                    sheep->pushButton->show();
 
                    break;
                case 12:
                    // Perform action for Button 2
-                   sheep->pushButton->move(480, 410);
+                   sheep->pushButton->move(1650, 640);
                    sheep->pushButton->setParent(this);
                    sheep->pushButton->show();
 
                    break;
                case 13:
                    // Perform action for Button 2
-                   sheep->pushButton->move(480, 410);
+                   sheep->pushButton->move(150, 870);
                    sheep->pushButton->setParent(this);
                    sheep->pushButton->show();
 
                    break;
                case 14:
                    // Perform action for Button 2
-                   sheep->pushButton->move(480, 410);
+                   sheep->pushButton->move(540, 870);
                    sheep->pushButton->setParent(this);
                    sheep->pushButton->show();
 
                    break;
                case 15:
                    // Perform action for Button 2
-                   sheep->pushButton->move(480, 410);
+                   sheep->pushButton->move(1260, 870);
                    sheep->pushButton->setParent(this);
                    sheep->pushButton->show();
 
                    break;
                case 16:
                    // Perform action for Button 2
-                   sheep->pushButton->move(480, 410);
+                   sheep->pushButton->move(1650, 870);
                    sheep->pushButton->setParent(this);
                    sheep->pushButton->show();
 
@@ -453,9 +569,68 @@ void Gamepage::on_Cow_pushButton_clicked()
         //  button->setMinimumSize(56, 40);
            button->setMinimumSize(40, 40);
 
-//          if (i == 1 || i == 5) {
-//                 button->setEnabled(false);
-//             }
+
+           if(i==2 && ui->label_2->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==3 && ui->label_3->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==4 && ui->label_4->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==5 && ui->label_5->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==6 && ui->label_6->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==7 && ui->label_7->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==8 && ui->label_8->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==9 && ui->label_9->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==10 && ui->label_10->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==11 && ui->label_11->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==12 && ui->label_12->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==13 && ui->label_13->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==14 && ui->label_14->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==15 && ui->label_15->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==16 && ui->label_16->isHidden()){
+
+               button->setEnabled(false);
+           }
+
 
           if(i==17){
 
@@ -480,112 +655,112 @@ void Gamepage::on_Cow_pushButton_clicked()
                case 1:
 
                    // Perform action for Button 1
-                   cow->pushButton->move(500, 100);
+                   cow->pushButton->move(150, 180);
                    cow->pushButton->setParent(this);
                    cow->pushButton->show();
 
                    break;
                case 2:
                    // Perform action for Button 2
-                   cow->pushButton->move(400, 100);
+                   cow->pushButton->move(540, 180);
                    cow->pushButton->setParent(this);
                    cow->pushButton->show();
 
                    break;
                case 3:
                    // Perform action for Button 2
-                   cow->pushButton->move(300, 100);
+                   cow->pushButton->move(1260, 180);
                    cow->pushButton->setParent(this);
                    cow->pushButton->show();
 
                    break;
                case 4:
                    // Perform action for Button 2
-                   cow->pushButton->move(200, 100);
+                   cow->pushButton->move(1650, 180);
                    cow->pushButton->setParent(this);
                    cow->pushButton->show();
 
                    break;
                case 5:
                    // Perform action for Button 2
-                   cow->pushButton->move(500, 200);
+                   cow->pushButton->move(150, 410);
                    cow->pushButton->setParent(this);
                    cow->pushButton->show();
 
                    break;
                case 6:
                    // Perform action for Button 2
-                   cow->pushButton->move(500, 600);
+                   cow->pushButton->move(540, 410);
                    cow->pushButton->setParent(this);
                    cow->pushButton->show();
 
                    break;
                case 7:
                    // Perform action for Button 2
-                   cow->pushButton->move(500, 600);
+                   cow->pushButton->move(1260, 410);
                    cow->pushButton->setParent(this);
                    cow->pushButton->show();
 
                    break;
                case 8:
                    // Perform action for Button 2
-                   cow->pushButton->move(550, 160);
+                   cow->pushButton->move(1650, 410);
                    cow->pushButton->setParent(this);
                    cow->pushButton->show();
 
                    break;
                case 9:
                    // Perform action for Button 2
-                   cow->pushButton->move(480, 410);
+                   cow->pushButton->move(150, 640);
                    cow->pushButton->setParent(this);
                    cow->pushButton->show();
 
                    break;
                case 10:
                    // Perform action for Button 2
-                   cow->pushButton->move(480, 410);
+                   cow->pushButton->move(4540, 640);
                    cow->pushButton->setParent(this);
                    cow->pushButton->show();
 
                    break;
                case 11:
                    // Perform action for Button 2
-                   cow->pushButton->move(480, 410);
+                   cow->pushButton->move(1260, 640);
                    cow->pushButton->setParent(this);
                    cow->pushButton->show();
 
                    break;
                case 12:
                    // Perform action for Button 2
-                   cow->pushButton->move(480, 410);
+                   cow->pushButton->move(1650, 640);
                    cow->pushButton->setParent(this);
                    cow->pushButton->show();
 
                    break;
                case 13:
                    // Perform action for Button 2
-                   cow->pushButton->move(480, 410);
+                   cow->pushButton->move(150, 870);
                    cow->pushButton->setParent(this);
                    cow->pushButton->show();
 
                    break;
                case 14:
                    // Perform action for Button 2
-                   cow->pushButton->move(480, 410);
+                   cow->pushButton->move(540, 870);
                    cow->pushButton->setParent(this);
                    cow->pushButton->show();
 
                    break;
                case 15:
                    // Perform action for Button 2
-                   cow->pushButton->move(480, 410);
+                   cow->pushButton->move(1260, 870);
                    cow->pushButton->setParent(this);
                    cow->pushButton->show();
 
                    break;
                case 16:
                    // Perform action for Button 2
-                   cow->pushButton->move(480, 410);
+                   cow->pushButton->move(1650, 870);
                    cow->pushButton->setParent(this);
                    cow->pushButton->show();
 
@@ -639,9 +814,68 @@ void Gamepage::on_Wheat_pushButton_clicked()
         //  button->setMinimumSize(56, 40);
            button->setMinimumSize(40, 40);
 
-//          if (i == 1 || i == 5) {
-//                 button->setEnabled(false);
-//             }
+
+           if(i==2 && ui->label_2->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==3 && ui->label_3->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==4 && ui->label_4->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==5 && ui->label_5->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==6 && ui->label_6->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==7 && ui->label_7->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==8 && ui->label_8->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==9 && ui->label_9->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==10 && ui->label_10->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==11 && ui->label_11->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==12 && ui->label_12->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==13 && ui->label_13->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==14 && ui->label_14->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==15 && ui->label_15->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==16 && ui->label_16->isHidden()){
+
+               button->setEnabled(false);
+           }
+
 
           if(i==17){
 
@@ -666,112 +900,112 @@ void Gamepage::on_Wheat_pushButton_clicked()
                case 1:
 
                    // Perform action for Button 1
-                   wheat->pushButton->move(500, 100);
+                   wheat->pushButton->move(150, 180);
                    wheat->pushButton->setParent(this);
                    wheat->pushButton->show();
 
                    break;
                case 2:
                    // Perform action for Button 2
-                   wheat->pushButton->move(400, 100);
+                   wheat->pushButton->move(540, 180);
                    wheat->pushButton->setParent(this);
                    wheat->pushButton->show();
 
                    break;
                case 3:
                    // Perform action for Button 2
-                   wheat->pushButton->move(300, 100);
+                   wheat->pushButton->move(1260, 180);
                    wheat->pushButton->setParent(this);
                    wheat->pushButton->show();
 
                    break;
                case 4:
                    // Perform action for Button 2
-                   wheat->pushButton->move(200, 100);
+                   wheat->pushButton->move(1650, 180);
                    wheat->pushButton->setParent(this);
                    wheat->pushButton->show();
 
                    break;
                case 5:
                    // Perform action for Button 2
-                   wheat->pushButton->move(500, 200);
+                   wheat->pushButton->move(150, 410);
                    wheat->pushButton->setParent(this);
                    wheat->pushButton->show();
 
                    break;
                case 6:
                    // Perform action for Button 2
-                   wheat->pushButton->move(500, 600);
+                   wheat->pushButton->move(540, 410);
                    wheat->pushButton->setParent(this);
                    wheat->pushButton->show();
 
                    break;
                case 7:
                    // Perform action for Button 2
-                   wheat->pushButton->move(500, 600);
+                   wheat->pushButton->move(1260, 410);
                    wheat->pushButton->setParent(this);
                    wheat->pushButton->show();
 
                    break;
                case 8:
                    // Perform action for Button 2
-                   wheat->pushButton->move(550, 160);
+                   wheat->pushButton->move(1650, 410);
                    wheat->pushButton->setParent(this);
                    wheat->pushButton->show();
 
                    break;
                case 9:
                    // Perform action for Button 2
-                   wheat->pushButton->move(480, 410);
+                   wheat->pushButton->move(150, 640);
                    wheat->pushButton->setParent(this);
                    wheat->pushButton->show();
 
                    break;
                case 10:
                    // Perform action for Button 2
-                   wheat->pushButton->move(480, 410);
+                   wheat->pushButton->move(540, 640);
                    wheat->pushButton->setParent(this);
                    wheat->pushButton->show();
 
                    break;
                case 11:
                    // Perform action for Button 2
-                   wheat->pushButton->move(480, 410);
+                   wheat->pushButton->move(1260, 640);
                    wheat->pushButton->setParent(this);
                    wheat->pushButton->show();
 
                    break;
                case 12:
                    // Perform action for Button 2
-                   wheat->pushButton->move(480, 410);
+                   wheat->pushButton->move(1650, 640);
                    wheat->pushButton->setParent(this);
                    wheat->pushButton->show();
 
                    break;
                case 13:
                    // Perform action for Button 2
-                   wheat->pushButton->move(480, 410);
+                   wheat->pushButton->move(150, 870);
                    wheat->pushButton->setParent(this);
                    wheat->pushButton->show();
 
                    break;
                case 14:
                    // Perform action for Button 2
-                   wheat->pushButton->move(480, 410);
+                   wheat->pushButton->move(540, 870);
                    wheat->pushButton->setParent(this);
                    wheat->pushButton->show();
 
                    break;
                case 15:
                    // Perform action for Button 2
-                   wheat->pushButton->move(480, 410);
+                   wheat->pushButton->move(1260, 870);
                    wheat->pushButton->setParent(this);
                    wheat->pushButton->show();
 
                    break;
                case 16:
                    // Perform action for Button 2
-                   wheat->pushButton->move(480, 410);
+                   wheat->pushButton->move(1650, 870);
                    wheat->pushButton->setParent(this);
                    wheat->pushButton->show();
 
@@ -825,9 +1059,67 @@ void Gamepage::on_Barley_pushButton_clicked()
         //  button->setMinimumSize(56, 40);
            button->setMinimumSize(40, 40);
 
-//          if (i == 1 || i == 5) {
-//                 button->setEnabled(false);
-//             }
+           if(i==2 && ui->label_2->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==3 && ui->label_3->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==4 && ui->label_4->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==5 && ui->label_5->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==6 && ui->label_6->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==7 && ui->label_7->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==8 && ui->label_8->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==9 && ui->label_9->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==10 && ui->label_10->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==11 && ui->label_11->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==12 && ui->label_12->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==13 && ui->label_13->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==14 && ui->label_14->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==15 && ui->label_15->isHidden()){
+
+               button->setEnabled(false);
+           }
+           if(i==16 && ui->label_16->isHidden()){
+
+               button->setEnabled(false);
+           }
+
 
           if(i==17){
 
@@ -852,112 +1144,112 @@ void Gamepage::on_Barley_pushButton_clicked()
                case 1:
 
                    // Perform action for Button 1
-                   barley->pushButton->move(500, 100);
+                   barley->pushButton->move(150, 180);
                    barley->pushButton->setParent(this);
                    barley->pushButton->show();
 
                    break;
                case 2:
                    // Perform action for Button 2
-                   barley->pushButton->move(400, 100);
+                   barley->pushButton->move(540, 180);
                    barley->pushButton->setParent(this);
                    barley->pushButton->show();
 
                    break;
                case 3:
                    // Perform action for Button 2
-                   barley->pushButton->move(300, 100);
+                   barley->pushButton->move(1260, 180);
                    barley->pushButton->setParent(this);
                    barley->pushButton->show();
 
                    break;
                case 4:
                    // Perform action for Button 2
-                   barley->pushButton->move(200, 100);
+                   barley->pushButton->move(1650, 180);
                    barley->pushButton->setParent(this);
                    barley->pushButton->show();
 
                    break;
                case 5:
                    // Perform action for Button 2
-                   barley->pushButton->move(500, 200);
+                   barley->pushButton->move(150, 410);
                    barley->pushButton->setParent(this);
                    barley->pushButton->show();
 
                    break;
                case 6:
                    // Perform action for Button 2
-                   barley->pushButton->move(500, 600);
+                   barley->pushButton->move(540, 410);
                    barley->pushButton->setParent(this);
                    barley->pushButton->show();
 
                    break;
                case 7:
                    // Perform action for Button 2
-                   barley->pushButton->move(500, 600);
+                   barley->pushButton->move(1260, 410);
                    barley->pushButton->setParent(this);
                    barley->pushButton->show();
 
                    break;
                case 8:
                    // Perform action for Button 2
-                   barley->pushButton->move(550, 160);
+                   barley->pushButton->move(1650, 410);
                    barley->pushButton->setParent(this);
                    barley->pushButton->show();
 
                    break;
                case 9:
                    // Perform action for Button 2
-                   barley->pushButton->move(480, 410);
+                   barley->pushButton->move(150, 640);
                    barley->pushButton->setParent(this);
                    barley->pushButton->show();
 
                    break;
                case 10:
                    // Perform action for Button 2
-                   barley->pushButton->move(480, 410);
+                   barley->pushButton->move(540, 640);
                    barley->pushButton->setParent(this);
                    barley->pushButton->show();
 
                    break;
                case 11:
                    // Perform action for Button 2
-                   barley->pushButton->move(480, 410);
+                   barley->pushButton->move(1260, 640);
                    barley->pushButton->setParent(this);
                    barley->pushButton->show();
 
                    break;
                case 12:
                    // Perform action for Button 2
-                   barley->pushButton->move(480, 410);
+                   barley->pushButton->move(1650, 640);
                    barley->pushButton->setParent(this);
                    barley->pushButton->show();
 
                    break;
                case 13:
                    // Perform action for Button 2
-                   barley->pushButton->move(480, 410);
+                   barley->pushButton->move(150, 870);
                    barley->pushButton->setParent(this);
                    barley->pushButton->show();
 
                    break;
                case 14:
                    // Perform action for Button 2
-                   barley->pushButton->move(480, 410);
+                   barley->pushButton->move(540, 870);
                    barley->pushButton->setParent(this);
                    barley->pushButton->show();
 
                    break;
                case 15:
                    // Perform action for Button 2
-                   barley->pushButton->move(480, 410);
+                   barley->pushButton->move(1260, 870);
                    barley->pushButton->setParent(this);
                    barley->pushButton->show();
 
                    break;
                case 16:
                    // Perform action for Button 2
-                   barley->pushButton->move(480, 410);
+                   barley->pushButton->move(1650, 870);
                    barley->pushButton->setParent(this);
                    barley->pushButton->show();
 
@@ -1095,112 +1387,112 @@ void Gamepage::on_Farmer_pushButton_clicked()
                case 1:
 
                    // Perform action for Button 1
-                   farmer->pushButton->move(500, 100);
+                   farmer->pushButton->move(210, 160);
                    farmer->pushButton->setParent(this);
                    farmer->pushButton->show();
 
                    break;
                case 2:
                    // Perform action for Button 2
-                   farmer->pushButton->move(400, 100);
+                   farmer->pushButton->move(600, 160);
                    farmer->pushButton->setParent(this);
                    farmer->pushButton->show();
 
                    break;
                case 3:
                    // Perform action for Button 2
-                   farmer->pushButton->move(300, 100);
+                   farmer->pushButton->move(1320, 160);
                    farmer->pushButton->setParent(this);
                    farmer->pushButton->show();
 
                    break;
                case 4:
                    // Perform action for Button 2
-                   farmer->pushButton->move(200, 100);
+                   farmer->pushButton->move(1710, 160);
                    farmer->pushButton->setParent(this);
                    farmer->pushButton->show();
 
                    break;
                case 5:
                    // Perform action for Button 2
-                   farmer->pushButton->move(500, 200);
+                   farmer->pushButton->move(210, 390);
                    farmer->pushButton->setParent(this);
                    farmer->pushButton->show();
 
                    break;
                case 6:
                    // Perform action for Button 2
-                   farmer->pushButton->move(500, 600);
+                   farmer->pushButton->move(600, 390);
                    farmer->pushButton->setParent(this);
                    farmer->pushButton->show();
 
                    break;
                case 7:
                    // Perform action for Button 2
-                   farmer->pushButton->move(500, 600);
+                   farmer->pushButton->move(1320, 390);
                    farmer->pushButton->setParent(this);
                    farmer->pushButton->show();
 
                    break;
                case 8:
                    // Perform action for Button 2
-                   farmer->pushButton->move(550, 160);
+                   farmer->pushButton->move(1710, 390);
                    farmer->pushButton->setParent(this);
                    farmer->pushButton->show();
 
                    break;
                case 9:
                    // Perform action for Button 2
-                   farmer->pushButton->move(480, 410);
+                   farmer->pushButton->move(210, 620);
                    farmer->pushButton->setParent(this);
                    farmer->pushButton->show();
 
                    break;
                case 10:
                    // Perform action for Button 2
-                   farmer->pushButton->move(480, 410);
+                   farmer->pushButton->move(600, 620);
                    farmer->pushButton->setParent(this);
                    farmer->pushButton->show();
 
                    break;
                case 11:
                    // Perform action for Button 2
-                   farmer->pushButton->move(480, 410);
+                   farmer->pushButton->move(1320, 620);
                    farmer->pushButton->setParent(this);
                    farmer->pushButton->show();
 
                    break;
                case 12:
                    // Perform action for Button 2
-                   farmer->pushButton->move(480, 410);
+                   farmer->pushButton->move(1710, 620);
                    farmer->pushButton->setParent(this);
                    farmer->pushButton->show();
 
                    break;
                case 13:
                    // Perform action for Button 2
-                   farmer->pushButton->move(480, 410);
+                   farmer->pushButton->move(210, 850);
                    farmer->pushButton->setParent(this);
                    farmer->pushButton->show();
 
                    break;
                case 14:
                    // Perform action for Button 2
-                   farmer->pushButton->move(480, 410);
+                   farmer->pushButton->move(600, 850);
                    farmer->pushButton->setParent(this);
                    farmer->pushButton->show();
 
                    break;
                case 15:
                    // Perform action for Button 2
-                   farmer->pushButton->move(480, 410);
+                   farmer->pushButton->move(1320, 850);
                    farmer->pushButton->setParent(this);
                    farmer->pushButton->show();
 
                    break;
                case 16:
                    // Perform action for Button 2
-                   farmer->pushButton->move(480, 410);
+                   farmer->pushButton->move(1710, 850);
                    farmer->pushButton->setParent(this);
                    farmer->pushButton->show();
 
