@@ -14,7 +14,7 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="Shop_pushButton">
     <property name="geometry">
      <rect>
       <x>120</x>
@@ -39,7 +39,7 @@
     <property name="title">
      <string/>
     </property>
-    <widget class="QPushButton" name="pushButton_2">
+    <widget class="QPushButton" name="Wheat_pushButton">
      <property name="geometry">
       <rect>
        <x>120</x>
@@ -52,7 +52,7 @@
       <string>Wheat</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_3">
+    <widget class="QPushButton" name="Barley_pushButton">
      <property name="geometry">
       <rect>
        <x>120</x>
@@ -65,7 +65,7 @@
       <string>Barley</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_4">
+    <widget class="QPushButton" name="Cow_pushButton">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -78,7 +78,7 @@
       <string>Cow</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_6">
+    <widget class="QPushButton" name="Chicken_pushButton">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -91,7 +91,7 @@
       <string>Chicken</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_8">
+    <widget class="QPushButton" name="Sheep_pushButton">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -104,7 +104,7 @@
       <string>Sheep</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_9">
+    <widget class="QPushButton" name="Farmer_pushButton">
      <property name="geometry">
       <rect>
        <x>230</x>
@@ -117,6 +117,39 @@
       <string>Farmer</string>
      </property>
     </widget>
+   </widget>
+   <widget class="QWidget" name="verticalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>250</y>
+      <width>91</width>
+      <height>451</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="Animals_verticalLayout"/>
+   </widget>
+   <widget class="QWidget" name="verticalLayoutWidget_2">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>250</y>
+      <width>91</width>
+      <height>451</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="Seeds_verticalLayout"/>
+   </widget>
+   <widget class="QWidget" name="verticalLayoutWidget_3">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>250</y>
+      <width>91</width>
+      <height>451</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="Farmer_verticalLayout"/>
    </widget>
   </widget>
  </widget>

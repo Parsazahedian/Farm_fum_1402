@@ -16,7 +16,19 @@ public:
     ~Gamepage();
 
 private slots:
-    void on_pushButton_clicked();
+    void on_Shop_pushButton_clicked();
+
+    void on_Chicken_pushButton_clicked();
+
+    void on_Sheep_pushButton_clicked();
+
+    void on_Cow_pushButton_clicked();
+
+    void on_Wheat_pushButton_clicked();
+
+    void on_Barley_pushButton_clicked();
+
+    void on_Farmer_pushButton_clicked();
 
 private:
     Ui::Gamepage *ui;
