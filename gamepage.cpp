@@ -2888,73 +2888,328 @@ void Gamepage::on_Farmer_pushButton_clicked()
 
         // Add custom buttons
         QHash<QAbstractButton*, int> buttonMap;
-        for (int i = 1; i <= 18; ++i) {
+        for (int i = 1; i <= 17; ++i) {
           QPushButton* button = new QPushButton(QString("%1").arg(i));
-          msgBox.addButton(button, i == 18 ? QMessageBox::RejectRole : QMessageBox::AcceptRole);
+          msgBox.addButton(button, i == 17 ? QMessageBox::RejectRole : QMessageBox::AcceptRole);
           buttonMap[button] = i;
 
         //  button->setMinimumSize(56, 40);
            button->setMinimumSize(40, 40);
 
+           if(i==1){
+
+               QPoint pos(210, 160);
+
+               if(check(pos)==true){
+
+                   F1_Having_Farmer=0;
+                   button->setEnabled(true);
+               }
+               if(check(pos)==false){
+
+                   F1_Having_Farmer=1;
+                   button->setEnabled(false);
+               }
+           }
+
            if(i==2 && ui->label_2->isHidden()){
 
                button->setEnabled(false);
+
+           }else if(i==2 && ui->label_2->isVisible()){
+
+               QPoint pos(600, 160);
+
+               if(check(pos)==true){
+
+                   F2_Having_Farmer=0;
+                   button->setEnabled(true);
+               }
+               if(check(pos)==false){
+
+                   F2_Having_Farmer=1;
+                   button->setEnabled(false);
+               }
            }
+
            if(i==3 && ui->label_3->isHidden()){
 
                button->setEnabled(false);
+
+           }else if(i==3 && ui->label_3->isVisible()){
+
+               QPoint pos(1320, 160);
+
+               if(check(pos)==true){
+
+                   F3_Having_Farmer=0;
+                   button->setEnabled(true);
+               }
+               if(check(pos)==false){
+
+                   F3_Having_Farmer=1;
+                   button->setEnabled(false);
+               }
            }
+
            if(i==4 && ui->label_4->isHidden()){
 
                button->setEnabled(false);
+
+           }else if(i==4 && ui->label_4->isVisible()){
+
+               QPoint pos(1710, 160);
+
+               if(check(pos)==true){
+
+                   F4_Having_Farmer=0;
+                   button->setEnabled(true);
+               }
+               if(check(pos)==false){
+
+                   F4_Having_Farmer=1;
+                   button->setEnabled(false);
+               }
            }
+
            if(i==5 && ui->label_5->isHidden()){
 
                button->setEnabled(false);
+
+           }else if(i==5 && ui->label_5->isVisible()){
+
+               QPoint pos(210, 390);
+
+               if(check(pos)==true){
+
+                   F5_Having_Farmer=0;
+                   button->setEnabled(true);
+               }
+               if(check(pos)==false){
+
+                   F5_Having_Farmer=1;
+                   button->setEnabled(false);
+               }
            }
+
            if(i==6 && ui->label_6->isHidden()){
 
                button->setEnabled(false);
+
+           }else if(i==6 && ui->label_6->isVisible()){
+
+               QPoint pos(600, 390);
+
+               if(check(pos)==true){
+
+                   F6_Having_Farmer=0;
+                   button->setEnabled(true);
+               }
+               if(check(pos)==false){
+
+                   F6_Having_Farmer=1;
+                   button->setEnabled(false);
+               }
            }
+
            if(i==7 && ui->label_7->isHidden()){
 
                button->setEnabled(false);
+
+           }else if(i==7 && ui->label_7->isVisible()){
+
+               QPoint pos(1320, 390);
+
+               if(check(pos)==true){
+
+                   F7_Having_Farmer=0;
+                   button->setEnabled(true);
+               }
+               if(check(pos)==false){
+
+                   F7_Having_Farmer=1;
+                   button->setEnabled(false);
+               }
            }
+
            if(i==8 && ui->label_8->isHidden()){
 
                button->setEnabled(false);
+
+           }else if(i==8 && ui->label_8->isVisible()){
+
+               QPoint pos(1710, 390);
+
+               if(check(pos)==true){
+
+                   F8_Having_Farmer=0;
+                   button->setEnabled(true);
+               }
+               if(check(pos)==false){
+
+                   F8_Having_Farmer=1;
+                   button->setEnabled(false);
+               }
            }
+
            if(i==9 && ui->label_9->isHidden()){
 
                button->setEnabled(false);
+
+           }else if(i==9 && ui->label_9->isVisible()){
+
+               QPoint pos(210, 620);
+
+               if(check(pos)==true){
+
+                   F9_Having_Farmer=0;
+                   button->setEnabled(true);
+               }
+               if(check(pos)==false){
+
+                   F9_Having_Farmer=1;
+                   button->setEnabled(false);
+               }
            }
+
            if(i==10 && ui->label_10->isHidden()){
 
                button->setEnabled(false);
+
+           }else if(i==10 && ui->label_10->isVisible()){
+
+               QPoint pos(600, 620);
+
+               if(check(pos)==true){
+
+                   F10_Having_Farmer=0;
+                   button->setEnabled(true);
+               }
+               if(check(pos)==false){
+
+                   F10_Having_Farmer=1;
+                   button->setEnabled(false);
+               }
            }
+
            if(i==11 && ui->label_11->isHidden()){
 
                button->setEnabled(false);
+
+           }else if(i==11 && ui->label_11->isVisible()){
+
+               QPoint pos(1320, 620);
+
+               if(check(pos)==true){
+
+                   F11_Having_Farmer=0;
+                   button->setEnabled(true);
+               }
+               if(check(pos)==false){
+
+                   F11_Having_Farmer=1;
+                   button->setEnabled(false);
+               }
            }
+
            if(i==12 && ui->label_12->isHidden()){
 
                button->setEnabled(false);
+
+           }else if(i==12 && ui->label_12->isVisible()){
+
+               QPoint pos(1710, 620);
+
+               if(check(pos)==true){
+
+                   F12_Having_Farmer=0;
+                   button->setEnabled(true);
+               }
+               if(check(pos)==false){
+
+                   F12_Having_Farmer=1;
+                   button->setEnabled(false);
+               }
            }
+
            if(i==13 && ui->label_13->isHidden()){
 
                button->setEnabled(false);
+
+           }else if(i==13 && ui->label_13->isVisible()){
+
+               QPoint pos(210, 850);
+
+               if(check(pos)==true){
+
+                   F13_Having_Farmer=0;
+                   button->setEnabled(true);
+               }
+               if(check(pos)==false){
+
+                   F13_Having_Farmer=1;
+                   button->setEnabled(false);
+               }
            }
+
            if(i==14 && ui->label_14->isHidden()){
 
                button->setEnabled(false);
+
+           }else if(i==14 && ui->label_14->isVisible()){
+
+               QPoint pos(600, 850);
+
+               if(check(pos)==true){
+
+                   F14_Having_Farmer=0;
+                   button->setEnabled(true);
+               }
+               if(check(pos)==false){
+
+                   F14_Having_Farmer=1;
+                   button->setEnabled(false);
+               }
            }
+
            if(i==15 && ui->label_15->isHidden()){
 
                button->setEnabled(false);
+
+           }else if(i==15 && ui->label_15->isVisible()){
+
+               QPoint pos(1320, 850);
+
+               if(check(pos)==true){
+
+                   F15_Having_Farmer=0;
+                   button->setEnabled(true);
+               }
+               if(check(pos)==false){
+
+                   F15_Having_Farmer=1;
+                   button->setEnabled(false);
+               }
            }
+
            if(i==16 && ui->label_16->isHidden()){
 
                button->setEnabled(false);
+
+           }else if(i==16 && ui->label_16->isVisible()){
+
+               QPoint pos(1710, 850);
+
+               if(check(pos)==true){
+
+                   F16_Having_Farmer=0;
+                   button->setEnabled(true);
+               }
+               if(check(pos)==false){
+
+                   F16_Having_Farmer=1;
+                   button->setEnabled(false);
+               }
            }
 
           if(i==17){
@@ -2962,11 +3217,7 @@ void Gamepage::on_Farmer_pushButton_clicked()
               button->setText("home");
               button->setMinimumSize(60,40);
           }
-          if(i==18){
 
-           button->setMinimumSize(50,40);
-              button->setText("Kill");
-          }
         }
     // clazy:exclude:connect-3arg-lambda
         QObject::connect(&msgBox, &QMessageBox::finished, [&](int result){
@@ -2979,115 +3230,194 @@ void Gamepage::on_Farmer_pushButton_clicked()
                switch(buttonNumber) {
                case 1:
 
-                   // Perform action for Button 1
-                   farmer->pushButton->move(210, 160);
-                   farmer->pushButton->setParent(this);
-                   farmer->pushButton->show();
+                   if(F1_Having_Farmer==0){
+
+                       farmer->pushButton->move(210, 160);
+                       farmer->pushButton->setParent(this);
+                       farmer->pushButton->show();
+                       F1_Having_Farmer=1;
+                   }
 
                    break;
                case 2:
-                   // Perform action for Button 2
-                   farmer->pushButton->move(600, 160);
-                   farmer->pushButton->setParent(this);
-                   farmer->pushButton->show();
+
+                   if(F2_Having_Farmer==0){
+
+                       farmer->pushButton->move(600, 160);
+                       farmer->pushButton->setParent(this);
+                       farmer->pushButton->show();
+                       F2_Having_Farmer=1;
+                   }
 
                    break;
                case 3:
                    // Perform action for Button 2
-                   farmer->pushButton->move(1320, 160);
-                   farmer->pushButton->setParent(this);
-                   farmer->pushButton->show();
+
+                   if(F3_Having_Farmer==0){
+
+                       farmer->pushButton->move(1320, 160);
+                       farmer->pushButton->setParent(this);
+                       farmer->pushButton->show();
+                       F3_Having_Farmer=1;
+                   }
 
                    break;
                case 4:
                    // Perform action for Button 2
-                   farmer->pushButton->move(1710, 160);
-                   farmer->pushButton->setParent(this);
-                   farmer->pushButton->show();
+
+                   if(F4_Having_Farmer==0){
+
+                       farmer->pushButton->move(1710, 160);
+                       farmer->pushButton->setParent(this);
+                       farmer->pushButton->show();
+                       F4_Having_Farmer=1;
+                   }
 
                    break;
                case 5:
                    // Perform action for Button 2
-                   farmer->pushButton->move(210, 390);
-                   farmer->pushButton->setParent(this);
-                   farmer->pushButton->show();
+
+                   if(F5_Having_Farmer==0){
+
+                       farmer->pushButton->move(210, 390);
+                       farmer->pushButton->setParent(this);
+                       farmer->pushButton->show();
+                       F5_Having_Farmer=1;
+                   }
 
                    break;
                case 6:
                    // Perform action for Button 2
-                   farmer->pushButton->move(600, 390);
-                   farmer->pushButton->setParent(this);
-                   farmer->pushButton->show();
+
+                   if(F6_Having_Farmer==0){
+
+                       farmer->pushButton->move(600, 390);
+                       farmer->pushButton->setParent(this);
+                       farmer->pushButton->show();
+                       F6_Having_Farmer=1;
+                   }
+
 
                    break;
                case 7:
                    // Perform action for Button 2
-                   farmer->pushButton->move(1320, 390);
-                   farmer->pushButton->setParent(this);
-                   farmer->pushButton->show();
+
+                   if(F7_Having_Farmer==0){
+
+                       farmer->pushButton->move(1320, 390);
+                       farmer->pushButton->setParent(this);
+                       farmer->pushButton->show();
+                       F7_Having_Farmer=1;
+                   }
 
                    break;
                case 8:
                    // Perform action for Button 2
-                   farmer->pushButton->move(1710, 390);
-                   farmer->pushButton->setParent(this);
-                   farmer->pushButton->show();
+
+                   if(F8_Having_Farmer==0){
+
+                       farmer->pushButton->move(1710, 390);
+                       farmer->pushButton->setParent(this);
+                       farmer->pushButton->show();
+                       F8_Having_Farmer=1;
+                   }
 
                    break;
                case 9:
                    // Perform action for Button 2
-                   farmer->pushButton->move(210, 620);
-                   farmer->pushButton->setParent(this);
-                   farmer->pushButton->show();
+
+                   if(F9_Having_Farmer==0){
+
+                       farmer->pushButton->move(210, 620);
+                       farmer->pushButton->setParent(this);
+                       farmer->pushButton->show();
+                       F9_Having_Farmer=1;
+                   }
 
                    break;
                case 10:
                    // Perform action for Button 2
-                   farmer->pushButton->move(600, 620);
-                   farmer->pushButton->setParent(this);
-                   farmer->pushButton->show();
+
+                   if(F10_Having_Farmer==0){
+
+                       farmer->pushButton->move(600, 620);
+                       farmer->pushButton->setParent(this);
+                       farmer->pushButton->show();
+                       F10_Having_Farmer=1;
+                   }
 
                    break;
                case 11:
                    // Perform action for Button 2
-                   farmer->pushButton->move(1320, 620);
-                   farmer->pushButton->setParent(this);
-                   farmer->pushButton->show();
+
+                   if(F11_Having_Farmer==0){
+
+                       farmer->pushButton->move(1320, 620);
+                       farmer->pushButton->setParent(this);
+                       farmer->pushButton->show();
+                       F11_Having_Farmer=1;
+                   }
 
                    break;
                case 12:
                    // Perform action for Button 2
-                   farmer->pushButton->move(1710, 620);
-                   farmer->pushButton->setParent(this);
-                   farmer->pushButton->show();
+
+                   if(F12_Having_Farmer==0){
+
+                       farmer->pushButton->move(1710, 620);
+                       farmer->pushButton->setParent(this);
+                       farmer->pushButton->show();
+                       F12_Having_Farmer=1;
+                   }
 
                    break;
                case 13:
                    // Perform action for Button 2
-                   farmer->pushButton->move(210, 850);
-                   farmer->pushButton->setParent(this);
-                   farmer->pushButton->show();
+
+                   if(F13_Having_Farmer==0){
+
+                       farmer->pushButton->move(210, 850);
+                       farmer->pushButton->setParent(this);
+                       farmer->pushButton->show();
+                       F13_Having_Farmer=1;
+                   }
 
                    break;
                case 14:
                    // Perform action for Button 2
-                   farmer->pushButton->move(600, 850);
-                   farmer->pushButton->setParent(this);
-                   farmer->pushButton->show();
+
+                   if(F14_Having_Farmer==0){
+
+                       farmer->pushButton->move(600, 850);
+                       farmer->pushButton->setParent(this);
+                       farmer->pushButton->show();
+                       F14_Having_Farmer=1;
+                   }
 
                    break;
                case 15:
                    // Perform action for Button 2
-                   farmer->pushButton->move(1320, 850);
-                   farmer->pushButton->setParent(this);
-                   farmer->pushButton->show();
+
+                   if(F15_Having_Farmer==0){
+
+                       farmer->pushButton->move(1320, 850);
+                       farmer->pushButton->setParent(this);
+                       farmer->pushButton->show();
+                       F15_Having_Farmer=1;
+                   }
+
 
                    break;
                case 16:
                    // Perform action for Button 2
-                   farmer->pushButton->move(1710, 850);
-                   farmer->pushButton->setParent(this);
-                   farmer->pushButton->show();
+
+                   if(F16_Having_Farmer==0){
+
+                       farmer->pushButton->move(1710, 850);
+                       farmer->pushButton->setParent(this);
+                       farmer->pushButton->show();
+                       F16_Having_Farmer=1;
+                   }
 
                    break;
                case 17:
@@ -3096,12 +3426,7 @@ void Gamepage::on_Farmer_pushButton_clicked()
                    ui->Farmer_verticalLayout->addWidget(farmer->pushButton);
 
                    break;
-               case 18:
-                   // Perform action for Button 2
-                   ui->Farmer_verticalLayout->removeWidget(farmer->pushButton);
-                   delete farmer->pushButton;
-                   break;
-               // ... and so on for other buttons
+
                default:
                    break;
                }
