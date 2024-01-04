@@ -2,6 +2,7 @@
 #define GAMEPAGE_H
 
 #include <QMainWindow>
+#include "QPushButton"
 
 namespace Ui {
 class Gamepage;
@@ -34,6 +35,12 @@ private slots:
 
     bool check(QPoint pos);
 
+    void on_pushButton_clicked();
+
+    void check_our_farm_have_farmer_or_not();
+
+    QPushButton * check2(QPoint pos);
+
 private:
     Ui::Gamepage *ui;
 
@@ -53,6 +60,30 @@ private:
     int F14_Having_Farmer=0, F14_Having_Animals_or_Seeds=0;
     int F15_Having_Farmer=0, F15_Having_Animals_or_Seeds=0;
     int F16_Having_Farmer=0, F16_Having_Animals_or_Seeds=0;
+
+    //Fn_Which_Of_Animals_or_Seeds=0 -> home or kill
+    //Fn_Which_Of_Animals_or_Seeds=1 -> chicken
+    //Fn_Which_Of_Animals_or_Seeds=2 -> sheep
+    //Fn_Which_Of_Animals_or_Seeds=3 -> cow
+    //Fn_Which_Of_Animals_or_Seeds=4 -> wheat
+    //Fn_Which_Of_Animals_or_Seeds=5 -> barley
+    int F1_Which_Of_Animals_or_Seeds=0;
+    int F2_Which_Of_Animals_or_Seeds=0;
+    int F3_Which_Of_Animals_or_Seeds=0;
+    int F4_Which_Of_Animals_or_Seeds=0;
+    int F5_Which_Of_Animals_or_Seeds=0;
+    int F6_Which_Of_Animals_or_Seeds=0;
+    int F7_Which_Of_Animals_or_Seeds=0;
+    int F8_Which_Of_Animals_or_Seeds=0;
+    int F9_Which_Of_Animals_or_Seeds=0;
+    int F10_Which_Of_Animals_or_Seeds=0;
+    int F11_Which_Of_Animals_or_Seeds=0;
+    int F12_Which_Of_Animals_or_Seeds=0;
+    int F13_Which_Of_Animals_or_Seeds=0;
+    int F14_Which_Of_Animals_or_Seeds=0;
+    int F15_Which_Of_Animals_or_Seeds=0;
+    int F16_Which_Of_Animals_or_Seeds=0;
+
 };
 
 #endif // GAMEPAGE_H
