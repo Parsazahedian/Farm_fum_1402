@@ -19,6 +19,22 @@ Gamepage::Gamepage(QWidget *parent) :
     setMaximumSize(1908,978);
 
     ui->groupBox->hide();
+    ui->Start->hide();
+    ui->Start_2->hide();
+    ui->Start_3->hide();
+    ui->Start_4->hide();
+    ui->Start_5->hide();
+    ui->Start_6->hide();
+    ui->Start_7->hide();
+    ui->Start_8->hide();
+    ui->Start_9->hide();
+    ui->Start_10->hide();
+    ui->Start_11->hide();
+    ui->Start_12->hide();
+    ui->Start_13->hide();
+    ui->Start_14->hide();
+    ui->Start_15->hide();
+    ui->Start_16->hide();
 
     ui->label_2->hide();
     ui->label_3->hide();
@@ -36,8 +52,6 @@ Gamepage::Gamepage(QWidget *parent) :
     ui->label_14->hide();
     ui->label_15->hide();
     ui->label_16->hide();
-
-    qDebug()<< F1_Having_Animals_or_Seeds;
 
 }
 
@@ -62,6 +76,7 @@ void Gamepage::on_Shop_pushButton_clicked()
 void Gamepage::on_Chicken_pushButton_clicked()
 {
 
+
     Chicken * ch = new Chicken(ui->Animals_verticalLayout);
 
     ch->pushButton->setObjectName("Chicken");
@@ -76,6 +91,7 @@ void Gamepage::on_Chicken_pushButton_clicked()
         msgBox.setWindowIcon(QIcon("C:/Users/i/Downloads/iran.png"));
 
         msgBox.setIconPixmap(QPixmap("C:/Users/i/Downloads/iran.png"));
+
 
         // Add custom buttons
         QHash<QAbstractButton*, int> buttonMap;
@@ -95,14 +111,12 @@ void Gamepage::on_Chicken_pushButton_clicked()
 
                    F1_Having_Animals_or_Seeds=0;
                    F1_Which_Of_Animals_or_Seeds=0;
-                 //  qDebug()<<"i==true F1 = "<<F1_Which_Of_Animals_or_Seeds;
                    button->setEnabled(true);
                }
                if(check(pos)==false){
 
                    F1_Having_Animals_or_Seeds=1;
                    F1_Which_Of_Animals_or_Seeds=1;
-                 //  qDebug()<<"i==false F1 = "<<F1_Which_Of_Animals_or_Seeds;
                    button->setEnabled(false);
                }
            }
@@ -117,18 +131,14 @@ void Gamepage::on_Chicken_pushButton_clicked()
 
                if(check(pos)==true){
 
-              //     qDebug()<<"F2 khalie";
                    F2_Having_Animals_or_Seeds=0;
                    F2_Which_Of_Animals_or_Seeds=0;
-                //   qDebug()<<"i==true F2 = "<<F2_Which_Of_Animals_or_Seeds;
                    button->setEnabled(true);
                }
                if(check(pos)==false){
 
-            //       qDebug()<<"F2 poree";
                    F2_Having_Animals_or_Seeds=1;
                    F2_Which_Of_Animals_or_Seeds=1;
-                //   qDebug()<<"i==false F2 = "<<F2_Which_Of_Animals_or_Seeds;
                    button->setEnabled(false);
                }
            }
@@ -453,20 +463,21 @@ void Gamepage::on_Chicken_pushButton_clicked()
               button->setText("Kill");
           }
         }
+
     // clazy:exclude:connect-3arg-lambda
         QObject::connect(&msgBox, &QMessageBox::finished, [&](int result){
+
            QAbstractButton* clickedButton = msgBox.clickedButton();
-//           qDebug() << "-------------------------------------------------------------";
-//           qDebug() << " baseF1 = " << F1_Which_Of_Animals_or_Seeds;
-//           qDebug() << " baseF2 = " << F2_Which_Of_Animals_or_Seeds;
-//           qDebug() << "-------------------------------------------------------------";
+
            if (clickedButton) {
+
                int buttonNumber = buttonMap[clickedButton];
 
 
 
 
                switch(buttonNumber) {
+               Get_info();
                case 1:
 
                    if(F1_Having_Animals_or_Seeds==0){
@@ -474,10 +485,11 @@ void Gamepage::on_Chicken_pushButton_clicked()
                        ch->pushButton->move(150, 180);
                        ch->pushButton->setParent(this);
                        ch->pushButton->show();
-                       F1_Which_Of_Animals_or_Seeds=1;
-                      // qDebug()<<"F1 = "<<F1_Which_Of_Animals_or_Seeds;
+                       F1_Which_Of_Animals_or_Seeds=1;                      
                        F1_Having_Animals_or_Seeds=1;
                    }
+
+                   Get_info();
 
 
                    break;
@@ -489,9 +501,10 @@ void Gamepage::on_Chicken_pushButton_clicked()
                        ch->pushButton->setParent(this);
                        ch->pushButton->show();
                        F2_Which_Of_Animals_or_Seeds=1;
-                    //   qDebug()<<"F2 = "<<F2_Which_Of_Animals_or_Seeds;
                        F2_Having_Animals_or_Seeds=1;
                    }
+
+                   Get_info();
 
 
                    break;
@@ -506,6 +519,8 @@ void Gamepage::on_Chicken_pushButton_clicked()
                        F3_Having_Animals_or_Seeds=1;
                    }
 
+                   Get_info();
+
                    break;
                case 4:
 
@@ -517,6 +532,8 @@ void Gamepage::on_Chicken_pushButton_clicked()
                        F4_Which_Of_Animals_or_Seeds=1;
                        F4_Having_Animals_or_Seeds=1;
                    }
+
+                   Get_info();
 
                    break;
                case 5:
@@ -530,6 +547,8 @@ void Gamepage::on_Chicken_pushButton_clicked()
                        F5_Having_Animals_or_Seeds=1;
                    }
 
+                   Get_info();
+
                    break;
                case 6:
 
@@ -541,6 +560,8 @@ void Gamepage::on_Chicken_pushButton_clicked()
                        F6_Which_Of_Animals_or_Seeds=1;
                        F6_Having_Animals_or_Seeds=1;
                    }
+
+                   Get_info();
 
                    break;
                case 7:
@@ -554,6 +575,8 @@ void Gamepage::on_Chicken_pushButton_clicked()
                        F7_Having_Animals_or_Seeds=1;
                    }
 
+                   Get_info();
+
                    break;
                case 8:
 
@@ -565,6 +588,8 @@ void Gamepage::on_Chicken_pushButton_clicked()
                        F8_Which_Of_Animals_or_Seeds=1;
                        F8_Having_Animals_or_Seeds=1;
                    }
+
+                   Get_info();
 
                    break;
                case 9:
@@ -578,6 +603,8 @@ void Gamepage::on_Chicken_pushButton_clicked()
                        F9_Having_Animals_or_Seeds=1;
                    }
 
+                   Get_info();
+
                    break;
                case 10:
 
@@ -589,6 +616,8 @@ void Gamepage::on_Chicken_pushButton_clicked()
                        F10_Which_Of_Animals_or_Seeds=1;
                        F10_Having_Animals_or_Seeds=1;
                    }
+
+                   Get_info();
 
                    break;
                case 11:
@@ -602,6 +631,8 @@ void Gamepage::on_Chicken_pushButton_clicked()
                        F11_Having_Animals_or_Seeds=1;
                    }
 
+                   Get_info();
+
                    break;
                case 12:
 
@@ -613,6 +644,8 @@ void Gamepage::on_Chicken_pushButton_clicked()
                        F12_Which_Of_Animals_or_Seeds=1;
                        F12_Having_Animals_or_Seeds=1;
                    }
+
+                   Get_info();
 
                    break;
                case 13:
@@ -626,6 +659,8 @@ void Gamepage::on_Chicken_pushButton_clicked()
                        F13_Having_Animals_or_Seeds=1;
                    }
 
+                   Get_info();
+
                    break;
                case 14:
 
@@ -637,6 +672,8 @@ void Gamepage::on_Chicken_pushButton_clicked()
                        F14_Which_Of_Animals_or_Seeds=1;
                        F14_Having_Animals_or_Seeds=1;
                    }
+
+                   Get_info();
 
                    break;
                case 15:
@@ -650,6 +687,8 @@ void Gamepage::on_Chicken_pushButton_clicked()
                        F15_Having_Animals_or_Seeds=1;
                    }
 
+                   Get_info();
+
                    break;
                case 16:
 
@@ -662,25 +701,35 @@ void Gamepage::on_Chicken_pushButton_clicked()
                        F16_Having_Animals_or_Seeds=1;
                    }
 
+                   Get_info();
+
                    break;
                case 17:
                    //add to verticall layout
+                   ch->pushButton->move(2000, 10);
                    ui->Animals_verticalLayout->addWidget(ch->pushButton);
+
+                   Get_info();
 
                    break;
                case 18:
                    // remove pushbutton
                    ui->Animals_verticalLayout->removeWidget(ch->pushButton);
-
                    delete ch->pushButton;
+
+                   Get_info();
+
                    break;
 
                default:
+                   Get_info();
                    break;
                }
            }
 
+
         });
+
 
         msgBox.exec();
 
@@ -1098,6 +1147,8 @@ void Gamepage::on_Sheep_pushButton_clicked()
                        F1_Which_Of_Animals_or_Seeds=2;
                    }
 
+                   Get_info();
+
                    break;
                case 2:
 
@@ -1109,6 +1160,8 @@ void Gamepage::on_Sheep_pushButton_clicked()
                        F2_Having_Animals_or_Seeds=1;
                        F2_Which_Of_Animals_or_Seeds=2;
                    }
+
+                   Get_info();
 
                    break;
                case 3:
@@ -1122,6 +1175,8 @@ void Gamepage::on_Sheep_pushButton_clicked()
                        F3_Which_Of_Animals_or_Seeds=2;
                    }
 
+                   Get_info();
+
                    break;
                case 4:
 
@@ -1133,6 +1188,8 @@ void Gamepage::on_Sheep_pushButton_clicked()
                        F4_Having_Animals_or_Seeds=1;
                        F4_Which_Of_Animals_or_Seeds=2;
                    }
+
+                   Get_info();
 
                    break;
                case 5:
@@ -1146,6 +1203,8 @@ void Gamepage::on_Sheep_pushButton_clicked()
                        F5_Which_Of_Animals_or_Seeds=2;
                    }
 
+                   Get_info();
+
                    break;
                case 6:
 
@@ -1157,6 +1216,8 @@ void Gamepage::on_Sheep_pushButton_clicked()
                        F6_Having_Animals_or_Seeds=1;
                        F6_Which_Of_Animals_or_Seeds=2;
                    }
+
+                   Get_info();
 
                    break;
                case 7:
@@ -1170,6 +1231,8 @@ void Gamepage::on_Sheep_pushButton_clicked()
                        F7_Which_Of_Animals_or_Seeds=2;
                    }
 
+                   Get_info();
+
                    break;
                case 8:
 
@@ -1181,6 +1244,8 @@ void Gamepage::on_Sheep_pushButton_clicked()
                        F8_Having_Animals_or_Seeds=1;
                        F8_Which_Of_Animals_or_Seeds=2;
                    }
+
+                   Get_info();
 
                    break;
                case 9:
@@ -1194,6 +1259,8 @@ void Gamepage::on_Sheep_pushButton_clicked()
                        F9_Which_Of_Animals_or_Seeds=2;
                    }
 
+                   Get_info();
+
                    break;
                case 10:
 
@@ -1205,6 +1272,8 @@ void Gamepage::on_Sheep_pushButton_clicked()
                        F10_Having_Animals_or_Seeds=1;
                        F10_Which_Of_Animals_or_Seeds=2;
                    }
+
+                   Get_info();
 
                    break;
                case 11:
@@ -1230,6 +1299,8 @@ void Gamepage::on_Sheep_pushButton_clicked()
                        F12_Which_Of_Animals_or_Seeds=2;
                    }
 
+                   Get_info();
+
                    break;
                case 13:
 
@@ -1241,6 +1312,8 @@ void Gamepage::on_Sheep_pushButton_clicked()
                        F13_Having_Animals_or_Seeds=1;
                        F13_Which_Of_Animals_or_Seeds=2;
                    }
+
+                   Get_info();
 
                    break;
                case 14:
@@ -1254,6 +1327,8 @@ void Gamepage::on_Sheep_pushButton_clicked()
                        F14_Which_Of_Animals_or_Seeds=2;
                    }
 
+                   Get_info();
+
                    break;
                case 15:
 
@@ -1265,6 +1340,8 @@ void Gamepage::on_Sheep_pushButton_clicked()
                        F15_Having_Animals_or_Seeds=1;
                        F15_Which_Of_Animals_or_Seeds=2;
                    }
+
+                   Get_info();
 
                    break;
                case 16:
@@ -1278,19 +1355,27 @@ void Gamepage::on_Sheep_pushButton_clicked()
                        F16_Which_Of_Animals_or_Seeds=2;
                    }
 
+                   Get_info();
+
                    break;
                case 17:
                    //add to verticall layout
+                   sheep->pushButton->move(2000, 10);
                    ui->Animals_verticalLayout->addWidget(sheep->pushButton);
+
+                   Get_info();
 
                    break;
                case 18:
                    // remove pushbutton
                    ui->Animals_verticalLayout->removeWidget(sheep->pushButton);
                    delete sheep->pushButton;
+
+                   Get_info();
                    break;
 
                default:
+                   Get_info();
                    break;
                }
            }
@@ -1708,6 +1793,8 @@ void Gamepage::on_Cow_pushButton_clicked()
                        F1_Which_Of_Animals_or_Seeds=3;
                    }
 
+                   Get_info();
+
                    break;
                case 2:
 
@@ -1719,6 +1806,8 @@ void Gamepage::on_Cow_pushButton_clicked()
                        F2_Having_Animals_or_Seeds=1;
                        F2_Which_Of_Animals_or_Seeds=3;
                    }
+
+                   Get_info();
 
                    break;
                case 3:
@@ -1732,6 +1821,8 @@ void Gamepage::on_Cow_pushButton_clicked()
                        F3_Which_Of_Animals_or_Seeds=3;
                    }
 
+                   Get_info();
+
                    break;
                case 4:
 
@@ -1743,6 +1834,8 @@ void Gamepage::on_Cow_pushButton_clicked()
                        F4_Having_Animals_or_Seeds=1;
                        F4_Which_Of_Animals_or_Seeds=3;
                    }
+
+                   Get_info();
 
                    break;
                case 5:
@@ -1756,6 +1849,8 @@ void Gamepage::on_Cow_pushButton_clicked()
                        F5_Which_Of_Animals_or_Seeds=3;
                    }
 
+                   Get_info();
+
                    break;
                case 6:
 
@@ -1767,6 +1862,8 @@ void Gamepage::on_Cow_pushButton_clicked()
                        F6_Having_Animals_or_Seeds=1;
                        F6_Which_Of_Animals_or_Seeds=3;
                    }
+
+                   Get_info();
 
                    break;
                case 7:
@@ -1780,6 +1877,8 @@ void Gamepage::on_Cow_pushButton_clicked()
                        F7_Which_Of_Animals_or_Seeds=3;
                    }
 
+                   Get_info();
+
                    break;
                case 8:
 
@@ -1791,6 +1890,8 @@ void Gamepage::on_Cow_pushButton_clicked()
                        F8_Having_Animals_or_Seeds=1;
                        F8_Which_Of_Animals_or_Seeds=3;
                    }
+
+                   Get_info();
 
                    break;
                case 9:
@@ -1804,6 +1905,8 @@ void Gamepage::on_Cow_pushButton_clicked()
                        F9_Which_Of_Animals_or_Seeds=3;
                    }
 
+                   Get_info();
+
                    break;
                case 10:
 
@@ -1815,6 +1918,8 @@ void Gamepage::on_Cow_pushButton_clicked()
                        F10_Having_Animals_or_Seeds=1;
                        F10_Which_Of_Animals_or_Seeds=3;
                    }
+
+                   Get_info();
 
                    break;
                case 11:
@@ -1828,6 +1933,8 @@ void Gamepage::on_Cow_pushButton_clicked()
                        F11_Which_Of_Animals_or_Seeds=3;
                    }
 
+                   Get_info();
+
                    break;
                case 12:
 
@@ -1839,6 +1946,8 @@ void Gamepage::on_Cow_pushButton_clicked()
                        F12_Having_Animals_or_Seeds=1;
                        F12_Which_Of_Animals_or_Seeds=3;
                    }
+
+                   Get_info();
 
                    break;
                case 13:
@@ -1852,6 +1961,8 @@ void Gamepage::on_Cow_pushButton_clicked()
                        F13_Which_Of_Animals_or_Seeds=3;
                    }
 
+                   Get_info();
+
                    break;
                case 14:
 
@@ -1863,6 +1974,8 @@ void Gamepage::on_Cow_pushButton_clicked()
                        F14_Having_Animals_or_Seeds=1;
                        F14_Which_Of_Animals_or_Seeds=3;
                    }
+
+                   Get_info();
 
                    break;
                case 15:
@@ -1876,6 +1989,8 @@ void Gamepage::on_Cow_pushButton_clicked()
                        F15_Which_Of_Animals_or_Seeds=3;
                    }
 
+                   Get_info();
+
                    break;
                case 16:
 
@@ -1888,19 +2003,27 @@ void Gamepage::on_Cow_pushButton_clicked()
                        F16_Which_Of_Animals_or_Seeds=3;
                    }
 
+                   Get_info();
+
                    break;
                case 17:
                    //add to verticall layout
+                   cow->pushButton->move(2000, 10);
                    ui->Animals_verticalLayout->addWidget(cow->pushButton);
+
+                   Get_info();
 
                    break;
                case 18:
                    // remove pushbutton
                    ui->Animals_verticalLayout->removeWidget(cow->pushButton);
                    delete cow->pushButton;
+
+                   Get_info();
                    break;
 
                default:
+                   Get_info();
                    break;
                }
            }
@@ -1932,9 +2055,9 @@ void Gamepage::on_Wheat_pushButton_clicked()
 
         // Add custom buttons
         QHash<QAbstractButton*, int> buttonMap;
-        for (int i = 1; i <= 18; ++i) {
+        for (int i = 1; i <= 17; ++i) {
           QPushButton* button = new QPushButton(QString("%1").arg(i));
-          msgBox.addButton(button, i == 18 ? QMessageBox::RejectRole : QMessageBox::AcceptRole);
+          msgBox.addButton(button, i == 17 ? QMessageBox::RejectRole : QMessageBox::AcceptRole);
           buttonMap[button] = i;
 
         //  button->setMinimumSize(56, 40);
@@ -2294,11 +2417,6 @@ void Gamepage::on_Wheat_pushButton_clicked()
               button->setMinimumSize(60,40);
           }
 
-          if(i==18){
-
-           button->setMinimumSize(50,40);
-              button->setText("Kill");
-          }
         }
     // clazy:exclude:connect-3arg-lambda
         QObject::connect(&msgBox, &QMessageBox::finished, [&](int result){
@@ -2318,6 +2436,8 @@ void Gamepage::on_Wheat_pushButton_clicked()
                        F1_Which_Of_Animals_or_Seeds=4;
                    }
 
+                   Get_info();
+
                    break;
                case 2:
 
@@ -2329,6 +2449,8 @@ void Gamepage::on_Wheat_pushButton_clicked()
                        F2_Having_Animals_or_Seeds=1;
                        F2_Which_Of_Animals_or_Seeds=4;
                    }
+
+                   Get_info();
 
                    break;
                case 3:
@@ -2342,6 +2464,8 @@ void Gamepage::on_Wheat_pushButton_clicked()
                        F3_Which_Of_Animals_or_Seeds=4;
                    }
 
+                   Get_info();
+
                    break;
                case 4:
 
@@ -2353,6 +2477,8 @@ void Gamepage::on_Wheat_pushButton_clicked()
                        F4_Having_Animals_or_Seeds=1;
                        F4_Which_Of_Animals_or_Seeds=4;
                    }
+
+                   Get_info();
 
                    break;
                case 5:
@@ -2366,6 +2492,8 @@ void Gamepage::on_Wheat_pushButton_clicked()
                        F5_Which_Of_Animals_or_Seeds=4;
                    }
 
+                   Get_info();
+
                    break;
                case 6:
 
@@ -2377,6 +2505,8 @@ void Gamepage::on_Wheat_pushButton_clicked()
                        F6_Having_Animals_or_Seeds=1;
                        F6_Which_Of_Animals_or_Seeds=4;
                    }
+
+                   Get_info();
 
                    break;
                case 7:
@@ -2390,6 +2520,8 @@ void Gamepage::on_Wheat_pushButton_clicked()
                        F7_Which_Of_Animals_or_Seeds=4;
                    }
 
+                   Get_info();
+
                    break;
                case 8:
 
@@ -2401,6 +2533,8 @@ void Gamepage::on_Wheat_pushButton_clicked()
                        F8_Having_Animals_or_Seeds=1;
                        F8_Which_Of_Animals_or_Seeds=4;
                    }
+
+                   Get_info();
 
                    break;
                case 9:
@@ -2414,6 +2548,8 @@ void Gamepage::on_Wheat_pushButton_clicked()
                        F9_Which_Of_Animals_or_Seeds=4;
                    }
 
+                   Get_info();
+
                    break;
                case 10:
 
@@ -2425,6 +2561,8 @@ void Gamepage::on_Wheat_pushButton_clicked()
                        F10_Having_Animals_or_Seeds=1;
                        F10_Which_Of_Animals_or_Seeds=4;
                    }
+
+                   Get_info();
 
                    break;
                case 11:
@@ -2438,6 +2576,8 @@ void Gamepage::on_Wheat_pushButton_clicked()
                        F11_Which_Of_Animals_or_Seeds=4;
                    }
 
+                   Get_info();
+
                    break;
                case 12:
 
@@ -2449,6 +2589,8 @@ void Gamepage::on_Wheat_pushButton_clicked()
                        F12_Having_Animals_or_Seeds=1;
                        F12_Which_Of_Animals_or_Seeds=4;
                    }
+
+                   Get_info();
 
                    break;
                case 13:
@@ -2462,6 +2604,8 @@ void Gamepage::on_Wheat_pushButton_clicked()
                        F13_Which_Of_Animals_or_Seeds=4;
                    }
 
+                   Get_info();
+
                    break;
                case 14:
 
@@ -2473,6 +2617,8 @@ void Gamepage::on_Wheat_pushButton_clicked()
                        F14_Having_Animals_or_Seeds=1;
                        F14_Which_Of_Animals_or_Seeds=4;
                    }
+
+                   Get_info();
 
                    break;
                case 15:
@@ -2486,6 +2632,8 @@ void Gamepage::on_Wheat_pushButton_clicked()
                        F15_Which_Of_Animals_or_Seeds=4;
                    }
 
+                   Get_info();
+
                    break;
                case 16:
 
@@ -2498,19 +2646,21 @@ void Gamepage::on_Wheat_pushButton_clicked()
                        F6_Which_Of_Animals_or_Seeds=4;
                    }
 
+                   Get_info();
+
                    break;
                case 17:
                    //add to verticall layout
+                   wheat->pushButton->move(2000, 10);
                    ui->Seeds_verticalLayout->addWidget(wheat->pushButton);
 
-                   break;
-               case 18:
-                   // remove pushbutton
-                   ui->Seeds_verticalLayout->removeWidget(wheat->pushButton);
-                   delete wheat->pushButton;
+                   Get_info();
+
                    break;
 
                default:
+
+                   Get_info();
                    break;
                }
            }
@@ -2542,9 +2692,9 @@ void Gamepage::on_Barley_pushButton_clicked()
 
         // Add custom buttons
         QHash<QAbstractButton*, int> buttonMap;
-        for (int i = 1; i <= 18; ++i) {
+        for (int i = 1; i <= 17; ++i) {
           QPushButton* button = new QPushButton(QString("%1").arg(i));
-          msgBox.addButton(button, i == 18 ? QMessageBox::RejectRole : QMessageBox::AcceptRole);
+          msgBox.addButton(button, i == 17 ? QMessageBox::RejectRole : QMessageBox::AcceptRole);
           buttonMap[button] = i;
 
         //  button->setMinimumSize(56, 40);
@@ -2578,14 +2728,14 @@ void Gamepage::on_Barley_pushButton_clicked()
 
                if(check(pos)==true){
 
-                   qDebug()<<"F2 khalie";
+
                    F2_Having_Animals_or_Seeds=0;
                    F2_Which_Of_Animals_or_Seeds=0;
                    button->setEnabled(true);
                }
                if(check(pos)==false){
 
-                   qDebug()<<"F2 poree";
+
                    F2_Having_Animals_or_Seeds=1;
                    F2_Which_Of_Animals_or_Seeds=5;
                    button->setEnabled(false);
@@ -2906,11 +3056,6 @@ void Gamepage::on_Barley_pushButton_clicked()
               button->setMinimumSize(60,40);
           }
 
-          if(i==18){
-
-           button->setMinimumSize(50,40);
-              button->setText("Kill");
-          }
         }
     // clazy:exclude:connect-3arg-lambda
         QObject::connect(&msgBox, &QMessageBox::finished, [&](int result){
@@ -2930,6 +3075,8 @@ void Gamepage::on_Barley_pushButton_clicked()
                        F1_Which_Of_Animals_or_Seeds=5;
                    }
 
+                   Get_info();
+
                    break;
                case 2:
 
@@ -2941,6 +3088,8 @@ void Gamepage::on_Barley_pushButton_clicked()
                        F2_Having_Animals_or_Seeds=1;
                        F2_Which_Of_Animals_or_Seeds=5;
                    }
+
+                   Get_info();
 
                    break;
                case 3:
@@ -2954,6 +3103,8 @@ void Gamepage::on_Barley_pushButton_clicked()
                        F3_Which_Of_Animals_or_Seeds=5;
                    }
 
+                   Get_info();
+
                    break;
                case 4:
 
@@ -2965,6 +3116,8 @@ void Gamepage::on_Barley_pushButton_clicked()
                        F4_Having_Animals_or_Seeds=1;
                        F4_Which_Of_Animals_or_Seeds=5;
                    }
+
+                   Get_info();
 
                    break;
                case 5:
@@ -2978,6 +3131,8 @@ void Gamepage::on_Barley_pushButton_clicked()
                        F5_Which_Of_Animals_or_Seeds=5;
                    }
 
+                   Get_info();
+
                    break;
                case 6:
 
@@ -2989,6 +3144,8 @@ void Gamepage::on_Barley_pushButton_clicked()
                        F6_Having_Animals_or_Seeds=1;
                        F6_Which_Of_Animals_or_Seeds=5;
                    }
+
+                   Get_info();
 
                    break;
                case 7:
@@ -3002,6 +3159,8 @@ void Gamepage::on_Barley_pushButton_clicked()
                        F7_Which_Of_Animals_or_Seeds=5;
                    }
 
+                   Get_info();
+
                    break;
                case 8:
 
@@ -3013,6 +3172,8 @@ void Gamepage::on_Barley_pushButton_clicked()
                        F8_Having_Animals_or_Seeds=1;
                        F8_Which_Of_Animals_or_Seeds=5;
                    }
+
+                   Get_info();
 
                    break;
                case 9:
@@ -3026,6 +3187,8 @@ void Gamepage::on_Barley_pushButton_clicked()
                        F9_Which_Of_Animals_or_Seeds=5;
                    }
 
+                   Get_info();
+
                    break;
                case 10:
 
@@ -3037,6 +3200,8 @@ void Gamepage::on_Barley_pushButton_clicked()
                        F10_Having_Animals_or_Seeds=1;
                        F10_Which_Of_Animals_or_Seeds=5;
                    }
+
+                   Get_info();
 
                    break;
                case 11:
@@ -3050,6 +3215,8 @@ void Gamepage::on_Barley_pushButton_clicked()
                        F11_Which_Of_Animals_or_Seeds=5;
                    }
 
+                   Get_info();
+
                    break;
                case 12:
 
@@ -3061,6 +3228,8 @@ void Gamepage::on_Barley_pushButton_clicked()
                        F12_Having_Animals_or_Seeds=1;
                        F12_Which_Of_Animals_or_Seeds=5;
                    }
+
+                   Get_info();
 
                    break;
                case 13:
@@ -3074,6 +3243,8 @@ void Gamepage::on_Barley_pushButton_clicked()
                        F13_Which_Of_Animals_or_Seeds=5;
                    }
 
+                   Get_info();
+
                    break;
                case 14:
 
@@ -3085,6 +3256,8 @@ void Gamepage::on_Barley_pushButton_clicked()
                        F14_Having_Animals_or_Seeds=1;
                        F14_Which_Of_Animals_or_Seeds=5;
                    }
+
+                   Get_info();
 
                    break;
                case 15:
@@ -3098,6 +3271,8 @@ void Gamepage::on_Barley_pushButton_clicked()
                        F15_Which_Of_Animals_or_Seeds=5;
                    }
 
+                   Get_info();
+
                    break;
                case 16:
 
@@ -3110,19 +3285,21 @@ void Gamepage::on_Barley_pushButton_clicked()
                        F16_Which_Of_Animals_or_Seeds=5;
                    }
 
+                   Get_info();
+
                    break;
                case 17:
                    //add to verticall layout
+                   barley->pushButton->move(2000, 10);
                    ui->Seeds_verticalLayout->addWidget(barley->pushButton);
 
-                   break;
-               case 18:
-                   // remove pushbutton
-                   ui->Seeds_verticalLayout->removeWidget(barley->pushButton);
-                   delete barley->pushButton;
+                   Get_info();
+
                    break;
 
                default:
+
+                   Get_info();
                    break;
                }
            }
@@ -3137,6 +3314,7 @@ void Gamepage::on_Barley_pushButton_clicked()
 
 void Gamepage::on_Farmer_pushButton_clicked()
 {
+
     Farmer * farmer = new Farmer(ui->Farmer_verticalLayout);
 
     connect(farmer->pushButton, &QPushButton::clicked, this, [this, farmer](){ QMessageBox msgBox;
@@ -3149,6 +3327,8 @@ void Gamepage::on_Farmer_pushButton_clicked()
         msgBox.setWindowIcon(QIcon("C:/Users/i/Downloads/iran.png"));
 
         msgBox.setIconPixmap(QPixmap("C:/Users/i/Downloads/iran.png"));
+
+
 
         // Add custom buttons
         QHash<QAbstractButton*, int> buttonMap;
@@ -3480,6 +3660,7 @@ void Gamepage::on_Farmer_pushButton_clicked()
 
               button->setText("home");
               button->setMinimumSize(60,40);
+
           }
 
         }
@@ -3488,10 +3669,9 @@ void Gamepage::on_Farmer_pushButton_clicked()
            QAbstractButton* clickedButton = msgBox.clickedButton();
            if (clickedButton) {
                int buttonNumber = buttonMap[clickedButton];
-               qDebug() << "Clicked button: " << buttonNumber;
-               qDebug() << result;
 
                switch(buttonNumber) {
+
                case 1:
 
                    if(F1_Having_Farmer==0){
@@ -3501,6 +3681,8 @@ void Gamepage::on_Farmer_pushButton_clicked()
                        farmer->pushButton->show();
                        F1_Having_Farmer=1;
                    }
+
+                   Get_info();
 
                    break;
                case 2:
@@ -3512,6 +3694,9 @@ void Gamepage::on_Farmer_pushButton_clicked()
                        farmer->pushButton->show();
                        F2_Having_Farmer=1;
                    }
+
+                   Get_info();
+
 
                    break;
                case 3:
@@ -3525,6 +3710,8 @@ void Gamepage::on_Farmer_pushButton_clicked()
                        F3_Having_Farmer=1;
                    }
 
+                   Get_info();
+
                    break;
                case 4:
                    // Perform action for Button 2
@@ -3536,6 +3723,8 @@ void Gamepage::on_Farmer_pushButton_clicked()
                        farmer->pushButton->show();
                        F4_Having_Farmer=1;
                    }
+
+                   Get_info();
 
                    break;
                case 5:
@@ -3549,6 +3738,8 @@ void Gamepage::on_Farmer_pushButton_clicked()
                        F5_Having_Farmer=1;
                    }
 
+                   Get_info();
+
                    break;
                case 6:
                    // Perform action for Button 2
@@ -3560,6 +3751,8 @@ void Gamepage::on_Farmer_pushButton_clicked()
                        farmer->pushButton->show();
                        F6_Having_Farmer=1;
                    }
+
+                   Get_info();
 
 
                    break;
@@ -3574,6 +3767,8 @@ void Gamepage::on_Farmer_pushButton_clicked()
                        F7_Having_Farmer=1;
                    }
 
+                   Get_info();
+
                    break;
                case 8:
                    // Perform action for Button 2
@@ -3585,6 +3780,8 @@ void Gamepage::on_Farmer_pushButton_clicked()
                        farmer->pushButton->show();
                        F8_Having_Farmer=1;
                    }
+
+                   Get_info();
 
                    break;
                case 9:
@@ -3598,6 +3795,8 @@ void Gamepage::on_Farmer_pushButton_clicked()
                        F9_Having_Farmer=1;
                    }
 
+                   Get_info();
+
                    break;
                case 10:
                    // Perform action for Button 2
@@ -3610,6 +3809,8 @@ void Gamepage::on_Farmer_pushButton_clicked()
                        F10_Having_Farmer=1;
                    }
 
+                   Get_info();
+
                    break;
                case 11:
                    // Perform action for Button 2
@@ -3621,6 +3822,7 @@ void Gamepage::on_Farmer_pushButton_clicked()
                        farmer->pushButton->show();
                        F11_Having_Farmer=1;
                    }
+                   Get_info();
 
                    break;
                case 12:
@@ -3634,6 +3836,8 @@ void Gamepage::on_Farmer_pushButton_clicked()
                        F12_Having_Farmer=1;
                    }
 
+                   Get_info();
+
                    break;
                case 13:
                    // Perform action for Button 2
@@ -3645,6 +3849,8 @@ void Gamepage::on_Farmer_pushButton_clicked()
                        farmer->pushButton->show();
                        F13_Having_Farmer=1;
                    }
+
+                   Get_info();
 
                    break;
                case 14:
@@ -3658,6 +3864,8 @@ void Gamepage::on_Farmer_pushButton_clicked()
                        F14_Having_Farmer=1;
                    }
 
+                   Get_info();
+
                    break;
                case 15:
                    // Perform action for Button 2
@@ -3669,6 +3877,8 @@ void Gamepage::on_Farmer_pushButton_clicked()
                        farmer->pushButton->show();
                        F15_Having_Farmer=1;
                    }
+
+                   Get_info();
 
 
                    break;
@@ -3683,23 +3893,35 @@ void Gamepage::on_Farmer_pushButton_clicked()
                        F16_Having_Farmer=1;
                    }
 
+                   Get_info();
+
+
+
                    break;
                case 17:
                    //add to verticall layout
+                   farmer->pushButton->move(2000, 10);
 
                    ui->Farmer_verticalLayout->addWidget(farmer->pushButton);
+
+                   Get_info();
 
                    break;
 
                default:
+                   Get_info();
                    break;
                }
            }
+
         });
 
         msgBox.exec();
 
        });
+
+
+
 }
 
 
@@ -4230,7 +4452,11 @@ void Gamepage::on_pushButton_clicked()
     qDebug() << " F9_Which_Of_Animals_or_Seeds = " << F9_Which_Of_Animals_or_Seeds;
     qDebug() << " F10_Which_Of_Animals_or_Seeds = " << F10_Which_Of_Animals_or_Seeds;
     qDebug() << " F11_Which_Of_Animals_or_Seeds = " << F11_Which_Of_Animals_or_Seeds;
-        qDebug() << "-------------------------------------------------------------";
+    qDebug() << " F12_Which_Of_Animals_or_Seeds = " << F12_Which_Of_Animals_or_Seeds;
+    qDebug() << " F13_Which_Of_Animals_or_Seeds = " << F13_Which_Of_Animals_or_Seeds;
+    qDebug() << " F14_Which_Of_Animals_or_Seeds = " << F14_Which_Of_Animals_or_Seeds;
+    qDebug() << " F15_Which_Of_Animals_or_Seeds = " << F15_Which_Of_Animals_or_Seeds;
+    qDebug() << " F16_Which_Of_Animals_or_Seeds = " << F16_Which_Of_Animals_or_Seeds;
 
     qDebug() << " F1_Having_Animals_or_Seeds = " << F1_Having_Animals_or_Seeds;
     qDebug() << " F2_Having_Animals_or_Seeds = " << F2_Having_Animals_or_Seeds;
@@ -4243,11 +4469,28 @@ void Gamepage::on_pushButton_clicked()
     qDebug() << " F9_Having_Animals_or_Seeds = " << F9_Having_Animals_or_Seeds;
     qDebug() << " F10_Having_Animals_or_Seeds = " << F10_Having_Animals_or_Seeds;
     qDebug() << " F11_Having_Animals_or_Seeds = " << F11_Having_Animals_or_Seeds;
+    qDebug() << " F12_Having_Animals_or_Seeds = " << F12_Having_Animals_or_Seeds;
+    qDebug() << " F13_Having_Animals_or_Seeds = " << F13_Having_Animals_or_Seeds;
+    qDebug() << " F14_Having_Animals_or_Seeds = " << F14_Having_Animals_or_Seeds;
+    qDebug() << " F15_Having_Animals_or_Seeds = " << F15_Having_Animals_or_Seeds;
+    qDebug() << " F16_Having_Animals_or_Seeds = " << F16_Having_Animals_or_Seeds;
 
-
-
-//    qDebug() << " F1_Having_Farmer = " << F1_Having_Farmer;
-//    qDebug() << " F2_Having_Farmer = " << F2_Having_Farmer;
+    qDebug() << " F1_Having_Farmer = " << F1_Having_Farmer;
+    qDebug() << " F2_Having_Farmer = " << F2_Having_Farmer;
+    qDebug() << " F3_Having_Farmer = " << F3_Having_Farmer;
+    qDebug() << " F4_Having_Farmer = " << F4_Having_Farmer;
+    qDebug() << " F5_Having_Farmer = " << F5_Having_Farmer;
+    qDebug() << " F6_Having_Farmer = " << F6_Having_Farmer;
+    qDebug() << " F7_Having_Farmer = " << F7_Having_Farmer;
+    qDebug() << " F8_Having_Farmer = " << F8_Having_Farmer;
+    qDebug() << " F9_Having_Farmer = " << F9_Having_Farmer;
+    qDebug() << " F10_Having_Farmer = " << F10_Having_Farmer;
+    qDebug() << " F11_Having_Farmer = " << F11_Having_Farmer;
+    qDebug() << " F12_Having_Farmer = " << F12_Having_Farmer;
+    qDebug() << " F13_Having_Farmer = " << F13_Having_Farmer;
+    qDebug() << " F14_Having_Farmer = " << F14_Having_Farmer;
+    qDebug() << " F15_Having_Farmer = " << F15_Having_Farmer;
+    qDebug() << " F16_Having_Farmer = " << F16_Having_Farmer;
     qDebug() << "*****-------------------------------------------------------------*****";
 
 
@@ -4261,10 +4504,23 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     if(check(pos1)==true){
 
         F1_Having_Farmer=0;
+
+        if((F1_Having_Farmer==0 && F1_Having_Animals_or_Seeds==0) || (F1_Having_Farmer==0 && F1_Having_Animals_or_Seeds==1)){
+
+            ui->Start->hide();
+        }
+
     }
     if(check(pos1)==false){
 
         F1_Having_Farmer=1;
+        if(F1_Having_Farmer==1 && F1_Having_Animals_or_Seeds==1){
+
+            ui->Start->show();
+        }else if(F1_Having_Farmer==1 && F1_Having_Animals_or_Seeds==0){
+
+            ui->Start->hide();
+        }
     }
 
     QPoint pos2(600, 160);
@@ -4272,10 +4528,21 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     if(check(pos2)==true){
 
         F2_Having_Farmer=0;
+        if((F2_Having_Farmer==0 && F2_Having_Animals_or_Seeds==0) || (F2_Having_Farmer==0 && F2_Having_Animals_or_Seeds==1)){
+
+            ui->Start_2->hide();
+        }
     }
     if(check(pos2)==false){
 
         F2_Having_Farmer=1;
+        if(F2_Having_Farmer==1 && F2_Having_Animals_or_Seeds==1){
+
+            ui->Start_2->show();
+        }else if(F2_Having_Farmer==1 && F2_Having_Animals_or_Seeds==0){
+
+            ui->Start_2->hide();
+        }
     }
 
     QPoint pos3(1320, 160);
@@ -4283,10 +4550,21 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     if(check(pos3)==true){
 
         F3_Having_Farmer=0;
+        if((F3_Having_Farmer==0 && F3_Having_Animals_or_Seeds==0) || (F3_Having_Farmer==0 && F3_Having_Animals_or_Seeds==1)){
+
+            ui->Start_3->hide();
+        }
     }
     if(check(pos3)==false){
 
         F3_Having_Farmer=1;
+        if(F3_Having_Farmer==1 && F3_Having_Animals_or_Seeds==1){
+
+            ui->Start_3->show();
+        }else if(F3_Having_Farmer==1 && F3_Having_Animals_or_Seeds==0){
+
+            ui->Start_3->hide();
+        }
     }
 
     QPoint pos4(1710, 160);
@@ -4294,10 +4572,21 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     if(check(pos4)==true){
 
         F4_Having_Farmer=0;
+        if((F4_Having_Farmer==0 && F4_Having_Animals_or_Seeds==0) || (F4_Having_Farmer==0 && F4_Having_Animals_or_Seeds==1)){
+
+            ui->Start_4->hide();
+        }
     }
     if(check(pos4)==false){
 
         F4_Having_Farmer=1;
+        if(F4_Having_Farmer==1 && F4_Having_Animals_or_Seeds==1){
+
+            ui->Start_4->show();
+        }else if(F4_Having_Farmer==1 && F4_Having_Animals_or_Seeds==0){
+
+            ui->Start_4->hide();
+        }
     }
 
     QPoint pos5(210, 390);
@@ -4305,10 +4594,21 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     if(check(pos5)==true){
 
         F5_Having_Farmer=0;
+        if((F5_Having_Farmer==0 && F5_Having_Animals_or_Seeds==0) || (F5_Having_Farmer==0 && F5_Having_Animals_or_Seeds==1)){
+
+            ui->Start_5->hide();
+        }
     }
     if(check(pos5)==false){
 
         F5_Having_Farmer=1;
+        if(F5_Having_Farmer==1 && F5_Having_Animals_or_Seeds==1){
+
+            ui->Start_5->show();
+        }else if(F5_Having_Farmer==1 && F5_Having_Animals_or_Seeds==0){
+
+            ui->Start_5->hide();
+        }
     }
 
     QPoint pos6(600, 390);
@@ -4316,10 +4616,21 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     if(check(pos6)==true){
 
         F6_Having_Farmer=0;
+        if((F6_Having_Farmer==0 && F6_Having_Animals_or_Seeds==0) || (F6_Having_Farmer==0 && F6_Having_Animals_or_Seeds==1)){
+
+            ui->Start_6->hide();
+        }
     }
     if(check(pos6)==false){
 
         F6_Having_Farmer=1;
+        if(F6_Having_Farmer==1 && F6_Having_Animals_or_Seeds==1){
+
+            ui->Start_6->show();
+        }else if(F6_Having_Farmer==1 && F6_Having_Animals_or_Seeds==0){
+
+            ui->Start_6->hide();
+        }
     }
 
     QPoint pos7(1320, 390);
@@ -4327,10 +4638,21 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     if(check(pos7)==true){
 
         F7_Having_Farmer=0;
+        if((F7_Having_Farmer==0 && F7_Having_Animals_or_Seeds==0) || (F7_Having_Farmer==0 && F7_Having_Animals_or_Seeds==1)){
+
+            ui->Start_7->hide();
+        }
     }
     if(check(pos7)==false){
 
         F7_Having_Farmer=1;
+        if(F7_Having_Farmer==1 && F7_Having_Animals_or_Seeds==1){
+
+            ui->Start_2->show();
+        }else if(F7_Having_Farmer==1 && F7_Having_Animals_or_Seeds==0){
+
+            ui->Start_7->hide();
+        }
     }
 
     QPoint pos8(1710, 390);
@@ -4338,10 +4660,21 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     if(check(pos8)==true){
 
         F8_Having_Farmer=0;
+        if((F8_Having_Farmer==0 && F8_Having_Animals_or_Seeds==0) || (F8_Having_Farmer==0 && F8_Having_Animals_or_Seeds==1)){
+
+            ui->Start_8->hide();
+        }
     }
     if(check(pos8)==false){
 
         F8_Having_Farmer=1;
+        if(F8_Having_Farmer==1 && F8_Having_Animals_or_Seeds==1){
+
+            ui->Start_8->show();
+        }else if(F8_Having_Farmer==1 && F8_Having_Animals_or_Seeds==0){
+
+            ui->Start_8->hide();
+        }
     }
 
     QPoint pos9(210, 620);
@@ -4349,10 +4682,21 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     if(check(pos9)==true){
 
         F9_Having_Farmer=0;
+        if((F9_Having_Farmer==0 && F9_Having_Animals_or_Seeds==0) || (F9_Having_Farmer==0 && F9_Having_Animals_or_Seeds==1)){
+
+            ui->Start_9->hide();
+        }
     }
     if(check(pos9)==false){
 
         F9_Having_Farmer=1;
+        if(F9_Having_Farmer==1 && F9_Having_Animals_or_Seeds==1){
+
+            ui->Start_9->show();
+        }else if(F9_Having_Farmer==1 && F9_Having_Animals_or_Seeds==0){
+
+            ui->Start_9->hide();
+        }
     }
 
     QPoint pos10(600, 620);
@@ -4360,10 +4704,21 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     if(check(pos10)==true){
 
         F10_Having_Farmer=0;
+        if((F10_Having_Farmer==0 && F10_Having_Animals_or_Seeds==0) || (F10_Having_Farmer==0 && F10_Having_Animals_or_Seeds==1)){
+
+            ui->Start_10->hide();
+        }
     }
     if(check(pos10)==false){
 
         F10_Having_Farmer=1;
+        if(F10_Having_Farmer==1 && F10_Having_Animals_or_Seeds==1){
+
+            ui->Start_10->show();
+        }else if(F10_Having_Farmer==1 && F10_Having_Animals_or_Seeds==0){
+
+            ui->Start_10->hide();
+        }
     }
 
     QPoint pos11(1320, 620);
@@ -4371,10 +4726,21 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     if(check(pos11)==true){
 
         F11_Having_Farmer=0;
+        if((F11_Having_Farmer==0 && F11_Having_Animals_or_Seeds==0) || (F11_Having_Farmer==0 && F11_Having_Animals_or_Seeds==1)){
+
+            ui->Start_11->hide();
+        }
     }
     if(check(pos11)==false){
 
         F11_Having_Farmer=1;
+        if(F11_Having_Farmer==1 && F11_Having_Animals_or_Seeds==1){
+
+            ui->Start_11->show();
+        }else if(F11_Having_Farmer==1 && F11_Having_Animals_or_Seeds==0){
+
+            ui->Start_11->hide();
+        }
     }
 
     QPoint pos12(1710, 620);
@@ -4382,10 +4748,21 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     if(check(pos12)==true){
 
         F12_Having_Farmer=0;
+        if((F12_Having_Farmer==0 && F12_Having_Animals_or_Seeds==0) || (F12_Having_Farmer==0 && F12_Having_Animals_or_Seeds==1)){
+
+            ui->Start_12->hide();
+        }
     }
     if(check(pos12)==false){
 
         F12_Having_Farmer=1;
+        if(F12_Having_Farmer==1 && F12_Having_Animals_or_Seeds==1){
+
+            ui->Start_12->show();
+        }else if(F12_Having_Farmer==1 && F12_Having_Animals_or_Seeds==0){
+
+            ui->Start_12->hide();
+        }
     }
 
     QPoint pos13(210, 850);
@@ -4393,10 +4770,21 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     if(check(pos13)==true){
 
         F13_Having_Farmer=0;
+        if((F13_Having_Farmer==0 && F13_Having_Animals_or_Seeds==0) || (F13_Having_Farmer==0 && F13_Having_Animals_or_Seeds==1)){
+
+            ui->Start_13->hide();
+        }
     }
     if(check(pos13)==false){
 
         F13_Having_Farmer=1;
+        if(F13_Having_Farmer==1 && F13_Having_Animals_or_Seeds==1){
+
+            ui->Start_13->show();
+        }else if(F13_Having_Farmer==1 && F13_Having_Animals_or_Seeds==0){
+
+            ui->Start_13->hide();
+        }
     }
 
     QPoint pos14(600, 850);
@@ -4404,10 +4792,21 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     if(check(pos14)==true){
 
         F14_Having_Farmer=0;
+        if((F14_Having_Farmer==0 && F14_Having_Animals_or_Seeds==0) || (F14_Having_Farmer==0 && F14_Having_Animals_or_Seeds==1)){
+
+            ui->Start_14->hide();
+        }
     }
     if(check(pos14)==false){
 
         F14_Having_Farmer=1;
+        if(F14_Having_Farmer==1 && F14_Having_Animals_or_Seeds==1){
+
+            ui->Start_14->show();
+        }else if(F14_Having_Farmer==1 && F14_Having_Animals_or_Seeds==0){
+
+            ui->Start_14->hide();
+        }
     }
 
     QPoint pos15(1320, 850);
@@ -4415,10 +4814,21 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     if(check(pos15)==true){
 
         F15_Having_Farmer=0;
+        if((F15_Having_Farmer==0 && F15_Having_Animals_or_Seeds==0) || (F15_Having_Farmer==0 && F15_Having_Animals_or_Seeds==1)){
+
+            ui->Start_15->hide();
+        }
     }
     if(check(pos15)==false){
 
         F15_Having_Farmer=1;
+        if(F15_Having_Farmer==1 && F15_Having_Animals_or_Seeds==1){
+
+            ui->Start_15->show();
+        }else if(F15_Having_Farmer==1 && F15_Having_Animals_or_Seeds==0){
+
+            ui->Start_15->hide();
+        }
     }
 
     QPoint pos16(1710, 850);
@@ -4426,10 +4836,21 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     if(check(pos16)==true){
 
         F16_Having_Farmer=0;
+        if((F16_Having_Farmer==0 && F16_Having_Animals_or_Seeds==0) || (F16_Having_Farmer==0 && F16_Having_Animals_or_Seeds==1)){
+
+            ui->Start_16->hide();
+        }
     }
     if(check(pos16)==false){
 
         F16_Having_Farmer=1;
+        if(F16_Having_Farmer==1 && F16_Having_Animals_or_Seeds==1){
+
+            ui->Start_16->show();
+        }else if(F16_Having_Farmer==1 && F16_Having_Animals_or_Seeds==0){
+
+            ui->Start_16->hide();
+        }
     }
 }
 
@@ -4442,6 +4863,445 @@ QPushButton * Gamepage::check2(QPoint pos)
            }
        }
        return nullptr;
+}
+
+void Gamepage::Get_info()
+{
+
+    QPoint Pos(150, 180);
+
+    QPushButton* buttonAtPos = this->check2(Pos);
+    if (buttonAtPos != nullptr) {
+
+       if (buttonAtPos->objectName() == "Chicken") {
+           F1_Which_Of_Animals_or_Seeds=1;
+
+       } else if (buttonAtPos->objectName() == "Sheep") {
+           F1_Which_Of_Animals_or_Seeds=2;
+
+       } else if (buttonAtPos->objectName() == "Cow") {
+           F1_Which_Of_Animals_or_Seeds=3;
+
+       } else if (buttonAtPos->objectName() == "Wheat") {
+           F1_Which_Of_Animals_or_Seeds=4;
+
+       } else if (buttonAtPos->objectName() == "Barley") {
+           F1_Which_Of_Animals_or_Seeds=5;
+
+       }
+    }else if(buttonAtPos == nullptr){
+
+        F1_Which_Of_Animals_or_Seeds=0;
+        F1_Having_Animals_or_Seeds=0;
+    }
+
+    QPoint Pos2(540, 180);
+
+    QPushButton* buttonAtPos2 = this->check2(Pos2);
+    if (buttonAtPos2 != nullptr) {
+
+       if (buttonAtPos2->objectName() == "Chicken") {
+           F2_Which_Of_Animals_or_Seeds=1;
+
+       } else if (buttonAtPos2->objectName() == "Sheep") {
+           F2_Which_Of_Animals_or_Seeds=2;
+
+       } else if (buttonAtPos2->objectName() == "Cow") {
+           F2_Which_Of_Animals_or_Seeds=3;
+
+       } else if (buttonAtPos2->objectName() == "Wheat") {
+           F2_Which_Of_Animals_or_Seeds=4;
+
+       } else if (buttonAtPos2->objectName() == "Barley") {
+           F2_Which_Of_Animals_or_Seeds=5;
+
+       }
+    }else if(buttonAtPos2 == nullptr){
+
+        F2_Which_Of_Animals_or_Seeds=0;
+        F2_Having_Animals_or_Seeds=0;
+    }
+
+    QPoint Pos3(1260, 180);
+
+    QPushButton* buttonAtPos3 = this->check2(Pos3);
+    if (buttonAtPos3 != nullptr) {
+
+       if (buttonAtPos3->objectName() == "Chicken") {
+           F3_Which_Of_Animals_or_Seeds=1;
+
+       } else if (buttonAtPos3->objectName() == "Sheep") {
+           F3_Which_Of_Animals_or_Seeds=2;
+
+       } else if (buttonAtPos3->objectName() == "Cow") {
+           F3_Which_Of_Animals_or_Seeds=3;
+
+       } else if (buttonAtPos3->objectName() == "Wheat") {
+           F3_Which_Of_Animals_or_Seeds=4;
+
+       } else if (buttonAtPos3->objectName() == "Barley") {
+           F3_Which_Of_Animals_or_Seeds=5;
+
+       }
+    }else if(buttonAtPos3 == nullptr){
+
+        F3_Which_Of_Animals_or_Seeds=0;
+        F3_Having_Animals_or_Seeds=0;
+    }
+
+    QPoint Pos4(1650, 180);
+
+    QPushButton* buttonAtPos4 = this->check2(Pos4);
+    if (buttonAtPos4 != nullptr) {
+
+       if (buttonAtPos4->objectName() == "Chicken") {
+           F4_Which_Of_Animals_or_Seeds=1;
+
+       } else if (buttonAtPos4->objectName() == "Sheep") {
+           F4_Which_Of_Animals_or_Seeds=2;
+
+       } else if (buttonAtPos4->objectName() == "Cow") {
+           F4_Which_Of_Animals_or_Seeds=3;
+
+       } else if (buttonAtPos4->objectName() == "Wheat") {
+           F4_Which_Of_Animals_or_Seeds=4;
+
+       } else if (buttonAtPos4->objectName() == "Barley") {
+           F4_Which_Of_Animals_or_Seeds=5;
+
+       }
+    }else if(buttonAtPos4 == nullptr){
+
+        F4_Which_Of_Animals_or_Seeds=0;
+        F4_Having_Animals_or_Seeds=0;
+    }
+
+    QPoint Pos5(150, 410);
+
+    QPushButton* buttonAtPos5 = this->check2(Pos5);
+    if (buttonAtPos5 != nullptr) {
+
+       if (buttonAtPos5->objectName() == "Chicken") {
+           F5_Which_Of_Animals_or_Seeds=1;
+
+       } else if (buttonAtPos5->objectName() == "Sheep") {
+           F5_Which_Of_Animals_or_Seeds=2;
+
+       } else if (buttonAtPos5->objectName() == "Cow") {
+           F5_Which_Of_Animals_or_Seeds=3;
+
+       } else if (buttonAtPos5->objectName() == "Wheat") {
+           F5_Which_Of_Animals_or_Seeds=4;
+
+       } else if (buttonAtPos5->objectName() == "Barley") {
+           F5_Which_Of_Animals_or_Seeds=5;
+
+       }
+    }else if(buttonAtPos5 == nullptr){
+
+        F5_Which_Of_Animals_or_Seeds=0;
+        F5_Having_Animals_or_Seeds=0;
+    }
+
+    QPoint Pos6(540, 410);
+
+    QPushButton* buttonAtPos6 = this->check2(Pos6);
+    if (buttonAtPos6 != nullptr) {
+
+       if (buttonAtPos6->objectName() == "Chicken") {
+           F6_Which_Of_Animals_or_Seeds=1;
+
+       } else if (buttonAtPos6->objectName() == "Sheep") {
+           F6_Which_Of_Animals_or_Seeds=2;
+
+       } else if (buttonAtPos6->objectName() == "Cow") {
+           F6_Which_Of_Animals_or_Seeds=3;
+
+       } else if (buttonAtPos6->objectName() == "Wheat") {
+           F6_Which_Of_Animals_or_Seeds=4;
+
+       } else if (buttonAtPos6->objectName() == "Barley") {
+           F6_Which_Of_Animals_or_Seeds=5;
+
+       }
+    }else if(buttonAtPos6 == nullptr){
+
+        F6_Which_Of_Animals_or_Seeds=0;
+        F6_Having_Animals_or_Seeds=0;
+    }
+
+    QPoint Pos7(1260, 410);
+
+    QPushButton* buttonAtPos7 = this->check2(Pos7);
+    if (buttonAtPos7 != nullptr) {
+
+       if (buttonAtPos7->objectName() == "Chicken") {
+           F7_Which_Of_Animals_or_Seeds=1;
+
+       } else if (buttonAtPos7->objectName() == "Sheep") {
+           F7_Which_Of_Animals_or_Seeds=2;
+
+       } else if (buttonAtPos7->objectName() == "Cow") {
+           F7_Which_Of_Animals_or_Seeds=3;
+
+       } else if (buttonAtPos7->objectName() == "Wheat") {
+           F7_Which_Of_Animals_or_Seeds=4;
+
+       } else if (buttonAtPos7->objectName() == "Barley") {
+           F7_Which_Of_Animals_or_Seeds=5;
+
+       }
+    }else if(buttonAtPos7 == nullptr){
+
+        F7_Which_Of_Animals_or_Seeds=0;
+        F7_Having_Animals_or_Seeds=0;
+    }
+
+    QPoint Pos8(1650, 410);
+
+    QPushButton* buttonAtPos8 = this->check2(Pos8);
+    if (buttonAtPos8 != nullptr) {
+
+       if (buttonAtPos8->objectName() == "Chicken") {
+           F8_Which_Of_Animals_or_Seeds=1;
+
+       } else if (buttonAtPos8->objectName() == "Sheep") {
+           F8_Which_Of_Animals_or_Seeds=2;
+
+       } else if (buttonAtPos8->objectName() == "Cow") {
+           F8_Which_Of_Animals_or_Seeds=3;
+
+       } else if (buttonAtPos8->objectName() == "Wheat") {
+           F8_Which_Of_Animals_or_Seeds=4;
+
+       } else if (buttonAtPos8->objectName() == "Barley") {
+           F8_Which_Of_Animals_or_Seeds=5;
+
+       }
+    }else if(buttonAtPos8 == nullptr){
+
+        F8_Which_Of_Animals_or_Seeds=0;
+        F8_Having_Animals_or_Seeds=0;
+    }
+
+    QPoint Pos9(150, 640);
+
+    QPushButton* buttonAtPos9 = this->check2(Pos9);
+    if (buttonAtPos9 != nullptr) {
+
+       if (buttonAtPos9->objectName() == "Chicken") {
+           F9_Which_Of_Animals_or_Seeds=1;
+
+       } else if (buttonAtPos9->objectName() == "Sheep") {
+           F9_Which_Of_Animals_or_Seeds=2;
+
+       } else if (buttonAtPos9->objectName() == "Cow") {
+           F9_Which_Of_Animals_or_Seeds=3;
+
+       } else if (buttonAtPos9->objectName() == "Wheat") {
+           F9_Which_Of_Animals_or_Seeds=4;
+
+       } else if (buttonAtPos9->objectName() == "Barley") {
+           F9_Which_Of_Animals_or_Seeds=5;
+
+       }
+    }else if(buttonAtPos9 == nullptr){
+
+        F9_Which_Of_Animals_or_Seeds=0;
+        F9_Having_Animals_or_Seeds=0;
+    }
+
+    QPoint Pos10(540, 640);
+
+    QPushButton* buttonAtPos10 = this->check2(Pos10);
+    if (buttonAtPos10 != nullptr) {
+
+       if (buttonAtPos10->objectName() == "Chicken") {
+           F10_Which_Of_Animals_or_Seeds=1;
+
+       } else if (buttonAtPos10->objectName() == "Sheep") {
+           F10_Which_Of_Animals_or_Seeds=2;
+
+       } else if (buttonAtPos10->objectName() == "Cow") {
+           F10_Which_Of_Animals_or_Seeds=3;
+
+       } else if (buttonAtPos10->objectName() == "Wheat") {
+           F10_Which_Of_Animals_or_Seeds=4;
+
+       } else if (buttonAtPos10->objectName() == "Barley") {
+           F10_Which_Of_Animals_or_Seeds=5;
+
+       }
+    }else if(buttonAtPos10 == nullptr){
+
+        F10_Which_Of_Animals_or_Seeds=0;
+        F10_Having_Animals_or_Seeds=0;
+    }
+
+    QPoint Pos11(1260, 640);
+
+    QPushButton* buttonAtPos11 = this->check2(Pos11);
+    if (buttonAtPos11 != nullptr) {
+
+       if (buttonAtPos11->objectName() == "Chicken") {
+           F11_Which_Of_Animals_or_Seeds=1;
+
+       } else if (buttonAtPos11->objectName() == "Sheep") {
+           F11_Which_Of_Animals_or_Seeds=2;
+
+       } else if (buttonAtPos11->objectName() == "Cow") {
+           F11_Which_Of_Animals_or_Seeds=3;
+
+       } else if (buttonAtPos11->objectName() == "Wheat") {
+           F11_Which_Of_Animals_or_Seeds=4;
+
+       } else if (buttonAtPos11->objectName() == "Barley") {
+           F11_Which_Of_Animals_or_Seeds=5;
+
+       }
+    }else if(buttonAtPos11 == nullptr){
+
+        F11_Which_Of_Animals_or_Seeds=0;
+        F11_Having_Animals_or_Seeds=0;
+    }
+
+    QPoint Pos12(1650, 640);
+
+    QPushButton* buttonAtPos12 = this->check2(Pos12);
+    if (buttonAtPos12 != nullptr) {
+
+       if (buttonAtPos12->objectName() == "Chicken") {
+           F12_Which_Of_Animals_or_Seeds=1;
+
+       } else if (buttonAtPos12->objectName() == "Sheep") {
+           F12_Which_Of_Animals_or_Seeds=2;
+
+       } else if (buttonAtPos12->objectName() == "Cow") {
+           F12_Which_Of_Animals_or_Seeds=3;
+
+       } else if (buttonAtPos12->objectName() == "Wheat") {
+           F12_Which_Of_Animals_or_Seeds=4;
+
+       } else if (buttonAtPos12->objectName() == "Barley") {
+           F12_Which_Of_Animals_or_Seeds=5;
+
+       }
+    }else if(buttonAtPos12 == nullptr){
+
+        F12_Which_Of_Animals_or_Seeds=0;
+        F12_Having_Animals_or_Seeds=0;
+    }
+
+    QPoint Pos13(150, 870);
+
+    QPushButton* buttonAtPos13 = this->check2(Pos13);
+    if (buttonAtPos13 != nullptr) {
+
+       if (buttonAtPos13->objectName() == "Chicken") {
+           F13_Which_Of_Animals_or_Seeds=1;
+
+       } else if (buttonAtPos13->objectName() == "Sheep") {
+           F13_Which_Of_Animals_or_Seeds=2;
+
+       } else if (buttonAtPos13->objectName() == "Cow") {
+           F13_Which_Of_Animals_or_Seeds=3;
+
+       } else if (buttonAtPos13->objectName() == "Wheat") {
+           F13_Which_Of_Animals_or_Seeds=4;
+
+       } else if (buttonAtPos13->objectName() == "Barley") {
+           F13_Which_Of_Animals_or_Seeds=5;
+
+       }
+    }else if(buttonAtPos13 == nullptr){
+
+        F13_Which_Of_Animals_or_Seeds=0;
+        F13_Having_Animals_or_Seeds=0;
+    }
+
+    QPoint Pos14(540, 870);
+
+    QPushButton* buttonAtPos14 = this->check2(Pos14);
+    if (buttonAtPos14 != nullptr) {
+
+       if (buttonAtPos14->objectName() == "Chicken") {
+           F14_Which_Of_Animals_or_Seeds=1;
+
+       } else if (buttonAtPos14->objectName() == "Sheep") {
+           F14_Which_Of_Animals_or_Seeds=2;
+
+       } else if (buttonAtPos14->objectName() == "Cow") {
+           F14_Which_Of_Animals_or_Seeds=3;
+
+       } else if (buttonAtPos14->objectName() == "Wheat") {
+           F14_Which_Of_Animals_or_Seeds=4;
+
+       } else if (buttonAtPos14->objectName() == "Barley") {
+           F14_Which_Of_Animals_or_Seeds=5;
+
+       }
+    }else if(buttonAtPos14 == nullptr){
+
+        F14_Which_Of_Animals_or_Seeds=0;
+        F14_Having_Animals_or_Seeds=0;
+    }
+
+    QPoint Pos15(1260, 870);
+
+    QPushButton* buttonAtPos15 = this->check2(Pos15);
+    if (buttonAtPos15 != nullptr) {
+
+       if (buttonAtPos15->objectName() == "Chicken") {
+           F15_Which_Of_Animals_or_Seeds=1;
+
+       } else if (buttonAtPos15->objectName() == "Sheep") {
+           F15_Which_Of_Animals_or_Seeds=2;
+
+       } else if (buttonAtPos15->objectName() == "Cow") {
+           F15_Which_Of_Animals_or_Seeds=3;
+
+       } else if (buttonAtPos15->objectName() == "Wheat") {
+           F15_Which_Of_Animals_or_Seeds=4;
+
+       } else if (buttonAtPos15->objectName() == "Barley") {
+           F15_Which_Of_Animals_or_Seeds=5;
+
+       }
+    }else if(buttonAtPos15 == nullptr){
+
+        F15_Which_Of_Animals_or_Seeds=0;
+        F15_Having_Animals_or_Seeds=0;
+    }
+
+    QPoint Pos16(1650, 870);
+
+    QPushButton* buttonAtPos16 = this->check2(Pos16);
+    if (buttonAtPos16 != nullptr) {
+
+       if (buttonAtPos16->objectName() == "Chicken") {
+           F16_Which_Of_Animals_or_Seeds=1;
+
+       } else if (buttonAtPos16->objectName() == "Sheep") {
+           F16_Which_Of_Animals_or_Seeds=2;
+
+       } else if (buttonAtPos16->objectName() == "Cow") {
+           F16_Which_Of_Animals_or_Seeds=3;
+
+       } else if (buttonAtPos16->objectName() == "Wheat") {
+           F16_Which_Of_Animals_or_Seeds=4;
+
+       } else if (buttonAtPos16->objectName() == "Barley") {
+           F16_Which_Of_Animals_or_Seeds=5;
+
+       }
+    }else if(buttonAtPos16 == nullptr){
+
+        F16_Which_Of_Animals_or_Seeds=0;
+        F16_Having_Animals_or_Seeds=0;
+    }
+
+    check_our_farm_have_farmer_or_not();
+
 }
 
 

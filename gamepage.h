@@ -41,6 +41,8 @@ private slots:
 
     QPushButton * check2(QPoint pos);
 
+    void Get_info();
+
 private:
     Ui::Gamepage *ui;
 
