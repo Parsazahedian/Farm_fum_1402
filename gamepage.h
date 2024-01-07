@@ -3,6 +3,16 @@
 
 #include <QMainWindow>
 #include "QPushButton"
+#include "QLayoutItem"
+#include "QLayout"
+#include "animals.h"
+#include "chicken.h"
+#include "sheep.h"
+#include "cow.h"
+#include "wheat.h"
+#include "barley.h"
+
+extern Chicken * ch1; extern Sheep * sheep1; extern Cow * cow1; extern Wheat * wheat1; extern Barley * barley1;
 
 namespace Ui {
 class Gamepage;
@@ -35,13 +45,27 @@ private slots:
 
     bool check(QPoint pos);
 
-    void on_pushButton_clicked();
-
     void check_our_farm_have_farmer_or_not();
 
     QPushButton * check2(QPoint pos);
 
     void Get_info();
+
+    void on_Start_clicked();
+
+    void clearLayout(QLayout *layout);
+
+    void on_Cancel_clicked();
+
+    void on_the_product_of_chicken_pushButton_clicked();
+
+    void on_the_product_of_sheep_pushButton_clicked();
+
+    void on_the_product_of_cow_pushButton_clicked();
+
+    void on_the_product_of_wheat_pushButton_clicked();
+
+    void on_the_product_of_barley_pushButton_clicked();
 
 private:
     Ui::Gamepage *ui;

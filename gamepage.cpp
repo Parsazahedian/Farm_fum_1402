@@ -8,6 +8,12 @@
 #include "barley.h"
 #include "farmer.h"
 #include "QMessageBox"
+#include "animals.h"
+#include "seeds.h"
+
+int score=10;
+
+Chicken * ch1; Sheep * sheep1; Cow * cow1;  Wheat * wheat1;  Barley * barley1;
 
 Gamepage::Gamepage(QWidget *parent) :
     QMainWindow(parent),
@@ -15,10 +21,25 @@ Gamepage::Gamepage(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    ui->the_product_of_sheep_pushButton->move(160, 137);
+    ui->the_product_of_cow_pushButton->move(160, 137);
+    ui->the_product_of_wheat_pushButton->move(160, 137);
+    ui->the_product_of_barley_pushButton->move(160, 137);
+
     setMinimumSize(1908,978);
     setMaximumSize(1908,978);
 
     ui->groupBox->hide();
+
+    ui->label_Score->setText( "Score :" + QString::number(score));
+
+    ui->the_product_of_chicken_pushButton->hide();
+    ui->the_product_of_sheep_pushButton->hide();
+    ui->the_product_of_cow_pushButton->hide();
+    ui->the_product_of_wheat_pushButton->hide();
+    ui->the_product_of_barley_pushButton->hide();
+
+    ui->timer_label->hide();
     ui->Start->hide();
     ui->Start_2->hide();
     ui->Start_3->hide();
@@ -35,6 +56,23 @@ Gamepage::Gamepage(QWidget *parent) :
     ui->Start_14->hide();
     ui->Start_15->hide();
     ui->Start_16->hide();
+
+    ui->Cancel->hide();
+    ui->Cancel_2->hide();
+    ui->Cancel_3->hide();
+    ui->Cancel_4->hide();
+    ui->Cancel_5->hide();
+    ui->Cancel_6->hide();
+    ui->Cancel_7->hide();
+    ui->Cancel_8->hide();
+    ui->Cancel_9->hide();
+    ui->Cancel_10->hide();
+    ui->Cancel_11->hide();
+    ui->Cancel_12->hide();
+    ui->Cancel_13->hide();
+    ui->Cancel_14->hide();
+    ui->Cancel_15->hide();
+    ui->Cancel_16->hide();
 
     ui->label_2->hide();
     ui->label_3->hide();
@@ -4002,501 +4040,6 @@ bool Gamepage::check(QPoint pos)
     return true;
 }
 
-
-void Gamepage::on_pushButton_clicked()
-{
-
-    QPoint Pos(150, 180);
-
-    QPushButton* buttonAtPos = this->check2(Pos);
-    if (buttonAtPos != nullptr) {
-
-       if (buttonAtPos->objectName() == "Chicken") {
-           F1_Which_Of_Animals_or_Seeds=1;
-
-       } else if (buttonAtPos->objectName() == "Sheep") {
-           F1_Which_Of_Animals_or_Seeds=2;
-
-       } else if (buttonAtPos->objectName() == "Cow") {
-           F1_Which_Of_Animals_or_Seeds=3;
-
-       } else if (buttonAtPos->objectName() == "Wheat") {
-           F1_Which_Of_Animals_or_Seeds=4;
-
-       } else if (buttonAtPos->objectName() == "Barley") {
-           F1_Which_Of_Animals_or_Seeds=5;
-
-       }
-    }else if(buttonAtPos == nullptr){
-
-        F1_Which_Of_Animals_or_Seeds=0;
-        F1_Having_Animals_or_Seeds=0;
-    }
-
-    QPoint Pos2(540, 180);
-
-    QPushButton* buttonAtPos2 = this->check2(Pos2);
-    if (buttonAtPos2 != nullptr) {
-
-       if (buttonAtPos2->objectName() == "Chicken") {
-           F2_Which_Of_Animals_or_Seeds=1;
-
-       } else if (buttonAtPos2->objectName() == "Sheep") {
-           F2_Which_Of_Animals_or_Seeds=2;
-
-       } else if (buttonAtPos2->objectName() == "Cow") {
-           F2_Which_Of_Animals_or_Seeds=3;
-
-       } else if (buttonAtPos2->objectName() == "Wheat") {
-           F2_Which_Of_Animals_or_Seeds=4;
-
-       } else if (buttonAtPos2->objectName() == "Barley") {
-           F2_Which_Of_Animals_or_Seeds=5;
-
-       }
-    }else if(buttonAtPos2 == nullptr){
-
-        F2_Which_Of_Animals_or_Seeds=0;
-        F2_Having_Animals_or_Seeds=0;
-    }
-
-    QPoint Pos3(1260, 180);
-
-    QPushButton* buttonAtPos3 = this->check2(Pos3);
-    if (buttonAtPos3 != nullptr) {
-
-       if (buttonAtPos3->objectName() == "Chicken") {
-           F3_Which_Of_Animals_or_Seeds=1;
-
-       } else if (buttonAtPos3->objectName() == "Sheep") {
-           F3_Which_Of_Animals_or_Seeds=2;
-
-       } else if (buttonAtPos3->objectName() == "Cow") {
-           F3_Which_Of_Animals_or_Seeds=3;
-
-       } else if (buttonAtPos3->objectName() == "Wheat") {
-           F3_Which_Of_Animals_or_Seeds=4;
-
-       } else if (buttonAtPos3->objectName() == "Barley") {
-           F3_Which_Of_Animals_or_Seeds=5;
-
-       }
-    }else if(buttonAtPos3 == nullptr){
-
-        F3_Which_Of_Animals_or_Seeds=0;
-        F3_Having_Animals_or_Seeds=0;
-    }
-
-    QPoint Pos4(1650, 180);
-
-    QPushButton* buttonAtPos4 = this->check2(Pos4);
-    if (buttonAtPos4 != nullptr) {
-
-       if (buttonAtPos4->objectName() == "Chicken") {
-           F4_Which_Of_Animals_or_Seeds=1;
-
-       } else if (buttonAtPos4->objectName() == "Sheep") {
-           F4_Which_Of_Animals_or_Seeds=2;
-
-       } else if (buttonAtPos4->objectName() == "Cow") {
-           F4_Which_Of_Animals_or_Seeds=3;
-
-       } else if (buttonAtPos4->objectName() == "Wheat") {
-           F4_Which_Of_Animals_or_Seeds=4;
-
-       } else if (buttonAtPos4->objectName() == "Barley") {
-           F4_Which_Of_Animals_or_Seeds=5;
-
-       }
-    }else if(buttonAtPos4 == nullptr){
-
-        F4_Which_Of_Animals_or_Seeds=0;
-        F4_Having_Animals_or_Seeds=0;
-    }
-
-    QPoint Pos5(150, 410);
-
-    QPushButton* buttonAtPos5 = this->check2(Pos5);
-    if (buttonAtPos5 != nullptr) {
-
-       if (buttonAtPos5->objectName() == "Chicken") {
-           F5_Which_Of_Animals_or_Seeds=1;
-
-       } else if (buttonAtPos5->objectName() == "Sheep") {
-           F5_Which_Of_Animals_or_Seeds=2;
-
-       } else if (buttonAtPos5->objectName() == "Cow") {
-           F5_Which_Of_Animals_or_Seeds=3;
-
-       } else if (buttonAtPos5->objectName() == "Wheat") {
-           F5_Which_Of_Animals_or_Seeds=4;
-
-       } else if (buttonAtPos5->objectName() == "Barley") {
-           F5_Which_Of_Animals_or_Seeds=5;
-
-       }
-    }else if(buttonAtPos5 == nullptr){
-
-        F5_Which_Of_Animals_or_Seeds=0;
-        F5_Having_Animals_or_Seeds=0;
-    }
-
-    QPoint Pos6(540, 410);
-
-    QPushButton* buttonAtPos6 = this->check2(Pos6);
-    if (buttonAtPos6 != nullptr) {
-
-       if (buttonAtPos6->objectName() == "Chicken") {
-           F6_Which_Of_Animals_or_Seeds=1;
-
-       } else if (buttonAtPos6->objectName() == "Sheep") {
-           F6_Which_Of_Animals_or_Seeds=2;
-
-       } else if (buttonAtPos6->objectName() == "Cow") {
-           F6_Which_Of_Animals_or_Seeds=3;
-
-       } else if (buttonAtPos6->objectName() == "Wheat") {
-           F6_Which_Of_Animals_or_Seeds=4;
-
-       } else if (buttonAtPos6->objectName() == "Barley") {
-           F6_Which_Of_Animals_or_Seeds=5;
-
-       }
-    }else if(buttonAtPos6 == nullptr){
-
-        F6_Which_Of_Animals_or_Seeds=0;
-        F6_Having_Animals_or_Seeds=0;
-    }
-
-    QPoint Pos7(1260, 410);
-
-    QPushButton* buttonAtPos7 = this->check2(Pos7);
-    if (buttonAtPos7 != nullptr) {
-
-       if (buttonAtPos7->objectName() == "Chicken") {
-           F7_Which_Of_Animals_or_Seeds=1;
-
-       } else if (buttonAtPos7->objectName() == "Sheep") {
-           F7_Which_Of_Animals_or_Seeds=2;
-
-       } else if (buttonAtPos7->objectName() == "Cow") {
-           F7_Which_Of_Animals_or_Seeds=3;
-
-       } else if (buttonAtPos7->objectName() == "Wheat") {
-           F7_Which_Of_Animals_or_Seeds=4;
-
-       } else if (buttonAtPos7->objectName() == "Barley") {
-           F7_Which_Of_Animals_or_Seeds=5;
-
-       }
-    }else if(buttonAtPos7 == nullptr){
-
-        F7_Which_Of_Animals_or_Seeds=0;
-        F7_Having_Animals_or_Seeds=0;
-    }
-
-    QPoint Pos8(1650, 410);
-
-    QPushButton* buttonAtPos8 = this->check2(Pos8);
-    if (buttonAtPos8 != nullptr) {
-
-       if (buttonAtPos8->objectName() == "Chicken") {
-           F8_Which_Of_Animals_or_Seeds=1;
-
-       } else if (buttonAtPos8->objectName() == "Sheep") {
-           F8_Which_Of_Animals_or_Seeds=2;
-
-       } else if (buttonAtPos8->objectName() == "Cow") {
-           F8_Which_Of_Animals_or_Seeds=3;
-
-       } else if (buttonAtPos8->objectName() == "Wheat") {
-           F8_Which_Of_Animals_or_Seeds=4;
-
-       } else if (buttonAtPos8->objectName() == "Barley") {
-           F8_Which_Of_Animals_or_Seeds=5;
-
-       }
-    }else if(buttonAtPos8 == nullptr){
-
-        F8_Which_Of_Animals_or_Seeds=0;
-        F8_Having_Animals_or_Seeds=0;
-    }
-
-    QPoint Pos9(150, 640);
-
-    QPushButton* buttonAtPos9 = this->check2(Pos9);
-    if (buttonAtPos9 != nullptr) {
-
-       if (buttonAtPos9->objectName() == "Chicken") {
-           F9_Which_Of_Animals_or_Seeds=1;
-
-       } else if (buttonAtPos9->objectName() == "Sheep") {
-           F9_Which_Of_Animals_or_Seeds=2;
-
-       } else if (buttonAtPos9->objectName() == "Cow") {
-           F9_Which_Of_Animals_or_Seeds=3;
-
-       } else if (buttonAtPos9->objectName() == "Wheat") {
-           F9_Which_Of_Animals_or_Seeds=4;
-
-       } else if (buttonAtPos9->objectName() == "Barley") {
-           F9_Which_Of_Animals_or_Seeds=5;
-
-       }
-    }else if(buttonAtPos9 == nullptr){
-
-        F9_Which_Of_Animals_or_Seeds=0;
-        F9_Having_Animals_or_Seeds=0;
-    }
-
-    QPoint Pos10(540, 640);
-
-    QPushButton* buttonAtPos10 = this->check2(Pos10);
-    if (buttonAtPos10 != nullptr) {
-
-       if (buttonAtPos10->objectName() == "Chicken") {
-           F10_Which_Of_Animals_or_Seeds=1;
-
-       } else if (buttonAtPos10->objectName() == "Sheep") {
-           F10_Which_Of_Animals_or_Seeds=2;
-
-       } else if (buttonAtPos10->objectName() == "Cow") {
-           F10_Which_Of_Animals_or_Seeds=3;
-
-       } else if (buttonAtPos10->objectName() == "Wheat") {
-           F10_Which_Of_Animals_or_Seeds=4;
-
-       } else if (buttonAtPos10->objectName() == "Barley") {
-           F10_Which_Of_Animals_or_Seeds=5;
-
-       }
-    }else if(buttonAtPos10 == nullptr){
-
-        F10_Which_Of_Animals_or_Seeds=0;
-        F10_Having_Animals_or_Seeds=0;
-    }
-
-    QPoint Pos11(1260, 640);
-
-    QPushButton* buttonAtPos11 = this->check2(Pos11);
-    if (buttonAtPos11 != nullptr) {
-
-       if (buttonAtPos11->objectName() == "Chicken") {
-           F11_Which_Of_Animals_or_Seeds=1;
-
-       } else if (buttonAtPos11->objectName() == "Sheep") {
-           F11_Which_Of_Animals_or_Seeds=2;
-
-       } else if (buttonAtPos11->objectName() == "Cow") {
-           F11_Which_Of_Animals_or_Seeds=3;
-
-       } else if (buttonAtPos11->objectName() == "Wheat") {
-           F11_Which_Of_Animals_or_Seeds=4;
-
-       } else if (buttonAtPos11->objectName() == "Barley") {
-           F11_Which_Of_Animals_or_Seeds=5;
-
-       }
-    }else if(buttonAtPos11 == nullptr){
-
-        F11_Which_Of_Animals_or_Seeds=0;
-        F11_Having_Animals_or_Seeds=0;
-    }
-
-    QPoint Pos12(1650, 640);
-
-    QPushButton* buttonAtPos12 = this->check2(Pos12);
-    if (buttonAtPos12 != nullptr) {
-
-       if (buttonAtPos12->objectName() == "Chicken") {
-           F12_Which_Of_Animals_or_Seeds=1;
-
-       } else if (buttonAtPos12->objectName() == "Sheep") {
-           F12_Which_Of_Animals_or_Seeds=2;
-
-       } else if (buttonAtPos12->objectName() == "Cow") {
-           F12_Which_Of_Animals_or_Seeds=3;
-
-       } else if (buttonAtPos12->objectName() == "Wheat") {
-           F12_Which_Of_Animals_or_Seeds=4;
-
-       } else if (buttonAtPos12->objectName() == "Barley") {
-           F12_Which_Of_Animals_or_Seeds=5;
-
-       }
-    }else if(buttonAtPos12 == nullptr){
-
-        F12_Which_Of_Animals_or_Seeds=0;
-        F12_Having_Animals_or_Seeds=0;
-    }
-
-    QPoint Pos13(150, 870);
-
-    QPushButton* buttonAtPos13 = this->check2(Pos13);
-    if (buttonAtPos13 != nullptr) {
-
-       if (buttonAtPos13->objectName() == "Chicken") {
-           F13_Which_Of_Animals_or_Seeds=1;
-
-       } else if (buttonAtPos13->objectName() == "Sheep") {
-           F13_Which_Of_Animals_or_Seeds=2;
-
-       } else if (buttonAtPos13->objectName() == "Cow") {
-           F13_Which_Of_Animals_or_Seeds=3;
-
-       } else if (buttonAtPos13->objectName() == "Wheat") {
-           F13_Which_Of_Animals_or_Seeds=4;
-
-       } else if (buttonAtPos13->objectName() == "Barley") {
-           F13_Which_Of_Animals_or_Seeds=5;
-
-       }
-    }else if(buttonAtPos13 == nullptr){
-
-        F13_Which_Of_Animals_or_Seeds=0;
-        F13_Having_Animals_or_Seeds=0;
-    }
-
-    QPoint Pos14(540, 870);
-
-    QPushButton* buttonAtPos14 = this->check2(Pos14);
-    if (buttonAtPos14 != nullptr) {
-
-       if (buttonAtPos14->objectName() == "Chicken") {
-           F14_Which_Of_Animals_or_Seeds=1;
-
-       } else if (buttonAtPos14->objectName() == "Sheep") {
-           F14_Which_Of_Animals_or_Seeds=2;
-
-       } else if (buttonAtPos14->objectName() == "Cow") {
-           F14_Which_Of_Animals_or_Seeds=3;
-
-       } else if (buttonAtPos14->objectName() == "Wheat") {
-           F14_Which_Of_Animals_or_Seeds=4;
-
-       } else if (buttonAtPos14->objectName() == "Barley") {
-           F14_Which_Of_Animals_or_Seeds=5;
-
-       }
-    }else if(buttonAtPos14 == nullptr){
-
-        F14_Which_Of_Animals_or_Seeds=0;
-        F14_Having_Animals_or_Seeds=0;
-    }
-
-    QPoint Pos15(1260, 870);
-
-    QPushButton* buttonAtPos15 = this->check2(Pos15);
-    if (buttonAtPos15 != nullptr) {
-
-       if (buttonAtPos15->objectName() == "Chicken") {
-           F15_Which_Of_Animals_or_Seeds=1;
-
-       } else if (buttonAtPos15->objectName() == "Sheep") {
-           F15_Which_Of_Animals_or_Seeds=2;
-
-       } else if (buttonAtPos15->objectName() == "Cow") {
-           F15_Which_Of_Animals_or_Seeds=3;
-
-       } else if (buttonAtPos15->objectName() == "Wheat") {
-           F15_Which_Of_Animals_or_Seeds=4;
-
-       } else if (buttonAtPos15->objectName() == "Barley") {
-           F15_Which_Of_Animals_or_Seeds=5;
-
-       }
-    }else if(buttonAtPos15 == nullptr){
-
-        F15_Which_Of_Animals_or_Seeds=0;
-        F15_Having_Animals_or_Seeds=0;
-    }
-
-    QPoint Pos16(1650, 870);
-
-    QPushButton* buttonAtPos16 = this->check2(Pos16);
-    if (buttonAtPos16 != nullptr) {
-
-       if (buttonAtPos16->objectName() == "Chicken") {
-           F16_Which_Of_Animals_or_Seeds=1;
-
-       } else if (buttonAtPos16->objectName() == "Sheep") {
-           F16_Which_Of_Animals_or_Seeds=2;
-
-       } else if (buttonAtPos16->objectName() == "Cow") {
-           F16_Which_Of_Animals_or_Seeds=3;
-
-       } else if (buttonAtPos16->objectName() == "Wheat") {
-           F16_Which_Of_Animals_or_Seeds=4;
-
-       } else if (buttonAtPos16->objectName() == "Barley") {
-           F16_Which_Of_Animals_or_Seeds=5;
-
-       }
-    }else if(buttonAtPos16 == nullptr){
-
-        F16_Which_Of_Animals_or_Seeds=0;
-        F16_Having_Animals_or_Seeds=0;
-    }
-
-    check_our_farm_have_farmer_or_not();
-
-    qDebug() << "*****-------------------------------------------------------------*****";
-    qDebug() << " F1_Which_Of_Animals_or_Seeds = " << F1_Which_Of_Animals_or_Seeds;
-    qDebug() << " F2_Which_Of_Animals_or_Seeds = " << F2_Which_Of_Animals_or_Seeds;
-    qDebug() << " F3_Which_Of_Animals_or_Seeds = " << F3_Which_Of_Animals_or_Seeds;
-    qDebug() << " F4_Which_Of_Animals_or_Seeds = " << F4_Which_Of_Animals_or_Seeds;
-    qDebug() << " F5_Which_Of_Animals_or_Seeds = " << F5_Which_Of_Animals_or_Seeds;
-    qDebug() << " F6_Which_Of_Animals_or_Seeds = " << F6_Which_Of_Animals_or_Seeds;
-    qDebug() << " F7_Which_Of_Animals_or_Seeds = " << F7_Which_Of_Animals_or_Seeds;
-    qDebug() << " F8_Which_Of_Animals_or_Seeds = " << F8_Which_Of_Animals_or_Seeds;
-    qDebug() << " F9_Which_Of_Animals_or_Seeds = " << F9_Which_Of_Animals_or_Seeds;
-    qDebug() << " F10_Which_Of_Animals_or_Seeds = " << F10_Which_Of_Animals_or_Seeds;
-    qDebug() << " F11_Which_Of_Animals_or_Seeds = " << F11_Which_Of_Animals_or_Seeds;
-    qDebug() << " F12_Which_Of_Animals_or_Seeds = " << F12_Which_Of_Animals_or_Seeds;
-    qDebug() << " F13_Which_Of_Animals_or_Seeds = " << F13_Which_Of_Animals_or_Seeds;
-    qDebug() << " F14_Which_Of_Animals_or_Seeds = " << F14_Which_Of_Animals_or_Seeds;
-    qDebug() << " F15_Which_Of_Animals_or_Seeds = " << F15_Which_Of_Animals_or_Seeds;
-    qDebug() << " F16_Which_Of_Animals_or_Seeds = " << F16_Which_Of_Animals_or_Seeds;
-
-    qDebug() << " F1_Having_Animals_or_Seeds = " << F1_Having_Animals_or_Seeds;
-    qDebug() << " F2_Having_Animals_or_Seeds = " << F2_Having_Animals_or_Seeds;
-    qDebug() << " F3_Having_Animals_or_Seeds = " << F3_Having_Animals_or_Seeds;
-    qDebug() << " F4_Having_Animals_or_Seeds = " << F4_Having_Animals_or_Seeds;
-    qDebug() << " F5_Having_Animals_or_Seeds = " << F5_Having_Animals_or_Seeds;
-    qDebug() << " F6_Having_Animals_or_Seeds = " << F6_Having_Animals_or_Seeds;
-    qDebug() << " F7_Having_Animals_or_Seeds = " << F7_Having_Animals_or_Seeds;
-    qDebug() << " F8_Having_Animals_or_Seeds = " << F8_Having_Animals_or_Seeds;
-    qDebug() << " F9_Having_Animals_or_Seeds = " << F9_Having_Animals_or_Seeds;
-    qDebug() << " F10_Having_Animals_or_Seeds = " << F10_Having_Animals_or_Seeds;
-    qDebug() << " F11_Having_Animals_or_Seeds = " << F11_Having_Animals_or_Seeds;
-    qDebug() << " F12_Having_Animals_or_Seeds = " << F12_Having_Animals_or_Seeds;
-    qDebug() << " F13_Having_Animals_or_Seeds = " << F13_Having_Animals_or_Seeds;
-    qDebug() << " F14_Having_Animals_or_Seeds = " << F14_Having_Animals_or_Seeds;
-    qDebug() << " F15_Having_Animals_or_Seeds = " << F15_Having_Animals_or_Seeds;
-    qDebug() << " F16_Having_Animals_or_Seeds = " << F16_Having_Animals_or_Seeds;
-
-    qDebug() << " F1_Having_Farmer = " << F1_Having_Farmer;
-    qDebug() << " F2_Having_Farmer = " << F2_Having_Farmer;
-    qDebug() << " F3_Having_Farmer = " << F3_Having_Farmer;
-    qDebug() << " F4_Having_Farmer = " << F4_Having_Farmer;
-    qDebug() << " F5_Having_Farmer = " << F5_Having_Farmer;
-    qDebug() << " F6_Having_Farmer = " << F6_Having_Farmer;
-    qDebug() << " F7_Having_Farmer = " << F7_Having_Farmer;
-    qDebug() << " F8_Having_Farmer = " << F8_Having_Farmer;
-    qDebug() << " F9_Having_Farmer = " << F9_Having_Farmer;
-    qDebug() << " F10_Having_Farmer = " << F10_Having_Farmer;
-    qDebug() << " F11_Having_Farmer = " << F11_Having_Farmer;
-    qDebug() << " F12_Having_Farmer = " << F12_Having_Farmer;
-    qDebug() << " F13_Having_Farmer = " << F13_Having_Farmer;
-    qDebug() << " F14_Having_Farmer = " << F14_Having_Farmer;
-    qDebug() << " F15_Having_Farmer = " << F15_Having_Farmer;
-    qDebug() << " F16_Having_Farmer = " << F16_Having_Farmer;
-    qDebug() << "*****-------------------------------------------------------------*****";
-
-
-}
-
-
 void Gamepage::check_our_farm_have_farmer_or_not()
 {
     QPoint pos1(210, 160);
@@ -5305,4 +4848,240 @@ void Gamepage::Get_info()
 }
 
 
+
+
+void Gamepage::on_Start_clicked()
+{
+    ui->Start->hide();
+    ui->Cancel->show();
+    ui->timer_label->show();
+
+    QPoint Pos(150, 180);
+
+    QPoint Pos2(210, 160);
+
+    ch1 = new Chicken(ui->verticalLayout);
+    sheep1 = new Sheep(ui->verticalLayout);
+    cow1 = new Cow(ui->verticalLayout);
+    wheat1 = new Wheat(ui->verticalLayout);
+    barley1 = new Barley(ui->verticalLayout);
+
+ //   ch->SetTimerLabel(ui->label_17);
+
+
+    QPushButton* buttonAtPos = this->check2(Pos);
+    QPushButton* buttonAtPos2 = this->check2(Pos2);
+    if (buttonAtPos != nullptr) {
+
+       if (buttonAtPos->objectName() == "Chicken") {
+           ch1->SetTimerLabel(ui->timer_label);
+           ch1->Set_Product_Pushbutton(ui->the_product_of_chicken_pushButton);
+           ch1->Set_Cancel_Pushbutton(ui->Cancel);
+           ch1->Set_Start_Pushbutton(ui->Start);
+           ch1->Set_Animals_or_Seeds_Pushbutton(buttonAtPos);
+           ch1->Set_Farmer_Pushbutton(buttonAtPos2);
+           ch1->TurnTimerOn();
+
+           buttonAtPos->setEnabled(false);
+
+       } else if (buttonAtPos->objectName() == "Sheep") {
+           sheep1->SetTimerLabel(ui->timer_label);
+           sheep1->Set_Product_Pushbutton(ui->the_product_of_sheep_pushButton);
+           sheep1->Set_Cancel_Pushbutton(ui->Cancel);
+           sheep1->Set_Start_Pushbutton(ui->Start);
+           sheep1->Set_Animals_or_Seeds_Pushbutton(buttonAtPos);
+           sheep1->Set_Farmer_Pushbutton(buttonAtPos2);
+           sheep1->TurnTimerOn();
+           buttonAtPos->setEnabled(false);
+
+       } else if (buttonAtPos->objectName() == "Cow") {
+           cow1->SetTimerLabel(ui->timer_label);
+           cow1->Set_Product_Pushbutton(ui->the_product_of_cow_pushButton);
+           cow1->Set_Cancel_Pushbutton(ui->Cancel);
+           cow1->Set_Start_Pushbutton(ui->Start);
+           cow1->Set_Animals_or_Seeds_Pushbutton(buttonAtPos);
+           cow1->Set_Farmer_Pushbutton(buttonAtPos2);
+           cow1->TurnTimerOn();
+           buttonAtPos->setEnabled(false);
+
+       } else if (buttonAtPos->objectName() == "Wheat") {
+           wheat1->SetTimerLabel(ui->timer_label);
+           wheat1->Set_Product_Pushbutton(ui->the_product_of_wheat_pushButton);
+           wheat1->Set_Cancel_Pushbutton(ui->Cancel);
+           wheat1->Set_Start_Pushbutton(ui->Start);
+           wheat1->Set_Animals_or_Seeds_Pushbutton(buttonAtPos);
+           wheat1->Set_Farmer_Pushbutton(buttonAtPos2);
+           wheat1->TurnTimerOn();
+           buttonAtPos->setEnabled(false);
+
+       } else if (buttonAtPos->objectName() == "Barley") {
+           barley1->SetTimerLabel(ui->timer_label);
+           barley1->Set_Product_Pushbutton(ui->the_product_of_barley_pushButton);
+           barley1->Set_Cancel_Pushbutton(ui->Cancel);
+           barley1->Set_Start_Pushbutton(ui->Start);
+           barley1->Set_Animals_or_Seeds_Pushbutton(buttonAtPos);
+           barley1->Set_Farmer_Pushbutton(buttonAtPos2);
+           barley1->TurnTimerOn();
+           buttonAtPos->setEnabled(false);
+
+       }
+    }
+    buttonAtPos2->setEnabled(false);
+
+    clearLayout(ui->verticalLayout);
+}
+
+void Gamepage::clearLayout(QLayout *layout)
+{
+    if (layout == NULL)
+        return;
+    QLayoutItem *item;
+    while((item = layout->takeAt(0))) {
+        if (item->layout()) {
+            clearLayout(item->layout());
+            delete item->layout();
+        }
+        if (item->widget()) {
+           delete item->widget();
+        }
+        delete item;
+    }
+}
+
+
+void Gamepage::on_Cancel_clicked()
+{
+    ui->Cancel->hide();
+    ui->Start->show();
+
+    ui->timer_label->hide();
+
+    QPoint Pos(150, 180);
+
+    QPoint Pos2(210, 160);
+
+    QPushButton* buttonAtPos = this->check2(Pos);
+    QPushButton* buttonAtPos2 = this->check2(Pos2);
+    if (buttonAtPos != nullptr) {
+
+       if (buttonAtPos->objectName() == "Chicken") {
+
+           buttonAtPos->setEnabled(true);
+
+           ch1->Timer_Stop();
+           ch1->Timer2_Stop();
+
+       } else if (buttonAtPos->objectName() == "Sheep") {
+
+           buttonAtPos->setEnabled(true);
+
+           sheep1->Timer_Stop();
+           sheep1->Timer2_Stop();
+
+       } else if (buttonAtPos->objectName() == "Cow") {
+
+           buttonAtPos->setEnabled(true);
+
+           cow1->Timer_Stop();
+           cow1->Timer2_Stop();
+
+       } else if (buttonAtPos->objectName() == "Wheat") {
+
+           buttonAtPos->setEnabled(true);
+
+           wheat1->Timer_Stop();
+           wheat1->Timer2_Stop();
+
+       } else if (buttonAtPos->objectName() == "Barley") {
+
+           buttonAtPos->setEnabled(true);
+
+           barley1->Timer_Stop();
+           barley1->Timer2_Stop();
+
+       }
+    }
+    buttonAtPos2->setEnabled(true);
+
+    clearLayout(ui->verticalLayout);
+
+}
+
+
+void Gamepage::on_the_product_of_chicken_pushButton_clicked()
+{
+    score = score + (ch1->Product_Collection_Point);
+    ui->label_Score->setText( "Score :" + QString::number(score));
+    ui->the_product_of_chicken_pushButton->hide();
+    ch1->Timer2_Stop();
+    ui->Start->show();
+}
+
+
+void Gamepage::on_the_product_of_sheep_pushButton_clicked()
+{
+    score = score + (sheep1->Product_Collection_Point);
+    ui->label_Score->setText( "Score :" + QString::number(score));
+    ui->the_product_of_sheep_pushButton->hide();
+    sheep1->Timer2_Stop();
+    ui->Start->show();
+}
+
+
+void Gamepage::on_the_product_of_cow_pushButton_clicked()
+{
+    score = score + (cow1->Product_Collection_Point);
+    ui->label_Score->setText( "Score :" + QString::number(score));
+    ui->the_product_of_cow_pushButton->hide();
+    cow1->Timer2_Stop();
+    ui->Start->show();
+}
+
+
+void Gamepage::on_the_product_of_wheat_pushButton_clicked()
+{
+    score = score + (wheat1->Product_Collection_Point);
+    ui->label_Score->setText( "Score :" + QString::number(score));
+    ui->the_product_of_wheat_pushButton->hide();
+    wheat1->Timer2_Stop();
+    ui->Start->show();
+
+    QPoint Pos(150, 180);
+
+    QPushButton* buttonAtPos = this->check2(Pos);
+
+    if (buttonAtPos != nullptr) {
+
+        if (buttonAtPos->objectName() == "Wheat") {
+
+            delete  buttonAtPos;
+
+            Get_info();
+        }
+    }
+}
+
+
+void Gamepage::on_the_product_of_barley_pushButton_clicked()
+{
+    score = score + (barley1->Product_Collection_Point);
+    ui->label_Score->setText( "Score :" + QString::number(score));
+    ui->the_product_of_barley_pushButton->hide();
+    barley1->Timer2_Stop();
+    ui->Start->show();
+
+    QPoint Pos(150, 180);
+
+    QPushButton* buttonAtPos = this->check2(Pos);
+
+    if (buttonAtPos != nullptr) {
+
+         if (buttonAtPos->objectName() == "Barley") {
+
+            delete  buttonAtPos;
+
+             Get_info();
+         }
+    }
+}
 
