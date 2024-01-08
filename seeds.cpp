@@ -2,7 +2,6 @@
 #include "QDebug"
 
 QPushButton* Farmer_Pushbutton;
-QPropertyAnimation *animation;
 
 Seeds::Seeds() : timer(new QTimer(this)), timer2(new QTimer(this))
 {
@@ -23,19 +22,12 @@ void Seeds::TurnTimerOn()
         Cancel_Pushbutton->hide();
         Animals_or_Seeds_Pushbutton->setEnabled(true);
         Farmer_Pushbutton->setEnabled(true);
-        Farmer_Pushbutton->move(210, 160);
+
     } else {
         timer->start(1000);
         Product_production_time --;
         TimerLabel->setText(QString::number(Product_production_time));
         Product_Pushbutton->hide();
-
-        animation = new QPropertyAnimation(Farmer_Pushbutton, "geometry", this);
-        animation->setStartValue(QRect(X2, Y2, Farmer_Pushbutton->geometry().width(), Farmer_Pushbutton->geometry().height()));
-        animation->setEndValue(QRect(X2+120, Y2, Farmer_Pushbutton->geometry().width(), Farmer_Pushbutton->geometry().height()));
-        animation->setEasingCurve(QEasingCurve::Type::Linear);
-        animation->setDuration(950);
-        animation->start();
     }
 }
 
@@ -95,7 +87,7 @@ void Seeds::Product_Collection_Delay_time_for_score()
 
     }
     QPoint current_pos = decrease_label->pos();
-    if(current_pos == QPoint(160, 50)){
+    if(current_pos == QPoint(X1, Y1-70)){
 
         decrease_label->hide();
     }
@@ -116,12 +108,9 @@ void Seeds::Set_decrease_label(QLabel *label)
     decrease_label = label;
 }
 
-void Seeds::Stop_animation()
+void Seeds::Farmer_pushbutton_setenable()
 {
-    animation->stop();
-    delete animation;
-    animation = nullptr;
-    Farmer_Pushbutton->move(210, 160);
+
     Farmer_Pushbutton->setEnabled(true);
 }
 
@@ -131,8 +120,4 @@ void Seeds::decrease_label_position(int x, int y)
     Y1 = y;
 }
 
-void Seeds::Farmer_pushbutton_position(int x, int y)
-{
-    X2 = x;
-    Y2 = y;
-}
+

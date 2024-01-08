@@ -14,6 +14,7 @@
 int score=10;
 
 Chicken * ch1; Sheep * sheep1; Cow * cow1;  Wheat * wheat1;  Barley * barley1;
+Chicken * ch2; Sheep * sheep2; Cow * cow2;  Wheat * wheat2;  Barley * barley2;
 
 Gamepage::Gamepage(QWidget *parent) :
     QMainWindow(parent),
@@ -4816,7 +4817,6 @@ void Gamepage::on_Start_clicked()
            ch1->Set_Start_Pushbutton(ui->Start);
            ch1->Set_Animals_or_Seeds_Pushbutton(buttonAtPos);
            ch1->Set_Farmer_Pushbutton(buttonAtPos2);
-           ch1->Farmer_pushbutton_position(210, 160);
            ch1->Set_decrease_label(ui->decrease_point_label);
            ch1->decrease_label_position(170, 120);
            ch1->TurnTimerOn();
@@ -4829,7 +4829,6 @@ void Gamepage::on_Start_clicked()
            sheep1->Set_Start_Pushbutton(ui->Start);
            sheep1->Set_Animals_or_Seeds_Pushbutton(buttonAtPos);
            sheep1->Set_Farmer_Pushbutton(buttonAtPos2);
-           sheep1->Farmer_pushbutton_position(210, 160);
            sheep1->Set_decrease_label(ui->decrease_point_label);
            sheep1->decrease_label_position(170, 120);
            sheep1->TurnTimerOn();
@@ -4842,7 +4841,6 @@ void Gamepage::on_Start_clicked()
            cow1->Set_Start_Pushbutton(ui->Start);
            cow1->Set_Animals_or_Seeds_Pushbutton(buttonAtPos);
            cow1->Set_Farmer_Pushbutton(buttonAtPos2);
-           cow1->Farmer_pushbutton_position(210, 160);
            cow1->Set_decrease_label(ui->decrease_point_label);
            cow1->decrease_label_position(170, 120);
            cow1->TurnTimerOn();
@@ -4855,7 +4853,6 @@ void Gamepage::on_Start_clicked()
            wheat1->Set_Start_Pushbutton(ui->Start);
            wheat1->Set_Animals_or_Seeds_Pushbutton(buttonAtPos);
            wheat1->Set_Farmer_Pushbutton(buttonAtPos2);
-           wheat1->Farmer_pushbutton_position(210, 160);
            wheat1->Set_decrease_label(ui->decrease_point_label);
            wheat1->decrease_label_position(170, 120);
            wheat1->TurnTimerOn();
@@ -4868,7 +4865,6 @@ void Gamepage::on_Start_clicked()
            barley1->Set_Start_Pushbutton(ui->Start);
            barley1->Set_Animals_or_Seeds_Pushbutton(buttonAtPos);
            barley1->Set_Farmer_Pushbutton(buttonAtPos2);
-           barley1->Farmer_pushbutton_position(210, 160);
            barley1->Set_decrease_label(ui->decrease_point_label);
            barley1->decrease_label_position(170, 120);
            barley1->TurnTimerOn();
@@ -4917,7 +4913,7 @@ void Gamepage::on_Cancel_clicked()
 
            buttonAtPos->setEnabled(true);
 
-           ch1->Stop_animation();
+           ch1->Farmer_pushbutton_setenable();
            ch1->Timer_Stop();
            ch1->Timer2_Stop();
 
@@ -4925,7 +4921,7 @@ void Gamepage::on_Cancel_clicked()
 
            buttonAtPos->setEnabled(true);
 
-           sheep1->Stop_animation();
+           sheep1->Farmer_pushbutton_setenable();
            sheep1->Timer_Stop();
            sheep1->Timer2_Stop();
 
@@ -4933,7 +4929,7 @@ void Gamepage::on_Cancel_clicked()
 
            buttonAtPos->setEnabled(true);
 
-           cow1->Stop_animation();
+           cow1->Farmer_pushbutton_setenable();
            cow1->Timer_Stop();
            cow1->Timer2_Stop();
 
@@ -4941,7 +4937,7 @@ void Gamepage::on_Cancel_clicked()
 
            buttonAtPos->setEnabled(true);
 
-           wheat1->Stop_animation();
+           wheat1->Farmer_pushbutton_setenable();
            wheat1->Timer_Stop();
            wheat1->Timer2_Stop();
 
@@ -4949,7 +4945,7 @@ void Gamepage::on_Cancel_clicked()
 
            buttonAtPos->setEnabled(true);
 
-           barley1->Stop_animation();
+           barley1->Farmer_pushbutton_setenable();
            barley1->Timer_Stop();
            barley1->Timer2_Stop();
 
@@ -5320,3 +5316,229 @@ void Gamepage::Hide_decrease_label()
     ui->decrease_point_label_16->hide();
 }
 
+
+void Gamepage::on_Start_2_clicked()
+{
+    ui->Start_2->hide();
+    ui->Cancel_2->show();
+    ui->timer_label_2->show();
+
+    QPoint Pos(540, 180);
+
+    QPoint Pos2(600, 160);
+
+    ch2 = new Chicken(ui->verticalLayout);
+    sheep2 = new Sheep(ui->verticalLayout);
+    cow2 = new Cow(ui->verticalLayout);
+    wheat2 = new Wheat(ui->verticalLayout);
+    barley2 = new Barley(ui->verticalLayout);
+
+    QPushButton* buttonAtPos = this->check2(Pos);
+    QPushButton* buttonAtPos2 = this->check2(Pos2);
+    if (buttonAtPos != nullptr) {
+
+       if (buttonAtPos->objectName() == "Chicken") {
+           ch2->SetTimerLabel(ui->timer_label_2);
+           ch2->Set_Product_Pushbutton(ui->the_product_of_chicken_pushButton_2);
+           ch2->Set_Cancel_Pushbutton(ui->Cancel_2);
+           ch2->Set_Start_Pushbutton(ui->Start_2);
+           ch2->Set_Animals_or_Seeds_Pushbutton(buttonAtPos);
+           ch2->Set_Farmer_Pushbutton(buttonAtPos2);
+           ch2->Set_decrease_label(ui->decrease_point_label_2);
+           ch2->decrease_label_position(560, 120);
+           ch2->TurnTimerOn();
+           buttonAtPos->setEnabled(false);
+
+       } else if (buttonAtPos->objectName() == "Sheep") {
+           sheep2->SetTimerLabel(ui->timer_label_2);
+           sheep2->Set_Product_Pushbutton(ui->the_product_of_sheep_pushButton_2);
+           sheep2->Set_Cancel_Pushbutton(ui->Cancel_2);
+           sheep2->Set_Start_Pushbutton(ui->Start_2);
+           sheep2->Set_Animals_or_Seeds_Pushbutton(buttonAtPos);
+           sheep2->Set_Farmer_Pushbutton(buttonAtPos2);
+           sheep2->Set_decrease_label(ui->decrease_point_label_2);
+           sheep2->decrease_label_position(560, 120);
+           sheep2->TurnTimerOn();
+           buttonAtPos->setEnabled(false);
+
+       } else if (buttonAtPos->objectName() == "Cow") {
+           cow2->SetTimerLabel(ui->timer_label_2);
+           cow2->Set_Product_Pushbutton(ui->the_product_of_cow_pushButton_2);
+           cow2->Set_Cancel_Pushbutton(ui->Cancel_2);
+           cow2->Set_Start_Pushbutton(ui->Start_2);
+           cow2->Set_Animals_or_Seeds_Pushbutton(buttonAtPos);
+           cow2->Set_Farmer_Pushbutton(buttonAtPos2);
+           cow2->Set_decrease_label(ui->decrease_point_label_2);
+           cow2->decrease_label_position(560, 120);
+           cow2->TurnTimerOn();
+           buttonAtPos->setEnabled(false);
+
+       } else if (buttonAtPos->objectName() == "Wheat") {
+           wheat2->SetTimerLabel(ui->timer_label_2);
+           wheat2->Set_Product_Pushbutton(ui->the_product_of_wheat_pushButton_2);
+           wheat2->Set_Cancel_Pushbutton(ui->Cancel_2);
+           wheat2->Set_Start_Pushbutton(ui->Start_2);
+           wheat2->Set_Animals_or_Seeds_Pushbutton(buttonAtPos);
+           wheat2->Set_Farmer_Pushbutton(buttonAtPos2);
+           wheat2->Set_decrease_label(ui->decrease_point_label_2);
+           wheat2->decrease_label_position(560, 120);
+           wheat2->TurnTimerOn();
+           buttonAtPos->setEnabled(false);
+
+       } else if (buttonAtPos->objectName() == "Barley") {
+           barley2->SetTimerLabel(ui->timer_label_2);
+           barley2->Set_Product_Pushbutton(ui->the_product_of_barley_pushButton_2);
+           barley2->Set_Cancel_Pushbutton(ui->Cancel_2);
+           barley2->Set_Start_Pushbutton(ui->Start_2);
+           barley2->Set_Animals_or_Seeds_Pushbutton(buttonAtPos);
+           barley2->Set_Farmer_Pushbutton(buttonAtPos2);
+           barley2->Set_decrease_label(ui->decrease_point_label_2);
+           barley2->decrease_label_position(560, 120);
+           barley2->TurnTimerOn();
+           buttonAtPos->setEnabled(false);
+
+       }
+    }
+    buttonAtPos2->setEnabled(false);
+
+    clearLayout(ui->verticalLayout);
+}
+
+
+void Gamepage::on_Cancel_2_clicked()
+{
+    ui->Cancel_2->hide();
+    ui->Start_2->show();
+
+    ui->timer_label_2->hide();
+
+    QPoint Pos(540, 180);
+
+
+    QPushButton* buttonAtPos = this->check2(Pos);
+
+    if (buttonAtPos != nullptr) {
+
+       if (buttonAtPos->objectName() == "Chicken") {
+
+           buttonAtPos->setEnabled(true);
+
+           ch2->Farmer_pushbutton_setenable();
+           ch2->Timer_Stop();
+           ch2->Timer2_Stop();
+
+       } else if (buttonAtPos->objectName() == "Sheep") {
+
+           buttonAtPos->setEnabled(true);
+
+           sheep2->Farmer_pushbutton_setenable();
+           sheep2->Timer_Stop();
+           sheep2->Timer2_Stop();
+
+       } else if (buttonAtPos->objectName() == "Cow") {
+
+           buttonAtPos->setEnabled(true);
+
+           cow2->Farmer_pushbutton_setenable();
+           cow2->Timer_Stop();
+           cow2->Timer2_Stop();
+
+       } else if (buttonAtPos->objectName() == "Wheat") {
+
+           buttonAtPos->setEnabled(true);
+
+           wheat2->Farmer_pushbutton_setenable();
+           wheat2->Timer_Stop();
+           wheat2->Timer2_Stop();
+
+       } else if (buttonAtPos->objectName() == "Barley") {
+
+           buttonAtPos->setEnabled(true);
+
+           barley2->Farmer_pushbutton_setenable();
+           barley2->Timer_Stop();
+           barley2->Timer2_Stop();
+
+       }
+    }
+
+    clearLayout(ui->verticalLayout);
+}
+
+void Gamepage::on_the_product_of_chicken_pushButton_2_clicked()
+{
+    score = score + (ch2->Product_Collection_Point);
+    ui->label_Score->setText( "Score :" + QString::number(score));
+    ui->the_product_of_chicken_pushButton_2->hide();
+    ch2->Timer2_Stop();
+    ui->Start_2->show();
+    ui->decrease_point_label_2->hide();
+}
+
+void Gamepage::on_the_product_of_sheep_pushButton_2_clicked()
+{
+    score = score + (sheep2->Product_Collection_Point);
+    ui->label_Score->setText( "Score :" + QString::number(score));
+    ui->the_product_of_sheep_pushButton_2->hide();
+    sheep2->Timer2_Stop();
+    ui->Start_2->show();
+    ui->decrease_point_label_2->hide();
+}
+
+void Gamepage::on_the_product_of_cow_pushButton_2_clicked()
+{
+    score = score + (cow2->Product_Collection_Point);
+    ui->label_Score->setText( "Score :" + QString::number(score));
+    ui->the_product_of_cow_pushButton_2->hide();
+    cow2->Timer2_Stop();
+    ui->Start_2->show();
+    ui->decrease_point_label_2->hide();
+}
+
+void Gamepage::on_the_product_of_wheat_pushButton_2_clicked()
+{
+    score = score + (wheat2->Product_Collection_Point);
+    ui->label_Score->setText( "Score :" + QString::number(score));
+    ui->the_product_of_wheat_pushButton_2->hide();
+    wheat2->Timer2_Stop();
+    ui->Start_2->show();
+
+    QPoint Pos(150, 180);
+
+    QPushButton* buttonAtPos = this->check2(Pos);
+
+    if (buttonAtPos != nullptr) {
+
+        if (buttonAtPos->objectName() == "Wheat") {
+
+            delete  buttonAtPos;
+
+            Get_info();
+        }
+    }
+    ui->decrease_point_label_2->hide();
+}
+
+void Gamepage::on_the_product_of_barley_pushButton_2_clicked()
+{
+    score = score + (barley2->Product_Collection_Point);
+    ui->label_Score->setText( "Score :" + QString::number(score));
+    ui->the_product_of_barley_pushButton_2->hide();
+    barley2->Timer2_Stop();
+    ui->Start_2->show();
+
+    QPoint Pos(150, 180);
+
+    QPushButton* buttonAtPos = this->check2(Pos);
+
+    if (buttonAtPos != nullptr) {
+
+         if (buttonAtPos->objectName() == "Barley") {
+
+            delete  buttonAtPos;
+
+             Get_info();
+         }
+    }
+    ui->decrease_point_label_2->hide();
+}

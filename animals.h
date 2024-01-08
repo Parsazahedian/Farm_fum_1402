@@ -49,11 +49,9 @@ public:
 
     void Set_decrease_label(QLabel* label);
 
-    void Stop_animation();
+    void Farmer_pushbutton_setenable();
 
     void decrease_label_position(int x, int y);
-
-    void Farmer_pushbutton_position(int x, int y);
 
 private:
 
@@ -77,7 +75,7 @@ private:
 
     QLabel * decrease_label;
 
-    int X1, Y1, X2, Y2;
+    int X1, Y1;
 
 };
 

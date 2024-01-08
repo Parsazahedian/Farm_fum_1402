@@ -13,6 +13,7 @@
 #include "barley.h"
 
 extern Chicken * ch1; extern Sheep * sheep1; extern Cow * cow1; extern Wheat * wheat1; extern Barley * barley1;
+extern Chicken * ch2; extern Sheep * sheep2; extern Cow * cow2; extern Wheat * wheat2; extern Barley * barley2;
 
 namespace Ui {
 class Gamepage;
@@ -80,6 +81,20 @@ private slots:
     void Hide_Farms();
 
     void Hide_decrease_label();
+
+    void on_Start_2_clicked();
+
+    void on_Cancel_2_clicked();
+
+    void on_the_product_of_chicken_pushButton_2_clicked();
+
+    void on_the_product_of_sheep_pushButton_2_clicked();
+
+    void on_the_product_of_cow_pushButton_2_clicked();
+
+    void on_the_product_of_wheat_pushButton_2_clicked();
+
+    void on_the_product_of_barley_pushButton_2_clicked();
 
 private:
     Ui::Gamepage *ui;
