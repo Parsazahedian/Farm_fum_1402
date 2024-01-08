@@ -31,8 +31,8 @@ void Seeds::TurnTimerOn()
         Product_Pushbutton->hide();
 
         animation = new QPropertyAnimation(Farmer_Pushbutton, "geometry", this);
-        animation->setStartValue(QRect(210, 160, Farmer_Pushbutton->geometry().width(), Farmer_Pushbutton->geometry().height()));
-        animation->setEndValue(QRect(330, 160, Farmer_Pushbutton->geometry().width(), Farmer_Pushbutton->geometry().height()));
+        animation->setStartValue(QRect(X2, Y2, Farmer_Pushbutton->geometry().width(), Farmer_Pushbutton->geometry().height()));
+        animation->setEndValue(QRect(X2+120, Y2, Farmer_Pushbutton->geometry().width(), Farmer_Pushbutton->geometry().height()));
         animation->setEasingCurve(QEasingCurve::Type::Linear);
         animation->setDuration(950);
         animation->start();
@@ -87,8 +87,8 @@ void Seeds::Product_Collection_Delay_time_for_score()
         Product_Collection_Point--;
         decrease_label->show();
         QPropertyAnimation *animation1 = new QPropertyAnimation(decrease_label, "geometry", this);
-        animation1->setStartValue(QRect(160, 120, decrease_label->geometry().width(), decrease_label->geometry().height()));
-        animation1->setEndValue(QRect(160, 50, decrease_label->geometry().width(), decrease_label->geometry().height()));
+        animation1->setStartValue(QRect(X1, Y1, decrease_label->geometry().width(), decrease_label->geometry().height()));
+        animation1->setEndValue(QRect(X1, Y1-70, decrease_label->geometry().width(), decrease_label->geometry().height()));
         animation1->setEasingCurve(QEasingCurve::Type::Linear);
         animation1->setDuration(500);
         animation1->start();
@@ -123,4 +123,16 @@ void Seeds::Stop_animation()
     animation = nullptr;
     Farmer_Pushbutton->move(210, 160);
     Farmer_Pushbutton->setEnabled(true);
+}
+
+void Seeds::decrease_label_position(int x, int y)
+{
+    X1 = x;
+    Y1 = y;
+}
+
+void Seeds::Farmer_pushbutton_position(int x, int y)
+{
+    X2 = x;
+    Y2 = y;
 }

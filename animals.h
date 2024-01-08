@@ -51,6 +51,10 @@ public:
 
     void Stop_animation();
 
+    void decrease_label_position(int x, int y);
+
+    void Farmer_pushbutton_position(int x, int y);
+
 private:
 
     QTimer* timer;
@@ -72,6 +76,8 @@ private:
     int x=0;
 
     QLabel * decrease_label;
+
+    int X1, Y1, X2, Y2;
 
 };
 

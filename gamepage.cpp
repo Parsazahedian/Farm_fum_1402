@@ -38,7 +38,7 @@ Gamepage::Gamepage(QWidget *parent) :
 
     ui->groupBox->hide();
 
-    ui->decrease_point_label->hide();
+    Hide_decrease_label();
 
     ui->label_Score->setText( "Score :" + QString::number(score));
 
@@ -4816,7 +4816,9 @@ void Gamepage::on_Start_clicked()
            ch1->Set_Start_Pushbutton(ui->Start);
            ch1->Set_Animals_or_Seeds_Pushbutton(buttonAtPos);
            ch1->Set_Farmer_Pushbutton(buttonAtPos2);
+           ch1->Farmer_pushbutton_position(210, 160);
            ch1->Set_decrease_label(ui->decrease_point_label);
+           ch1->decrease_label_position(170, 120);
            ch1->TurnTimerOn();
            buttonAtPos->setEnabled(false);
 
@@ -4827,7 +4829,9 @@ void Gamepage::on_Start_clicked()
            sheep1->Set_Start_Pushbutton(ui->Start);
            sheep1->Set_Animals_or_Seeds_Pushbutton(buttonAtPos);
            sheep1->Set_Farmer_Pushbutton(buttonAtPos2);
+           sheep1->Farmer_pushbutton_position(210, 160);
            sheep1->Set_decrease_label(ui->decrease_point_label);
+           sheep1->decrease_label_position(170, 120);
            sheep1->TurnTimerOn();
            buttonAtPos->setEnabled(false);
 
@@ -4838,7 +4842,9 @@ void Gamepage::on_Start_clicked()
            cow1->Set_Start_Pushbutton(ui->Start);
            cow1->Set_Animals_or_Seeds_Pushbutton(buttonAtPos);
            cow1->Set_Farmer_Pushbutton(buttonAtPos2);
+           cow1->Farmer_pushbutton_position(210, 160);
            cow1->Set_decrease_label(ui->decrease_point_label);
+           cow1->decrease_label_position(170, 120);
            cow1->TurnTimerOn();
            buttonAtPos->setEnabled(false);
 
@@ -4849,7 +4855,9 @@ void Gamepage::on_Start_clicked()
            wheat1->Set_Start_Pushbutton(ui->Start);
            wheat1->Set_Animals_or_Seeds_Pushbutton(buttonAtPos);
            wheat1->Set_Farmer_Pushbutton(buttonAtPos2);
+           wheat1->Farmer_pushbutton_position(210, 160);
            wheat1->Set_decrease_label(ui->decrease_point_label);
+           wheat1->decrease_label_position(170, 120);
            wheat1->TurnTimerOn();
            buttonAtPos->setEnabled(false);
 
@@ -4860,7 +4868,9 @@ void Gamepage::on_Start_clicked()
            barley1->Set_Start_Pushbutton(ui->Start);
            barley1->Set_Animals_or_Seeds_Pushbutton(buttonAtPos);
            barley1->Set_Farmer_Pushbutton(buttonAtPos2);
+           barley1->Farmer_pushbutton_position(210, 160);
            barley1->Set_decrease_label(ui->decrease_point_label);
+           barley1->decrease_label_position(170, 120);
            barley1->TurnTimerOn();
            buttonAtPos->setEnabled(false);
 
@@ -5288,5 +5298,25 @@ void Gamepage::Hide_Farms()
     ui->label_15->hide();
     ui->label_16->hide();
 
+}
+
+void Gamepage::Hide_decrease_label()
+{
+    ui->decrease_point_label->hide();
+    ui->decrease_point_label_2->hide();
+    ui->decrease_point_label_3->hide();
+    ui->decrease_point_label_4->hide();
+    ui->decrease_point_label_5->hide();
+    ui->decrease_point_label_6->hide();
+    ui->decrease_point_label_7->hide();
+    ui->decrease_point_label_8->hide();
+    ui->decrease_point_label_9->hide();
+    ui->decrease_point_label_10->hide();
+    ui->decrease_point_label_11->hide();
+    ui->decrease_point_label_12->hide();
+    ui->decrease_point_label_13->hide();
+    ui->decrease_point_label_14->hide();
+    ui->decrease_point_label_15->hide();
+    ui->decrease_point_label_16->hide();
 }
 

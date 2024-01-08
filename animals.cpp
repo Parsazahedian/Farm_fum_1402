@@ -31,8 +31,8 @@ void Animals::TurnTimerOn()
         Product_Pushbutton->hide();
 
         animation1 = new QPropertyAnimation(Farmer_Pushbutton1, "geometry", this);
-        animation1->setStartValue(QRect(210, 160, Farmer_Pushbutton1->geometry().width(), Farmer_Pushbutton1->geometry().height()));
-        animation1->setEndValue(QRect(330, 160, Farmer_Pushbutton1->geometry().width(), Farmer_Pushbutton1->geometry().height()));
+        animation1->setStartValue(QRect(X2, Y2, Farmer_Pushbutton1->geometry().width(), Farmer_Pushbutton1->geometry().height()));
+        animation1->setEndValue(QRect(X2+120, Y2, Farmer_Pushbutton1->geometry().width(), Farmer_Pushbutton1->geometry().height()));
         animation1->setEasingCurve(QEasingCurve::Type::Linear);
         animation1->setDuration(950);
         animation1->start();
@@ -87,8 +87,8 @@ void Animals::Product_Collection_Delay_time_for_score()
         Product_Collection_Point--;
         decrease_label->show();
         QPropertyAnimation *animation1 = new QPropertyAnimation(decrease_label, "geometry", this);
-        animation1->setStartValue(QRect(160, 120, decrease_label->geometry().width(), decrease_label->geometry().height()));
-        animation1->setEndValue(QRect(160, 50, decrease_label->geometry().width(), decrease_label->geometry().height()));
+        animation1->setStartValue(QRect(X1, Y1, decrease_label->geometry().width(), decrease_label->geometry().height()));
+        animation1->setEndValue(QRect(X1, Y1-70, decrease_label->geometry().width(), decrease_label->geometry().height()));
         animation1->setEasingCurve(QEasingCurve::Type::Linear);
         animation1->setDuration(500);
         animation1->start();
@@ -124,6 +124,18 @@ void Animals::Stop_animation()
     animation1 = nullptr;
     Farmer_Pushbutton1->move(210, 160);
     Farmer_Pushbutton1->setEnabled(true);
+}
+
+void Animals::decrease_label_position(int x, int y)
+{
+    X1 = x;
+    Y1 = y;
+}
+
+void Animals::Farmer_pushbutton_position(int x, int y)
+{
+    X2 = x;
+    Y2 = y;
 }
 
 

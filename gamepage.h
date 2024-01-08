@@ -79,6 +79,8 @@ private slots:
 
     void Hide_Farms();
 
+    void Hide_decrease_label();
+
 private:
     Ui::Gamepage *ui;
 
