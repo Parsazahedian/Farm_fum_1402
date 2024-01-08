@@ -21,256 +21,26 @@ Gamepage::Gamepage(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    ui->the_product_of_sheep_pushButton->move(160, 140);
-    ui->the_product_of_cow_pushButton->move(160, 140);
-    ui->the_product_of_wheat_pushButton->move(160, 140);
-    ui->the_product_of_barley_pushButton->move(160, 140);
+    Move_the_product_of_Animals_and_seeds_pushButton();
 
-    ui->the_product_of_sheep_pushButton_2->move(550, 140);
-    ui->the_product_of_cow_pushButton_2->move(550, 140);
-    ui->the_product_of_wheat_pushButton_2->move(550, 140);
-    ui->the_product_of_barley_pushButton_2->move(550, 140);
+    Hide_the_product_of_Animals_and_seeds_pushButton();
 
-    ui->the_product_of_sheep_pushButton_3->move(1270, 140);
-    ui->the_product_of_cow_pushButton_3->move(1270, 140);
-    ui->the_product_of_wheat_pushButton_3->move(1270, 140);
-    ui->the_product_of_barley_pushButton_3->move(1270, 140);
+    Hide_Timer_labels();
 
-    ui->the_product_of_sheep_pushButton_4->move(1660, 140);
-    ui->the_product_of_cow_pushButton_4->move(1660, 140);
-    ui->the_product_of_wheat_pushButton_4->move(1660, 140);
-    ui->the_product_of_barley_pushButton_4->move(1660, 140);
+    Hide_Start_pushbuttuns();
 
-    ui->the_product_of_sheep_pushButton_5->move(160, 370);
-    ui->the_product_of_cow_pushButton_5->move(160, 370);
-    ui->the_product_of_wheat_pushButton_5->move(160, 370);
-    ui->the_product_of_barley_pushButton_5->move(160, 370);
+    Hide_Cancel_pushbuttons();
 
-    ui->the_product_of_sheep_pushButton_6->move(550, 370);
-    ui->the_product_of_cow_pushButton_6->move(550, 370);
-    ui->the_product_of_wheat_pushButton_6->move(550, 370);
-    ui->the_product_of_barley_pushButton_6->move(550, 370);
-
-    ui->the_product_of_sheep_pushButton_7->move(1270, 370);
-    ui->the_product_of_cow_pushButton_7->move(1270, 370);
-    ui->the_product_of_wheat_pushButton_7->move(1270, 370);
-    ui->the_product_of_barley_pushButton_7->move(1270, 370);
-
-    ui->the_product_of_sheep_pushButton_8->move(1660, 370);
-    ui->the_product_of_cow_pushButton_8->move(1660, 370);
-    ui->the_product_of_wheat_pushButton_8->move(1660, 370);
-    ui->the_product_of_barley_pushButton_8->move(1660, 370);
-
-    ui->the_product_of_sheep_pushButton_9->move(160, 600);
-    ui->the_product_of_cow_pushButton_9->move(160, 600);
-    ui->the_product_of_wheat_pushButton_9->move(160, 600);
-    ui->the_product_of_barley_pushButton_9->move(160, 600);
-
-    ui->the_product_of_sheep_pushButton_10->move(550, 600);
-    ui->the_product_of_cow_pushButton_10->move(550, 600);
-    ui->the_product_of_wheat_pushButton_10->move(550, 600);
-    ui->the_product_of_barley_pushButton_10->move(550, 600);
-
-    ui->the_product_of_sheep_pushButton_11->move(1270, 600);
-    ui->the_product_of_cow_pushButton_11->move(1270, 600);
-    ui->the_product_of_wheat_pushButton_11->move(11270, 600);
-    ui->the_product_of_barley_pushButton_11->move(1270, 600);
-
-    ui->the_product_of_sheep_pushButton_12->move(1660, 600);
-    ui->the_product_of_cow_pushButton_12->move(1660, 600);
-    ui->the_product_of_wheat_pushButton_12->move(1660, 600);
-    ui->the_product_of_barley_pushButton_12->move(1660, 600);
-
-    ui->the_product_of_sheep_pushButton_13->move(160, 830);
-    ui->the_product_of_cow_pushButton_13->move(160, 830);
-    ui->the_product_of_wheat_pushButton_13->move(160, 830);
-    ui->the_product_of_barley_pushButton_13->move(160, 830);
-
-    ui->the_product_of_sheep_pushButton_14->move(550, 830);
-    ui->the_product_of_cow_pushButton_14->move(550, 830);
-    ui->the_product_of_wheat_pushButton_14->move(550, 830);
-    ui->the_product_of_barley_pushButton_14->move(550, 830);
-
-    ui->the_product_of_sheep_pushButton_15->move(1270, 830);
-    ui->the_product_of_cow_pushButton_15->move(1270, 830);
-    ui->the_product_of_wheat_pushButton_15->move(1270, 830);
-    ui->the_product_of_barley_pushButton_15->move(1270, 830);
-
-    ui->the_product_of_sheep_pushButton_16->move(1660, 830);
-    ui->the_product_of_cow_pushButton_16->move(1660, 830);
-    ui->the_product_of_wheat_pushButton_16->move(1660, 830);
-    ui->the_product_of_barley_pushButton_16->move(1660, 830);
+    Hide_Farms();
 
     setMinimumSize(1908,978);
     setMaximumSize(1908,978);
 
     ui->groupBox->hide();
 
+    ui->decrease_point_label->hide();
+
     ui->label_Score->setText( "Score :" + QString::number(score));
-
-    ui->the_product_of_chicken_pushButton->hide();
-    ui->the_product_of_sheep_pushButton->hide();
-    ui->the_product_of_cow_pushButton->hide();
-    ui->the_product_of_wheat_pushButton->hide();
-    ui->the_product_of_barley_pushButton->hide();
-
-    ui->the_product_of_chicken_pushButton_2->hide();
-    ui->the_product_of_sheep_pushButton_2->hide();
-    ui->the_product_of_cow_pushButton_2->hide();
-    ui->the_product_of_wheat_pushButton_2->hide();
-    ui->the_product_of_barley_pushButton_2->hide();
-
-    ui->the_product_of_chicken_pushButton_3->hide();
-    ui->the_product_of_sheep_pushButton_3->hide();
-    ui->the_product_of_cow_pushButton_3->hide();
-    ui->the_product_of_wheat_pushButton_3->hide();
-    ui->the_product_of_barley_pushButton_3->hide();
-
-    ui->the_product_of_chicken_pushButton_4->hide();
-    ui->the_product_of_sheep_pushButton_4->hide();
-    ui->the_product_of_cow_pushButton_4->hide();
-    ui->the_product_of_wheat_pushButton_4->hide();
-    ui->the_product_of_barley_pushButton_4->hide();
-
-    ui->the_product_of_chicken_pushButton_5->hide();
-    ui->the_product_of_sheep_pushButton_5->hide();
-    ui->the_product_of_cow_pushButton_5->hide();
-    ui->the_product_of_wheat_pushButton_5->hide();
-    ui->the_product_of_barley_pushButton_5->hide();
-
-    ui->the_product_of_chicken_pushButton_6->hide();
-    ui->the_product_of_sheep_pushButton_6->hide();
-    ui->the_product_of_cow_pushButton_6->hide();
-    ui->the_product_of_wheat_pushButton_6->hide();
-    ui->the_product_of_barley_pushButton_6->hide();
-
-    ui->the_product_of_chicken_pushButton_7->hide();
-    ui->the_product_of_sheep_pushButton_7->hide();
-    ui->the_product_of_cow_pushButton_7->hide();
-    ui->the_product_of_wheat_pushButton_7->hide();
-    ui->the_product_of_barley_pushButton_7->hide();
-
-    ui->the_product_of_chicken_pushButton_8->hide();
-    ui->the_product_of_sheep_pushButton_8->hide();
-    ui->the_product_of_cow_pushButton_8->hide();
-    ui->the_product_of_wheat_pushButton_8->hide();
-    ui->the_product_of_barley_pushButton_8->hide();
-
-    ui->the_product_of_chicken_pushButton_9->hide();
-    ui->the_product_of_sheep_pushButton_9->hide();
-    ui->the_product_of_cow_pushButton_9->hide();
-    ui->the_product_of_wheat_pushButton_9->hide();
-    ui->the_product_of_barley_pushButton_9->hide();
-
-    ui->the_product_of_chicken_pushButton_10->hide();
-    ui->the_product_of_sheep_pushButton_10->hide();
-    ui->the_product_of_cow_pushButton_10->hide();
-    ui->the_product_of_wheat_pushButton_10->hide();
-    ui->the_product_of_barley_pushButton_10->hide();
-
-    ui->the_product_of_chicken_pushButton_11->hide();
-    ui->the_product_of_sheep_pushButton_11->hide();
-    ui->the_product_of_cow_pushButton_11->hide();
-    ui->the_product_of_wheat_pushButton_11->hide();
-    ui->the_product_of_barley_pushButton_11->hide();
-
-    ui->the_product_of_chicken_pushButton_12->hide();
-    ui->the_product_of_sheep_pushButton_12->hide();
-    ui->the_product_of_cow_pushButton_12->hide();
-    ui->the_product_of_wheat_pushButton_12->hide();
-    ui->the_product_of_barley_pushButton_12->hide();
-
-    ui->the_product_of_chicken_pushButton_13->hide();
-    ui->the_product_of_sheep_pushButton_13->hide();
-    ui->the_product_of_cow_pushButton_13->hide();
-    ui->the_product_of_wheat_pushButton_13->hide();
-    ui->the_product_of_barley_pushButton_13->hide();
-
-    ui->the_product_of_chicken_pushButton_14->hide();
-    ui->the_product_of_sheep_pushButton_14->hide();
-    ui->the_product_of_cow_pushButton_14->hide();
-    ui->the_product_of_wheat_pushButton_14->hide();
-    ui->the_product_of_barley_pushButton_14->hide();
-
-    ui->the_product_of_chicken_pushButton_15->hide();
-    ui->the_product_of_sheep_pushButton_15->hide();
-    ui->the_product_of_cow_pushButton_15->hide();
-    ui->the_product_of_wheat_pushButton_15->hide();
-    ui->the_product_of_barley_pushButton_15->hide();
-
-    ui->the_product_of_chicken_pushButton_16->hide();
-    ui->the_product_of_sheep_pushButton_16->hide();
-    ui->the_product_of_cow_pushButton_16->hide();
-    ui->the_product_of_wheat_pushButton_16->hide();
-    ui->the_product_of_barley_pushButton_16->hide();
-
-    ui->timer_label->hide();
-    ui->timer_label_2->hide();
-    ui->timer_label_3->hide();
-    ui->timer_label_4->hide();
-    ui->timer_label_5->hide();
-    ui->timer_label_6->hide();
-    ui->timer_label_7->hide();
-    ui->timer_label_8->hide();
-    ui->timer_label_9->hide();
-    ui->timer_label_10->hide();
-    ui->timer_label_11->hide();
-    ui->timer_label_12->hide();
-    ui->timer_label_13->hide();
-    ui->timer_label_14->hide();
-    ui->timer_label_15->hide();
-    ui->timer_label_16->hide();
-
-    ui->Start->hide();
-    ui->Start_2->hide();
-    ui->Start_3->hide();
-    ui->Start_4->hide();
-    ui->Start_5->hide();
-    ui->Start_6->hide();
-    ui->Start_7->hide();
-    ui->Start_8->hide();
-    ui->Start_9->hide();
-    ui->Start_10->hide();
-    ui->Start_11->hide();
-    ui->Start_12->hide();
-    ui->Start_13->hide();
-    ui->Start_14->hide();
-    ui->Start_15->hide();
-    ui->Start_16->hide();
-
-    ui->Cancel->hide();
-    ui->Cancel_2->hide();
-    ui->Cancel_3->hide();
-    ui->Cancel_4->hide();
-    ui->Cancel_5->hide();
-    ui->Cancel_6->hide();
-    ui->Cancel_7->hide();
-    ui->Cancel_8->hide();
-    ui->Cancel_9->hide();
-    ui->Cancel_10->hide();
-    ui->Cancel_11->hide();
-    ui->Cancel_12->hide();
-    ui->Cancel_13->hide();
-    ui->Cancel_14->hide();
-    ui->Cancel_15->hide();
-    ui->Cancel_16->hide();
-
-    ui->label_2->hide();
-    ui->label_3->hide();
-    ui->label_4->hide();
-    ui->label_5->hide();
-    ui->label_6->hide();
-    ui->label_7->hide();
-    ui->label_8->hide();
-    ui->label_9->hide();
-    ui->label_10->hide();
-    ui->label_11->hide();
-    ui->label_12->hide();
-    ui->label_13->hide();
-    ui->label_14->hide();
-    ui->label_14->hide();
-    ui->label_15->hide();
-    ui->label_16->hide();
 
 }
 
@@ -290,7 +60,6 @@ void Gamepage::on_Shop_pushButton_clicked()
         ui->groupBox->show();
     }
 }
-
 
 void Gamepage::on_Chicken_pushButton_clicked()
 {
@@ -959,7 +728,6 @@ void Gamepage::on_Chicken_pushButton_clicked()
 
 }
 
-
 void Gamepage::on_Sheep_pushButton_clicked()
 {
     Sheep * sheep = new Sheep(ui->Animals_verticalLayout);
@@ -1605,7 +1373,6 @@ void Gamepage::on_Sheep_pushButton_clicked()
 
        });
 }
-
 
 void Gamepage::on_Cow_pushButton_clicked()
 {
@@ -2254,7 +2021,6 @@ void Gamepage::on_Cow_pushButton_clicked()
        });
 }
 
-
 void Gamepage::on_Wheat_pushButton_clicked()
 {
     Wheat * wheat = new Wheat(ui->Seeds_verticalLayout);
@@ -2890,7 +2656,6 @@ void Gamepage::on_Wheat_pushButton_clicked()
 
        });
 }
-
 
 void Gamepage::on_Barley_pushButton_clicked()
 {
@@ -3530,7 +3295,6 @@ void Gamepage::on_Barley_pushButton_clicked()
        });
 }
 
-
 void Gamepage::on_Farmer_pushButton_clicked()
 {
 
@@ -4139,10 +3903,7 @@ void Gamepage::on_Farmer_pushButton_clicked()
 
        });
 
-
-
 }
-
 
 void Gamepage::on_New_farm_pushButton_clicked()
 {
@@ -5028,9 +4789,6 @@ void Gamepage::Get_info()
 
 }
 
-
-
-
 void Gamepage::on_Start_clicked()
 {
     ui->Start->hide();
@@ -5047,9 +4805,6 @@ void Gamepage::on_Start_clicked()
     wheat1 = new Wheat(ui->verticalLayout);
     barley1 = new Barley(ui->verticalLayout);
 
- //   ch->SetTimerLabel(ui->label_17);
-
-
     QPushButton* buttonAtPos = this->check2(Pos);
     QPushButton* buttonAtPos2 = this->check2(Pos2);
     if (buttonAtPos != nullptr) {
@@ -5061,8 +4816,8 @@ void Gamepage::on_Start_clicked()
            ch1->Set_Start_Pushbutton(ui->Start);
            ch1->Set_Animals_or_Seeds_Pushbutton(buttonAtPos);
            ch1->Set_Farmer_Pushbutton(buttonAtPos2);
+           ch1->Set_decrease_label(ui->decrease_point_label);
            ch1->TurnTimerOn();
-
            buttonAtPos->setEnabled(false);
 
        } else if (buttonAtPos->objectName() == "Sheep") {
@@ -5072,6 +4827,7 @@ void Gamepage::on_Start_clicked()
            sheep1->Set_Start_Pushbutton(ui->Start);
            sheep1->Set_Animals_or_Seeds_Pushbutton(buttonAtPos);
            sheep1->Set_Farmer_Pushbutton(buttonAtPos2);
+           sheep1->Set_decrease_label(ui->decrease_point_label);
            sheep1->TurnTimerOn();
            buttonAtPos->setEnabled(false);
 
@@ -5082,6 +4838,7 @@ void Gamepage::on_Start_clicked()
            cow1->Set_Start_Pushbutton(ui->Start);
            cow1->Set_Animals_or_Seeds_Pushbutton(buttonAtPos);
            cow1->Set_Farmer_Pushbutton(buttonAtPos2);
+           cow1->Set_decrease_label(ui->decrease_point_label);
            cow1->TurnTimerOn();
            buttonAtPos->setEnabled(false);
 
@@ -5092,6 +4849,7 @@ void Gamepage::on_Start_clicked()
            wheat1->Set_Start_Pushbutton(ui->Start);
            wheat1->Set_Animals_or_Seeds_Pushbutton(buttonAtPos);
            wheat1->Set_Farmer_Pushbutton(buttonAtPos2);
+           wheat1->Set_decrease_label(ui->decrease_point_label);
            wheat1->TurnTimerOn();
            buttonAtPos->setEnabled(false);
 
@@ -5102,6 +4860,7 @@ void Gamepage::on_Start_clicked()
            barley1->Set_Start_Pushbutton(ui->Start);
            barley1->Set_Animals_or_Seeds_Pushbutton(buttonAtPos);
            barley1->Set_Farmer_Pushbutton(buttonAtPos2);
+           barley1->Set_decrease_label(ui->decrease_point_label);
            barley1->TurnTimerOn();
            buttonAtPos->setEnabled(false);
 
@@ -5129,9 +4888,9 @@ void Gamepage::clearLayout(QLayout *layout)
     }
 }
 
-
 void Gamepage::on_Cancel_clicked()
 {
+
     ui->Cancel->hide();
     ui->Start->show();
 
@@ -5139,16 +4898,16 @@ void Gamepage::on_Cancel_clicked()
 
     QPoint Pos(150, 180);
 
-    QPoint Pos2(210, 160);
 
     QPushButton* buttonAtPos = this->check2(Pos);
-    QPushButton* buttonAtPos2 = this->check2(Pos2);
+
     if (buttonAtPos != nullptr) {
 
        if (buttonAtPos->objectName() == "Chicken") {
 
            buttonAtPos->setEnabled(true);
 
+           ch1->Stop_animation();
            ch1->Timer_Stop();
            ch1->Timer2_Stop();
 
@@ -5156,6 +4915,7 @@ void Gamepage::on_Cancel_clicked()
 
            buttonAtPos->setEnabled(true);
 
+           sheep1->Stop_animation();
            sheep1->Timer_Stop();
            sheep1->Timer2_Stop();
 
@@ -5163,6 +4923,7 @@ void Gamepage::on_Cancel_clicked()
 
            buttonAtPos->setEnabled(true);
 
+           cow1->Stop_animation();
            cow1->Timer_Stop();
            cow1->Timer2_Stop();
 
@@ -5170,6 +4931,7 @@ void Gamepage::on_Cancel_clicked()
 
            buttonAtPos->setEnabled(true);
 
+           wheat1->Stop_animation();
            wheat1->Timer_Stop();
            wheat1->Timer2_Stop();
 
@@ -5177,17 +4939,15 @@ void Gamepage::on_Cancel_clicked()
 
            buttonAtPos->setEnabled(true);
 
+           barley1->Stop_animation();
            barley1->Timer_Stop();
            barley1->Timer2_Stop();
 
        }
     }
-    buttonAtPos2->setEnabled(true);
 
     clearLayout(ui->verticalLayout);
-
 }
-
 
 void Gamepage::on_the_product_of_chicken_pushButton_clicked()
 {
@@ -5196,8 +4956,8 @@ void Gamepage::on_the_product_of_chicken_pushButton_clicked()
     ui->the_product_of_chicken_pushButton->hide();
     ch1->Timer2_Stop();
     ui->Start->show();
+    ui->decrease_point_label->hide();
 }
-
 
 void Gamepage::on_the_product_of_sheep_pushButton_clicked()
 {
@@ -5206,8 +4966,8 @@ void Gamepage::on_the_product_of_sheep_pushButton_clicked()
     ui->the_product_of_sheep_pushButton->hide();
     sheep1->Timer2_Stop();
     ui->Start->show();
+    ui->decrease_point_label->hide();
 }
-
 
 void Gamepage::on_the_product_of_cow_pushButton_clicked()
 {
@@ -5216,8 +4976,8 @@ void Gamepage::on_the_product_of_cow_pushButton_clicked()
     ui->the_product_of_cow_pushButton->hide();
     cow1->Timer2_Stop();
     ui->Start->show();
+    ui->decrease_point_label->hide();
 }
-
 
 void Gamepage::on_the_product_of_wheat_pushButton_clicked()
 {
@@ -5240,8 +5000,8 @@ void Gamepage::on_the_product_of_wheat_pushButton_clicked()
             Get_info();
         }
     }
+    ui->decrease_point_label->hide();
 }
-
 
 void Gamepage::on_the_product_of_barley_pushButton_clicked()
 {
@@ -5264,5 +5024,269 @@ void Gamepage::on_the_product_of_barley_pushButton_clicked()
              Get_info();
          }
     }
+    ui->decrease_point_label->hide();
+}
+
+void Gamepage::Move_the_product_of_Animals_and_seeds_pushButton()
+{
+    ui->the_product_of_sheep_pushButton->move(160, 140);
+    ui->the_product_of_cow_pushButton->move(160, 140);
+    ui->the_product_of_wheat_pushButton->move(160, 140);
+    ui->the_product_of_barley_pushButton->move(160, 140);
+
+    ui->the_product_of_sheep_pushButton_2->move(550, 140);
+    ui->the_product_of_cow_pushButton_2->move(550, 140);
+    ui->the_product_of_wheat_pushButton_2->move(550, 140);
+    ui->the_product_of_barley_pushButton_2->move(550, 140);
+
+    ui->the_product_of_sheep_pushButton_3->move(1270, 140);
+    ui->the_product_of_cow_pushButton_3->move(1270, 140);
+    ui->the_product_of_wheat_pushButton_3->move(1270, 140);
+    ui->the_product_of_barley_pushButton_3->move(1270, 140);
+
+    ui->the_product_of_sheep_pushButton_4->move(1660, 140);
+    ui->the_product_of_cow_pushButton_4->move(1660, 140);
+    ui->the_product_of_wheat_pushButton_4->move(1660, 140);
+    ui->the_product_of_barley_pushButton_4->move(1660, 140);
+
+    ui->the_product_of_sheep_pushButton_5->move(160, 370);
+    ui->the_product_of_cow_pushButton_5->move(160, 370);
+    ui->the_product_of_wheat_pushButton_5->move(160, 370);
+    ui->the_product_of_barley_pushButton_5->move(160, 370);
+
+    ui->the_product_of_sheep_pushButton_6->move(550, 370);
+    ui->the_product_of_cow_pushButton_6->move(550, 370);
+    ui->the_product_of_wheat_pushButton_6->move(550, 370);
+    ui->the_product_of_barley_pushButton_6->move(550, 370);
+
+    ui->the_product_of_sheep_pushButton_7->move(1270, 370);
+    ui->the_product_of_cow_pushButton_7->move(1270, 370);
+    ui->the_product_of_wheat_pushButton_7->move(1270, 370);
+    ui->the_product_of_barley_pushButton_7->move(1270, 370);
+
+    ui->the_product_of_sheep_pushButton_8->move(1660, 370);
+    ui->the_product_of_cow_pushButton_8->move(1660, 370);
+    ui->the_product_of_wheat_pushButton_8->move(1660, 370);
+    ui->the_product_of_barley_pushButton_8->move(1660, 370);
+
+    ui->the_product_of_sheep_pushButton_9->move(160, 600);
+    ui->the_product_of_cow_pushButton_9->move(160, 600);
+    ui->the_product_of_wheat_pushButton_9->move(160, 600);
+    ui->the_product_of_barley_pushButton_9->move(160, 600);
+
+    ui->the_product_of_sheep_pushButton_10->move(550, 600);
+    ui->the_product_of_cow_pushButton_10->move(550, 600);
+    ui->the_product_of_wheat_pushButton_10->move(550, 600);
+    ui->the_product_of_barley_pushButton_10->move(550, 600);
+
+    ui->the_product_of_sheep_pushButton_11->move(1270, 600);
+    ui->the_product_of_cow_pushButton_11->move(1270, 600);
+    ui->the_product_of_wheat_pushButton_11->move(11270, 600);
+    ui->the_product_of_barley_pushButton_11->move(1270, 600);
+
+    ui->the_product_of_sheep_pushButton_12->move(1660, 600);
+    ui->the_product_of_cow_pushButton_12->move(1660, 600);
+    ui->the_product_of_wheat_pushButton_12->move(1660, 600);
+    ui->the_product_of_barley_pushButton_12->move(1660, 600);
+
+    ui->the_product_of_sheep_pushButton_13->move(160, 830);
+    ui->the_product_of_cow_pushButton_13->move(160, 830);
+    ui->the_product_of_wheat_pushButton_13->move(160, 830);
+    ui->the_product_of_barley_pushButton_13->move(160, 830);
+
+    ui->the_product_of_sheep_pushButton_14->move(550, 830);
+    ui->the_product_of_cow_pushButton_14->move(550, 830);
+    ui->the_product_of_wheat_pushButton_14->move(550, 830);
+    ui->the_product_of_barley_pushButton_14->move(550, 830);
+
+    ui->the_product_of_sheep_pushButton_15->move(1270, 830);
+    ui->the_product_of_cow_pushButton_15->move(1270, 830);
+    ui->the_product_of_wheat_pushButton_15->move(1270, 830);
+    ui->the_product_of_barley_pushButton_15->move(1270, 830);
+
+    ui->the_product_of_sheep_pushButton_16->move(1660, 830);
+    ui->the_product_of_cow_pushButton_16->move(1660, 830);
+    ui->the_product_of_wheat_pushButton_16->move(1660, 830);
+    ui->the_product_of_barley_pushButton_16->move(1660, 830);
+}
+
+void Gamepage::Hide_the_product_of_Animals_and_seeds_pushButton()
+{
+    ui->the_product_of_chicken_pushButton->hide();
+    ui->the_product_of_sheep_pushButton->hide();
+    ui->the_product_of_cow_pushButton->hide();
+    ui->the_product_of_wheat_pushButton->hide();
+    ui->the_product_of_barley_pushButton->hide();
+
+    ui->the_product_of_chicken_pushButton_2->hide();
+    ui->the_product_of_sheep_pushButton_2->hide();
+    ui->the_product_of_cow_pushButton_2->hide();
+    ui->the_product_of_wheat_pushButton_2->hide();
+    ui->the_product_of_barley_pushButton_2->hide();
+
+    ui->the_product_of_chicken_pushButton_3->hide();
+    ui->the_product_of_sheep_pushButton_3->hide();
+    ui->the_product_of_cow_pushButton_3->hide();
+    ui->the_product_of_wheat_pushButton_3->hide();
+    ui->the_product_of_barley_pushButton_3->hide();
+
+    ui->the_product_of_chicken_pushButton_4->hide();
+    ui->the_product_of_sheep_pushButton_4->hide();
+    ui->the_product_of_cow_pushButton_4->hide();
+    ui->the_product_of_wheat_pushButton_4->hide();
+    ui->the_product_of_barley_pushButton_4->hide();
+
+    ui->the_product_of_chicken_pushButton_5->hide();
+    ui->the_product_of_sheep_pushButton_5->hide();
+    ui->the_product_of_cow_pushButton_5->hide();
+    ui->the_product_of_wheat_pushButton_5->hide();
+    ui->the_product_of_barley_pushButton_5->hide();
+
+    ui->the_product_of_chicken_pushButton_6->hide();
+    ui->the_product_of_sheep_pushButton_6->hide();
+    ui->the_product_of_cow_pushButton_6->hide();
+    ui->the_product_of_wheat_pushButton_6->hide();
+    ui->the_product_of_barley_pushButton_6->hide();
+
+    ui->the_product_of_chicken_pushButton_7->hide();
+    ui->the_product_of_sheep_pushButton_7->hide();
+    ui->the_product_of_cow_pushButton_7->hide();
+    ui->the_product_of_wheat_pushButton_7->hide();
+    ui->the_product_of_barley_pushButton_7->hide();
+
+    ui->the_product_of_chicken_pushButton_8->hide();
+    ui->the_product_of_sheep_pushButton_8->hide();
+    ui->the_product_of_cow_pushButton_8->hide();
+    ui->the_product_of_wheat_pushButton_8->hide();
+    ui->the_product_of_barley_pushButton_8->hide();
+
+    ui->the_product_of_chicken_pushButton_9->hide();
+    ui->the_product_of_sheep_pushButton_9->hide();
+    ui->the_product_of_cow_pushButton_9->hide();
+    ui->the_product_of_wheat_pushButton_9->hide();
+    ui->the_product_of_barley_pushButton_9->hide();
+
+    ui->the_product_of_chicken_pushButton_10->hide();
+    ui->the_product_of_sheep_pushButton_10->hide();
+    ui->the_product_of_cow_pushButton_10->hide();
+    ui->the_product_of_wheat_pushButton_10->hide();
+    ui->the_product_of_barley_pushButton_10->hide();
+
+    ui->the_product_of_chicken_pushButton_11->hide();
+    ui->the_product_of_sheep_pushButton_11->hide();
+    ui->the_product_of_cow_pushButton_11->hide();
+    ui->the_product_of_wheat_pushButton_11->hide();
+    ui->the_product_of_barley_pushButton_11->hide();
+
+    ui->the_product_of_chicken_pushButton_12->hide();
+    ui->the_product_of_sheep_pushButton_12->hide();
+    ui->the_product_of_cow_pushButton_12->hide();
+    ui->the_product_of_wheat_pushButton_12->hide();
+    ui->the_product_of_barley_pushButton_12->hide();
+
+    ui->the_product_of_chicken_pushButton_13->hide();
+    ui->the_product_of_sheep_pushButton_13->hide();
+    ui->the_product_of_cow_pushButton_13->hide();
+    ui->the_product_of_wheat_pushButton_13->hide();
+    ui->the_product_of_barley_pushButton_13->hide();
+
+    ui->the_product_of_chicken_pushButton_14->hide();
+    ui->the_product_of_sheep_pushButton_14->hide();
+    ui->the_product_of_cow_pushButton_14->hide();
+    ui->the_product_of_wheat_pushButton_14->hide();
+    ui->the_product_of_barley_pushButton_14->hide();
+
+    ui->the_product_of_chicken_pushButton_15->hide();
+    ui->the_product_of_sheep_pushButton_15->hide();
+    ui->the_product_of_cow_pushButton_15->hide();
+    ui->the_product_of_wheat_pushButton_15->hide();
+    ui->the_product_of_barley_pushButton_15->hide();
+
+    ui->the_product_of_chicken_pushButton_16->hide();
+    ui->the_product_of_sheep_pushButton_16->hide();
+    ui->the_product_of_cow_pushButton_16->hide();
+    ui->the_product_of_wheat_pushButton_16->hide();
+    ui->the_product_of_barley_pushButton_16->hide();
+}
+
+void Gamepage::Hide_Timer_labels()
+{
+    ui->timer_label->hide();
+    ui->timer_label_2->hide();
+    ui->timer_label_3->hide();
+    ui->timer_label_4->hide();
+    ui->timer_label_5->hide();
+    ui->timer_label_6->hide();
+    ui->timer_label_7->hide();
+    ui->timer_label_8->hide();
+    ui->timer_label_9->hide();
+    ui->timer_label_10->hide();
+    ui->timer_label_11->hide();
+    ui->timer_label_12->hide();
+    ui->timer_label_13->hide();
+    ui->timer_label_14->hide();
+    ui->timer_label_15->hide();
+    ui->timer_label_16->hide();
+}
+
+void Gamepage::Hide_Start_pushbuttuns()
+{
+    ui->Start->hide();
+    ui->Start_2->hide();
+    ui->Start_3->hide();
+    ui->Start_4->hide();
+    ui->Start_5->hide();
+    ui->Start_6->hide();
+    ui->Start_7->hide();
+    ui->Start_8->hide();
+    ui->Start_9->hide();
+    ui->Start_10->hide();
+    ui->Start_11->hide();
+    ui->Start_12->hide();
+    ui->Start_13->hide();
+    ui->Start_14->hide();
+    ui->Start_15->hide();
+    ui->Start_16->hide();
+}
+
+void Gamepage::Hide_Cancel_pushbuttons()
+{
+    ui->Cancel->hide();
+    ui->Cancel_2->hide();
+    ui->Cancel_3->hide();
+    ui->Cancel_4->hide();
+    ui->Cancel_5->hide();
+    ui->Cancel_6->hide();
+    ui->Cancel_7->hide();
+    ui->Cancel_8->hide();
+    ui->Cancel_9->hide();
+    ui->Cancel_10->hide();
+    ui->Cancel_11->hide();
+    ui->Cancel_12->hide();
+    ui->Cancel_13->hide();
+    ui->Cancel_14->hide();
+    ui->Cancel_15->hide();
+    ui->Cancel_16->hide();
+}
+
+void Gamepage::Hide_Farms()
+{
+    ui->label_2->hide();
+    ui->label_3->hide();
+    ui->label_4->hide();
+    ui->label_5->hide();
+    ui->label_6->hide();
+    ui->label_7->hide();
+    ui->label_8->hide();
+    ui->label_9->hide();
+    ui->label_10->hide();
+    ui->label_11->hide();
+    ui->label_12->hide();
+    ui->label_13->hide();
+    ui->label_14->hide();
+    ui->label_14->hide();
+    ui->label_15->hide();
+    ui->label_16->hide();
+
 }
 

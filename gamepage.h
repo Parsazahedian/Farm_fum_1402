@@ -67,6 +67,18 @@ private slots:
 
     void on_the_product_of_barley_pushButton_clicked();
 
+    void Move_the_product_of_Animals_and_seeds_pushButton();
+
+    void Hide_the_product_of_Animals_and_seeds_pushButton();
+
+    void Hide_Timer_labels();
+
+    void Hide_Start_pushbuttuns();
+
+    void Hide_Cancel_pushbuttons();
+
+    void Hide_Farms();
+
 private:
     Ui::Gamepage *ui;
 

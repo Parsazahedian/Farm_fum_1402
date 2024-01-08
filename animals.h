@@ -5,6 +5,7 @@
 #include "QTimer"
 #include "QLabel"
 #include "QPushButton"
+#include "QPropertyAnimation"
 
 extern int score;
 
@@ -46,6 +47,9 @@ public:
 
     void SetTimerLabel2(QLabel* label);
 
+    void Set_decrease_label(QLabel* label);
+
+    void Stop_animation();
 
 private:
 
@@ -65,9 +69,9 @@ private:
 
     QPushButton* Animals_or_Seeds_Pushbutton;
 
-    QPushButton* Farmer_Pushbutton;
-
     int x=0;
+
+    QLabel * decrease_label;
 
 };
 
