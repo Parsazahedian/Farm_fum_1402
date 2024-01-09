@@ -11,10 +11,56 @@
 #include "animals.h"
 #include "seeds.h"
 
+
+
 int score=10;
 
 Chicken * ch1; Sheep * sheep1; Cow * cow1;  Wheat * wheat1;  Barley * barley1;
 Chicken * ch2; Sheep * sheep2; Cow * cow2;  Wheat * wheat2;  Barley * barley2;
+Chicken * ch3; Sheep * sheep3; Cow * cow3;  Wheat * wheat3;  Barley * barley3;
+Chicken * ch4; Sheep * sheep4; Cow * cow4;  Wheat * wheat4;  Barley * barley4;
+Chicken * ch5; Sheep * sheep5; Cow * cow5;  Wheat * wheat5;  Barley * barley5;
+Chicken * ch6; Sheep * sheep6; Cow * cow6;  Wheat * wheat6;  Barley * barley6;
+Chicken * ch7; Sheep * sheep7; Cow * cow7;  Wheat * wheat7;  Barley * barley7;
+Chicken * ch8; Sheep * sheep8; Cow * cow8;  Wheat * wheat8;  Barley * barley8;
+Chicken * ch9; Sheep * sheep9; Cow * cow9;  Wheat * wheat9;  Barley * barley9;
+Chicken * ch10; Sheep * sheep10; Cow * cow10;  Wheat * wheat10;  Barley * barley10;
+Chicken * ch11; Sheep * sheep11; Cow * cow11;  Wheat * wheat11;  Barley * barley11;
+Chicken * ch12; Sheep * sheep12; Cow * cow12;  Wheat * wheat12;  Barley * barley12;
+Chicken * ch13; Sheep * sheep13; Cow * cow13;  Wheat * wheat13;  Barley * barley13;
+Chicken * ch14; Sheep * sheep14; Cow * cow14;  Wheat * wheat14;  Barley * barley14;
+Chicken * ch15; Sheep * sheep15; Cow * cow15;  Wheat * wheat15;  Barley * barley15;
+Chicken * ch16; Sheep * sheep16; Cow * cow16;  Wheat * wheat16;  Barley * barley16;
+
+QPushButton* buttonAtPos2_ch1;QPushButton* buttonAtPos2_ch2;QPushButton* buttonAtPos2_ch3;QPushButton* buttonAtPos2_ch4;
+QPushButton* buttonAtPos2_ch5;QPushButton* buttonAtPos2_ch6;QPushButton* buttonAtPos2_ch7;QPushButton* buttonAtPos2_ch8;
+QPushButton* buttonAtPos2_ch9;QPushButton* buttonAtPos2_ch10;QPushButton* buttonAtPos2_ch11;QPushButton* buttonAtPos2_ch12;
+QPushButton* buttonAtPos2_ch13;QPushButton* buttonAtPos2_ch14;QPushButton* buttonAtPos2_ch15;QPushButton* buttonAtPos2_ch16;
+
+QPushButton* buttonAtPos2_Sheep1;QPushButton* buttonAtPos2_Sheep2;QPushButton* buttonAtPos2_Sheep3;QPushButton* buttonAtPos2_Sheep4;
+QPushButton* buttonAtPos2_Sheep5;QPushButton* buttonAtPos2_Sheep6;QPushButton* buttonAtPos2_Sheep7;QPushButton* buttonAtPos2_Sheep8;
+QPushButton* buttonAtPos2_Sheep9;QPushButton* buttonAtPos2_Sheep10;QPushButton* buttonAtPos2_Sheep11;QPushButton* buttonAtPos2_Sheep12;
+QPushButton* buttonAtPos2_Sheep13;QPushButton* buttonAtPos2_Sheep14;QPushButton* buttonAtPos2_Sheep15;QPushButton* buttonAtPos2_Sheep16;
+
+QPushButton* buttonAtPos2_cow1;QPushButton* buttonAtPos2_cow2;QPushButton* buttonAtPos2_cow3;QPushButton* buttonAtPos2_cow4;
+QPushButton* buttonAtPos2_cow5;QPushButton* buttonAtPos2_cow6;QPushButton* buttonAtPos2_cow7;QPushButton* buttonAtPos2_cow8;
+QPushButton* buttonAtPos2_cow9;QPushButton* buttonAtPos2_cow10;QPushButton* buttonAtPos2_cow11;QPushButton* buttonAtPos2_cow12;
+QPushButton* buttonAtPos2_cow13;QPushButton* buttonAtPos2_cow14;QPushButton* buttonAtPos2_cow15;QPushButton* buttonAtPos2_cow16;
+
+QPushButton* buttonAtPos2_wheat1;QPushButton* buttonAtPos2_wheat2;QPushButton* buttonAtPos2_wheat3;QPushButton* buttonAtPos2_wheat4;
+QPushButton* buttonAtPos2_wheat5;QPushButton* buttonAtPos2_wheat6;QPushButton* buttonAtPos2_wheat7;QPushButton* buttonAtPos2_wheat8;
+QPushButton* buttonAtPos2_wheat9;QPushButton* buttonAtPos2_wheat10;QPushButton* buttonAtPos2_wheat11;QPushButton* buttonAtPos2_wheat12;
+QPushButton* buttonAtPos2_wheat13;QPushButton* buttonAtPos2_wheat14;QPushButton* buttonAtPos2_wheat15;QPushButton* buttonAtPos2_wheat16;
+
+QPushButton* buttonAtPos2_barley1;QPushButton* buttonAtPos2_barley2;QPushButton* buttonAtPos2_barley3;QPushButton* buttonAtPos2_barley4;
+QPushButton* buttonAtPos2_barley5;QPushButton* buttonAtPos2_barley6;QPushButton* buttonAtPos2_barley7;QPushButton* buttonAtPos2_barley8;
+QPushButton* buttonAtPos2_barley9;QPushButton* buttonAtPos2_barley10;QPushButton* buttonAtPos2_barley11;QPushButton* buttonAtPos2_barley12;
+QPushButton* buttonAtPos2_barley13;QPushButton* buttonAtPos2_barley14;QPushButton* buttonAtPos2_barley15;QPushButton* buttonAtPos2_barley16;
+
+QPropertyAnimation *animation1;QPropertyAnimation *animation2;QPropertyAnimation *animation3;QPropertyAnimation *animation4;
+QPropertyAnimation *animation5;QPropertyAnimation *animation6;QPropertyAnimation *animation7;QPropertyAnimation *animation8;
+QPropertyAnimation *animation9;QPropertyAnimation *animation10;QPropertyAnimation *animation11;QPropertyAnimation *animation12;
+QPropertyAnimation *animation13;QPropertyAnimation *animation14;QPropertyAnimation *animation15;QPropertyAnimation *animation16;
 
 Gamepage::Gamepage(QWidget *parent) :
     QMainWindow(parent),
@@ -40,6 +86,13 @@ Gamepage::Gamepage(QWidget *parent) :
     ui->groupBox->hide();
 
     Hide_decrease_label();
+
+
+    ui->the_product_of_chicken_pushButton->setObjectName("chch");
+    ui->the_product_of_sheep_pushButton->setObjectName("ss");
+    ui->the_product_of_cow_pushButton->setObjectName("cc");
+    ui->the_product_of_wheat_pushButton->setObjectName("ww");
+    ui->the_product_of_barley_pushButton->setObjectName("bb");
 
     ui->label_Score->setText( "Score :" + QString::number(score));
 
@@ -1124,6 +1177,7 @@ void Gamepage::on_Sheep_pushButton_clicked()
                int buttonNumber = buttonMap[clickedButton];
 
                switch(buttonNumber) {
+               Get_info();
                case 1:
 
                    if(F1_Having_Animals_or_Seeds==0){
@@ -1769,6 +1823,7 @@ void Gamepage::on_Cow_pushButton_clicked()
                int buttonNumber = buttonMap[clickedButton];
 
                switch(buttonNumber) {
+               Get_info();
                case 1:
 
                    if(F1_Having_Animals_or_Seeds==0){
@@ -2411,6 +2466,7 @@ void Gamepage::on_Wheat_pushButton_clicked()
                int buttonNumber = buttonMap[clickedButton];
 
                switch(buttonNumber) {
+               Get_info();
                case 1:
 
                    if(F1_Having_Animals_or_Seeds==0){
@@ -3049,6 +3105,7 @@ void Gamepage::on_Barley_pushButton_clicked()
                int buttonNumber = buttonMap[clickedButton];
 
                switch(buttonNumber) {
+               Get_info();
                case 1:
 
                    if(F1_Having_Animals_or_Seeds==0){
@@ -3333,7 +3390,7 @@ void Gamepage::on_Farmer_pushButton_clicked()
                    F1_Having_Farmer=0;
                    button->setEnabled(true);
                }
-               if(check(pos)==false){
+               if((check(pos)==false) || (check(pos)==true && ui->Cancel->isVisible())){
 
                    F1_Having_Farmer=1;
                    button->setEnabled(false);
@@ -3353,7 +3410,7 @@ void Gamepage::on_Farmer_pushButton_clicked()
                    F2_Having_Farmer=0;
                    button->setEnabled(true);
                }
-               if(check(pos)==false){
+               if((check(pos)==false) || (check(pos)==true && ui->Cancel_2->isVisible())) {
 
                    F2_Having_Farmer=1;
                    button->setEnabled(false);
@@ -3373,7 +3430,7 @@ void Gamepage::on_Farmer_pushButton_clicked()
                    F3_Having_Farmer=0;
                    button->setEnabled(true);
                }
-               if(check(pos)==false){
+               if((check(pos)==false) || (check(pos)==true && ui->Cancel_3->isVisible())){
 
                    F3_Having_Farmer=1;
                    button->setEnabled(false);
@@ -3393,7 +3450,7 @@ void Gamepage::on_Farmer_pushButton_clicked()
                    F4_Having_Farmer=0;
                    button->setEnabled(true);
                }
-               if(check(pos)==false){
+               if((check(pos)==false) || (check(pos)==true && ui->Cancel_4->isVisible())){
 
                    F4_Having_Farmer=1;
                    button->setEnabled(false);
@@ -3413,7 +3470,7 @@ void Gamepage::on_Farmer_pushButton_clicked()
                    F5_Having_Farmer=0;
                    button->setEnabled(true);
                }
-               if(check(pos)==false){
+               if((check(pos)==false) || (check(pos)==true && ui->Cancel_5->isVisible())){
 
                    F5_Having_Farmer=1;
                    button->setEnabled(false);
@@ -3433,7 +3490,7 @@ void Gamepage::on_Farmer_pushButton_clicked()
                    F6_Having_Farmer=0;
                    button->setEnabled(true);
                }
-               if(check(pos)==false){
+               if((check(pos)==false) || (check(pos)==true && ui->Cancel_6->isVisible())){
 
                    F6_Having_Farmer=1;
                    button->setEnabled(false);
@@ -3453,7 +3510,7 @@ void Gamepage::on_Farmer_pushButton_clicked()
                    F7_Having_Farmer=0;
                    button->setEnabled(true);
                }
-               if(check(pos)==false){
+               if((check(pos)==false) || (check(pos)==true && ui->Cancel_7->isVisible())){
 
                    F7_Having_Farmer=1;
                    button->setEnabled(false);
@@ -3473,7 +3530,7 @@ void Gamepage::on_Farmer_pushButton_clicked()
                    F8_Having_Farmer=0;
                    button->setEnabled(true);
                }
-               if(check(pos)==false){
+               if((check(pos)==false) || (check(pos)==true && ui->Cancel_8->isVisible())){
 
                    F8_Having_Farmer=1;
                    button->setEnabled(false);
@@ -3493,7 +3550,7 @@ void Gamepage::on_Farmer_pushButton_clicked()
                    F9_Having_Farmer=0;
                    button->setEnabled(true);
                }
-               if(check(pos)==false){
+               if((check(pos)==false) || (check(pos)==true && ui->Cancel_9->isVisible())){
 
                    F9_Having_Farmer=1;
                    button->setEnabled(false);
@@ -3513,7 +3570,7 @@ void Gamepage::on_Farmer_pushButton_clicked()
                    F10_Having_Farmer=0;
                    button->setEnabled(true);
                }
-               if(check(pos)==false){
+               if((check(pos)==false) || (check(pos)==true && ui->Cancel_10->isVisible())){
 
                    F10_Having_Farmer=1;
                    button->setEnabled(false);
@@ -3533,7 +3590,7 @@ void Gamepage::on_Farmer_pushButton_clicked()
                    F11_Having_Farmer=0;
                    button->setEnabled(true);
                }
-               if(check(pos)==false){
+               if((check(pos)==false) || (check(pos)==true && ui->Cancel_11->isVisible())){
 
                    F11_Having_Farmer=1;
                    button->setEnabled(false);
@@ -3553,7 +3610,7 @@ void Gamepage::on_Farmer_pushButton_clicked()
                    F12_Having_Farmer=0;
                    button->setEnabled(true);
                }
-               if(check(pos)==false){
+               if((check(pos)==false) || (check(pos)==true && ui->Cancel_12->isVisible())){
 
                    F12_Having_Farmer=1;
                    button->setEnabled(false);
@@ -3573,7 +3630,7 @@ void Gamepage::on_Farmer_pushButton_clicked()
                    F13_Having_Farmer=0;
                    button->setEnabled(true);
                }
-               if(check(pos)==false){
+               if((check(pos)==false) || (check(pos)==true && ui->Cancel_13->isVisible())){
 
                    F13_Having_Farmer=1;
                    button->setEnabled(false);
@@ -3593,7 +3650,7 @@ void Gamepage::on_Farmer_pushButton_clicked()
                    F14_Having_Farmer=0;
                    button->setEnabled(true);
                }
-               if(check(pos)==false){
+               if((check(pos)==false) || (check(pos)==true && ui->Cancel_14->isVisible())){
 
                    F14_Having_Farmer=1;
                    button->setEnabled(false);
@@ -3613,7 +3670,7 @@ void Gamepage::on_Farmer_pushButton_clicked()
                    F15_Having_Farmer=0;
                    button->setEnabled(true);
                }
-               if(check(pos)==false){
+               if((check(pos)==false) || (check(pos)==true && ui->Cancel_15->isVisible())){
 
                    F15_Having_Farmer=1;
                    button->setEnabled(false);
@@ -3633,7 +3690,7 @@ void Gamepage::on_Farmer_pushButton_clicked()
                    F16_Having_Farmer=0;
                    button->setEnabled(true);
                }
-               if(check(pos)==false){
+               if((check(pos)==false) || (check(pos)==true && ui->Cancel_16->isVisible())){
 
                    F16_Having_Farmer=1;
                    button->setEnabled(false);
@@ -3983,9 +4040,33 @@ bool Gamepage::check(QPoint pos)
     return true;
 }
 
+bool Gamepage::check3(QPoint pos)
+{
+    QList<QPushButton*> buttons =  this->findChildren<QPushButton*>();
+    for (QPushButton* button : buttons) {
+       if (button->geometry().contains(pos)) {
+           // Perform your action here va hast
+           return true;
+       }
+    }
+    return false;
+
+}
+
 void Gamepage::check_our_farm_have_farmer_or_not()
 {
+
+
+//    ui->the_product_of_chicken_pushButton->setObjectName("chch");
+//    ui->the_product_of_sheep_pushButton->setObjectName("ss");
+//    ui->the_product_of_cow_pushButton->setObjectName("cc");
+//    ui->the_product_of_wheat_pushButton->setObjectName("ww");
+//    ui->the_product_of_barley_pushButton->setObjectName("bb");
+
     QPoint pos1(210, 160);
+
+//    QPoint Pos1(160, 140);
+//    QPushButton * button = this->check2(Pos1);
 
     if(check(pos1)==true){
 
@@ -4000,8 +4081,9 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     if(check(pos1)==false){
 
         F1_Having_Farmer=1;
-        if(F1_Having_Farmer==1 && F1_Having_Animals_or_Seeds==1){
+        if(F1_Having_Farmer==1 && F1_Having_Animals_or_Seeds==1 /*&& button->isHidden()*/){
 
+//            qDebug()<<"1 show";
             ui->Start->show();
         }else if(F1_Having_Farmer==1 && F1_Having_Animals_or_Seeds==0){
 
@@ -4010,6 +4092,9 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     }
 
     QPoint pos2(600, 160);
+
+//    QPoint Pos2(550, 140);
+//    QPushButton * button2 = this->check2(Pos2);
 
     if(check(pos2)==true){
 
@@ -4022,16 +4107,22 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     if(check(pos2)==false){
 
         F2_Having_Farmer=1;
-        if(F2_Having_Farmer==1 && F2_Having_Animals_or_Seeds==1){
+        if(F2_Having_Farmer==1 && F2_Having_Animals_or_Seeds==1/* && button2->isHidden()*/){
+
+//            qDebug()<<"2 show";
 
             ui->Start_2->show();
         }else if(F2_Having_Farmer==1 && F2_Having_Animals_or_Seeds==0){
 
             ui->Start_2->hide();
         }
+
     }
 
     QPoint pos3(1320, 160);
+
+//    QPoint Pos3(1270, 140);
+//    QPushButton * button3 = this->check2(Pos3);
 
     if(check(pos3)==true){
 
@@ -4044,8 +4135,9 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     if(check(pos3)==false){
 
         F3_Having_Farmer=1;
-        if(F3_Having_Farmer==1 && F3_Having_Animals_or_Seeds==1){
+        if(F3_Having_Farmer==1 && F3_Having_Animals_or_Seeds==1 /*&& button3->isHidden()*/){
 
+//            qDebug()<<"3 show";
             ui->Start_3->show();
         }else if(F3_Having_Farmer==1 && F3_Having_Animals_or_Seeds==0){
 
@@ -4053,7 +4145,30 @@ void Gamepage::check_our_farm_have_farmer_or_not()
         }
     }
 
+//    qDebug()<<"F1_Having_Farmer = "<<F1_Having_Farmer;
+//    qDebug()<<"F1_Having_Animals_or_Seeds = "<<F1_Having_Animals_or_Seeds;
+
+//    qDebug()<<"F2_Having_Farmer = "<<F2_Having_Farmer;
+//    qDebug()<<"F2_Having_Animals_or_Seeds = "<<F2_Having_Animals_or_Seeds;
+
+//    qDebug()<<"F3_Having_Farmer = "<<F3_Having_Farmer;
+//    qDebug()<<"F3_Having_Animals_or_Seeds = "<<F3_Having_Animals_or_Seeds;
+//    if(button->isVisible()){
+
+//        qDebug()<<"11111111111111111";
+//    }
+//    if(button2->isVisible()){
+
+//        qDebug()<<"22222222222222222";
+//    }
+//    if(button3->isVisible()){
+
+//        qDebug()<<"333333333333";
+//    }
     QPoint pos4(1710, 160);
+
+    QPoint Pos4(1660, 140);
+    QPushButton * button4 = check2(Pos4);
 
     if(check(pos4)==true){
 
@@ -4066,7 +4181,7 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     if(check(pos4)==false){
 
         F4_Having_Farmer=1;
-        if(F4_Having_Farmer==1 && F4_Having_Animals_or_Seeds==1){
+        if(F4_Having_Farmer==1 && F4_Having_Animals_or_Seeds==1 && button4->isHidden()){
 
             ui->Start_4->show();
         }else if(F4_Having_Farmer==1 && F4_Having_Animals_or_Seeds==0){
@@ -4076,6 +4191,9 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     }
 
     QPoint pos5(210, 390);
+
+    QPoint Pos5(160, 370);
+    QPushButton * button5 = check2(Pos5);
 
     if(check(pos5)==true){
 
@@ -4088,7 +4206,7 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     if(check(pos5)==false){
 
         F5_Having_Farmer=1;
-        if(F5_Having_Farmer==1 && F5_Having_Animals_or_Seeds==1){
+        if(F5_Having_Farmer==1 && F5_Having_Animals_or_Seeds==1 && button5->isHidden()){
 
             ui->Start_5->show();
         }else if(F5_Having_Farmer==1 && F5_Having_Animals_or_Seeds==0){
@@ -4098,6 +4216,9 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     }
 
     QPoint pos6(600, 390);
+
+    QPoint Pos6(550, 370);
+    QPushButton * button6 = check2(Pos6);
 
     if(check(pos6)==true){
 
@@ -4110,7 +4231,7 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     if(check(pos6)==false){
 
         F6_Having_Farmer=1;
-        if(F6_Having_Farmer==1 && F6_Having_Animals_or_Seeds==1){
+        if(F6_Having_Farmer==1 && F6_Having_Animals_or_Seeds==1 && button6->isHidden()){
 
             ui->Start_6->show();
         }else if(F6_Having_Farmer==1 && F6_Having_Animals_or_Seeds==0){
@@ -4120,6 +4241,9 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     }
 
     QPoint pos7(1320, 390);
+
+    QPoint Pos7(1270, 370);
+    QPushButton * button7 = check2(Pos7);
 
     if(check(pos7)==true){
 
@@ -4132,7 +4256,7 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     if(check(pos7)==false){
 
         F7_Having_Farmer=1;
-        if(F7_Having_Farmer==1 && F7_Having_Animals_or_Seeds==1){
+        if(F7_Having_Farmer==1 && F7_Having_Animals_or_Seeds==1 && button7->isHidden()){
 
             ui->Start_2->show();
         }else if(F7_Having_Farmer==1 && F7_Having_Animals_or_Seeds==0){
@@ -4142,6 +4266,9 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     }
 
     QPoint pos8(1710, 390);
+
+    QPoint Pos8(1660, 370);
+    QPushButton * button8 = check2(Pos8);
 
     if(check(pos8)==true){
 
@@ -4154,7 +4281,7 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     if(check(pos8)==false){
 
         F8_Having_Farmer=1;
-        if(F8_Having_Farmer==1 && F8_Having_Animals_or_Seeds==1){
+        if(F8_Having_Farmer==1 && F8_Having_Animals_or_Seeds==1 && button8->isHidden()){
 
             ui->Start_8->show();
         }else if(F8_Having_Farmer==1 && F8_Having_Animals_or_Seeds==0){
@@ -4164,6 +4291,9 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     }
 
     QPoint pos9(210, 620);
+
+    QPoint Pos9(160, 600);
+    QPushButton * button9 = check2(Pos9);
 
     if(check(pos9)==true){
 
@@ -4176,7 +4306,7 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     if(check(pos9)==false){
 
         F9_Having_Farmer=1;
-        if(F9_Having_Farmer==1 && F9_Having_Animals_or_Seeds==1){
+        if(F9_Having_Farmer==1 && F9_Having_Animals_or_Seeds==1 && button9->isHidden()){
 
             ui->Start_9->show();
         }else if(F9_Having_Farmer==1 && F9_Having_Animals_or_Seeds==0){
@@ -4186,6 +4316,9 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     }
 
     QPoint pos10(600, 620);
+
+    QPoint Pos10(550, 600);
+    QPushButton * button10 = check2(Pos10);
 
     if(check(pos10)==true){
 
@@ -4198,7 +4331,7 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     if(check(pos10)==false){
 
         F10_Having_Farmer=1;
-        if(F10_Having_Farmer==1 && F10_Having_Animals_or_Seeds==1){
+        if(F10_Having_Farmer==1 && F10_Having_Animals_or_Seeds==1 && button10->isHidden()){
 
             ui->Start_10->show();
         }else if(F10_Having_Farmer==1 && F10_Having_Animals_or_Seeds==0){
@@ -4208,6 +4341,9 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     }
 
     QPoint pos11(1320, 620);
+
+    QPoint Pos11(1270, 600);
+    QPushButton * button11 = check2(Pos11);
 
     if(check(pos11)==true){
 
@@ -4220,7 +4356,7 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     if(check(pos11)==false){
 
         F11_Having_Farmer=1;
-        if(F11_Having_Farmer==1 && F11_Having_Animals_or_Seeds==1){
+        if(F11_Having_Farmer==1 && F11_Having_Animals_or_Seeds==1 && button11->isHidden()){
 
             ui->Start_11->show();
         }else if(F11_Having_Farmer==1 && F11_Having_Animals_or_Seeds==0){
@@ -4230,6 +4366,9 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     }
 
     QPoint pos12(1710, 620);
+
+    QPoint Pos12(1660, 600);
+    QPushButton * button12 = check2(Pos12);
 
     if(check(pos12)==true){
 
@@ -4242,7 +4381,7 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     if(check(pos12)==false){
 
         F12_Having_Farmer=1;
-        if(F12_Having_Farmer==1 && F12_Having_Animals_or_Seeds==1){
+        if(F12_Having_Farmer==1 && F12_Having_Animals_or_Seeds==1 && button12->isHidden()){
 
             ui->Start_12->show();
         }else if(F12_Having_Farmer==1 && F12_Having_Animals_or_Seeds==0){
@@ -4252,6 +4391,9 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     }
 
     QPoint pos13(210, 850);
+
+    QPoint Pos13(160, 830);
+    QPushButton * button13 = check2(Pos13);
 
     if(check(pos13)==true){
 
@@ -4264,7 +4406,7 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     if(check(pos13)==false){
 
         F13_Having_Farmer=1;
-        if(F13_Having_Farmer==1 && F13_Having_Animals_or_Seeds==1){
+        if(F13_Having_Farmer==1 && F13_Having_Animals_or_Seeds==1 && button13->isHidden()){
 
             ui->Start_13->show();
         }else if(F13_Having_Farmer==1 && F13_Having_Animals_or_Seeds==0){
@@ -4274,6 +4416,9 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     }
 
     QPoint pos14(600, 850);
+
+    QPoint Pos14(550, 830);
+    QPushButton * button14 = check2(Pos14);
 
     if(check(pos14)==true){
 
@@ -4286,7 +4431,7 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     if(check(pos14)==false){
 
         F14_Having_Farmer=1;
-        if(F14_Having_Farmer==1 && F14_Having_Animals_or_Seeds==1){
+        if(F14_Having_Farmer==1 && F14_Having_Animals_or_Seeds==1 && button14->isHidden()){
 
             ui->Start_14->show();
         }else if(F14_Having_Farmer==1 && F14_Having_Animals_or_Seeds==0){
@@ -4296,6 +4441,9 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     }
 
     QPoint pos15(1320, 850);
+
+    QPoint Pos15(1270, 830);
+    QPushButton * button15 = check2(Pos15);
 
     if(check(pos15)==true){
 
@@ -4308,7 +4456,7 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     if(check(pos15)==false){
 
         F15_Having_Farmer=1;
-        if(F15_Having_Farmer==1 && F15_Having_Animals_or_Seeds==1){
+        if(F15_Having_Farmer==1 && F15_Having_Animals_or_Seeds==1 && button15->isHidden()){
 
             ui->Start_15->show();
         }else if(F15_Having_Farmer==1 && F15_Having_Animals_or_Seeds==0){
@@ -4318,6 +4466,9 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     }
 
     QPoint pos16(1710, 850);
+
+    QPoint Pos16(1660, 830);
+    QPushButton * button16 = check2(Pos16);
 
     if(check(pos16)==true){
 
@@ -4330,7 +4481,7 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     if(check(pos16)==false){
 
         F16_Having_Farmer=1;
-        if(F16_Having_Farmer==1 && F16_Having_Animals_or_Seeds==1){
+        if(F16_Having_Farmer==1 && F16_Having_Animals_or_Seeds==1 && button16->isHidden()){
 
             ui->Start_16->show();
         }else if(F16_Having_Farmer==1 && F16_Having_Animals_or_Seeds==0){
@@ -4354,6 +4505,13 @@ QPushButton * Gamepage::check2(QPoint pos)
 void Gamepage::Get_info()
 {
 
+    //    ui->the_product_of_chicken_pushButton->setObjectName("chch");
+    //    ui->the_product_of_sheep_pushButton->setObjectName("ss");
+    //    ui->the_product_of_cow_pushButton->setObjectName("cc");
+    //    ui->the_product_of_wheat_pushButton->setObjectName("ww");
+    //    ui->the_product_of_barley_pushButton->setObjectName("bb");
+
+
     QPoint Pos(150, 180);
 
     QPushButton* buttonAtPos = this->check2(Pos);
@@ -4361,18 +4519,23 @@ void Gamepage::Get_info()
 
        if (buttonAtPos->objectName() == "Chicken") {
            F1_Which_Of_Animals_or_Seeds=1;
+           F1_Having_Animals_or_Seeds=1;
 
        } else if (buttonAtPos->objectName() == "Sheep") {
            F1_Which_Of_Animals_or_Seeds=2;
+           F1_Having_Animals_or_Seeds=1;
 
        } else if (buttonAtPos->objectName() == "Cow") {
            F1_Which_Of_Animals_or_Seeds=3;
+           F1_Having_Animals_or_Seeds=1;
 
        } else if (buttonAtPos->objectName() == "Wheat") {
            F1_Which_Of_Animals_or_Seeds=4;
+           F1_Having_Animals_or_Seeds=1;
 
        } else if (buttonAtPos->objectName() == "Barley") {
            F1_Which_Of_Animals_or_Seeds=5;
+           F1_Having_Animals_or_Seeds=1;
 
        }
     }else if(buttonAtPos == nullptr){
@@ -4388,18 +4551,23 @@ void Gamepage::Get_info()
 
        if (buttonAtPos2->objectName() == "Chicken") {
            F2_Which_Of_Animals_or_Seeds=1;
+           F2_Having_Animals_or_Seeds=1;
 
        } else if (buttonAtPos2->objectName() == "Sheep") {
            F2_Which_Of_Animals_or_Seeds=2;
+           F2_Having_Animals_or_Seeds=1;
 
        } else if (buttonAtPos2->objectName() == "Cow") {
            F2_Which_Of_Animals_or_Seeds=3;
+           F2_Having_Animals_or_Seeds=1;
 
        } else if (buttonAtPos2->objectName() == "Wheat") {
            F2_Which_Of_Animals_or_Seeds=4;
+           F2_Having_Animals_or_Seeds=1;
 
        } else if (buttonAtPos2->objectName() == "Barley") {
            F2_Which_Of_Animals_or_Seeds=5;
+           F2_Having_Animals_or_Seeds=1;
 
        }
     }else if(buttonAtPos2 == nullptr){
@@ -4415,18 +4583,23 @@ void Gamepage::Get_info()
 
        if (buttonAtPos3->objectName() == "Chicken") {
            F3_Which_Of_Animals_or_Seeds=1;
+           F1_Having_Animals_or_Seeds=1;
 
        } else if (buttonAtPos3->objectName() == "Sheep") {
            F3_Which_Of_Animals_or_Seeds=2;
+           F3_Having_Animals_or_Seeds=1;
 
        } else if (buttonAtPos3->objectName() == "Cow") {
            F3_Which_Of_Animals_or_Seeds=3;
+           F3_Having_Animals_or_Seeds=1;
 
        } else if (buttonAtPos3->objectName() == "Wheat") {
            F3_Which_Of_Animals_or_Seeds=4;
+           F3_Having_Animals_or_Seeds=1;
 
        } else if (buttonAtPos3->objectName() == "Barley") {
            F3_Which_Of_Animals_or_Seeds=5;
+           F3_Having_Animals_or_Seeds=1;
 
        }
     }else if(buttonAtPos3 == nullptr){
@@ -4786,7 +4959,7 @@ void Gamepage::Get_info()
         F16_Having_Animals_or_Seeds=0;
     }
 
-    check_our_farm_have_farmer_or_not();
+check_our_farm_have_farmer_or_not();
 
 }
 
@@ -4807,7 +4980,7 @@ void Gamepage::on_Start_clicked()
     barley1 = new Barley(ui->verticalLayout);
 
     QPushButton* buttonAtPos = this->check2(Pos);
-    QPushButton* buttonAtPos2 = this->check2(Pos2);
+
     if (buttonAtPos != nullptr) {
 
        if (buttonAtPos->objectName() == "Chicken") {
@@ -4816,9 +4989,19 @@ void Gamepage::on_Start_clicked()
            ch1->Set_Cancel_Pushbutton(ui->Cancel);
            ch1->Set_Start_Pushbutton(ui->Start);
            ch1->Set_Animals_or_Seeds_Pushbutton(buttonAtPos);
-           ch1->Set_Farmer_Pushbutton(buttonAtPos2);
+           buttonAtPos2_ch1 = this->check2(Pos2);
+           ch1->Set_Farmer_Pushbutton(buttonAtPos2_ch1);
            ch1->Set_decrease_label(ui->decrease_point_label);
            ch1->decrease_label_position(170, 120);
+
+           ch1->Farmer_pushbutton_position(210, 160);
+           animation1 = new QPropertyAnimation(buttonAtPos2_ch1, "geometry", this);
+           animation1->setStartValue(QRect(210, 160, buttonAtPos2_ch1->geometry().width(), buttonAtPos2_ch1->geometry().height()));
+           animation1->setEndValue(QRect(330, 160, buttonAtPos2_ch1->geometry().width(), buttonAtPos2_ch1->geometry().height()));
+           animation1->setEasingCurve(QEasingCurve::Type::Linear);
+           animation1->setDuration(900);
+           ch1->Set_Farmer_animation(animation1);
+
            ch1->TurnTimerOn();
            buttonAtPos->setEnabled(false);
 
@@ -4828,9 +5011,19 @@ void Gamepage::on_Start_clicked()
            sheep1->Set_Cancel_Pushbutton(ui->Cancel);
            sheep1->Set_Start_Pushbutton(ui->Start);
            sheep1->Set_Animals_or_Seeds_Pushbutton(buttonAtPos);
-           sheep1->Set_Farmer_Pushbutton(buttonAtPos2);
-           sheep1->Set_decrease_label(ui->decrease_point_label);
+           buttonAtPos2_Sheep1 = this->check2(Pos2);
+           sheep1->Set_Farmer_Pushbutton(buttonAtPos2_Sheep1);
+           sheep1->Set_decrease_label(ui->decrease_point_label);          
            sheep1->decrease_label_position(170, 120);
+
+           sheep1->Farmer_pushbutton_position(210, 160);
+           animation1 = new QPropertyAnimation(buttonAtPos2_Sheep1, "geometry", this);
+           animation1->setStartValue(QRect(210, 160, buttonAtPos2_Sheep1->geometry().width(), buttonAtPos2_Sheep1->geometry().height()));
+           animation1->setEndValue(QRect(330, 160, buttonAtPos2_Sheep1->geometry().width(), buttonAtPos2_Sheep1->geometry().height()));
+           animation1->setEasingCurve(QEasingCurve::Type::Linear);
+           animation1->setDuration(900);
+           sheep1->Set_Farmer_animation(animation1);
+
            sheep1->TurnTimerOn();
            buttonAtPos->setEnabled(false);
 
@@ -4840,9 +5033,19 @@ void Gamepage::on_Start_clicked()
            cow1->Set_Cancel_Pushbutton(ui->Cancel);
            cow1->Set_Start_Pushbutton(ui->Start);
            cow1->Set_Animals_or_Seeds_Pushbutton(buttonAtPos);
-           cow1->Set_Farmer_Pushbutton(buttonAtPos2);
+           buttonAtPos2_cow1 = this->check2(Pos2);
+           cow1->Set_Farmer_Pushbutton(buttonAtPos2_cow1);
            cow1->Set_decrease_label(ui->decrease_point_label);
            cow1->decrease_label_position(170, 120);
+
+           cow1->Farmer_pushbutton_position(210, 160);
+           animation1 = new QPropertyAnimation(buttonAtPos2_cow1, "geometry", this);
+           animation1->setStartValue(QRect(210, 160, buttonAtPos2_cow1->geometry().width(), buttonAtPos2_cow1->geometry().height()));
+           animation1->setEndValue(QRect(330, 160, buttonAtPos2_cow1->geometry().width(), buttonAtPos2_cow1->geometry().height()));
+           animation1->setEasingCurve(QEasingCurve::Type::Linear);
+           animation1->setDuration(900);
+           cow1->Set_Farmer_animation(animation1);
+
            cow1->TurnTimerOn();
            buttonAtPos->setEnabled(false);
 
@@ -4852,9 +5055,19 @@ void Gamepage::on_Start_clicked()
            wheat1->Set_Cancel_Pushbutton(ui->Cancel);
            wheat1->Set_Start_Pushbutton(ui->Start);
            wheat1->Set_Animals_or_Seeds_Pushbutton(buttonAtPos);
-           wheat1->Set_Farmer_Pushbutton(buttonAtPos2);
+           buttonAtPos2_wheat1 = this->check2(Pos2);
+           wheat1->Set_Farmer_Pushbutton(buttonAtPos2_wheat1);
            wheat1->Set_decrease_label(ui->decrease_point_label);
            wheat1->decrease_label_position(170, 120);
+
+           wheat1->Farmer_pushbutton_position(210, 160);
+           animation1 = new QPropertyAnimation(buttonAtPos2_wheat1, "geometry", this);
+           animation1->setStartValue(QRect(210, 160, buttonAtPos2_wheat1->geometry().width(), buttonAtPos2_wheat1->geometry().height()));
+           animation1->setEndValue(QRect(330, 160, buttonAtPos2_wheat1->geometry().width(), buttonAtPos2_wheat1->geometry().height()));
+           animation1->setEasingCurve(QEasingCurve::Type::Linear);
+           animation1->setDuration(900);
+           wheat1->Set_Farmer_animation(animation1);
+
            wheat1->TurnTimerOn();
            buttonAtPos->setEnabled(false);
 
@@ -4864,17 +5077,51 @@ void Gamepage::on_Start_clicked()
            barley1->Set_Cancel_Pushbutton(ui->Cancel);
            barley1->Set_Start_Pushbutton(ui->Start);
            barley1->Set_Animals_or_Seeds_Pushbutton(buttonAtPos);
-           barley1->Set_Farmer_Pushbutton(buttonAtPos2);
+           buttonAtPos2_barley1 = this->check2(Pos2);
+           barley1->Set_Farmer_Pushbutton(buttonAtPos2_barley1);
            barley1->Set_decrease_label(ui->decrease_point_label);
            barley1->decrease_label_position(170, 120);
+
+           barley1->Farmer_pushbutton_position(210, 160);
+           animation1 = new QPropertyAnimation(buttonAtPos2_barley1, "geometry", this);
+           animation1->setStartValue(QRect(210, 160, buttonAtPos2_barley1->geometry().width(), buttonAtPos2_barley1->geometry().height()));
+           animation1->setEndValue(QRect(330, 160, buttonAtPos2_barley1->geometry().width(), buttonAtPos2_barley1->geometry().height()));
+           animation1->setEasingCurve(QEasingCurve::Type::Linear);
+           animation1->setDuration(900);
+           barley1->Set_Farmer_animation(animation1);
+
            barley1->TurnTimerOn();
            buttonAtPos->setEnabled(false);
 
        }
     }
-    buttonAtPos2->setEnabled(false);
+
+    if (buttonAtPos != nullptr) {
+
+       if (buttonAtPos->objectName() == "Chicken") {
+
+           buttonAtPos2_ch1->setEnabled(false);
+
+       }else if (buttonAtPos->objectName() == "Sheep"){
+
+           buttonAtPos2_Sheep1->setEnabled(false);
+
+       }else if (buttonAtPos->objectName() == "Cow"){
+
+           buttonAtPos2_cow1->setEnabled(false);
+
+       }else if (buttonAtPos->objectName() == "Wheat"){
+
+           buttonAtPos2_wheat1->setEnabled(false);
+
+       }else if (buttonAtPos->objectName() == "Barley"){
+
+           buttonAtPos2_barley1->setEnabled(false);
+       }
+    }
 
     clearLayout(ui->verticalLayout);
+
 }
 
 void Gamepage::clearLayout(QLayout *layout)
@@ -4897,13 +5144,14 @@ void Gamepage::clearLayout(QLayout *layout)
 void Gamepage::on_Cancel_clicked()
 {
 
+    Get_info();
+
     ui->Cancel->hide();
     ui->Start->show();
 
     ui->timer_label->hide();
 
     QPoint Pos(150, 180);
-
 
     QPushButton* buttonAtPos = this->check2(Pos);
 
@@ -4913,41 +5161,61 @@ void Gamepage::on_Cancel_clicked()
 
            buttonAtPos->setEnabled(true);
 
+           ch1->Set_Farmer_Pushbutton(buttonAtPos2_ch1);
+           ch1->Farmer_pushbutton_position(210, 160);
+           ch1->Set_Farmer_animation(animation1);
+
            ch1->Farmer_pushbutton_setenable();
            ch1->Timer_Stop();
-           ch1->Timer2_Stop();
+           ch1->TimerDelay_Stop();
 
        } else if (buttonAtPos->objectName() == "Sheep") {
 
            buttonAtPos->setEnabled(true);
 
+           sheep1->Set_Farmer_Pushbutton(buttonAtPos2_Sheep1);
+           sheep1->Farmer_pushbutton_position(210, 160);
+           sheep1->Set_Farmer_animation(animation1);
+
            sheep1->Farmer_pushbutton_setenable();
            sheep1->Timer_Stop();
-           sheep1->Timer2_Stop();
+           sheep1->TimerDelay_Stop();
 
        } else if (buttonAtPos->objectName() == "Cow") {
 
            buttonAtPos->setEnabled(true);
 
+           cow1->Set_Farmer_Pushbutton(buttonAtPos2_cow1);
+           cow1->Farmer_pushbutton_position(210, 160);
+           cow1->Set_Farmer_animation(animation1);
+
            cow1->Farmer_pushbutton_setenable();
            cow1->Timer_Stop();
-           cow1->Timer2_Stop();
+           cow1->TimerDelay_Stop();
 
        } else if (buttonAtPos->objectName() == "Wheat") {
 
            buttonAtPos->setEnabled(true);
 
+           wheat1->Set_Farmer_Pushbutton(buttonAtPos2_wheat1);
+           wheat1->Farmer_pushbutton_position(210, 160);
+           wheat1->Set_Farmer_animation(animation1);
+
            wheat1->Farmer_pushbutton_setenable();
            wheat1->Timer_Stop();
-           wheat1->Timer2_Stop();
+           wheat1->TimerDelay_Stop();
 
        } else if (buttonAtPos->objectName() == "Barley") {
 
            buttonAtPos->setEnabled(true);
 
+           barley1->Set_Farmer_Pushbutton(buttonAtPos2_barley1);
+           barley1->Farmer_pushbutton_position(210, 160);
+           barley1->Set_Farmer_animation(animation1);
+
            barley1->Farmer_pushbutton_setenable();
            barley1->Timer_Stop();
-           barley1->Timer2_Stop();
+           barley1->TimerDelay_Stop();
 
        }
     }
@@ -4960,8 +5228,8 @@ void Gamepage::on_the_product_of_chicken_pushButton_clicked()
     score = score + (ch1->Product_Collection_Point);
     ui->label_Score->setText( "Score :" + QString::number(score));
     ui->the_product_of_chicken_pushButton->hide();
-    ch1->Timer2_Stop();
-    ui->Start->show();
+    ch1->TimerDelay_Stop();
+    Get_info();
     ui->decrease_point_label->hide();
 }
 
@@ -4970,8 +5238,8 @@ void Gamepage::on_the_product_of_sheep_pushButton_clicked()
     score = score + (sheep1->Product_Collection_Point);
     ui->label_Score->setText( "Score :" + QString::number(score));
     ui->the_product_of_sheep_pushButton->hide();
-    sheep1->Timer2_Stop();
-    ui->Start->show();
+    sheep1->TimerDelay_Stop();
+    Get_info();
     ui->decrease_point_label->hide();
 }
 
@@ -4980,8 +5248,8 @@ void Gamepage::on_the_product_of_cow_pushButton_clicked()
     score = score + (cow1->Product_Collection_Point);
     ui->label_Score->setText( "Score :" + QString::number(score));
     ui->the_product_of_cow_pushButton->hide();
-    cow1->Timer2_Stop();
-    ui->Start->show();
+    cow1->TimerDelay_Stop();
+    Get_info();
     ui->decrease_point_label->hide();
 }
 
@@ -4990,8 +5258,8 @@ void Gamepage::on_the_product_of_wheat_pushButton_clicked()
     score = score + (wheat1->Product_Collection_Point);
     ui->label_Score->setText( "Score :" + QString::number(score));
     ui->the_product_of_wheat_pushButton->hide();
-    wheat1->Timer2_Stop();
-    ui->Start->show();
+    wheat1->TimerDelay_Stop();
+    Get_info();
 
     QPoint Pos(150, 180);
 
@@ -5014,8 +5282,8 @@ void Gamepage::on_the_product_of_barley_pushButton_clicked()
     score = score + (barley1->Product_Collection_Point);
     ui->label_Score->setText( "Score :" + QString::number(score));
     ui->the_product_of_barley_pushButton->hide();
-    barley1->Timer2_Stop();
-    ui->Start->show();
+    barley1->TimerDelay_Stop();
+    Get_info();
 
     QPoint Pos(150, 180);
 
@@ -5035,16 +5303,20 @@ void Gamepage::on_the_product_of_barley_pushButton_clicked()
 
 void Gamepage::Move_the_product_of_Animals_and_seeds_pushButton()
 {
+
+    ui->the_product_of_chicken_pushButton->move(160, 140);
     ui->the_product_of_sheep_pushButton->move(160, 140);
     ui->the_product_of_cow_pushButton->move(160, 140);
     ui->the_product_of_wheat_pushButton->move(160, 140);
     ui->the_product_of_barley_pushButton->move(160, 140);
 
+    ui->the_product_of_chicken_pushButton_2->move(550, 140);
     ui->the_product_of_sheep_pushButton_2->move(550, 140);
     ui->the_product_of_cow_pushButton_2->move(550, 140);
     ui->the_product_of_wheat_pushButton_2->move(550, 140);
     ui->the_product_of_barley_pushButton_2->move(550, 140);
 
+    ui->the_product_of_chicken_pushButton_3->move(1270, 140);
     ui->the_product_of_sheep_pushButton_3->move(1270, 140);
     ui->the_product_of_cow_pushButton_3->move(1270, 140);
     ui->the_product_of_wheat_pushButton_3->move(1270, 140);
@@ -5316,7 +5588,6 @@ void Gamepage::Hide_decrease_label()
     ui->decrease_point_label_16->hide();
 }
 
-
 void Gamepage::on_Start_2_clicked()
 {
     ui->Start_2->hide();
@@ -5334,7 +5605,7 @@ void Gamepage::on_Start_2_clicked()
     barley2 = new Barley(ui->verticalLayout);
 
     QPushButton* buttonAtPos = this->check2(Pos);
-    QPushButton* buttonAtPos2 = this->check2(Pos2);
+
     if (buttonAtPos != nullptr) {
 
        if (buttonAtPos->objectName() == "Chicken") {
@@ -5343,10 +5614,20 @@ void Gamepage::on_Start_2_clicked()
            ch2->Set_Cancel_Pushbutton(ui->Cancel_2);
            ch2->Set_Start_Pushbutton(ui->Start_2);
            ch2->Set_Animals_or_Seeds_Pushbutton(buttonAtPos);
-           ch2->Set_Farmer_Pushbutton(buttonAtPos2);
+           buttonAtPos2_ch2 = this->check2(Pos2);
+           ch2->Set_Farmer_Pushbutton(buttonAtPos2_ch2);
            ch2->Set_decrease_label(ui->decrease_point_label_2);
            ch2->decrease_label_position(560, 120);
-           ch2->TurnTimerOn();
+
+           ch2->Farmer_pushbutton_position(600, 160);
+           animation2 = new QPropertyAnimation(buttonAtPos2_ch2, "geometry", this);
+           animation2->setStartValue(QRect(600, 160, buttonAtPos2_ch2->geometry().width(), buttonAtPos2_ch2->geometry().height()));
+           animation2->setEndValue(QRect(720, 160, buttonAtPos2_ch2->geometry().width(), buttonAtPos2_ch2->geometry().height()));
+           animation2->setEasingCurve(QEasingCurve::Type::Linear);
+           animation2->setDuration(900);
+           ch2->Set_Farmer_animation(animation2);
+
+           ch2->TurnTimerOn2();
            buttonAtPos->setEnabled(false);
 
        } else if (buttonAtPos->objectName() == "Sheep") {
@@ -5355,10 +5636,20 @@ void Gamepage::on_Start_2_clicked()
            sheep2->Set_Cancel_Pushbutton(ui->Cancel_2);
            sheep2->Set_Start_Pushbutton(ui->Start_2);
            sheep2->Set_Animals_or_Seeds_Pushbutton(buttonAtPos);
-           sheep2->Set_Farmer_Pushbutton(buttonAtPos2);
+           buttonAtPos2_Sheep2 = this->check2(Pos2);
+           sheep2->Set_Farmer_Pushbutton(buttonAtPos2_Sheep2);
            sheep2->Set_decrease_label(ui->decrease_point_label_2);
            sheep2->decrease_label_position(560, 120);
-           sheep2->TurnTimerOn();
+
+           sheep2->Farmer_pushbutton_position(600, 160);
+           animation2 = new QPropertyAnimation(buttonAtPos2_Sheep2, "geometry", this);
+           animation2->setStartValue(QRect(600, 160, buttonAtPos2_Sheep2->geometry().width(), buttonAtPos2_Sheep2->geometry().height()));
+           animation2->setEndValue(QRect(720, 160, buttonAtPos2_Sheep2->geometry().width(), buttonAtPos2_Sheep2->geometry().height()));
+           animation2->setEasingCurve(QEasingCurve::Type::Linear);
+           animation2->setDuration(900);
+           sheep2->Set_Farmer_animation(animation2);
+
+           sheep2->TurnTimerOn2();
            buttonAtPos->setEnabled(false);
 
        } else if (buttonAtPos->objectName() == "Cow") {
@@ -5367,10 +5658,21 @@ void Gamepage::on_Start_2_clicked()
            cow2->Set_Cancel_Pushbutton(ui->Cancel_2);
            cow2->Set_Start_Pushbutton(ui->Start_2);
            cow2->Set_Animals_or_Seeds_Pushbutton(buttonAtPos);
-           cow2->Set_Farmer_Pushbutton(buttonAtPos2);
+           buttonAtPos2_cow2 = this->check2(Pos2);
+           cow2->Set_Farmer_Pushbutton(buttonAtPos2_cow2);
            cow2->Set_decrease_label(ui->decrease_point_label_2);
            cow2->decrease_label_position(560, 120);
-           cow2->TurnTimerOn();
+
+           cow2->Farmer_pushbutton_position(600, 160);
+           animation2 = new QPropertyAnimation(buttonAtPos2_cow2, "geometry", this);
+           animation2->setStartValue(QRect(600, 160, buttonAtPos2_cow2->geometry().width(), buttonAtPos2_cow2->geometry().height()));
+           animation2->setEndValue(QRect(720, 160, buttonAtPos2_cow2->geometry().width(), buttonAtPos2_cow2->geometry().height()));
+           animation2->setEasingCurve(QEasingCurve::Type::Linear);
+           animation2->setDuration(900);
+           cow2->Set_Farmer_animation(animation2);
+
+
+           cow2->TurnTimerOn2();
            buttonAtPos->setEnabled(false);
 
        } else if (buttonAtPos->objectName() == "Wheat") {
@@ -5379,10 +5681,20 @@ void Gamepage::on_Start_2_clicked()
            wheat2->Set_Cancel_Pushbutton(ui->Cancel_2);
            wheat2->Set_Start_Pushbutton(ui->Start_2);
            wheat2->Set_Animals_or_Seeds_Pushbutton(buttonAtPos);
-           wheat2->Set_Farmer_Pushbutton(buttonAtPos2);
+           buttonAtPos2_wheat2 = this->check2(Pos2);
+           wheat2->Set_Farmer_Pushbutton(buttonAtPos2_wheat2);
            wheat2->Set_decrease_label(ui->decrease_point_label_2);
            wheat2->decrease_label_position(560, 120);
-           wheat2->TurnTimerOn();
+
+           wheat2->Farmer_pushbutton_position(600, 160);
+           animation2 = new QPropertyAnimation(buttonAtPos2_wheat2, "geometry", this);
+           animation2->setStartValue(QRect(600, 160, buttonAtPos2_wheat2->geometry().width(), buttonAtPos2_wheat2->geometry().height()));
+           animation2->setEndValue(QRect(720, 160, buttonAtPos2_wheat2->geometry().width(), buttonAtPos2_wheat2->geometry().height()));
+           animation2->setEasingCurve(QEasingCurve::Type::Linear);
+           animation2->setDuration(900);
+           wheat2->Set_Farmer_animation(animation2);
+
+           wheat2->TurnTimerOn2();
            buttonAtPos->setEnabled(false);
 
        } else if (buttonAtPos->objectName() == "Barley") {
@@ -5391,29 +5703,62 @@ void Gamepage::on_Start_2_clicked()
            barley2->Set_Cancel_Pushbutton(ui->Cancel_2);
            barley2->Set_Start_Pushbutton(ui->Start_2);
            barley2->Set_Animals_or_Seeds_Pushbutton(buttonAtPos);
-           barley2->Set_Farmer_Pushbutton(buttonAtPos2);
+           buttonAtPos2_barley2 = this->check2(Pos2);
+           barley2->Set_Farmer_Pushbutton(buttonAtPos2_barley2);
            barley2->Set_decrease_label(ui->decrease_point_label_2);
            barley2->decrease_label_position(560, 120);
-           barley2->TurnTimerOn();
+
+           barley2->Farmer_pushbutton_position(600, 160);
+           animation2 = new QPropertyAnimation(buttonAtPos2_barley2, "geometry", this);
+           animation2->setStartValue(QRect(600, 160, buttonAtPos2_barley2->geometry().width(), buttonAtPos2_barley2->geometry().height()));
+           animation2->setEndValue(QRect(720, 160, buttonAtPos2_barley2->geometry().width(), buttonAtPos2_barley2->geometry().height()));
+           animation2->setEasingCurve(QEasingCurve::Type::Linear);
+           animation2->setDuration(900);
+           barley2->Set_Farmer_animation(animation2);
+
+           barley2->TurnTimerOn2();
            buttonAtPos->setEnabled(false);
 
        }
     }
-    buttonAtPos2->setEnabled(false);
+
+    if (buttonAtPos != nullptr) {
+
+       if (buttonAtPos->objectName() == "Chicken") {
+
+           buttonAtPos2_ch2->setEnabled(false);
+
+       }else if (buttonAtPos->objectName() == "Sheep"){
+
+           buttonAtPos2_Sheep2->setEnabled(false);
+
+       }else if (buttonAtPos->objectName() == "Cow"){
+
+           buttonAtPos2_cow2->setEnabled(false);
+
+       }else if (buttonAtPos->objectName() == "Wheat"){
+
+           buttonAtPos2_wheat2->setEnabled(false);
+
+       }else if (buttonAtPos->objectName() == "Barley"){
+
+           buttonAtPos2_barley2->setEnabled(false);
+       }
+    }
 
     clearLayout(ui->verticalLayout);
 }
 
-
 void Gamepage::on_Cancel_2_clicked()
 {
+    Get_info();
+
     ui->Cancel_2->hide();
     ui->Start_2->show();
 
     ui->timer_label_2->hide();
 
     QPoint Pos(540, 180);
-
 
     QPushButton* buttonAtPos = this->check2(Pos);
 
@@ -5423,41 +5768,61 @@ void Gamepage::on_Cancel_2_clicked()
 
            buttonAtPos->setEnabled(true);
 
-           ch2->Farmer_pushbutton_setenable();
-           ch2->Timer_Stop();
+           ch2->Set_Farmer_Pushbutton(buttonAtPos2_ch2);
+           ch2->Farmer_pushbutton_position(600, 160);
+           ch2->Set_Farmer_animation(animation2);
+
+           ch2->Farmer_pushbutton_setenable2();
            ch2->Timer2_Stop();
+           ch2->TimerDelay_Stop();
 
        } else if (buttonAtPos->objectName() == "Sheep") {
 
            buttonAtPos->setEnabled(true);
 
-           sheep2->Farmer_pushbutton_setenable();
-           sheep2->Timer_Stop();
+           sheep2->Set_Farmer_Pushbutton(buttonAtPos2_Sheep2);
+           sheep2->Farmer_pushbutton_position(600, 160);
+           sheep2->Set_Farmer_animation(animation2);
+
+           sheep2->Farmer_pushbutton_setenable2();
            sheep2->Timer2_Stop();
+           sheep2->TimerDelay_Stop();
 
        } else if (buttonAtPos->objectName() == "Cow") {
 
            buttonAtPos->setEnabled(true);
 
-           cow2->Farmer_pushbutton_setenable();
-           cow2->Timer_Stop();
+           cow2->Set_Farmer_Pushbutton(buttonAtPos2_cow2);
+           cow2->Farmer_pushbutton_position(600, 160);
+           cow2->Set_Farmer_animation(animation2);
+
+           cow2->Farmer_pushbutton_setenable2();
            cow2->Timer2_Stop();
+           cow2->TimerDelay_Stop();
 
        } else if (buttonAtPos->objectName() == "Wheat") {
 
            buttonAtPos->setEnabled(true);
 
-           wheat2->Farmer_pushbutton_setenable();
-           wheat2->Timer_Stop();
+           wheat2->Set_Farmer_Pushbutton(buttonAtPos2_wheat2);
+           wheat2->Farmer_pushbutton_position(600, 160);
+           wheat2->Set_Farmer_animation(animation2);
+
+           wheat2->Farmer_pushbutton_setenable2();
            wheat2->Timer2_Stop();
+           wheat2->TimerDelay_Stop();
 
        } else if (buttonAtPos->objectName() == "Barley") {
 
            buttonAtPos->setEnabled(true);
 
-           barley2->Farmer_pushbutton_setenable();
-           barley2->Timer_Stop();
+           barley2->Set_Farmer_Pushbutton(buttonAtPos2_barley2);
+           barley2->Farmer_pushbutton_position(600, 160);
+           barley2->Set_Farmer_animation(animation2);
+
+           barley2->Farmer_pushbutton_setenable2();
            barley2->Timer2_Stop();
+           barley2->TimerDelay_Stop();
 
        }
     }
@@ -5470,8 +5835,8 @@ void Gamepage::on_the_product_of_chicken_pushButton_2_clicked()
     score = score + (ch2->Product_Collection_Point);
     ui->label_Score->setText( "Score :" + QString::number(score));
     ui->the_product_of_chicken_pushButton_2->hide();
-    ch2->Timer2_Stop();
-    ui->Start_2->show();
+    ch2->TimerDelay_Stop();
+    Get_info();
     ui->decrease_point_label_2->hide();
 }
 
@@ -5480,8 +5845,8 @@ void Gamepage::on_the_product_of_sheep_pushButton_2_clicked()
     score = score + (sheep2->Product_Collection_Point);
     ui->label_Score->setText( "Score :" + QString::number(score));
     ui->the_product_of_sheep_pushButton_2->hide();
-    sheep2->Timer2_Stop();
-    ui->Start_2->show();
+    sheep2->TimerDelay_Stop();
+    Get_info();
     ui->decrease_point_label_2->hide();
 }
 
@@ -5490,8 +5855,8 @@ void Gamepage::on_the_product_of_cow_pushButton_2_clicked()
     score = score + (cow2->Product_Collection_Point);
     ui->label_Score->setText( "Score :" + QString::number(score));
     ui->the_product_of_cow_pushButton_2->hide();
-    cow2->Timer2_Stop();
-    ui->Start_2->show();
+    cow2->TimerDelay_Stop();
+    Get_info();
     ui->decrease_point_label_2->hide();
 }
 
@@ -5500,10 +5865,10 @@ void Gamepage::on_the_product_of_wheat_pushButton_2_clicked()
     score = score + (wheat2->Product_Collection_Point);
     ui->label_Score->setText( "Score :" + QString::number(score));
     ui->the_product_of_wheat_pushButton_2->hide();
-    wheat2->Timer2_Stop();
-    ui->Start_2->show();
+    wheat2->TimerDelay_Stop();
+    Get_info();
 
-    QPoint Pos(150, 180);
+    QPoint Pos(540, 180);
 
     QPushButton* buttonAtPos = this->check2(Pos);
 
@@ -5524,10 +5889,10 @@ void Gamepage::on_the_product_of_barley_pushButton_2_clicked()
     score = score + (barley2->Product_Collection_Point);
     ui->label_Score->setText( "Score :" + QString::number(score));
     ui->the_product_of_barley_pushButton_2->hide();
-    barley2->Timer2_Stop();
-    ui->Start_2->show();
+    barley2->TimerDelay_Stop();
+    Get_info();
 
-    QPoint Pos(150, 180);
+    QPoint Pos(540, 180);
 
     QPushButton* buttonAtPos = this->check2(Pos);
 
@@ -5541,4 +5906,324 @@ void Gamepage::on_the_product_of_barley_pushButton_2_clicked()
          }
     }
     ui->decrease_point_label_2->hide();
+}
+
+void Gamepage::on_Start_3_clicked()
+{
+    ui->Start_3->hide();
+    ui->Cancel_3->show();
+    ui->timer_label_3->show();
+
+    QPoint Pos(1260, 180);
+
+    QPoint Pos2(1320, 160);
+
+    ch3 = new Chicken(ui->verticalLayout);
+    sheep3 = new Sheep(ui->verticalLayout);
+    cow3 = new Cow(ui->verticalLayout);
+    wheat3 = new Wheat(ui->verticalLayout);
+    barley3 = new Barley(ui->verticalLayout);
+
+    QPushButton* buttonAtPos = this->check2(Pos);
+
+    if (buttonAtPos != nullptr) {
+
+       if (buttonAtPos->objectName() == "Chicken") {
+           ch3->SetTimerLabel(ui->timer_label_3);
+           ch3->Set_Product_Pushbutton(ui->the_product_of_chicken_pushButton_3);
+           ch3->Set_Cancel_Pushbutton(ui->Cancel_3);
+           ch3->Set_Start_Pushbutton(ui->Start_3);
+           ch3->Set_Animals_or_Seeds_Pushbutton(buttonAtPos);
+           buttonAtPos2_ch3 = this->check2(Pos2);
+           ch3->Set_Farmer_Pushbutton(buttonAtPos2_ch3);
+           ch3->Set_decrease_label(ui->decrease_point_label_3);
+           ch3->decrease_label_position(1280, 120);
+
+           ch3->Farmer_pushbutton_position(1320, 160);
+           animation3 = new QPropertyAnimation(buttonAtPos2_ch3, "geometry", this);
+           animation3->setStartValue(QRect(1320, 160, buttonAtPos2_ch3->geometry().width(), buttonAtPos2_ch3->geometry().height()));
+           animation3->setEndValue(QRect(1440, 160, buttonAtPos2_ch3->geometry().width(), buttonAtPos2_ch3->geometry().height()));
+           animation3->setEasingCurve(QEasingCurve::Type::Linear);
+           animation3->setDuration(900);
+           ch3->Set_Farmer_animation(animation3);
+
+           ch3->TurnTimerOn3();
+           buttonAtPos->setEnabled(false);
+
+       } else if (buttonAtPos->objectName() == "Sheep") {
+           sheep3->SetTimerLabel(ui->timer_label_3);
+           sheep3->Set_Product_Pushbutton(ui->the_product_of_sheep_pushButton_3);
+           sheep3->Set_Cancel_Pushbutton(ui->Cancel_3);
+           sheep3->Set_Start_Pushbutton(ui->Start_3);
+           sheep3->Set_Animals_or_Seeds_Pushbutton(buttonAtPos);
+           buttonAtPos2_Sheep3 = this->check2(Pos2);
+           sheep3->Set_Farmer_Pushbutton(buttonAtPos2_Sheep3);
+           sheep3->Set_decrease_label(ui->decrease_point_label_3);
+           sheep3->decrease_label_position(1280, 120);
+
+           sheep3->Farmer_pushbutton_position(1320, 160);
+           animation3 = new QPropertyAnimation(buttonAtPos2_Sheep3, "geometry", this);
+           animation3->setStartValue(QRect(1320, 160, buttonAtPos2_Sheep3->geometry().width(), buttonAtPos2_Sheep3->geometry().height()));
+           animation3->setEndValue(QRect(1440, 160, buttonAtPos2_Sheep3->geometry().width(), buttonAtPos2_Sheep3->geometry().height()));
+           animation3->setEasingCurve(QEasingCurve::Type::Linear);
+           animation3->setDuration(900);
+           sheep3->Set_Farmer_animation(animation3);
+
+           sheep3->TurnTimerOn3();
+           buttonAtPos->setEnabled(false);
+
+       } else if (buttonAtPos->objectName() == "Cow") {
+           cow3->SetTimerLabel(ui->timer_label_3);
+           cow3->Set_Product_Pushbutton(ui->the_product_of_cow_pushButton_3);
+           cow3->Set_Cancel_Pushbutton(ui->Cancel_3);
+           cow3->Set_Start_Pushbutton(ui->Start_3);
+           cow3->Set_Animals_or_Seeds_Pushbutton(buttonAtPos);
+           buttonAtPos2_cow3 = this->check2(Pos2);
+           cow3->Set_Farmer_Pushbutton(buttonAtPos2_cow3);
+           cow3->Set_decrease_label(ui->decrease_point_label_3);
+           cow3->decrease_label_position(1280, 120);
+
+           cow3->Farmer_pushbutton_position(1320, 160);
+           animation3 = new QPropertyAnimation(buttonAtPos2_cow3, "geometry", this);
+           animation3->setStartValue(QRect(1320, 160, buttonAtPos2_cow3->geometry().width(), buttonAtPos2_cow3->geometry().height()));
+           animation3->setEndValue(QRect(1440, 160, buttonAtPos2_cow3->geometry().width(), buttonAtPos2_cow3->geometry().height()));
+           animation3->setEasingCurve(QEasingCurve::Type::Linear);
+           animation3->setDuration(900);
+           cow3->Set_Farmer_animation(animation3);
+
+           cow3->TurnTimerOn3();
+           buttonAtPos->setEnabled(false);
+
+       } else if (buttonAtPos->objectName() == "Wheat") {
+           wheat3->SetTimerLabel(ui->timer_label_3);
+           wheat3->Set_Product_Pushbutton(ui->the_product_of_wheat_pushButton_3);
+           wheat3->Set_Cancel_Pushbutton(ui->Cancel_3);
+           wheat3->Set_Start_Pushbutton(ui->Start_3);
+           wheat3->Set_Animals_or_Seeds_Pushbutton(buttonAtPos);
+           buttonAtPos2_wheat3 = this->check2(Pos2);
+           wheat3->Set_Farmer_Pushbutton(buttonAtPos2_wheat3);
+           wheat3->Set_decrease_label(ui->decrease_point_label_3);
+           wheat3->decrease_label_position(1280, 120);
+
+           wheat3->Farmer_pushbutton_position(1320, 160);
+           animation3 = new QPropertyAnimation(buttonAtPos2_wheat3, "geometry", this);
+           animation3->setStartValue(QRect(1320, 160, buttonAtPos2_wheat3->geometry().width(), buttonAtPos2_wheat3->geometry().height()));
+           animation3->setEndValue(QRect(1440, 160, buttonAtPos2_wheat3->geometry().width(), buttonAtPos2_wheat3->geometry().height()));
+           animation3->setEasingCurve(QEasingCurve::Type::Linear);
+           animation3->setDuration(900);
+           wheat3->Set_Farmer_animation(animation3);
+
+           wheat3->TurnTimerOn3();
+           buttonAtPos->setEnabled(false);
+
+       } else if (buttonAtPos->objectName() == "Barley") {
+           barley3->SetTimerLabel(ui->timer_label_3);
+           barley3->Set_Product_Pushbutton(ui->the_product_of_barley_pushButton_3);
+           barley3->Set_Cancel_Pushbutton(ui->Cancel_3);
+           barley3->Set_Start_Pushbutton(ui->Start_3);
+           barley3->Set_Animals_or_Seeds_Pushbutton(buttonAtPos);
+           buttonAtPos2_barley3 = this->check2(Pos2);
+           barley3->Set_Farmer_Pushbutton(buttonAtPos2_barley3);
+           barley3->Set_decrease_label(ui->decrease_point_label_3);
+           barley3->decrease_label_position(1280, 120);
+
+           barley3->Farmer_pushbutton_position(1320, 160);
+           animation3 = new QPropertyAnimation(buttonAtPos2_barley3, "geometry", this);
+           animation3->setStartValue(QRect(1320, 160, buttonAtPos2_barley3->geometry().width(), buttonAtPos2_barley3->geometry().height()));
+           animation3->setEndValue(QRect(1440, 160, buttonAtPos2_barley3->geometry().width(), buttonAtPos2_barley3->geometry().height()));
+           animation3->setEasingCurve(QEasingCurve::Type::Linear);
+           animation3->setDuration(900);
+           barley3->Set_Farmer_animation(animation3);
+
+           barley3->TurnTimerOn3();
+           buttonAtPos->setEnabled(false);
+
+       }
+    }
+
+    if (buttonAtPos != nullptr) {
+
+       if (buttonAtPos->objectName() == "Chicken") {
+
+           buttonAtPos2_ch3->setEnabled(false);
+
+       }else if (buttonAtPos->objectName() == "Sheep"){
+
+           buttonAtPos2_Sheep3->setEnabled(false);
+
+       }else if (buttonAtPos->objectName() == "Cow"){
+
+           buttonAtPos2_cow3->setEnabled(false);
+
+       }else if (buttonAtPos->objectName() == "Wheat"){
+
+           buttonAtPos2_wheat3->setEnabled(false);
+
+       }else if (buttonAtPos->objectName() == "Barley"){
+
+           buttonAtPos2_barley3->setEnabled(false);
+       }
+    }
+
+    clearLayout(ui->verticalLayout);
+}
+
+
+void Gamepage::on_Cancel_3_clicked()
+{
+    Get_info();
+
+    ui->Cancel_3->hide();
+    ui->Start_3->show();
+
+    ui->timer_label_3->hide();
+
+    QPoint Pos(1260, 180);
+
+    QPushButton* buttonAtPos = this->check2(Pos);
+
+    if (buttonAtPos != nullptr) {
+
+       if (buttonAtPos->objectName() == "Chicken") {
+
+           buttonAtPos->setEnabled(true);
+
+           ch3->Set_Farmer_Pushbutton(buttonAtPos2_ch3);
+           ch3->Farmer_pushbutton_position(1320, 160);
+           ch3->Set_Farmer_animation(animation3);
+
+           ch3->Farmer_pushbutton_setenable3();
+           ch3->Timer3_Stop();
+           ch3->TimerDelay_Stop();
+
+       } else if (buttonAtPos->objectName() == "Sheep") {
+
+           buttonAtPos->setEnabled(true);
+
+           sheep3->Set_Farmer_Pushbutton(buttonAtPos2_Sheep3);
+           sheep3->Farmer_pushbutton_position(1320, 160);
+           sheep3->Set_Farmer_animation(animation3);
+
+           sheep3->Farmer_pushbutton_setenable3();
+           sheep3->Timer3_Stop();
+           sheep3->TimerDelay_Stop();
+
+       } else if (buttonAtPos->objectName() == "Cow") {
+
+           buttonAtPos->setEnabled(true);
+
+           cow3->Set_Farmer_Pushbutton(buttonAtPos2_cow3);
+           cow3->Farmer_pushbutton_position(1320, 160);
+           cow3->Set_Farmer_animation(animation3);
+
+           cow3->Farmer_pushbutton_setenable3();
+           cow3->Timer3_Stop();
+           cow3->TimerDelay_Stop();
+
+       } else if (buttonAtPos->objectName() == "Wheat") {
+
+           buttonAtPos->setEnabled(true);
+
+           wheat3->Set_Farmer_Pushbutton(buttonAtPos2_wheat3);
+           wheat3->Farmer_pushbutton_position(1320, 160);
+           wheat3->Set_Farmer_animation(animation3);
+
+           wheat3->Farmer_pushbutton_setenable3();
+           wheat3->Timer3_Stop();
+           wheat3->TimerDelay_Stop();
+
+       } else if (buttonAtPos->objectName() == "Barley") {
+
+           buttonAtPos->setEnabled(true);
+
+           barley3->Set_Farmer_Pushbutton(buttonAtPos2_barley3);
+           barley3->Farmer_pushbutton_position(1320, 160);
+           barley3->Set_Farmer_animation(animation3);
+
+           barley3->Farmer_pushbutton_setenable3();
+           barley3->Timer3_Stop();
+           barley3->TimerDelay_Stop();
+
+       }
+    }
+
+    clearLayout(ui->verticalLayout);
+}
+
+void Gamepage::on_the_product_of_chicken_pushButton_3_clicked()
+{
+    score = score + (ch3->Product_Collection_Point);
+    ui->label_Score->setText( "Score :" + QString::number(score));
+    ui->the_product_of_chicken_pushButton_3->hide();
+    ch3->TimerDelay_Stop();
+    Get_info();
+    ui->decrease_point_label_3->hide();
+}
+
+void Gamepage::on_the_product_of_sheep_pushButton_3_clicked()
+{
+    score = score + (sheep3->Product_Collection_Point);
+    ui->label_Score->setText( "Score :" + QString::number(score));
+    ui->the_product_of_sheep_pushButton_3->hide();
+    sheep3->TimerDelay_Stop();
+    Get_info();
+    ui->decrease_point_label_3->hide();
+}
+
+void Gamepage::on_the_product_of_cow_pushButton_3_clicked()
+{
+    score = score + (cow3->Product_Collection_Point);
+    ui->label_Score->setText( "Score :" + QString::number(score));
+    ui->the_product_of_cow_pushButton_3->hide();
+    cow3->TimerDelay_Stop();
+    Get_info();
+    ui->decrease_point_label_3->hide();
+}
+
+void Gamepage::on_the_product_of_wheat_pushButton_3_clicked()
+{
+    score = score + (wheat3->Product_Collection_Point);
+    ui->label_Score->setText( "Score :" + QString::number(score));
+    ui->the_product_of_wheat_pushButton_3->hide();
+    wheat3->TimerDelay_Stop();
+    Get_info();
+
+    QPoint Pos(1260, 180);
+
+    QPushButton* buttonAtPos = this->check2(Pos);
+
+    if (buttonAtPos != nullptr) {
+
+        if (buttonAtPos->objectName() == "Wheat") {
+
+            delete  buttonAtPos;
+
+            Get_info();
+        }
+    }
+    ui->decrease_point_label_3->hide();
+}
+
+void Gamepage::on_the_product_of_barley_pushButton_3_clicked()
+{
+    score = score + (barley3->Product_Collection_Point);
+    ui->label_Score->setText( "Score :" + QString::number(score));
+    ui->the_product_of_barley_pushButton_3->hide();
+    barley3->TimerDelay_Stop();
+    Get_info();
+
+    QPoint Pos(1260, 180);
+
+    QPushButton* buttonAtPos = this->check2(Pos);
+
+    if (buttonAtPos != nullptr) {
+
+         if (buttonAtPos->objectName() == "Barley") {
+
+            delete  buttonAtPos;
+
+             Get_info();
+         }
+    }
+    ui->decrease_point_label_3->hide();
 }

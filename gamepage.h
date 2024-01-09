@@ -14,6 +14,20 @@
 
 extern Chicken * ch1; extern Sheep * sheep1; extern Cow * cow1; extern Wheat * wheat1; extern Barley * barley1;
 extern Chicken * ch2; extern Sheep * sheep2; extern Cow * cow2; extern Wheat * wheat2; extern Barley * barley2;
+extern Chicken * ch3; extern Sheep * sheep3; extern Cow * cow3; extern Wheat * wheat3; extern Barley * barley3;
+extern Chicken * ch4; extern Sheep * sheep4; extern Cow * cow4; extern Wheat * wheat4; extern Barley * barley4;
+extern Chicken * ch5; extern Sheep * sheep5; extern Cow * cow5; extern Wheat * wheat5; extern Barley * barley5;
+extern Chicken * ch6; extern Sheep * sheep6; extern Cow * cow6; extern Wheat * wheat6; extern Barley * barley6;
+extern Chicken * ch7; extern Sheep * sheep7; extern Cow * cow7; extern Wheat * wheat7; extern Barley * barley7;
+extern Chicken * ch8; extern Sheep * sheep8; extern Cow * cow8; extern Wheat * wheat8; extern Barley * barley8;
+extern Chicken * ch9; extern Sheep * sheep9; extern Cow * cow9; extern Wheat * wheat9; extern Barley * barley9;
+extern Chicken * ch10; extern Sheep * sheep10; extern Cow * cow10; extern Wheat * wheat10; extern Barley * barley10;
+extern Chicken * ch11; extern Sheep * sheep11; extern Cow * cow11; extern Wheat * wheat11; extern Barley * barley11;
+extern Chicken * ch12; extern Sheep * sheep12; extern Cow * cow12; extern Wheat * wheat12; extern Barley * barley12;
+extern Chicken * ch13; extern Sheep * sheep13; extern Cow * cow13; extern Wheat * wheat13; extern Barley * barley13;
+extern Chicken * ch14; extern Sheep * sheep14; extern Cow * cow14; extern Wheat * wheat14; extern Barley * barley14;
+extern Chicken * ch15; extern Sheep * sheep15; extern Cow * cow15; extern Wheat * wheat15; extern Barley * barley15;
+extern Chicken * ch16; extern Sheep * sheep16; extern Cow * cow16; extern Wheat * wheat16; extern Barley * barley16;
 
 namespace Ui {
 class Gamepage;
@@ -53,6 +67,8 @@ private slots:
     void Get_info();
 
     void on_Start_clicked();
+
+    bool check3(QPoint pos);
 
     void clearLayout(QLayout *layout);
 
@@ -96,9 +112,31 @@ private slots:
 
     void on_the_product_of_barley_pushButton_2_clicked();
 
+    void on_Start_3_clicked();
+
+    void on_Cancel_3_clicked();
+
+    void on_the_product_of_chicken_pushButton_3_clicked();
+
+    void on_the_product_of_sheep_pushButton_3_clicked();
+
+    void on_the_product_of_cow_pushButton_3_clicked();
+
+    void on_the_product_of_wheat_pushButton_3_clicked();
+
+    void on_the_product_of_barley_pushButton_3_clicked();
+
 private:
     Ui::Gamepage *ui;
 
+
+
+    //Fn_Which_Of_Animals_or_Seeds=0 -> home or kill
+    //Fn_Which_Of_Animals_or_Seeds=1 -> chicken
+    //Fn_Which_Of_Animals_or_Seeds=2 -> sheep
+    //Fn_Which_Of_Animals_or_Seeds=3 -> cow
+    //Fn_Which_Of_Animals_or_Seeds=4 -> wheat
+    //Fn_Which_Of_Animals_or_Seeds=5 -> barley
     int F1_Having_Farmer=0, F1_Having_Animals_or_Seeds=0;
     int F2_Having_Farmer=0, F2_Having_Animals_or_Seeds=0;
     int F3_Having_Farmer=0, F3_Having_Animals_or_Seeds=0;
@@ -116,12 +154,6 @@ private:
     int F15_Having_Farmer=0, F15_Having_Animals_or_Seeds=0;
     int F16_Having_Farmer=0, F16_Having_Animals_or_Seeds=0;
 
-    //Fn_Which_Of_Animals_or_Seeds=0 -> home or kill
-    //Fn_Which_Of_Animals_or_Seeds=1 -> chicken
-    //Fn_Which_Of_Animals_or_Seeds=2 -> sheep
-    //Fn_Which_Of_Animals_or_Seeds=3 -> cow
-    //Fn_Which_Of_Animals_or_Seeds=4 -> wheat
-    //Fn_Which_Of_Animals_or_Seeds=5 -> barley
     int F1_Which_Of_Animals_or_Seeds=0;
     int F2_Which_Of_Animals_or_Seeds=0;
     int F3_Which_Of_Animals_or_Seeds=0;
@@ -138,7 +170,6 @@ private:
     int F14_Which_Of_Animals_or_Seeds=0;
     int F15_Which_Of_Animals_or_Seeds=0;
     int F16_Which_Of_Animals_or_Seeds=0;
-
 };
 
 #endif // GAMEPAGE_H
