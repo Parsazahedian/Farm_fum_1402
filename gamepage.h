@@ -66,23 +66,7 @@ private slots:
 
     void Get_info();
 
-    void on_Start_clicked();
-
-//    bool check3(QPoint pos);
-
     void clearLayout(QLayout *layout);
-
-    void on_Cancel_clicked();
-
-    void on_the_product_of_chicken_pushButton_clicked();
-
-    void on_the_product_of_sheep_pushButton_clicked();
-
-    void on_the_product_of_cow_pushButton_clicked();
-
-    void on_the_product_of_wheat_pushButton_clicked();
-
-    void on_the_product_of_barley_pushButton_clicked();
 
     void Move_the_product_of_Animals_and_seeds_pushButton();
 
@@ -98,38 +82,136 @@ private slots:
 
     void Hide_decrease_label();
 
+    void on_Start_clicked();
+    void on_Cancel_clicked();
+    void on_the_product_of_chicken_pushButton_clicked();
+    void on_the_product_of_sheep_pushButton_clicked();
+    void on_the_product_of_cow_pushButton_clicked();
+    void on_the_product_of_wheat_pushButton_clicked();
+    void on_the_product_of_barley_pushButton_clicked();
+
     void on_Start_2_clicked();
-
     void on_Cancel_2_clicked();
-
     void on_the_product_of_chicken_pushButton_2_clicked();
-
     void on_the_product_of_sheep_pushButton_2_clicked();
-
     void on_the_product_of_cow_pushButton_2_clicked();
-
     void on_the_product_of_wheat_pushButton_2_clicked();
-
     void on_the_product_of_barley_pushButton_2_clicked();
 
     void on_Start_3_clicked();
-
     void on_Cancel_3_clicked();
-
     void on_the_product_of_chicken_pushButton_3_clicked();
-
     void on_the_product_of_sheep_pushButton_3_clicked();
-
     void on_the_product_of_cow_pushButton_3_clicked();
-
     void on_the_product_of_wheat_pushButton_3_clicked();
-
     void on_the_product_of_barley_pushButton_3_clicked();
+
+    void on_Start_4_clicked();
+    void on_Cancel_4_clicked();
+    void on_the_product_of_chicken_pushButton_4_clicked();
+    void on_the_product_of_sheep_pushButton_4_clicked();
+    void on_the_product_of_cow_pushButton_4_clicked();
+    void on_the_product_of_wheat_pushButton_4_clicked();
+    void on_the_product_of_barley_pushButton_4_clicked();
+
+    void on_Start_5_clicked();
+    void on_Cancel_5_clicked();
+    void on_the_product_of_chicken_pushButton_5_clicked();
+    void on_the_product_of_sheep_pushButton_5_clicked();
+    void on_the_product_of_cow_pushButton_5_clicked();
+    void on_the_product_of_wheat_pushButton_5_clicked();
+    void on_the_product_of_barley_pushButton_5_clicked();
+
+    void on_Start_6_clicked();
+    void on_Cancel_6_clicked();
+    void on_the_product_of_chicken_pushButton_6_clicked();
+    void on_the_product_of_sheep_pushButton_6_clicked();
+    void on_the_product_of_cow_pushButton_6_clicked();
+    void on_the_product_of_wheat_pushButton_6_clicked();
+    void on_the_product_of_barley_pushButton_6_clicked();
+
+    void on_Start_7_clicked();
+    void on_Cancel_7_clicked();
+    void on_the_product_of_chicken_pushButton_7_clicked();
+    void on_the_product_of_sheep_pushButton_7_clicked();
+    void on_the_product_of_cow_pushButton_7_clicked();
+    void on_the_product_of_wheat_pushButton_7_clicked();
+    void on_the_product_of_barley_pushButton_7_clicked();
+
+    void on_Start_8_clicked();
+    void on_Cancel_8_clicked();
+    void on_the_product_of_chicken_pushButton_8_clicked();
+    void on_the_product_of_sheep_pushButton_8_clicked();
+    void on_the_product_of_cow_pushButton_8_clicked();
+    void on_the_product_of_wheat_pushButton_8_clicked();
+    void on_the_product_of_barley_pushButton_8_clicked();
+
+    void on_Start_9_clicked();
+    void on_Cancel_9_clicked();
+    void on_the_product_of_chicken_pushButton_9_clicked();
+    void on_the_product_of_sheep_pushButton_9_clicked();
+    void on_the_product_of_cow_pushButton_9_clicked();
+    void on_the_product_of_wheat_pushButton_9_clicked();
+    void on_the_product_of_barley_pushButton_9_clicked();
+
+    void on_Start_10_clicked();
+    void on_Cancel_10_clicked();
+    void on_the_product_of_chicken_pushButton_10_clicked();
+    void on_the_product_of_sheep_pushButton_10_clicked();
+    void on_the_product_of_cow_pushButton_10_clicked();
+    void on_the_product_of_wheat_pushButton_10_clicked();
+    void on_the_product_of_barley_pushButton_10_clicked();
+
+    void on_Start_11_clicked();
+    void on_Cancel_11_clicked();
+    void on_the_product_of_chicken_pushButton_11_clicked();
+    void on_the_product_of_sheep_pushButton_11_clicked();
+    void on_the_product_of_cow_pushButton_11_clicked();
+    void on_the_product_of_wheat_pushButton_11_clicked();
+    void on_the_product_of_barley_pushButton_11_clicked();
+
+    void on_Start_12_clicked();
+    void on_Cancel_12_clicked();
+    void on_the_product_of_chicken_pushButton_12_clicked();
+    void on_the_product_of_sheep_pushButton_12_clicked();
+    void on_the_product_of_cow_pushButton_12_clicked();
+    void on_the_product_of_wheat_pushButton_12_clicked();
+    void on_the_product_of_barley_pushButton_12_clicked();
+
+    void on_Start_13_clicked();
+    void on_Cancel_13_clicked();
+    void on_the_product_of_chicken_pushButton_13_clicked();
+    void on_the_product_of_sheep_pushButton_13_clicked();
+    void on_the_product_of_cow_pushButton_13_clicked();
+    void on_the_product_of_wheat_pushButton_13_clicked();
+    void on_the_product_of_barley_pushButton_13_clicked();
+
+    void on_Start_14_clicked();
+    void on_Cancel_14_clicked();
+    void on_the_product_of_chicken_pushButton_14_clicked();
+    void on_the_product_of_sheep_pushButton_14_clicked();
+    void on_the_product_of_cow_pushButton_14_clicked();
+    void on_the_product_of_wheat_pushButton_14_clicked();
+    void on_the_product_of_barley_pushButton_14_clicked();
+
+    void on_Start_15_clicked();
+    void on_Cancel_15_clicked();
+    void on_the_product_of_chicken_pushButton_15_clicked();
+    void on_the_product_of_sheep_pushButton_15_clicked();
+    void on_the_product_of_cow_pushButton_15_clicked();
+    void on_the_product_of_wheat_pushButton_15_clicked();
+    void on_the_product_of_barley_pushButton_15_clicked();
+
+    void on_Start_16_clicked();
+    void on_Cancel_16_clicked();
+    void on_the_product_of_chicken_pushButton_16_clicked();
+    void on_the_product_of_sheep_pushButton_16_clicked();
+    void on_the_product_of_cow_pushButton_16_clicked();
+    void on_the_product_of_wheat_pushButton_16_clicked();
+    void on_the_product_of_barley_pushButton_16_clicked();
 
 private:
     Ui::Gamepage *ui;
-
-
 
     //Fn_Which_Of_Animals_or_Seeds=0 -> home or kill
     //Fn_Which_Of_Animals_or_Seeds=1 -> chicken
