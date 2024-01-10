@@ -32,26 +32,10 @@ Chicken * ch16; Sheep * sheep16; Cow * cow16;  Wheat * wheat16;  Barley * barley
 
 QPushButton* buttonAtPos2_ch1;QPushButton* buttonAtPos2_ch2;QPushButton* buttonAtPos2_ch3;QPushButton* buttonAtPos2_ch4;QPushButton* buttonAtPos2_ch5;QPushButton* buttonAtPos2_ch6;QPushButton* buttonAtPos2_ch7;QPushButton* buttonAtPos2_ch8;QPushButton* buttonAtPos2_ch9;QPushButton* buttonAtPos2_ch10;QPushButton* buttonAtPos2_ch11;QPushButton* buttonAtPos2_ch12;QPushButton* buttonAtPos2_ch13;QPushButton* buttonAtPos2_ch14;QPushButton* buttonAtPos2_ch15;QPushButton* buttonAtPos2_ch16;
 QPushButton* buttonAtPos2_Sheep1;QPushButton* buttonAtPos2_Sheep2;QPushButton* buttonAtPos2_Sheep3;QPushButton* buttonAtPos2_Sheep4;QPushButton* buttonAtPos2_Sheep5;QPushButton* buttonAtPos2_Sheep6;QPushButton* buttonAtPos2_Sheep7;QPushButton* buttonAtPos2_Sheep8;QPushButton* buttonAtPos2_Sheep9;QPushButton* buttonAtPos2_Sheep10;QPushButton* buttonAtPos2_Sheep11;QPushButton* buttonAtPos2_Sheep12;QPushButton* buttonAtPos2_Sheep13;QPushButton* buttonAtPos2_Sheep14;QPushButton* buttonAtPos2_Sheep15;QPushButton* buttonAtPos2_Sheep16;
-
-QPushButton* buttonAtPos2_cow1;QPushButton* buttonAtPos2_cow2;QPushButton* buttonAtPos2_cow3;QPushButton* buttonAtPos2_cow4;
-QPushButton* buttonAtPos2_cow5;QPushButton* buttonAtPos2_cow6;QPushButton* buttonAtPos2_cow7;QPushButton* buttonAtPos2_cow8;
-QPushButton* buttonAtPos2_cow9;QPushButton* buttonAtPos2_cow10;QPushButton* buttonAtPos2_cow11;QPushButton* buttonAtPos2_cow12;
-QPushButton* buttonAtPos2_cow13;QPushButton* buttonAtPos2_cow14;QPushButton* buttonAtPos2_cow15;QPushButton* buttonAtPos2_cow16;
-
-QPushButton* buttonAtPos2_wheat1;QPushButton* buttonAtPos2_wheat2;QPushButton* buttonAtPos2_wheat3;QPushButton* buttonAtPos2_wheat4;
-QPushButton* buttonAtPos2_wheat5;QPushButton* buttonAtPos2_wheat6;QPushButton* buttonAtPos2_wheat7;QPushButton* buttonAtPos2_wheat8;
-QPushButton* buttonAtPos2_wheat9;QPushButton* buttonAtPos2_wheat10;QPushButton* buttonAtPos2_wheat11;QPushButton* buttonAtPos2_wheat12;
-QPushButton* buttonAtPos2_wheat13;QPushButton* buttonAtPos2_wheat14;QPushButton* buttonAtPos2_wheat15;QPushButton* buttonAtPos2_wheat16;
-
-QPushButton* buttonAtPos2_barley1;QPushButton* buttonAtPos2_barley2;QPushButton* buttonAtPos2_barley3;QPushButton* buttonAtPos2_barley4;
-QPushButton* buttonAtPos2_barley5;QPushButton* buttonAtPos2_barley6;QPushButton* buttonAtPos2_barley7;QPushButton* buttonAtPos2_barley8;
-QPushButton* buttonAtPos2_barley9;QPushButton* buttonAtPos2_barley10;QPushButton* buttonAtPos2_barley11;QPushButton* buttonAtPos2_barley12;
-QPushButton* buttonAtPos2_barley13;QPushButton* buttonAtPos2_barley14;QPushButton* buttonAtPos2_barley15;QPushButton* buttonAtPos2_barley16;
-
-QPropertyAnimation *animation1;QPropertyAnimation *animation2;QPropertyAnimation *animation3;QPropertyAnimation *animation4;
-QPropertyAnimation *animation5;QPropertyAnimation *animation6;QPropertyAnimation *animation7;QPropertyAnimation *animation8;
-QPropertyAnimation *animation9;QPropertyAnimation *animation10;QPropertyAnimation *animation11;QPropertyAnimation *animation12;
-QPropertyAnimation *animation13;QPropertyAnimation *animation14;QPropertyAnimation *animation15;QPropertyAnimation *animation16;
+QPushButton* buttonAtPos2_cow1;QPushButton* buttonAtPos2_cow2;QPushButton* buttonAtPos2_cow3;QPushButton* buttonAtPos2_cow4;QPushButton* buttonAtPos2_cow5;QPushButton* buttonAtPos2_cow6;QPushButton* buttonAtPos2_cow7;QPushButton* buttonAtPos2_cow8;QPushButton* buttonAtPos2_cow9;QPushButton* buttonAtPos2_cow10;QPushButton* buttonAtPos2_cow11;QPushButton* buttonAtPos2_cow12;QPushButton* buttonAtPos2_cow13;QPushButton* buttonAtPos2_cow14;QPushButton* buttonAtPos2_cow15;QPushButton* buttonAtPos2_cow16;
+QPushButton* buttonAtPos2_wheat1;QPushButton* buttonAtPos2_wheat2;QPushButton* buttonAtPos2_wheat3;QPushButton* buttonAtPos2_wheat4;QPushButton* buttonAtPos2_wheat5;QPushButton* buttonAtPos2_wheat6;QPushButton* buttonAtPos2_wheat7;QPushButton* buttonAtPos2_wheat8;QPushButton* buttonAtPos2_wheat9;QPushButton* buttonAtPos2_wheat10;QPushButton* buttonAtPos2_wheat11;QPushButton* buttonAtPos2_wheat12;QPushButton* buttonAtPos2_wheat13;QPushButton* buttonAtPos2_wheat14;QPushButton* buttonAtPos2_wheat15;QPushButton* buttonAtPos2_wheat16;
+QPushButton* buttonAtPos2_barley1;QPushButton* buttonAtPos2_barley2;QPushButton* buttonAtPos2_barley3;QPushButton* buttonAtPos2_barley4;QPushButton* buttonAtPos2_barley5;QPushButton* buttonAtPos2_barley6;QPushButton* buttonAtPos2_barley7;QPushButton* buttonAtPos2_barley8;QPushButton* buttonAtPos2_barley9;QPushButton* buttonAtPos2_barley10;QPushButton* buttonAtPos2_barley11;QPushButton* buttonAtPos2_barley12;QPushButton* buttonAtPos2_barley13;QPushButton* buttonAtPos2_barley14;QPushButton* buttonAtPos2_barley15;QPushButton* buttonAtPos2_barley16;
+QPropertyAnimation *animation1;QPropertyAnimation *animation2;QPropertyAnimation *animation3;QPropertyAnimation *animation4;QPropertyAnimation *animation5;QPropertyAnimation *animation6;QPropertyAnimation *animation7;QPropertyAnimation *animation8;QPropertyAnimation *animation9;QPropertyAnimation *animation10;QPropertyAnimation *animation11;QPropertyAnimation *animation12;QPropertyAnimation *animation13;QPropertyAnimation *animation14;QPropertyAnimation *animation15;QPropertyAnimation *animation16;
 
 Gamepage::Gamepage(QWidget *parent) :
     QMainWindow(parent),
@@ -78,7 +62,7 @@ Gamepage::Gamepage(QWidget *parent) :
 
     Hide_decrease_label();
 
-    ui->label_Score->setText( "Score :" + QString::number(score));
+    ui->label_Score->setText( "Score : " + QString::number(score));
 
 }
 
@@ -102,3913 +86,4024 @@ void Gamepage::on_Shop_pushButton_clicked()
 void Gamepage::on_Chicken_pushButton_clicked()
 {
 
+    Chicken * chicken = new Chicken(ui->verticalLayout_2);
 
-    Chicken * ch = new Chicken(ui->Animals_verticalLayout);
+    if(score >= chicken->Purchase_price){
 
-    ch->pushButton->setObjectName("Chicken");
+        score = score - chicken->Purchase_price;
 
-    connect(ch->pushButton, &QPushButton::clicked, this, [this, ch](){ QMessageBox msgBox;
-        msgBox.setText("chicken""<ul>""<li>""@gmail.com""</li>" "<li>""@email.com""</li>" "<li>""@mail.um.ac""</li>""</ul>");
-        msgBox.setWindowFlags(msgBox.windowFlags() | Qt::WindowSystemMenuHint);
+        ui->label_Score->setText( "Score : " + QString::number(score));
 
-        msgBox.setWindowTitle("Transfer to ...");
+        Chicken * ch = new Chicken(ui->Animals_verticalLayout);
 
-        // Set the icon
-        msgBox.setWindowIcon(QIcon("C:/Users/i/Downloads/iran.png"));
+        ch->pushButton->setObjectName("Chicken");
 
-        msgBox.setIconPixmap(QPixmap("C:/Users/i/Downloads/iran.png"));
+        connect(ch->pushButton, &QPushButton::clicked, this, [this, ch](){ QMessageBox msgBox;
+            msgBox.setText("chicken""<ul>""<li>""@gmail.com""</li>" "<li>""@email.com""</li>" "<li>""@mail.um.ac""</li>""</ul>");
+            msgBox.setWindowFlags(msgBox.windowFlags() | Qt::WindowSystemMenuHint);
 
+            msgBox.setWindowTitle("Transfer to ...");
 
-        // Add custom buttons
-        QHash<QAbstractButton*, int> buttonMap;
-        for (int i = 1; i <= 18; ++i) {
-          QPushButton* button = new QPushButton(QString("%1").arg(i));
-          msgBox.addButton(button, i == 18 ? QMessageBox::RejectRole : QMessageBox::AcceptRole);
-          buttonMap[button] = i;
+            // Set the icon
+            msgBox.setWindowIcon(QIcon("C:/Users/i/Downloads/iran.png"));
 
-        //  button->setMinimumSize(56, 40);
-           button->setMinimumSize(40, 40);
+            msgBox.setIconPixmap(QPixmap("C:/Users/i/Downloads/iran.png"));
 
-           if(i==1){
 
-               QPoint pos(150, 180);
+            // Add custom buttons
+            QHash<QAbstractButton*, int> buttonMap;
+            for (int i = 1; i <= 18; ++i) {
+              QPushButton* button = new QPushButton(QString("%1").arg(i));
+              msgBox.addButton(button, i == 18 ? QMessageBox::RejectRole : QMessageBox::AcceptRole);
+              buttonMap[button] = i;
 
-               if(check(pos)==true){
+            //  button->setMinimumSize(56, 40);
+               button->setMinimumSize(40, 40);
 
-                   F1_Having_Animals_or_Seeds=0;
-                   F1_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
+               if(i==1){
 
-                   F1_Having_Animals_or_Seeds=1;
-                   F1_Which_Of_Animals_or_Seeds=1;
-                   button->setEnabled(false);
-               }
-           }
+                   QPoint pos(150, 180);
 
-           if((i==2 && ui->label_2->isHidden())){
+                   if(check(pos)==true){
 
-               button->setEnabled(false);
+                       F1_Having_Animals_or_Seeds=0;
+                       F1_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
 
-           }else if(i==2 && ui->label_2->isVisible()){
-
-               QPoint pos(540, 180);
-
-               if(check(pos)==true){
-
-                   F2_Having_Animals_or_Seeds=0;
-                   F2_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F2_Having_Animals_or_Seeds=1;
-                   F2_Which_Of_Animals_or_Seeds=1;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==3 && ui->label_3->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==3 && ui->label_3->isVisible()){
-
-               QPoint pos(1260, 180);
-
-               if(check(pos)==true){
-
-                   F3_Having_Animals_or_Seeds=0;
-                   F3_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F3_Having_Animals_or_Seeds=1;
-                   F3_Which_Of_Animals_or_Seeds=1;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==4 && ui->label_4->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==4 && ui->label_4->isVisible()){
-
-               QPoint pos(1650, 180);
-
-               if(check(pos)==true){
-
-                   F4_Having_Animals_or_Seeds=0;
-                   F4_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F4_Having_Animals_or_Seeds=1;
-                   F4_Which_Of_Animals_or_Seeds=1;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==5 && ui->label_5->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==5 && ui->label_5->isVisible()){
-
-               QPoint pos(150, 410);
-
-               if(check(pos)==true){
-
-                   F5_Having_Animals_or_Seeds=0;
-                   F5_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F5_Having_Animals_or_Seeds=1;
-                   F5_Which_Of_Animals_or_Seeds=1;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==6 && ui->label_6->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==6 && ui->label_6->isVisible()){
-
-               QPoint pos(540, 410);
-
-               if(check(pos)==true){
-
-                   F6_Having_Animals_or_Seeds=0;
-                   F6_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F6_Having_Animals_or_Seeds=1;
-                   F6_Which_Of_Animals_or_Seeds=1;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==7 && ui->label_7->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==7 && ui->label_7->isVisible()){
-
-               QPoint pos(1260, 410);
-
-               if(check(pos)==true){
-
-                   F7_Having_Animals_or_Seeds=0;
-                   F7_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F7_Having_Animals_or_Seeds=1;
-                   F7_Which_Of_Animals_or_Seeds=1;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==8 && ui->label_8->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==8 && ui->label_8->isVisible()){
-
-               QPoint pos(1650, 410);
-
-               if(check(pos)==true){
-
-                   F8_Having_Animals_or_Seeds=0;
-                   F8_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F8_Having_Animals_or_Seeds=1;
-                   F8_Which_Of_Animals_or_Seeds=1;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==9 && ui->label_9->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==9 && ui->label_9->isVisible()){
-
-               QPoint pos(150, 640);
-
-               if(check(pos)==true){
-
-                   F9_Having_Animals_or_Seeds=0;
-                   F9_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F9_Having_Animals_or_Seeds=1;
-                   F9_Which_Of_Animals_or_Seeds=1;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==10 && ui->label_10->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==10 && ui->label_10->isVisible()){
-
-               QPoint pos(540, 640);
-
-               if(check(pos)==true){
-
-                   F10_Having_Animals_or_Seeds=0;
-                   F10_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F10_Having_Animals_or_Seeds=1;
-                   F10_Which_Of_Animals_or_Seeds=1;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==11 && ui->label_11->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==11 && ui->label_11->isVisible()){
-
-               QPoint pos(1260, 640);
-
-               if(check(pos)==true){
-
-                   F11_Having_Animals_or_Seeds=0;
-                   F11_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F11_Having_Animals_or_Seeds=1;
-                   F11_Which_Of_Animals_or_Seeds=1;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==12 && ui->label_12->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==12 && ui->label_12->isVisible()){
-
-               QPoint pos(1650, 640);
-
-               if(check(pos)==true){
-
-                   F12_Having_Animals_or_Seeds=0;
-                   F12_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F12_Having_Animals_or_Seeds=1;
-                   F12_Which_Of_Animals_or_Seeds=1;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==13 && ui->label_13->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==13 && ui->label_13->isVisible()){
-
-               QPoint pos(150, 870);
-
-               if(check(pos)==true){
-
-                   F13_Having_Animals_or_Seeds=0;
-                   F13_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F13_Having_Animals_or_Seeds=1;
-                   F13_Which_Of_Animals_or_Seeds=1;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==14 && ui->label_14->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==14 && ui->label_14->isVisible()){
-
-               QPoint pos(540, 870);
-
-               if(check(pos)==true){
-
-                   F14_Having_Animals_or_Seeds=0;
-                   F14_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F14_Having_Animals_or_Seeds=1;
-                   F14_Which_Of_Animals_or_Seeds=1;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==15 && ui->label_15->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==15 && ui->label_15->isVisible()){
-
-               QPoint pos(1260, 870);
-
-               if(check(pos)==true){
-
-                   F15_Having_Animals_or_Seeds=0;
-                   F15_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F15_Having_Animals_or_Seeds=1;
-                   F15_Which_Of_Animals_or_Seeds=1;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==16 && ui->label_16->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==16 && ui->label_16->isVisible()){
-
-               QPoint pos(1650, 870);
-
-               if(check(pos)==true){
-
-                   F16_Having_Animals_or_Seeds=0;
-                   F16_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F16_Having_Animals_or_Seeds=1;
-                   F16_Which_Of_Animals_or_Seeds=1;
-                   button->setEnabled(false);
-               }
-           }
-
-          if(i==17){
-
-              button->setText("home");
-              button->setMinimumSize(60,40);
-          }
-
-          if(i==18){
-
-           button->setMinimumSize(50,40);
-              button->setText("Kill");
-          }
-        }
-
-    // clazy:exclude:connect-3arg-lambda
-        QObject::connect(&msgBox, &QMessageBox::finished, [&](int result){
-
-           QAbstractButton* clickedButton = msgBox.clickedButton();
-
-           if (clickedButton) {
-
-               int buttonNumber = buttonMap[clickedButton];
-
-
-
-
-               switch(buttonNumber) {
-               Get_info();
-               case 1:
-
-                   if(F1_Having_Animals_or_Seeds==0){
-
-                       ch->pushButton->move(150, 180);
-                       ch->pushButton->setParent(this);
-                       ch->pushButton->show();
-                       F1_Which_Of_Animals_or_Seeds=1;                      
                        F1_Having_Animals_or_Seeds=1;
+                       F1_Which_Of_Animals_or_Seeds=1;
+                       button->setEnabled(false);
                    }
-
-                   Get_info();
-
-
-                   break;
-               case 2:
-
-                   if(F2_Having_Animals_or_Seeds==0){
-
-                       ch->pushButton->move(540, 180);
-                       ch->pushButton->setParent(this);
-                       ch->pushButton->show();
-                       F2_Which_Of_Animals_or_Seeds=1;
-                       F2_Having_Animals_or_Seeds=1;
-                   }
-
-                   Get_info();
-
-
-                   break;
-               case 3:
-
-                   if(F3_Having_Animals_or_Seeds==0){
-
-                       ch->pushButton->move(1260, 180);
-                       ch->pushButton->setParent(this);
-                       ch->pushButton->show();
-                       F3_Which_Of_Animals_or_Seeds=1;
-                       F3_Having_Animals_or_Seeds=1;
-                   }
-
-                   Get_info();
-
-                   break;
-               case 4:
-
-                   if(F4_Having_Animals_or_Seeds==0){
-
-                       ch->pushButton->move(1650, 180);
-                       ch->pushButton->setParent(this);
-                       ch->pushButton->show();
-                       F4_Which_Of_Animals_or_Seeds=1;
-                       F4_Having_Animals_or_Seeds=1;
-                   }
-
-                   Get_info();
-
-                   break;
-               case 5:
-
-                   if(F5_Having_Animals_or_Seeds==0){
-
-                       ch->pushButton->move(150, 410);
-                       ch->pushButton->setParent(this);
-                       ch->pushButton->show();
-                       F5_Which_Of_Animals_or_Seeds=1;
-                       F5_Having_Animals_or_Seeds=1;
-                   }
-
-                   Get_info();
-
-                   break;
-               case 6:
-
-                   if(F6_Having_Animals_or_Seeds==0){
-
-                       ch->pushButton->move(540, 410);
-                       ch->pushButton->setParent(this);
-                       ch->pushButton->show();
-                       F6_Which_Of_Animals_or_Seeds=1;
-                       F6_Having_Animals_or_Seeds=1;
-                   }
-
-                   Get_info();
-
-                   break;
-               case 7:
-
-                   if(F7_Having_Animals_or_Seeds==0){
-
-                       ch->pushButton->move(1260, 410);
-                       ch->pushButton->setParent(this);
-                       ch->pushButton->show();
-                       F7_Which_Of_Animals_or_Seeds=1;
-                       F7_Having_Animals_or_Seeds=1;
-                   }
-
-                   Get_info();
-
-                   break;
-               case 8:
-
-                   if(F8_Having_Animals_or_Seeds==0){
-
-                       ch->pushButton->move(1650, 410);
-                       ch->pushButton->setParent(this);
-                       ch->pushButton->show();
-                       F8_Which_Of_Animals_or_Seeds=1;
-                       F8_Having_Animals_or_Seeds=1;
-                   }
-
-                   Get_info();
-
-                   break;
-               case 9:
-
-                   if(F9_Having_Animals_or_Seeds==0){
-
-                       ch->pushButton->move(150, 640);
-                       ch->pushButton->setParent(this);
-                       ch->pushButton->show();
-                       F9_Which_Of_Animals_or_Seeds=1;
-                       F9_Having_Animals_or_Seeds=1;
-                   }
-
-                   Get_info();
-
-                   break;
-               case 10:
-
-                   if(F10_Having_Animals_or_Seeds==0){
-
-                       ch->pushButton->move(540, 640);
-                       ch->pushButton->setParent(this);
-                       ch->pushButton->show();
-                       F10_Which_Of_Animals_or_Seeds=1;
-                       F10_Having_Animals_or_Seeds=1;
-                   }
-
-                   Get_info();
-
-                   break;
-               case 11:
-
-                   if(F11_Having_Animals_or_Seeds==0){
-
-                       ch->pushButton->move(1260, 640);
-                       ch->pushButton->setParent(this);
-                       ch->pushButton->show();
-                       F11_Which_Of_Animals_or_Seeds=1;
-                       F11_Having_Animals_or_Seeds=1;
-                   }
-
-                   Get_info();
-
-                   break;
-               case 12:
-
-                   if(F12_Having_Animals_or_Seeds==0){
-
-                       ch->pushButton->move(1650, 640);
-                       ch->pushButton->setParent(this);
-                       ch->pushButton->show();
-                       F12_Which_Of_Animals_or_Seeds=1;
-                       F12_Having_Animals_or_Seeds=1;
-                   }
-
-                   Get_info();
-
-                   break;
-               case 13:
-
-                   if(F13_Having_Animals_or_Seeds==0){
-
-                       ch->pushButton->move(150, 870);
-                       ch->pushButton->setParent(this);
-                       ch->pushButton->show();
-                       F13_Which_Of_Animals_or_Seeds=1;
-                       F13_Having_Animals_or_Seeds=1;
-                   }
-
-                   Get_info();
-
-                   break;
-               case 14:
-
-                   if(F14_Having_Animals_or_Seeds==0){
-
-                       ch->pushButton->move(540, 870);
-                       ch->pushButton->setParent(this);
-                       ch->pushButton->show();
-                       F14_Which_Of_Animals_or_Seeds=1;
-                       F14_Having_Animals_or_Seeds=1;
-                   }
-
-                   Get_info();
-
-                   break;
-               case 15:
-
-                   if(F15_Having_Animals_or_Seeds==0){
-
-                       ch->pushButton->move(1260, 870);
-                       ch->pushButton->setParent(this);
-                       ch->pushButton->show();
-                       F15_Which_Of_Animals_or_Seeds=1;
-                       F15_Having_Animals_or_Seeds=1;
-                   }
-
-                   Get_info();
-
-                   break;
-               case 16:
-
-                   if(F16_Having_Animals_or_Seeds==0){
-
-                       ch->pushButton->move(1650, 870);
-                       ch->pushButton->setParent(this);
-                       ch->pushButton->show();
-                       F16_Which_Of_Animals_or_Seeds=1;
-                       F16_Having_Animals_or_Seeds=1;
-                   }
-
-                   Get_info();
-
-                   break;
-               case 17:
-                   //add to verticall layout
-                   ch->pushButton->move(2000, 10);
-                   ui->Animals_verticalLayout->addWidget(ch->pushButton);
-
-                   Get_info();
-
-                   break;
-               case 18:
-                   // remove pushbutton
-                   ui->Animals_verticalLayout->removeWidget(ch->pushButton);
-                   delete ch->pushButton;
-
-                   Get_info();
-
-                   break;
-
-               default:
-                   Get_info();
-                   break;
                }
-           }
+
+               if((i==2 && ui->label_2->isHidden())){
+
+                   button->setEnabled(false);
+
+               }else if(i==2 && ui->label_2->isVisible()){
+
+                   QPoint pos(540, 180);
+
+                   if(check(pos)==true){
+
+                       F2_Having_Animals_or_Seeds=0;
+                       F2_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
+                       F2_Having_Animals_or_Seeds=1;
+                       F2_Which_Of_Animals_or_Seeds=1;
+                       button->setEnabled(false);
+                   }
+               }
+
+               if(i==3 && ui->label_3->isHidden()){
+
+                   button->setEnabled(false);
+
+               }else if(i==3 && ui->label_3->isVisible()){
+
+                   QPoint pos(1260, 180);
+
+                   if(check(pos)==true){
+
+                       F3_Having_Animals_or_Seeds=0;
+                       F3_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
+                       F3_Having_Animals_or_Seeds=1;
+                       F3_Which_Of_Animals_or_Seeds=1;
+                       button->setEnabled(false);
+                   }
+               }
+
+               if(i==4 && ui->label_4->isHidden()){
+
+                   button->setEnabled(false);
+
+               }else if(i==4 && ui->label_4->isVisible()){
+
+                   QPoint pos(1650, 180);
+
+                   if(check(pos)==true){
+
+                       F4_Having_Animals_or_Seeds=0;
+                       F4_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
+                       F4_Having_Animals_or_Seeds=1;
+                       F4_Which_Of_Animals_or_Seeds=1;
+                       button->setEnabled(false);
+                   }
+               }
+
+               if(i==5 && ui->label_5->isHidden()){
+
+                   button->setEnabled(false);
+
+               }else if(i==5 && ui->label_5->isVisible()){
+
+                   QPoint pos(150, 410);
+
+                   if(check(pos)==true){
+
+                       F5_Having_Animals_or_Seeds=0;
+                       F5_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
+                       F5_Having_Animals_or_Seeds=1;
+                       F5_Which_Of_Animals_or_Seeds=1;
+                       button->setEnabled(false);
+                   }
+               }
+
+               if(i==6 && ui->label_6->isHidden()){
+
+                   button->setEnabled(false);
+
+               }else if(i==6 && ui->label_6->isVisible()){
+
+                   QPoint pos(540, 410);
+
+                   if(check(pos)==true){
+
+                       F6_Having_Animals_or_Seeds=0;
+                       F6_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
+                       F6_Having_Animals_or_Seeds=1;
+                       F6_Which_Of_Animals_or_Seeds=1;
+                       button->setEnabled(false);
+                   }
+               }
+
+               if(i==7 && ui->label_7->isHidden()){
+
+                   button->setEnabled(false);
+
+               }else if(i==7 && ui->label_7->isVisible()){
+
+                   QPoint pos(1260, 410);
+
+                   if(check(pos)==true){
+
+                       F7_Having_Animals_or_Seeds=0;
+                       F7_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
+                       F7_Having_Animals_or_Seeds=1;
+                       F7_Which_Of_Animals_or_Seeds=1;
+                       button->setEnabled(false);
+                   }
+               }
+
+               if(i==8 && ui->label_8->isHidden()){
+
+                   button->setEnabled(false);
+
+               }else if(i==8 && ui->label_8->isVisible()){
+
+                   QPoint pos(1650, 410);
+
+                   if(check(pos)==true){
+
+                       F8_Having_Animals_or_Seeds=0;
+                       F8_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
+                       F8_Having_Animals_or_Seeds=1;
+                       F8_Which_Of_Animals_or_Seeds=1;
+                       button->setEnabled(false);
+                   }
+               }
+
+               if(i==9 && ui->label_9->isHidden()){
+
+                   button->setEnabled(false);
+
+               }else if(i==9 && ui->label_9->isVisible()){
+
+                   QPoint pos(150, 640);
+
+                   if(check(pos)==true){
+
+                       F9_Having_Animals_or_Seeds=0;
+                       F9_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
+                       F9_Having_Animals_or_Seeds=1;
+                       F9_Which_Of_Animals_or_Seeds=1;
+                       button->setEnabled(false);
+                   }
+               }
+
+               if(i==10 && ui->label_10->isHidden()){
+
+                   button->setEnabled(false);
+
+               }else if(i==10 && ui->label_10->isVisible()){
+
+                   QPoint pos(540, 640);
+
+                   if(check(pos)==true){
+
+                       F10_Having_Animals_or_Seeds=0;
+                       F10_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
+                       F10_Having_Animals_or_Seeds=1;
+                       F10_Which_Of_Animals_or_Seeds=1;
+                       button->setEnabled(false);
+                   }
+               }
+
+               if(i==11 && ui->label_11->isHidden()){
+
+                   button->setEnabled(false);
+
+               }else if(i==11 && ui->label_11->isVisible()){
+
+                   QPoint pos(1260, 640);
+
+                   if(check(pos)==true){
+
+                       F11_Having_Animals_or_Seeds=0;
+                       F11_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
+                       F11_Having_Animals_or_Seeds=1;
+                       F11_Which_Of_Animals_or_Seeds=1;
+                       button->setEnabled(false);
+                   }
+               }
+
+               if(i==12 && ui->label_12->isHidden()){
+
+                   button->setEnabled(false);
+
+               }else if(i==12 && ui->label_12->isVisible()){
+
+                   QPoint pos(1650, 640);
+
+                   if(check(pos)==true){
+
+                       F12_Having_Animals_or_Seeds=0;
+                       F12_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
+                       F12_Having_Animals_or_Seeds=1;
+                       F12_Which_Of_Animals_or_Seeds=1;
+                       button->setEnabled(false);
+                   }
+               }
+
+               if(i==13 && ui->label_13->isHidden()){
+
+                   button->setEnabled(false);
+
+               }else if(i==13 && ui->label_13->isVisible()){
+
+                   QPoint pos(150, 870);
+
+                   if(check(pos)==true){
+
+                       F13_Having_Animals_or_Seeds=0;
+                       F13_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
+                       F13_Having_Animals_or_Seeds=1;
+                       F13_Which_Of_Animals_or_Seeds=1;
+                       button->setEnabled(false);
+                   }
+               }
+
+               if(i==14 && ui->label_14->isHidden()){
+
+                   button->setEnabled(false);
+
+               }else if(i==14 && ui->label_14->isVisible()){
+
+                   QPoint pos(540, 870);
+
+                   if(check(pos)==true){
+
+                       F14_Having_Animals_or_Seeds=0;
+                       F14_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
+                       F14_Having_Animals_or_Seeds=1;
+                       F14_Which_Of_Animals_or_Seeds=1;
+                       button->setEnabled(false);
+                   }
+               }
+
+               if(i==15 && ui->label_15->isHidden()){
+
+                   button->setEnabled(false);
+
+               }else if(i==15 && ui->label_15->isVisible()){
+
+                   QPoint pos(1260, 870);
+
+                   if(check(pos)==true){
+
+                       F15_Having_Animals_or_Seeds=0;
+                       F15_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
+                       F15_Having_Animals_or_Seeds=1;
+                       F15_Which_Of_Animals_or_Seeds=1;
+                       button->setEnabled(false);
+                   }
+               }
+
+               if(i==16 && ui->label_16->isHidden()){
+
+                   button->setEnabled(false);
+
+               }else if(i==16 && ui->label_16->isVisible()){
+
+                   QPoint pos(1650, 870);
+
+                   if(check(pos)==true){
+
+                       F16_Having_Animals_or_Seeds=0;
+                       F16_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
+                       F16_Having_Animals_or_Seeds=1;
+                       F16_Which_Of_Animals_or_Seeds=1;
+                       button->setEnabled(false);
+                   }
+               }
+
+              if(i==17){
+
+                  button->setText("home");
+                  button->setMinimumSize(60,40);
+              }
+
+              if(i==18){
+
+               button->setMinimumSize(50,40);
+                  button->setText("Kill");
+              }
+            }
+
+        // clazy:exclude:connect-3arg-lambda
+            QObject::connect(&msgBox, &QMessageBox::finished, [&](int result){
+
+               QAbstractButton* clickedButton = msgBox.clickedButton();
+
+               if (clickedButton) {
+
+                   int buttonNumber = buttonMap[clickedButton];
 
 
-        });
 
 
-        msgBox.exec();
+                   switch(buttonNumber) {
+                   Get_info();
+                   case 1:
+
+                       if(F1_Having_Animals_or_Seeds==0){
+
+                           ch->pushButton->move(150, 180);
+                           ch->pushButton->setParent(this);
+                           ch->pushButton->show();
+                           F1_Which_Of_Animals_or_Seeds=1;
+                           F1_Having_Animals_or_Seeds=1;
+                       }
+
+                       Get_info();
 
 
-       });
+                       break;
+                   case 2:
+
+                       if(F2_Having_Animals_or_Seeds==0){
+
+                           ch->pushButton->move(540, 180);
+                           ch->pushButton->setParent(this);
+                           ch->pushButton->show();
+                           F2_Which_Of_Animals_or_Seeds=1;
+                           F2_Having_Animals_or_Seeds=1;
+                       }
+
+                       Get_info();
 
 
+                       break;
+                   case 3:
 
+                       if(F3_Having_Animals_or_Seeds==0){
+
+                           ch->pushButton->move(1260, 180);
+                           ch->pushButton->setParent(this);
+                           ch->pushButton->show();
+                           F3_Which_Of_Animals_or_Seeds=1;
+                           F3_Having_Animals_or_Seeds=1;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 4:
+
+                       if(F4_Having_Animals_or_Seeds==0){
+
+                           ch->pushButton->move(1650, 180);
+                           ch->pushButton->setParent(this);
+                           ch->pushButton->show();
+                           F4_Which_Of_Animals_or_Seeds=1;
+                           F4_Having_Animals_or_Seeds=1;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 5:
+
+                       if(F5_Having_Animals_or_Seeds==0){
+
+                           ch->pushButton->move(150, 410);
+                           ch->pushButton->setParent(this);
+                           ch->pushButton->show();
+                           F5_Which_Of_Animals_or_Seeds=1;
+                           F5_Having_Animals_or_Seeds=1;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 6:
+
+                       if(F6_Having_Animals_or_Seeds==0){
+
+                           ch->pushButton->move(540, 410);
+                           ch->pushButton->setParent(this);
+                           ch->pushButton->show();
+                           F6_Which_Of_Animals_or_Seeds=1;
+                           F6_Having_Animals_or_Seeds=1;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 7:
+
+                       if(F7_Having_Animals_or_Seeds==0){
+
+                           ch->pushButton->move(1260, 410);
+                           ch->pushButton->setParent(this);
+                           ch->pushButton->show();
+                           F7_Which_Of_Animals_or_Seeds=1;
+                           F7_Having_Animals_or_Seeds=1;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 8:
+
+                       if(F8_Having_Animals_or_Seeds==0){
+
+                           ch->pushButton->move(1650, 410);
+                           ch->pushButton->setParent(this);
+                           ch->pushButton->show();
+                           F8_Which_Of_Animals_or_Seeds=1;
+                           F8_Having_Animals_or_Seeds=1;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 9:
+
+                       if(F9_Having_Animals_or_Seeds==0){
+
+                           ch->pushButton->move(150, 640);
+                           ch->pushButton->setParent(this);
+                           ch->pushButton->show();
+                           F9_Which_Of_Animals_or_Seeds=1;
+                           F9_Having_Animals_or_Seeds=1;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 10:
+
+                       if(F10_Having_Animals_or_Seeds==0){
+
+                           ch->pushButton->move(540, 640);
+                           ch->pushButton->setParent(this);
+                           ch->pushButton->show();
+                           F10_Which_Of_Animals_or_Seeds=1;
+                           F10_Having_Animals_or_Seeds=1;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 11:
+
+                       if(F11_Having_Animals_or_Seeds==0){
+
+                           ch->pushButton->move(1260, 640);
+                           ch->pushButton->setParent(this);
+                           ch->pushButton->show();
+                           F11_Which_Of_Animals_or_Seeds=1;
+                           F11_Having_Animals_or_Seeds=1;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 12:
+
+                       if(F12_Having_Animals_or_Seeds==0){
+
+                           ch->pushButton->move(1650, 640);
+                           ch->pushButton->setParent(this);
+                           ch->pushButton->show();
+                           F12_Which_Of_Animals_or_Seeds=1;
+                           F12_Having_Animals_or_Seeds=1;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 13:
+
+                       if(F13_Having_Animals_or_Seeds==0){
+
+                           ch->pushButton->move(150, 870);
+                           ch->pushButton->setParent(this);
+                           ch->pushButton->show();
+                           F13_Which_Of_Animals_or_Seeds=1;
+                           F13_Having_Animals_or_Seeds=1;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 14:
+
+                       if(F14_Having_Animals_or_Seeds==0){
+
+                           ch->pushButton->move(540, 870);
+                           ch->pushButton->setParent(this);
+                           ch->pushButton->show();
+                           F14_Which_Of_Animals_or_Seeds=1;
+                           F14_Having_Animals_or_Seeds=1;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 15:
+
+                       if(F15_Having_Animals_or_Seeds==0){
+
+                           ch->pushButton->move(1260, 870);
+                           ch->pushButton->setParent(this);
+                           ch->pushButton->show();
+                           F15_Which_Of_Animals_or_Seeds=1;
+                           F15_Having_Animals_or_Seeds=1;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 16:
+
+                       if(F16_Having_Animals_or_Seeds==0){
+
+                           ch->pushButton->move(1650, 870);
+                           ch->pushButton->setParent(this);
+                           ch->pushButton->show();
+                           F16_Which_Of_Animals_or_Seeds=1;
+                           F16_Having_Animals_or_Seeds=1;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 17:
+                       //add to verticall layout
+                       ch->pushButton->move(2000, 10);
+                       ui->Animals_verticalLayout->addWidget(ch->pushButton);
+
+                       Get_info();
+
+                       break;
+                   case 18:
+                       // remove pushbutton
+                       ui->Animals_verticalLayout->removeWidget(ch->pushButton);
+                       delete ch->pushButton;
+
+                       Get_info();
+
+                       break;
+
+                   default:
+                       Get_info();
+                       break;
+                   }
+               }
+            });
+
+            msgBox.exec();
+
+           });
+
+    }else{
+
+        clearLayout(ui->verticalLayout_2);
+        QMessageBox::warning(this,"ops", "you do nut have enogh gold");
+    }
+
+    clearLayout(ui->verticalLayout_2);
 }
 
 void Gamepage::on_Sheep_pushButton_clicked()
 {
-    Sheep * sheep = new Sheep(ui->Animals_verticalLayout);
+    Sheep * sh = new Sheep(ui->verticalLayout_2);
 
-    sheep->pushButton->setObjectName("Sheep");
+    if(score >= sh->Purchase_price){
 
-    connect(sheep->pushButton, &QPushButton::clicked, this, [this, sheep](){ QMessageBox msgBox;
-        msgBox.setText("chicken""<ul>""<li>""@gmail.com""</li>" "<li>""@email.com""</li>" "<li>""@mail.um.ac""</li>""</ul>");
-        msgBox.setWindowFlags(msgBox.windowFlags() | Qt::WindowSystemMenuHint);
+        score = score - sh->Purchase_price;
 
-        msgBox.setWindowTitle("Transfer to ...");
+        ui->label_Score->setText( "Score : " + QString::number(score));
 
-        // Set the icon
-        msgBox.setWindowIcon(QIcon("C:/Users/i/Downloads/iran.png"));
+        Sheep * sheep = new Sheep(ui->Animals_verticalLayout);
 
-        msgBox.setIconPixmap(QPixmap("C:/Users/i/Downloads/iran.png"));
+        sheep->pushButton->setObjectName("Sheep");
 
-        // Add custom buttons
-        QHash<QAbstractButton*, int> buttonMap;
-        for (int i = 1; i <= 18; ++i) {
-          QPushButton* button = new QPushButton(QString("%1").arg(i));
-          msgBox.addButton(button, i == 18 ? QMessageBox::RejectRole : QMessageBox::AcceptRole);
-          buttonMap[button] = i;
+        connect(sheep->pushButton, &QPushButton::clicked, this, [this, sheep](){ QMessageBox msgBox;
+            msgBox.setText("chicken""<ul>""<li>""@gmail.com""</li>" "<li>""@email.com""</li>" "<li>""@mail.um.ac""</li>""</ul>");
+            msgBox.setWindowFlags(msgBox.windowFlags() | Qt::WindowSystemMenuHint);
 
-        //  button->setMinimumSize(56, 40);
-           button->setMinimumSize(40, 40);
+            msgBox.setWindowTitle("Transfer to ...");
 
-           if(i==1){
+            // Set the icon
+            msgBox.setWindowIcon(QIcon("C:/Users/i/Downloads/iran.png"));
 
-               QPoint pos(150, 180);
+            msgBox.setIconPixmap(QPixmap("C:/Users/i/Downloads/iran.png"));
 
-               if(check(pos)==true){
+            // Add custom buttons
+            QHash<QAbstractButton*, int> buttonMap;
+            for (int i = 1; i <= 18; ++i) {
+              QPushButton* button = new QPushButton(QString("%1").arg(i));
+              msgBox.addButton(button, i == 18 ? QMessageBox::RejectRole : QMessageBox::AcceptRole);
+              buttonMap[button] = i;
 
-                   F1_Having_Animals_or_Seeds=0;
-                   F1_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
+            //  button->setMinimumSize(56, 40);
+               button->setMinimumSize(40, 40);
 
-                   F1_Having_Animals_or_Seeds=1;
-                   F1_Which_Of_Animals_or_Seeds=2;
-                   button->setEnabled(false);
-               }
-           }
+               if(i==1){
 
-           if((i==2 && ui->label_2->isHidden())){
+                   QPoint pos(150, 180);
 
-               button->setEnabled(false);
+                   if(check(pos)==true){
 
-           }else if(i==2 && ui->label_2->isVisible()){
+                       F1_Having_Animals_or_Seeds=0;
+                       F1_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
 
-               QPoint pos(540, 180);
-
-               if(check(pos)==true){
-
-                   F2_Having_Animals_or_Seeds=0;
-                   F2_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-
-                   F2_Having_Animals_or_Seeds=1;
-                   F2_Which_Of_Animals_or_Seeds=2;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==3 && ui->label_3->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==3 && ui->label_3->isVisible()){
-
-               QPoint pos(1260, 180);
-
-               if(check(pos)==true){
-
-                   F3_Having_Animals_or_Seeds=0;
-                   F3_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F3_Having_Animals_or_Seeds=1;
-                   F3_Which_Of_Animals_or_Seeds=2;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==4 && ui->label_4->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==4 && ui->label_4->isVisible()){
-
-               QPoint pos(1650, 180);
-
-               if(check(pos)==true){
-
-                   F4_Having_Animals_or_Seeds=0;
-                   F4_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F4_Having_Animals_or_Seeds=1;
-                   F4_Which_Of_Animals_or_Seeds=2;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==5 && ui->label_5->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==5 && ui->label_5->isVisible()){
-
-               QPoint pos(150, 410);
-
-               if(check(pos)==true){
-
-                   F5_Having_Animals_or_Seeds=0;
-                   F5_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F5_Having_Animals_or_Seeds=1;
-                   F5_Which_Of_Animals_or_Seeds=2;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==6 && ui->label_6->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==6 && ui->label_6->isVisible()){
-
-               QPoint pos(540, 410);
-
-               if(check(pos)==true){
-
-                   F6_Having_Animals_or_Seeds=0;
-                   F6_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F6_Having_Animals_or_Seeds=1;
-                   F6_Which_Of_Animals_or_Seeds=2;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==7 && ui->label_7->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==7 && ui->label_7->isVisible()){
-
-               QPoint pos(1260, 410);
-
-               if(check(pos)==true){
-
-                   F7_Having_Animals_or_Seeds=0;
-                   F7_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F7_Having_Animals_or_Seeds=1;
-                   F7_Which_Of_Animals_or_Seeds=2;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==8 && ui->label_8->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==8 && ui->label_8->isVisible()){
-
-               QPoint pos(1650, 410);
-
-               if(check(pos)==true){
-
-                   F8_Having_Animals_or_Seeds=0;
-                   F8_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F8_Having_Animals_or_Seeds=1;
-                   F8_Which_Of_Animals_or_Seeds=2;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==9 && ui->label_9->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==9 && ui->label_9->isVisible()){
-
-               QPoint pos(150, 640);
-
-               if(check(pos)==true){
-
-                   F9_Having_Animals_or_Seeds=0;
-                   F9_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F9_Having_Animals_or_Seeds=1;
-                   F9_Which_Of_Animals_or_Seeds=2;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==10 && ui->label_10->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==10 && ui->label_10->isVisible()){
-
-               QPoint pos(540, 640);
-
-               if(check(pos)==true){
-
-                   F10_Having_Animals_or_Seeds=0;
-                   F10_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F10_Having_Animals_or_Seeds=1;
-                   F10_Which_Of_Animals_or_Seeds=2;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==11 && ui->label_11->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==11 && ui->label_11->isVisible()){
-
-               QPoint pos(1260, 640);
-
-               if(check(pos)==true){
-
-                   F11_Having_Animals_or_Seeds=0;
-                   F11_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F11_Having_Animals_or_Seeds=1;
-                   F11_Which_Of_Animals_or_Seeds=2;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==12 && ui->label_12->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==12 && ui->label_12->isVisible()){
-
-               QPoint pos(1650, 640);
-
-               if(check(pos)==true){
-
-                   F12_Having_Animals_or_Seeds=0;
-                   F12_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F12_Having_Animals_or_Seeds=1;
-                   F12_Which_Of_Animals_or_Seeds=2;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==13 && ui->label_13->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==13 && ui->label_13->isVisible()){
-
-               QPoint pos(150, 870);
-
-               if(check(pos)==true){
-
-                   F13_Having_Animals_or_Seeds=0;
-                   F13_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F13_Having_Animals_or_Seeds=1;
-                   F13_Which_Of_Animals_or_Seeds=2;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==14 && ui->label_14->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==14 && ui->label_14->isVisible()){
-
-               QPoint pos(540, 870);
-
-               if(check(pos)==true){
-
-                   F14_Having_Animals_or_Seeds=0;
-                   F14_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F14_Having_Animals_or_Seeds=1;
-                   F14_Which_Of_Animals_or_Seeds=2;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==15 && ui->label_15->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==15 && ui->label_15->isVisible()){
-
-               QPoint pos(1260, 870);
-
-               if(check(pos)==true){
-
-                   F15_Having_Animals_or_Seeds=0;
-                   F15_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F15_Having_Animals_or_Seeds=1;
-                   F15_Which_Of_Animals_or_Seeds=2;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==16 && ui->label_16->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==16 && ui->label_16->isVisible()){
-
-               QPoint pos(1650, 870);
-
-               if(check(pos)==true){
-
-                   F16_Having_Animals_or_Seeds=0;
-                   F16_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F16_Having_Animals_or_Seeds=1;
-                   F16_Which_Of_Animals_or_Seeds=2;
-                   button->setEnabled(false);
-               }
-           }
-
-          if(i==17){
-
-              button->setText("home");
-              button->setMinimumSize(60,40);
-          }
-
-          if(i==18){
-
-           button->setMinimumSize(50,40);
-              button->setText("Kill");
-          }
-        }
-    // clazy:exclude:connect-3arg-lambda
-        QObject::connect(&msgBox, &QMessageBox::finished, [&](int result){
-           QAbstractButton* clickedButton = msgBox.clickedButton();
-           if (clickedButton) {
-               int buttonNumber = buttonMap[clickedButton];
-
-               switch(buttonNumber) {
-               Get_info();
-               case 1:
-
-                   if(F1_Having_Animals_or_Seeds==0){
-
-                       sheep->pushButton->move(150, 180);
-                       sheep->pushButton->setParent(this);
-                       sheep->pushButton->show();
                        F1_Having_Animals_or_Seeds=1;
                        F1_Which_Of_Animals_or_Seeds=2;
+                       button->setEnabled(false);
                    }
+               }
 
-                   Get_info();
+               if((i==2 && ui->label_2->isHidden())){
 
-                   break;
-               case 2:
+                   button->setEnabled(false);
 
-                   if(F2_Having_Animals_or_Seeds==0){
+               }else if(i==2 && ui->label_2->isVisible()){
 
-                       sheep->pushButton->move(540, 180);
-                       sheep->pushButton->setParent(this);
-                       sheep->pushButton->show();
+                   QPoint pos(540, 180);
+
+                   if(check(pos)==true){
+
+                       F2_Having_Animals_or_Seeds=0;
+                       F2_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
+
                        F2_Having_Animals_or_Seeds=1;
                        F2_Which_Of_Animals_or_Seeds=2;
+                       button->setEnabled(false);
                    }
+               }
 
-                   Get_info();
+               if(i==3 && ui->label_3->isHidden()){
 
-                   break;
-               case 3:
+                   button->setEnabled(false);
 
-                   if(F3_Having_Animals_or_Seeds==0){
+               }else if(i==3 && ui->label_3->isVisible()){
 
-                       sheep->pushButton->move(1260, 180);
-                       sheep->pushButton->setParent(this);
-                       sheep->pushButton->show();
+                   QPoint pos(1260, 180);
+
+                   if(check(pos)==true){
+
+                       F3_Having_Animals_or_Seeds=0;
+                       F3_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
                        F3_Having_Animals_or_Seeds=1;
                        F3_Which_Of_Animals_or_Seeds=2;
+                       button->setEnabled(false);
                    }
+               }
 
-                   Get_info();
+               if(i==4 && ui->label_4->isHidden()){
 
-                   break;
-               case 4:
+                   button->setEnabled(false);
 
-                   if(F4_Having_Animals_or_Seeds==0){
+               }else if(i==4 && ui->label_4->isVisible()){
 
-                       sheep->pushButton->move(1650, 180);
-                       sheep->pushButton->setParent(this);
-                       sheep->pushButton->show();
+                   QPoint pos(1650, 180);
+
+                   if(check(pos)==true){
+
+                       F4_Having_Animals_or_Seeds=0;
+                       F4_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
                        F4_Having_Animals_or_Seeds=1;
                        F4_Which_Of_Animals_or_Seeds=2;
+                       button->setEnabled(false);
                    }
+               }
 
-                   Get_info();
+               if(i==5 && ui->label_5->isHidden()){
 
-                   break;
-               case 5:
+                   button->setEnabled(false);
 
-                   if(F5_Having_Animals_or_Seeds==0){
+               }else if(i==5 && ui->label_5->isVisible()){
 
-                       sheep->pushButton->move(150, 410);
-                       sheep->pushButton->setParent(this);
-                       sheep->pushButton->show();
+                   QPoint pos(150, 410);
+
+                   if(check(pos)==true){
+
+                       F5_Having_Animals_or_Seeds=0;
+                       F5_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
                        F5_Having_Animals_or_Seeds=1;
                        F5_Which_Of_Animals_or_Seeds=2;
+                       button->setEnabled(false);
                    }
+               }
 
-                   Get_info();
+               if(i==6 && ui->label_6->isHidden()){
 
-                   break;
-               case 6:
+                   button->setEnabled(false);
 
-                   if(F6_Having_Animals_or_Seeds==0){
+               }else if(i==6 && ui->label_6->isVisible()){
 
-                       sheep->pushButton->move(540, 410);
-                       sheep->pushButton->setParent(this);
-                       sheep->pushButton->show();
+                   QPoint pos(540, 410);
+
+                   if(check(pos)==true){
+
+                       F6_Having_Animals_or_Seeds=0;
+                       F6_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
                        F6_Having_Animals_or_Seeds=1;
                        F6_Which_Of_Animals_or_Seeds=2;
+                       button->setEnabled(false);
                    }
+               }
 
-                   Get_info();
+               if(i==7 && ui->label_7->isHidden()){
 
-                   break;
-               case 7:
+                   button->setEnabled(false);
 
-                   if(F7_Having_Animals_or_Seeds==0){
+               }else if(i==7 && ui->label_7->isVisible()){
 
-                       sheep->pushButton->move(1260, 410);
-                       sheep->pushButton->setParent(this);
-                       sheep->pushButton->show();
+                   QPoint pos(1260, 410);
+
+                   if(check(pos)==true){
+
+                       F7_Having_Animals_or_Seeds=0;
+                       F7_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
                        F7_Having_Animals_or_Seeds=1;
                        F7_Which_Of_Animals_or_Seeds=2;
+                       button->setEnabled(false);
                    }
+               }
 
-                   Get_info();
+               if(i==8 && ui->label_8->isHidden()){
 
-                   break;
-               case 8:
+                   button->setEnabled(false);
 
-                   if(F8_Having_Animals_or_Seeds==0){
+               }else if(i==8 && ui->label_8->isVisible()){
 
-                       sheep->pushButton->move(1650, 410);
-                       sheep->pushButton->setParent(this);
-                       sheep->pushButton->show();
+                   QPoint pos(1650, 410);
+
+                   if(check(pos)==true){
+
+                       F8_Having_Animals_or_Seeds=0;
+                       F8_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
                        F8_Having_Animals_or_Seeds=1;
                        F8_Which_Of_Animals_or_Seeds=2;
+                       button->setEnabled(false);
                    }
+               }
 
-                   Get_info();
+               if(i==9 && ui->label_9->isHidden()){
 
-                   break;
-               case 9:
+                   button->setEnabled(false);
 
-                   if(F9_Having_Animals_or_Seeds==0){
+               }else if(i==9 && ui->label_9->isVisible()){
 
-                       sheep->pushButton->move(150, 640);
-                       sheep->pushButton->setParent(this);
-                       sheep->pushButton->show();
+                   QPoint pos(150, 640);
+
+                   if(check(pos)==true){
+
+                       F9_Having_Animals_or_Seeds=0;
+                       F9_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
                        F9_Having_Animals_or_Seeds=1;
                        F9_Which_Of_Animals_or_Seeds=2;
+                       button->setEnabled(false);
                    }
+               }
 
-                   Get_info();
+               if(i==10 && ui->label_10->isHidden()){
 
-                   break;
-               case 10:
+                   button->setEnabled(false);
 
-                   if(F10_Having_Animals_or_Seeds==0){
+               }else if(i==10 && ui->label_10->isVisible()){
 
-                       sheep->pushButton->move(540, 640);
-                       sheep->pushButton->setParent(this);
-                       sheep->pushButton->show();
+                   QPoint pos(540, 640);
+
+                   if(check(pos)==true){
+
+                       F10_Having_Animals_or_Seeds=0;
+                       F10_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
                        F10_Having_Animals_or_Seeds=1;
                        F10_Which_Of_Animals_or_Seeds=2;
+                       button->setEnabled(false);
                    }
+               }
 
-                   Get_info();
+               if(i==11 && ui->label_11->isHidden()){
 
-                   break;
-               case 11:
+                   button->setEnabled(false);
 
-                   if(F11_Having_Animals_or_Seeds==0){
+               }else if(i==11 && ui->label_11->isVisible()){
 
-                       sheep->pushButton->move(1260, 640);
-                       sheep->pushButton->setParent(this);
-                       sheep->pushButton->show();
+                   QPoint pos(1260, 640);
+
+                   if(check(pos)==true){
+
+                       F11_Having_Animals_or_Seeds=0;
+                       F11_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
                        F11_Having_Animals_or_Seeds=1;
                        F11_Which_Of_Animals_or_Seeds=2;
+                       button->setEnabled(false);
                    }
+               }
 
-                   break;
-               case 12:
+               if(i==12 && ui->label_12->isHidden()){
 
-                   if(F12_Having_Animals_or_Seeds==0){
+                   button->setEnabled(false);
 
-                       sheep->pushButton->move(1650, 640);
-                       sheep->pushButton->setParent(this);
-                       sheep->pushButton->show();
+               }else if(i==12 && ui->label_12->isVisible()){
+
+                   QPoint pos(1650, 640);
+
+                   if(check(pos)==true){
+
+                       F12_Having_Animals_or_Seeds=0;
+                       F12_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
                        F12_Having_Animals_or_Seeds=1;
                        F12_Which_Of_Animals_or_Seeds=2;
+                       button->setEnabled(false);
                    }
+               }
 
-                   Get_info();
+               if(i==13 && ui->label_13->isHidden()){
 
-                   break;
-               case 13:
+                   button->setEnabled(false);
 
-                   if(F13_Having_Animals_or_Seeds==0){
+               }else if(i==13 && ui->label_13->isVisible()){
 
-                       sheep->pushButton->move(150, 870);
-                       sheep->pushButton->setParent(this);
-                       sheep->pushButton->show();
+                   QPoint pos(150, 870);
+
+                   if(check(pos)==true){
+
+                       F13_Having_Animals_or_Seeds=0;
+                       F13_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
                        F13_Having_Animals_or_Seeds=1;
                        F13_Which_Of_Animals_or_Seeds=2;
+                       button->setEnabled(false);
                    }
+               }
 
-                   Get_info();
+               if(i==14 && ui->label_14->isHidden()){
 
-                   break;
-               case 14:
+                   button->setEnabled(false);
 
-                   if(F14_Having_Animals_or_Seeds==0){
+               }else if(i==14 && ui->label_14->isVisible()){
 
-                       sheep->pushButton->move(540, 870);
-                       sheep->pushButton->setParent(this);
-                       sheep->pushButton->show();
+                   QPoint pos(540, 870);
+
+                   if(check(pos)==true){
+
+                       F14_Having_Animals_or_Seeds=0;
+                       F14_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
                        F14_Having_Animals_or_Seeds=1;
                        F14_Which_Of_Animals_or_Seeds=2;
+                       button->setEnabled(false);
                    }
+               }
 
-                   Get_info();
+               if(i==15 && ui->label_15->isHidden()){
 
-                   break;
-               case 15:
+                   button->setEnabled(false);
 
-                   if(F15_Having_Animals_or_Seeds==0){
+               }else if(i==15 && ui->label_15->isVisible()){
 
-                       sheep->pushButton->move(1260, 870);
-                       sheep->pushButton->setParent(this);
-                       sheep->pushButton->show();
+                   QPoint pos(1260, 870);
+
+                   if(check(pos)==true){
+
+                       F15_Having_Animals_or_Seeds=0;
+                       F15_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
                        F15_Having_Animals_or_Seeds=1;
                        F15_Which_Of_Animals_or_Seeds=2;
+                       button->setEnabled(false);
                    }
+               }
 
-                   Get_info();
+               if(i==16 && ui->label_16->isHidden()){
 
-                   break;
-               case 16:
+                   button->setEnabled(false);
 
-                   if(F16_Having_Animals_or_Seeds==0){
+               }else if(i==16 && ui->label_16->isVisible()){
 
-                       sheep->pushButton->move(1650, 870);
-                       sheep->pushButton->setParent(this);
-                       sheep->pushButton->show();
+                   QPoint pos(1650, 870);
+
+                   if(check(pos)==true){
+
+                       F16_Having_Animals_or_Seeds=0;
+                       F16_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
                        F16_Having_Animals_or_Seeds=1;
                        F16_Which_Of_Animals_or_Seeds=2;
+                       button->setEnabled(false);
                    }
-
-                   Get_info();
-
-                   break;
-               case 17:
-                   //add to verticall layout
-                   sheep->pushButton->move(2000, 10);
-                   ui->Animals_verticalLayout->addWidget(sheep->pushButton);
-
-                   Get_info();
-
-                   break;
-               case 18:
-                   // remove pushbutton
-                   ui->Animals_verticalLayout->removeWidget(sheep->pushButton);
-                   delete sheep->pushButton;
-
-                   Get_info();
-                   break;
-
-               default:
-                   Get_info();
-                   break;
                }
-           }
 
-        });
+              if(i==17){
 
-        msgBox.exec();
+                  button->setText("home");
+                  button->setMinimumSize(60,40);
+              }
 
-       });
+              if(i==18){
+
+               button->setMinimumSize(50,40);
+                  button->setText("Kill");
+              }
+            }
+        // clazy:exclude:connect-3arg-lambda
+            QObject::connect(&msgBox, &QMessageBox::finished, [&](int result){
+               QAbstractButton* clickedButton = msgBox.clickedButton();
+               if (clickedButton) {
+                   int buttonNumber = buttonMap[clickedButton];
+
+                   switch(buttonNumber) {
+                   Get_info();
+                   case 1:
+
+                       if(F1_Having_Animals_or_Seeds==0){
+
+                           sheep->pushButton->move(150, 180);
+                           sheep->pushButton->setParent(this);
+                           sheep->pushButton->show();
+                           F1_Having_Animals_or_Seeds=1;
+                           F1_Which_Of_Animals_or_Seeds=2;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 2:
+
+                       if(F2_Having_Animals_or_Seeds==0){
+
+                           sheep->pushButton->move(540, 180);
+                           sheep->pushButton->setParent(this);
+                           sheep->pushButton->show();
+                           F2_Having_Animals_or_Seeds=1;
+                           F2_Which_Of_Animals_or_Seeds=2;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 3:
+
+                       if(F3_Having_Animals_or_Seeds==0){
+
+                           sheep->pushButton->move(1260, 180);
+                           sheep->pushButton->setParent(this);
+                           sheep->pushButton->show();
+                           F3_Having_Animals_or_Seeds=1;
+                           F3_Which_Of_Animals_or_Seeds=2;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 4:
+
+                       if(F4_Having_Animals_or_Seeds==0){
+
+                           sheep->pushButton->move(1650, 180);
+                           sheep->pushButton->setParent(this);
+                           sheep->pushButton->show();
+                           F4_Having_Animals_or_Seeds=1;
+                           F4_Which_Of_Animals_or_Seeds=2;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 5:
+
+                       if(F5_Having_Animals_or_Seeds==0){
+
+                           sheep->pushButton->move(150, 410);
+                           sheep->pushButton->setParent(this);
+                           sheep->pushButton->show();
+                           F5_Having_Animals_or_Seeds=1;
+                           F5_Which_Of_Animals_or_Seeds=2;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 6:
+
+                       if(F6_Having_Animals_or_Seeds==0){
+
+                           sheep->pushButton->move(540, 410);
+                           sheep->pushButton->setParent(this);
+                           sheep->pushButton->show();
+                           F6_Having_Animals_or_Seeds=1;
+                           F6_Which_Of_Animals_or_Seeds=2;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 7:
+
+                       if(F7_Having_Animals_or_Seeds==0){
+
+                           sheep->pushButton->move(1260, 410);
+                           sheep->pushButton->setParent(this);
+                           sheep->pushButton->show();
+                           F7_Having_Animals_or_Seeds=1;
+                           F7_Which_Of_Animals_or_Seeds=2;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 8:
+
+                       if(F8_Having_Animals_or_Seeds==0){
+
+                           sheep->pushButton->move(1650, 410);
+                           sheep->pushButton->setParent(this);
+                           sheep->pushButton->show();
+                           F8_Having_Animals_or_Seeds=1;
+                           F8_Which_Of_Animals_or_Seeds=2;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 9:
+
+                       if(F9_Having_Animals_or_Seeds==0){
+
+                           sheep->pushButton->move(150, 640);
+                           sheep->pushButton->setParent(this);
+                           sheep->pushButton->show();
+                           F9_Having_Animals_or_Seeds=1;
+                           F9_Which_Of_Animals_or_Seeds=2;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 10:
+
+                       if(F10_Having_Animals_or_Seeds==0){
+
+                           sheep->pushButton->move(540, 640);
+                           sheep->pushButton->setParent(this);
+                           sheep->pushButton->show();
+                           F10_Having_Animals_or_Seeds=1;
+                           F10_Which_Of_Animals_or_Seeds=2;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 11:
+
+                       if(F11_Having_Animals_or_Seeds==0){
+
+                           sheep->pushButton->move(1260, 640);
+                           sheep->pushButton->setParent(this);
+                           sheep->pushButton->show();
+                           F11_Having_Animals_or_Seeds=1;
+                           F11_Which_Of_Animals_or_Seeds=2;
+                       }
+
+                       break;
+                   case 12:
+
+                       if(F12_Having_Animals_or_Seeds==0){
+
+                           sheep->pushButton->move(1650, 640);
+                           sheep->pushButton->setParent(this);
+                           sheep->pushButton->show();
+                           F12_Having_Animals_or_Seeds=1;
+                           F12_Which_Of_Animals_or_Seeds=2;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 13:
+
+                       if(F13_Having_Animals_or_Seeds==0){
+
+                           sheep->pushButton->move(150, 870);
+                           sheep->pushButton->setParent(this);
+                           sheep->pushButton->show();
+                           F13_Having_Animals_or_Seeds=1;
+                           F13_Which_Of_Animals_or_Seeds=2;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 14:
+
+                       if(F14_Having_Animals_or_Seeds==0){
+
+                           sheep->pushButton->move(540, 870);
+                           sheep->pushButton->setParent(this);
+                           sheep->pushButton->show();
+                           F14_Having_Animals_or_Seeds=1;
+                           F14_Which_Of_Animals_or_Seeds=2;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 15:
+
+                       if(F15_Having_Animals_or_Seeds==0){
+
+                           sheep->pushButton->move(1260, 870);
+                           sheep->pushButton->setParent(this);
+                           sheep->pushButton->show();
+                           F15_Having_Animals_or_Seeds=1;
+                           F15_Which_Of_Animals_or_Seeds=2;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 16:
+
+                       if(F16_Having_Animals_or_Seeds==0){
+
+                           sheep->pushButton->move(1650, 870);
+                           sheep->pushButton->setParent(this);
+                           sheep->pushButton->show();
+                           F16_Having_Animals_or_Seeds=1;
+                           F16_Which_Of_Animals_or_Seeds=2;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 17:
+                       //add to verticall layout
+                       sheep->pushButton->move(2000, 10);
+                       ui->Animals_verticalLayout->addWidget(sheep->pushButton);
+
+                       Get_info();
+
+                       break;
+                   case 18:
+                       // remove pushbutton
+                       ui->Animals_verticalLayout->removeWidget(sheep->pushButton);
+                       delete sheep->pushButton;
+
+                       Get_info();
+                       break;
+
+                   default:
+                       Get_info();
+                       break;
+                   }
+               }
+
+            });
+
+            msgBox.exec();
+
+           });
+    }else{
+
+        clearLayout(ui->verticalLayout_2);
+        QMessageBox::warning(this, "ops", "reeeeeeeeee");
+    }
+
+    clearLayout(ui->verticalLayout_2);
 }
 
 void Gamepage::on_Cow_pushButton_clicked()
 {
-    Cow * cow = new Cow(ui->Animals_verticalLayout);
+    Cow * co = new Cow(ui->verticalLayout_2);
 
-    cow->pushButton->setObjectName("Cow");
+    if(score >= co->Purchase_price){
 
-    connect(cow->pushButton, &QPushButton::clicked, this, [this, cow](){ QMessageBox msgBox;
-        msgBox.setText("chicken""<ul>""<li>""@gmail.com""</li>" "<li>""@email.com""</li>" "<li>""@mail.um.ac""</li>""</ul>");
-        msgBox.setWindowFlags(msgBox.windowFlags() | Qt::WindowSystemMenuHint);
+        score = score - co->Purchase_price;
 
-        msgBox.setWindowTitle("Transfer to ...");
+        ui->label_Score->setText( "Score : " + QString::number(score));
 
-        // Set the icon
-        msgBox.setWindowIcon(QIcon("C:/Users/i/Downloads/iran.png"));
+        Cow * cow = new Cow(ui->Animals_verticalLayout);
 
-        msgBox.setIconPixmap(QPixmap("C:/Users/i/Downloads/iran.png"));
+        cow->pushButton->setObjectName("Cow");
 
-        // Add custom buttons
-        QHash<QAbstractButton*, int> buttonMap;
-        for (int i = 1; i <= 18; ++i) {
-          QPushButton* button = new QPushButton(QString("%1").arg(i));
-          msgBox.addButton(button, i == 18 ? QMessageBox::RejectRole : QMessageBox::AcceptRole);
-          buttonMap[button] = i;
+        connect(cow->pushButton, &QPushButton::clicked, this, [this, cow](){ QMessageBox msgBox;
+            msgBox.setText("chicken""<ul>""<li>""@gmail.com""</li>" "<li>""@email.com""</li>" "<li>""@mail.um.ac""</li>""</ul>");
+            msgBox.setWindowFlags(msgBox.windowFlags() | Qt::WindowSystemMenuHint);
 
-        //  button->setMinimumSize(56, 40);
-           button->setMinimumSize(40, 40);
+            msgBox.setWindowTitle("Transfer to ...");
 
-           if(i==1){
+            // Set the icon
+            msgBox.setWindowIcon(QIcon("C:/Users/i/Downloads/iran.png"));
 
-               QPoint pos(150, 180);
+            msgBox.setIconPixmap(QPixmap("C:/Users/i/Downloads/iran.png"));
 
-               if(check(pos)==true){
+            // Add custom buttons
+            QHash<QAbstractButton*, int> buttonMap;
+            for (int i = 1; i <= 18; ++i) {
+              QPushButton* button = new QPushButton(QString("%1").arg(i));
+              msgBox.addButton(button, i == 18 ? QMessageBox::RejectRole : QMessageBox::AcceptRole);
+              buttonMap[button] = i;
 
-                   F1_Having_Animals_or_Seeds=0;
-                   F1_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
+            //  button->setMinimumSize(56, 40);
+               button->setMinimumSize(40, 40);
 
-                   F1_Having_Animals_or_Seeds=1;
-                   F1_Which_Of_Animals_or_Seeds=3;
-                   button->setEnabled(false);
-               }
-           }
+               if(i==1){
 
-           if((i==2 && ui->label_2->isHidden())){
+                   QPoint pos(150, 180);
 
-               button->setEnabled(false);
+                   if(check(pos)==true){
 
-           }else if(i==2 && ui->label_2->isVisible()){
+                       F1_Having_Animals_or_Seeds=0;
+                       F1_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
 
-               QPoint pos(540, 180);
-
-               if(check(pos)==true){
-
-                   F2_Having_Animals_or_Seeds=0;
-                   F2_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F2_Having_Animals_or_Seeds=1;
-                   F2_Which_Of_Animals_or_Seeds=3;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==3 && ui->label_3->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==3 && ui->label_3->isVisible()){
-
-               QPoint pos(1260, 180);
-
-               if(check(pos)==true){
-
-                   F3_Having_Animals_or_Seeds=0;
-                   F3_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F3_Having_Animals_or_Seeds=1;
-                   F3_Which_Of_Animals_or_Seeds=3;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==4 && ui->label_4->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==4 && ui->label_4->isVisible()){
-
-               QPoint pos(1650, 180);
-
-               if(check(pos)==true){
-
-                   F4_Having_Animals_or_Seeds=0;
-                   F4_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F4_Having_Animals_or_Seeds=1;
-                   F4_Which_Of_Animals_or_Seeds=3;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==5 && ui->label_5->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==5 && ui->label_5->isVisible()){
-
-               QPoint pos(150, 410);
-
-               if(check(pos)==true){
-
-                   F5_Having_Animals_or_Seeds=0;
-                   F5_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F5_Having_Animals_or_Seeds=1;
-                   F5_Which_Of_Animals_or_Seeds=3;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==6 && ui->label_6->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==6 && ui->label_6->isVisible()){
-
-               QPoint pos(540, 410);
-
-               if(check(pos)==true){
-
-                   F6_Having_Animals_or_Seeds=0;
-                   F6_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F6_Having_Animals_or_Seeds=1;
-                   F6_Which_Of_Animals_or_Seeds=3;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==7 && ui->label_7->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==7 && ui->label_7->isVisible()){
-
-               QPoint pos(1260, 410);
-
-               if(check(pos)==true){
-
-                   F7_Having_Animals_or_Seeds=0;
-                   F7_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F7_Having_Animals_or_Seeds=1;
-                   F7_Which_Of_Animals_or_Seeds=3;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==8 && ui->label_8->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==8 && ui->label_8->isVisible()){
-
-               QPoint pos(1650, 410);
-
-               if(check(pos)==true){
-
-                   F8_Having_Animals_or_Seeds=0;
-                   F8_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F8_Having_Animals_or_Seeds=1;
-                   F8_Which_Of_Animals_or_Seeds=3;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==9 && ui->label_9->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==9 && ui->label_9->isVisible()){
-
-               QPoint pos(150, 640);
-
-               if(check(pos)==true){
-
-                   F9_Having_Animals_or_Seeds=0;
-                   F9_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F9_Having_Animals_or_Seeds=1;
-                   F9_Which_Of_Animals_or_Seeds=3;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==10 && ui->label_10->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==10 && ui->label_10->isVisible()){
-
-               QPoint pos(540, 640);
-
-               if(check(pos)==true){
-
-                   F10_Having_Animals_or_Seeds=0;
-                   F10_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F10_Having_Animals_or_Seeds=1;
-                   F10_Which_Of_Animals_or_Seeds=3;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==11 && ui->label_11->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==11 && ui->label_11->isVisible()){
-
-               QPoint pos(1260, 640);
-
-               if(check(pos)==true){
-
-                   F11_Having_Animals_or_Seeds=0;
-                   F11_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F11_Having_Animals_or_Seeds=1;
-                   F11_Which_Of_Animals_or_Seeds=3;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==12 && ui->label_12->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==12 && ui->label_12->isVisible()){
-
-               QPoint pos(1650, 640);
-
-               if(check(pos)==true){
-
-                   F12_Having_Animals_or_Seeds=0;
-                   F12_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F12_Having_Animals_or_Seeds=1;
-                   F12_Which_Of_Animals_or_Seeds=3;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==13 && ui->label_13->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==13 && ui->label_13->isVisible()){
-
-               QPoint pos(150, 870);
-
-               if(check(pos)==true){
-
-                   F13_Having_Animals_or_Seeds=0;
-                   F13_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F13_Having_Animals_or_Seeds=1;
-                   F13_Which_Of_Animals_or_Seeds=3;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==14 && ui->label_14->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==14 && ui->label_14->isVisible()){
-
-               QPoint pos(540, 870);
-
-               if(check(pos)==true){
-
-                   F14_Having_Animals_or_Seeds=0;
-                   F14_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F14_Having_Animals_or_Seeds=1;
-                   F14_Which_Of_Animals_or_Seeds=3;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==15 && ui->label_15->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==15 && ui->label_15->isVisible()){
-
-               QPoint pos(1260, 870);
-
-               if(check(pos)==true){
-
-                   F15_Having_Animals_or_Seeds=0;
-                   F15_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F15_Having_Animals_or_Seeds=1;
-                   F15_Which_Of_Animals_or_Seeds=3;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==16 && ui->label_16->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==16 && ui->label_16->isVisible()){
-
-               QPoint pos(1650, 870);
-
-               if(check(pos)==true){
-
-                   F16_Having_Animals_or_Seeds=0;
-                   F16_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F16_Having_Animals_or_Seeds=1;
-                   F16_Which_Of_Animals_or_Seeds=3;
-                   button->setEnabled(false);
-               }
-           }
-
-          if(i==17){
-
-              button->setText("home");
-              button->setMinimumSize(60,40);
-          }
-
-          if(i==18){
-
-           button->setMinimumSize(50,40);
-              button->setText("Kill");
-          }
-        }
-    // clazy:exclude:connect-3arg-lambda
-        QObject::connect(&msgBox, &QMessageBox::finished, [&](int result){
-           QAbstractButton* clickedButton = msgBox.clickedButton();
-           if (clickedButton) {
-               int buttonNumber = buttonMap[clickedButton];
-
-               switch(buttonNumber) {
-               Get_info();
-               case 1:
-
-                   if(F1_Having_Animals_or_Seeds==0){
-
-                       cow->pushButton->move(150, 180);
-                       cow->pushButton->setParent(this);
-                       cow->pushButton->show();
                        F1_Having_Animals_or_Seeds=1;
                        F1_Which_Of_Animals_or_Seeds=3;
+                       button->setEnabled(false);
                    }
+               }
 
-                   Get_info();
+               if((i==2 && ui->label_2->isHidden())){
 
-                   break;
-               case 2:
+                   button->setEnabled(false);
 
-                   if(F2_Having_Animals_or_Seeds==0){
+               }else if(i==2 && ui->label_2->isVisible()){
 
-                       cow->pushButton->move(540, 180);
-                       cow->pushButton->setParent(this);
-                       cow->pushButton->show();
+                   QPoint pos(540, 180);
+
+                   if(check(pos)==true){
+
+                       F2_Having_Animals_or_Seeds=0;
+                       F2_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
                        F2_Having_Animals_or_Seeds=1;
                        F2_Which_Of_Animals_or_Seeds=3;
+                       button->setEnabled(false);
                    }
+               }
 
-                   Get_info();
+               if(i==3 && ui->label_3->isHidden()){
 
-                   break;
-               case 3:
+                   button->setEnabled(false);
 
-                   if(F3_Having_Animals_or_Seeds==0){
+               }else if(i==3 && ui->label_3->isVisible()){
 
-                       cow->pushButton->move(1260, 180);
-                       cow->pushButton->setParent(this);
-                       cow->pushButton->show();
+                   QPoint pos(1260, 180);
+
+                   if(check(pos)==true){
+
+                       F3_Having_Animals_or_Seeds=0;
+                       F3_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
                        F3_Having_Animals_or_Seeds=1;
                        F3_Which_Of_Animals_or_Seeds=3;
+                       button->setEnabled(false);
                    }
+               }
 
-                   Get_info();
+               if(i==4 && ui->label_4->isHidden()){
 
-                   break;
-               case 4:
+                   button->setEnabled(false);
 
-                   if(F4_Having_Animals_or_Seeds==0){
+               }else if(i==4 && ui->label_4->isVisible()){
 
-                       cow->pushButton->move(1650, 180);
-                       cow->pushButton->setParent(this);
-                       cow->pushButton->show();
+                   QPoint pos(1650, 180);
+
+                   if(check(pos)==true){
+
+                       F4_Having_Animals_or_Seeds=0;
+                       F4_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
                        F4_Having_Animals_or_Seeds=1;
                        F4_Which_Of_Animals_or_Seeds=3;
+                       button->setEnabled(false);
                    }
+               }
 
-                   Get_info();
+               if(i==5 && ui->label_5->isHidden()){
 
-                   break;
-               case 5:
+                   button->setEnabled(false);
 
-                   if(F5_Having_Animals_or_Seeds==0){
+               }else if(i==5 && ui->label_5->isVisible()){
 
-                       cow->pushButton->move(150, 410);
-                       cow->pushButton->setParent(this);
-                       cow->pushButton->show();
+                   QPoint pos(150, 410);
+
+                   if(check(pos)==true){
+
+                       F5_Having_Animals_or_Seeds=0;
+                       F5_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
                        F5_Having_Animals_or_Seeds=1;
                        F5_Which_Of_Animals_or_Seeds=3;
+                       button->setEnabled(false);
                    }
+               }
 
-                   Get_info();
+               if(i==6 && ui->label_6->isHidden()){
 
-                   break;
-               case 6:
+                   button->setEnabled(false);
 
-                   if(F6_Having_Animals_or_Seeds==0){
+               }else if(i==6 && ui->label_6->isVisible()){
 
-                       cow->pushButton->move(540, 410);
-                       cow->pushButton->setParent(this);
-                       cow->pushButton->show();
+                   QPoint pos(540, 410);
+
+                   if(check(pos)==true){
+
+                       F6_Having_Animals_or_Seeds=0;
+                       F6_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
                        F6_Having_Animals_or_Seeds=1;
                        F6_Which_Of_Animals_or_Seeds=3;
+                       button->setEnabled(false);
                    }
+               }
 
-                   Get_info();
+               if(i==7 && ui->label_7->isHidden()){
 
-                   break;
-               case 7:
+                   button->setEnabled(false);
 
-                   if(F7_Having_Animals_or_Seeds==0){
+               }else if(i==7 && ui->label_7->isVisible()){
 
-                       cow->pushButton->move(1260, 410);
-                       cow->pushButton->setParent(this);
-                       cow->pushButton->show();
+                   QPoint pos(1260, 410);
+
+                   if(check(pos)==true){
+
+                       F7_Having_Animals_or_Seeds=0;
+                       F7_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
                        F7_Having_Animals_or_Seeds=1;
                        F7_Which_Of_Animals_or_Seeds=3;
+                       button->setEnabled(false);
                    }
+               }
 
-                   Get_info();
+               if(i==8 && ui->label_8->isHidden()){
 
-                   break;
-               case 8:
+                   button->setEnabled(false);
 
-                   if(F8_Having_Animals_or_Seeds==0){
+               }else if(i==8 && ui->label_8->isVisible()){
 
-                       cow->pushButton->move(1650, 410);
-                       cow->pushButton->setParent(this);
-                       cow->pushButton->show();
+                   QPoint pos(1650, 410);
+
+                   if(check(pos)==true){
+
+                       F8_Having_Animals_or_Seeds=0;
+                       F8_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
                        F8_Having_Animals_or_Seeds=1;
                        F8_Which_Of_Animals_or_Seeds=3;
+                       button->setEnabled(false);
                    }
+               }
 
-                   Get_info();
+               if(i==9 && ui->label_9->isHidden()){
 
-                   break;
-               case 9:
+                   button->setEnabled(false);
 
-                   if(F9_Having_Animals_or_Seeds==0){
+               }else if(i==9 && ui->label_9->isVisible()){
 
-                       cow->pushButton->move(150, 640);
-                       cow->pushButton->setParent(this);
-                       cow->pushButton->show();
+                   QPoint pos(150, 640);
+
+                   if(check(pos)==true){
+
+                       F9_Having_Animals_or_Seeds=0;
+                       F9_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
                        F9_Having_Animals_or_Seeds=1;
                        F9_Which_Of_Animals_or_Seeds=3;
+                       button->setEnabled(false);
                    }
+               }
 
-                   Get_info();
+               if(i==10 && ui->label_10->isHidden()){
 
-                   break;
-               case 10:
+                   button->setEnabled(false);
 
-                   if(F10_Having_Animals_or_Seeds==0){
+               }else if(i==10 && ui->label_10->isVisible()){
 
-                       cow->pushButton->move(540, 640);
-                       cow->pushButton->setParent(this);
-                       cow->pushButton->show();
+                   QPoint pos(540, 640);
+
+                   if(check(pos)==true){
+
+                       F10_Having_Animals_or_Seeds=0;
+                       F10_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
                        F10_Having_Animals_or_Seeds=1;
                        F10_Which_Of_Animals_or_Seeds=3;
+                       button->setEnabled(false);
                    }
+               }
 
-                   Get_info();
+               if(i==11 && ui->label_11->isHidden()){
 
-                   break;
-               case 11:
+                   button->setEnabled(false);
 
-                   if(F11_Having_Animals_or_Seeds==0){
+               }else if(i==11 && ui->label_11->isVisible()){
 
-                       cow->pushButton->move(1260, 640);
-                       cow->pushButton->setParent(this);
-                       cow->pushButton->show();
+                   QPoint pos(1260, 640);
+
+                   if(check(pos)==true){
+
+                       F11_Having_Animals_or_Seeds=0;
+                       F11_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
                        F11_Having_Animals_or_Seeds=1;
                        F11_Which_Of_Animals_or_Seeds=3;
+                       button->setEnabled(false);
                    }
+               }
 
-                   Get_info();
+               if(i==12 && ui->label_12->isHidden()){
 
-                   break;
-               case 12:
+                   button->setEnabled(false);
 
-                   if(F12_Having_Animals_or_Seeds==0){
+               }else if(i==12 && ui->label_12->isVisible()){
 
-                       cow->pushButton->move(1650, 640);
-                       cow->pushButton->setParent(this);
-                       cow->pushButton->show();
+                   QPoint pos(1650, 640);
+
+                   if(check(pos)==true){
+
+                       F12_Having_Animals_or_Seeds=0;
+                       F12_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
                        F12_Having_Animals_or_Seeds=1;
                        F12_Which_Of_Animals_or_Seeds=3;
+                       button->setEnabled(false);
                    }
+               }
 
-                   Get_info();
+               if(i==13 && ui->label_13->isHidden()){
 
-                   break;
-               case 13:
+                   button->setEnabled(false);
 
-                   if(F13_Having_Animals_or_Seeds==0){
+               }else if(i==13 && ui->label_13->isVisible()){
 
-                       cow->pushButton->move(150, 870);
-                       cow->pushButton->setParent(this);
-                       cow->pushButton->show();
+                   QPoint pos(150, 870);
+
+                   if(check(pos)==true){
+
+                       F13_Having_Animals_or_Seeds=0;
+                       F13_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
                        F13_Having_Animals_or_Seeds=1;
                        F13_Which_Of_Animals_or_Seeds=3;
+                       button->setEnabled(false);
                    }
+               }
 
-                   Get_info();
+               if(i==14 && ui->label_14->isHidden()){
 
-                   break;
-               case 14:
+                   button->setEnabled(false);
 
-                   if(F14_Having_Animals_or_Seeds==0){
+               }else if(i==14 && ui->label_14->isVisible()){
 
-                       cow->pushButton->move(540, 870);
-                       cow->pushButton->setParent(this);
-                       cow->pushButton->show();
+                   QPoint pos(540, 870);
+
+                   if(check(pos)==true){
+
+                       F14_Having_Animals_or_Seeds=0;
+                       F14_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
                        F14_Having_Animals_or_Seeds=1;
                        F14_Which_Of_Animals_or_Seeds=3;
+                       button->setEnabled(false);
                    }
+               }
 
-                   Get_info();
+               if(i==15 && ui->label_15->isHidden()){
 
-                   break;
-               case 15:
+                   button->setEnabled(false);
 
-                   if(F15_Having_Animals_or_Seeds==0){
+               }else if(i==15 && ui->label_15->isVisible()){
 
-                       cow->pushButton->move(1260, 870);
-                       cow->pushButton->setParent(this);
-                       cow->pushButton->show();
+                   QPoint pos(1260, 870);
+
+                   if(check(pos)==true){
+
+                       F15_Having_Animals_or_Seeds=0;
+                       F15_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
                        F15_Having_Animals_or_Seeds=1;
                        F15_Which_Of_Animals_or_Seeds=3;
+                       button->setEnabled(false);
                    }
+               }
 
-                   Get_info();
+               if(i==16 && ui->label_16->isHidden()){
 
-                   break;
-               case 16:
+                   button->setEnabled(false);
 
-                   if(F16_Having_Animals_or_Seeds==0){
+               }else if(i==16 && ui->label_16->isVisible()){
 
-                       cow->pushButton->move(1650, 870);
-                       cow->pushButton->setParent(this);
-                       cow->pushButton->show();
+                   QPoint pos(1650, 870);
+
+                   if(check(pos)==true){
+
+                       F16_Having_Animals_or_Seeds=0;
+                       F16_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
                        F16_Having_Animals_or_Seeds=1;
                        F16_Which_Of_Animals_or_Seeds=3;
+                       button->setEnabled(false);
                    }
-
-                   Get_info();
-
-                   break;
-               case 17:
-                   //add to verticall layout
-                   cow->pushButton->move(2000, 10);
-                   ui->Animals_verticalLayout->addWidget(cow->pushButton);
-
-                   Get_info();
-
-                   break;
-               case 18:
-                   // remove pushbutton
-                   ui->Animals_verticalLayout->removeWidget(cow->pushButton);
-                   delete cow->pushButton;
-
-                   Get_info();
-                   break;
-
-               default:
-                   Get_info();
-                   break;
                }
-           }
 
-        });
+              if(i==17){
 
-        msgBox.exec();
+                  button->setText("home");
+                  button->setMinimumSize(60,40);
+              }
 
-       });
+              if(i==18){
+
+               button->setMinimumSize(50,40);
+                  button->setText("Kill");
+              }
+            }
+        // clazy:exclude:connect-3arg-lambda
+            QObject::connect(&msgBox, &QMessageBox::finished, [&](int result){
+               QAbstractButton* clickedButton = msgBox.clickedButton();
+               if (clickedButton) {
+                   int buttonNumber = buttonMap[clickedButton];
+
+                   switch(buttonNumber) {
+                   Get_info();
+                   case 1:
+
+                       if(F1_Having_Animals_or_Seeds==0){
+
+                           cow->pushButton->move(150, 180);
+                           cow->pushButton->setParent(this);
+                           cow->pushButton->show();
+                           F1_Having_Animals_or_Seeds=1;
+                           F1_Which_Of_Animals_or_Seeds=3;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 2:
+
+                       if(F2_Having_Animals_or_Seeds==0){
+
+                           cow->pushButton->move(540, 180);
+                           cow->pushButton->setParent(this);
+                           cow->pushButton->show();
+                           F2_Having_Animals_or_Seeds=1;
+                           F2_Which_Of_Animals_or_Seeds=3;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 3:
+
+                       if(F3_Having_Animals_or_Seeds==0){
+
+                           cow->pushButton->move(1260, 180);
+                           cow->pushButton->setParent(this);
+                           cow->pushButton->show();
+                           F3_Having_Animals_or_Seeds=1;
+                           F3_Which_Of_Animals_or_Seeds=3;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 4:
+
+                       if(F4_Having_Animals_or_Seeds==0){
+
+                           cow->pushButton->move(1650, 180);
+                           cow->pushButton->setParent(this);
+                           cow->pushButton->show();
+                           F4_Having_Animals_or_Seeds=1;
+                           F4_Which_Of_Animals_or_Seeds=3;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 5:
+
+                       if(F5_Having_Animals_or_Seeds==0){
+
+                           cow->pushButton->move(150, 410);
+                           cow->pushButton->setParent(this);
+                           cow->pushButton->show();
+                           F5_Having_Animals_or_Seeds=1;
+                           F5_Which_Of_Animals_or_Seeds=3;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 6:
+
+                       if(F6_Having_Animals_or_Seeds==0){
+
+                           cow->pushButton->move(540, 410);
+                           cow->pushButton->setParent(this);
+                           cow->pushButton->show();
+                           F6_Having_Animals_or_Seeds=1;
+                           F6_Which_Of_Animals_or_Seeds=3;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 7:
+
+                       if(F7_Having_Animals_or_Seeds==0){
+
+                           cow->pushButton->move(1260, 410);
+                           cow->pushButton->setParent(this);
+                           cow->pushButton->show();
+                           F7_Having_Animals_or_Seeds=1;
+                           F7_Which_Of_Animals_or_Seeds=3;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 8:
+
+                       if(F8_Having_Animals_or_Seeds==0){
+
+                           cow->pushButton->move(1650, 410);
+                           cow->pushButton->setParent(this);
+                           cow->pushButton->show();
+                           F8_Having_Animals_or_Seeds=1;
+                           F8_Which_Of_Animals_or_Seeds=3;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 9:
+
+                       if(F9_Having_Animals_or_Seeds==0){
+
+                           cow->pushButton->move(150, 640);
+                           cow->pushButton->setParent(this);
+                           cow->pushButton->show();
+                           F9_Having_Animals_or_Seeds=1;
+                           F9_Which_Of_Animals_or_Seeds=3;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 10:
+
+                       if(F10_Having_Animals_or_Seeds==0){
+
+                           cow->pushButton->move(540, 640);
+                           cow->pushButton->setParent(this);
+                           cow->pushButton->show();
+                           F10_Having_Animals_or_Seeds=1;
+                           F10_Which_Of_Animals_or_Seeds=3;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 11:
+
+                       if(F11_Having_Animals_or_Seeds==0){
+
+                           cow->pushButton->move(1260, 640);
+                           cow->pushButton->setParent(this);
+                           cow->pushButton->show();
+                           F11_Having_Animals_or_Seeds=1;
+                           F11_Which_Of_Animals_or_Seeds=3;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 12:
+
+                       if(F12_Having_Animals_or_Seeds==0){
+
+                           cow->pushButton->move(1650, 640);
+                           cow->pushButton->setParent(this);
+                           cow->pushButton->show();
+                           F12_Having_Animals_or_Seeds=1;
+                           F12_Which_Of_Animals_or_Seeds=3;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 13:
+
+                       if(F13_Having_Animals_or_Seeds==0){
+
+                           cow->pushButton->move(150, 870);
+                           cow->pushButton->setParent(this);
+                           cow->pushButton->show();
+                           F13_Having_Animals_or_Seeds=1;
+                           F13_Which_Of_Animals_or_Seeds=3;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 14:
+
+                       if(F14_Having_Animals_or_Seeds==0){
+
+                           cow->pushButton->move(540, 870);
+                           cow->pushButton->setParent(this);
+                           cow->pushButton->show();
+                           F14_Having_Animals_or_Seeds=1;
+                           F14_Which_Of_Animals_or_Seeds=3;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 15:
+
+                       if(F15_Having_Animals_or_Seeds==0){
+
+                           cow->pushButton->move(1260, 870);
+                           cow->pushButton->setParent(this);
+                           cow->pushButton->show();
+                           F15_Having_Animals_or_Seeds=1;
+                           F15_Which_Of_Animals_or_Seeds=3;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 16:
+
+                       if(F16_Having_Animals_or_Seeds==0){
+
+                           cow->pushButton->move(1650, 870);
+                           cow->pushButton->setParent(this);
+                           cow->pushButton->show();
+                           F16_Having_Animals_or_Seeds=1;
+                           F16_Which_Of_Animals_or_Seeds=3;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 17:
+                       //add to verticall layout
+                       cow->pushButton->move(2000, 10);
+                       ui->Animals_verticalLayout->addWidget(cow->pushButton);
+
+                       Get_info();
+
+                       break;
+                   case 18:
+                       // remove pushbutton
+                       ui->Animals_verticalLayout->removeWidget(cow->pushButton);
+                       delete cow->pushButton;
+
+                       Get_info();
+                       break;
+
+                   default:
+                       Get_info();
+                       break;
+                   }
+               }
+
+            });
+
+            msgBox.exec();
+
+           });
+
+    }else{
+
+        clearLayout(ui->verticalLayout_2);
+        QMessageBox::warning(this, "ops", "sssddsddas");
+
+    }
+
+    clearLayout(ui->verticalLayout_2);
 }
 
 void Gamepage::on_Wheat_pushButton_clicked()
 {
-    Wheat * wheat = new Wheat(ui->Seeds_verticalLayout);
 
-    wheat->pushButton->setObjectName("Wheat");
+    Wheat * wh = new Wheat(ui->verticalLayout_2);
 
-    connect(wheat->pushButton, &QPushButton::clicked, this, [this, wheat](){ QMessageBox msgBox;
-        msgBox.setText("chicken""<ul>""<li>""@gmail.com""</li>" "<li>""@email.com""</li>" "<li>""@mail.um.ac""</li>""</ul>");
-        msgBox.setWindowFlags(msgBox.windowFlags() | Qt::WindowSystemMenuHint);
+    if(score >= wh->Purchase_price){
 
-        msgBox.setWindowTitle("Transfer to ...");
+        score = score - wh->Purchase_price;
 
-        // Set the icon
-        msgBox.setWindowIcon(QIcon("C:/Users/i/Downloads/iran.png"));
+        ui->label_Score->setText( "Score : " + QString::number(score));
 
-        msgBox.setIconPixmap(QPixmap("C:/Users/i/Downloads/iran.png"));
+        Wheat * wheat = new Wheat(ui->Seeds_verticalLayout);
 
-        // Add custom buttons
-        QHash<QAbstractButton*, int> buttonMap;
-        for (int i = 1; i <= 17; ++i) {
-          QPushButton* button = new QPushButton(QString("%1").arg(i));
-          msgBox.addButton(button, i == 17 ? QMessageBox::RejectRole : QMessageBox::AcceptRole);
-          buttonMap[button] = i;
+        wheat->pushButton->setObjectName("Wheat");
 
-        //  button->setMinimumSize(56, 40);
-           button->setMinimumSize(40, 40);
+        connect(wheat->pushButton, &QPushButton::clicked, this, [this, wheat](){ QMessageBox msgBox;
+            msgBox.setText("chicken""<ul>""<li>""@gmail.com""</li>" "<li>""@email.com""</li>" "<li>""@mail.um.ac""</li>""</ul>");
+            msgBox.setWindowFlags(msgBox.windowFlags() | Qt::WindowSystemMenuHint);
 
-           if(i==1){
+            msgBox.setWindowTitle("Transfer to ...");
 
-               QPoint pos(150, 180);
+            // Set the icon
+            msgBox.setWindowIcon(QIcon("C:/Users/i/Downloads/iran.png"));
 
-               if(check(pos)==true){
+            msgBox.setIconPixmap(QPixmap("C:/Users/i/Downloads/iran.png"));
 
-                   F1_Having_Animals_or_Seeds=0;
-                   F1_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
+            // Add custom buttons
+            QHash<QAbstractButton*, int> buttonMap;
+            for (int i = 1; i <= 17; ++i) {
+              QPushButton* button = new QPushButton(QString("%1").arg(i));
+              msgBox.addButton(button, i == 17 ? QMessageBox::RejectRole : QMessageBox::AcceptRole);
+              buttonMap[button] = i;
 
-                   F1_Having_Animals_or_Seeds=1;
-                   F1_Which_Of_Animals_or_Seeds=4;
-                   button->setEnabled(false);
-               }
-           }
+            //  button->setMinimumSize(56, 40);
+               button->setMinimumSize(40, 40);
 
-           if((i==2 && ui->label_2->isHidden())){
+               if(i==1){
 
-               button->setEnabled(false);
+                   QPoint pos(150, 180);
 
-           }else if(i==2 && ui->label_2->isVisible()){
+                   if(check(pos)==true){
 
-               QPoint pos(540, 180);
+                       F1_Having_Animals_or_Seeds=0;
+                       F1_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
 
-               if(check(pos)==true){
-
-                   F2_Having_Animals_or_Seeds=0;
-                   F2_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F2_Having_Animals_or_Seeds=1;
-                   F2_Which_Of_Animals_or_Seeds=4;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==3 && ui->label_3->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==3 && ui->label_3->isVisible()){
-
-               QPoint pos(1260, 180);
-
-               if(check(pos)==true){
-
-                   F3_Having_Animals_or_Seeds=0;
-                   F3_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F3_Having_Animals_or_Seeds=1;
-                   F3_Which_Of_Animals_or_Seeds=4;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==4 && ui->label_4->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==4 && ui->label_4->isVisible()){
-
-               QPoint pos(1650, 180);
-
-               if(check(pos)==true){
-
-                   F4_Having_Animals_or_Seeds=0;
-                   F4_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F4_Having_Animals_or_Seeds=1;
-                   F4_Which_Of_Animals_or_Seeds=4;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==5 && ui->label_5->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==5 && ui->label_5->isVisible()){
-
-               QPoint pos(150, 410);
-
-               if(check(pos)==true){
-
-                   F5_Having_Animals_or_Seeds=0;
-                   F5_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F5_Having_Animals_or_Seeds=1;
-                   F5_Which_Of_Animals_or_Seeds=4;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==6 && ui->label_6->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==6 && ui->label_6->isVisible()){
-
-               QPoint pos(540, 410);
-
-               if(check(pos)==true){
-
-                   F6_Having_Animals_or_Seeds=0;
-                   F6_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F6_Having_Animals_or_Seeds=1;
-                   F6_Which_Of_Animals_or_Seeds=4;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==7 && ui->label_7->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==7 && ui->label_7->isVisible()){
-
-               QPoint pos(1260, 410);
-
-               if(check(pos)==true){
-
-                   F7_Having_Animals_or_Seeds=0;
-                   F7_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F7_Having_Animals_or_Seeds=1;
-                   F7_Which_Of_Animals_or_Seeds=4;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==8 && ui->label_8->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==8 && ui->label_8->isVisible()){
-
-               QPoint pos(1650, 410);
-
-               if(check(pos)==true){
-
-                   F8_Having_Animals_or_Seeds=0;
-                   F8_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F8_Having_Animals_or_Seeds=1;
-                   F8_Which_Of_Animals_or_Seeds=4;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==9 && ui->label_9->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==9 && ui->label_9->isVisible()){
-
-               QPoint pos(150, 640);
-
-               if(check(pos)==true){
-
-                   F9_Having_Animals_or_Seeds=0;
-                   F9_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F9_Having_Animals_or_Seeds=1;
-                   F9_Which_Of_Animals_or_Seeds=4;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==10 && ui->label_10->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==10 && ui->label_10->isVisible()){
-
-               QPoint pos(540, 640);
-
-               if(check(pos)==true){
-
-                   F10_Having_Animals_or_Seeds=0;
-                   F10_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F10_Having_Animals_or_Seeds=1;
-                   F10_Which_Of_Animals_or_Seeds=4;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==11 && ui->label_11->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==11 && ui->label_11->isVisible()){
-
-               QPoint pos(1260, 640);
-
-               if(check(pos)==true){
-
-                   F11_Having_Animals_or_Seeds=0;
-                   F11_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F11_Having_Animals_or_Seeds=1;
-                   F11_Which_Of_Animals_or_Seeds=4;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==12 && ui->label_12->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==12 && ui->label_12->isVisible()){
-
-               QPoint pos(1650, 640);
-
-               if(check(pos)==true){
-
-                   F12_Having_Animals_or_Seeds=0;
-                   F12_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F12_Having_Animals_or_Seeds=1;
-                   F12_Which_Of_Animals_or_Seeds=4;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==13 && ui->label_13->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==13 && ui->label_13->isVisible()){
-
-               QPoint pos(150, 870);
-
-               if(check(pos)==true){
-
-                   F13_Having_Animals_or_Seeds=0;
-                   F13_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F13_Having_Animals_or_Seeds=1;
-                   F13_Which_Of_Animals_or_Seeds=4;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==14 && ui->label_14->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==14 && ui->label_14->isVisible()){
-
-               QPoint pos(540, 870);
-
-               if(check(pos)==true){
-
-                   F14_Having_Animals_or_Seeds=0;
-                   F14_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F14_Having_Animals_or_Seeds=1;
-                   F14_Which_Of_Animals_or_Seeds=4;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==15 && ui->label_15->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==15 && ui->label_15->isVisible()){
-
-               QPoint pos(1260, 870);
-
-               if(check(pos)==true){
-
-                   F15_Having_Animals_or_Seeds=0;
-                   F15_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F15_Having_Animals_or_Seeds=1;
-                   F15_Which_Of_Animals_or_Seeds=4;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==16 && ui->label_16->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==16 && ui->label_16->isVisible()){
-
-               QPoint pos(1650, 870);
-
-               if(check(pos)==true){
-
-                   F16_Having_Animals_or_Seeds=0;
-                   F16_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F16_Having_Animals_or_Seeds=1;
-                   F16_Which_Of_Animals_or_Seeds=4;
-                   button->setEnabled(false);
-               }
-           }
-
-          if(i==17){
-
-              button->setText("home");
-              button->setMinimumSize(60,40);
-          }
-
-        }
-    // clazy:exclude:connect-3arg-lambda
-        QObject::connect(&msgBox, &QMessageBox::finished, [&](int result){
-           QAbstractButton* clickedButton = msgBox.clickedButton();
-           if (clickedButton) {
-               int buttonNumber = buttonMap[clickedButton];
-
-               switch(buttonNumber) {
-               Get_info();
-               case 1:
-
-                   if(F1_Having_Animals_or_Seeds==0){
-
-                       wheat->pushButton->move(150, 180);
-                       wheat->pushButton->setParent(this);
-                       wheat->pushButton->show();
                        F1_Having_Animals_or_Seeds=1;
                        F1_Which_Of_Animals_or_Seeds=4;
+                       button->setEnabled(false);
                    }
+               }
 
-                   Get_info();
+               if((i==2 && ui->label_2->isHidden())){
 
-                   break;
-               case 2:
+                   button->setEnabled(false);
 
-                   if(F2_Having_Animals_or_Seeds==0){
+               }else if(i==2 && ui->label_2->isVisible()){
 
-                       wheat->pushButton->move(540, 180);
-                       wheat->pushButton->setParent(this);
-                       wheat->pushButton->show();
+                   QPoint pos(540, 180);
+
+                   if(check(pos)==true){
+
+                       F2_Having_Animals_or_Seeds=0;
+                       F2_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
                        F2_Having_Animals_or_Seeds=1;
                        F2_Which_Of_Animals_or_Seeds=4;
+                       button->setEnabled(false);
                    }
+               }
 
-                   Get_info();
+               if(i==3 && ui->label_3->isHidden()){
 
-                   break;
-               case 3:
+                   button->setEnabled(false);
 
-                   if(F3_Having_Animals_or_Seeds==0){
+               }else if(i==3 && ui->label_3->isVisible()){
 
-                       wheat->pushButton->move(1260, 180);
-                       wheat->pushButton->setParent(this);
-                       wheat->pushButton->show();
+                   QPoint pos(1260, 180);
+
+                   if(check(pos)==true){
+
+                       F3_Having_Animals_or_Seeds=0;
+                       F3_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
                        F3_Having_Animals_or_Seeds=1;
                        F3_Which_Of_Animals_or_Seeds=4;
+                       button->setEnabled(false);
                    }
+               }
 
-                   Get_info();
+               if(i==4 && ui->label_4->isHidden()){
 
-                   break;
-               case 4:
+                   button->setEnabled(false);
 
-                   if(F4_Having_Animals_or_Seeds==0){
+               }else if(i==4 && ui->label_4->isVisible()){
 
-                       wheat->pushButton->move(1650, 180);
-                       wheat->pushButton->setParent(this);
-                       wheat->pushButton->show();
+                   QPoint pos(1650, 180);
+
+                   if(check(pos)==true){
+
+                       F4_Having_Animals_or_Seeds=0;
+                       F4_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
                        F4_Having_Animals_or_Seeds=1;
                        F4_Which_Of_Animals_or_Seeds=4;
+                       button->setEnabled(false);
                    }
+               }
 
-                   Get_info();
+               if(i==5 && ui->label_5->isHidden()){
 
-                   break;
-               case 5:
+                   button->setEnabled(false);
 
-                   if(F5_Having_Animals_or_Seeds==0){
+               }else if(i==5 && ui->label_5->isVisible()){
 
-                       wheat->pushButton->move(150, 410);
-                       wheat->pushButton->setParent(this);
-                       wheat->pushButton->show();
+                   QPoint pos(150, 410);
+
+                   if(check(pos)==true){
+
+                       F5_Having_Animals_or_Seeds=0;
+                       F5_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
                        F5_Having_Animals_or_Seeds=1;
                        F5_Which_Of_Animals_or_Seeds=4;
+                       button->setEnabled(false);
                    }
+               }
 
-                   Get_info();
+               if(i==6 && ui->label_6->isHidden()){
 
-                   break;
-               case 6:
+                   button->setEnabled(false);
 
-                   if(F6_Having_Animals_or_Seeds==0){
+               }else if(i==6 && ui->label_6->isVisible()){
 
-                       wheat->pushButton->move(540, 410);
-                       wheat->pushButton->setParent(this);
-                       wheat->pushButton->show();
+                   QPoint pos(540, 410);
+
+                   if(check(pos)==true){
+
+                       F6_Having_Animals_or_Seeds=0;
+                       F6_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
                        F6_Having_Animals_or_Seeds=1;
                        F6_Which_Of_Animals_or_Seeds=4;
+                       button->setEnabled(false);
                    }
+               }
 
-                   Get_info();
+               if(i==7 && ui->label_7->isHidden()){
 
-                   break;
-               case 7:
+                   button->setEnabled(false);
 
-                   if(F7_Having_Animals_or_Seeds==0){
+               }else if(i==7 && ui->label_7->isVisible()){
 
-                       wheat->pushButton->move(1260, 410);
-                       wheat->pushButton->setParent(this);
-                       wheat->pushButton->show();
+                   QPoint pos(1260, 410);
+
+                   if(check(pos)==true){
+
+                       F7_Having_Animals_or_Seeds=0;
+                       F7_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
                        F7_Having_Animals_or_Seeds=1;
                        F7_Which_Of_Animals_or_Seeds=4;
+                       button->setEnabled(false);
                    }
+               }
 
-                   Get_info();
+               if(i==8 && ui->label_8->isHidden()){
 
-                   break;
-               case 8:
+                   button->setEnabled(false);
 
-                   if(F8_Having_Animals_or_Seeds==0){
+               }else if(i==8 && ui->label_8->isVisible()){
 
-                       wheat->pushButton->move(1650, 410);
-                       wheat->pushButton->setParent(this);
-                       wheat->pushButton->show();
+                   QPoint pos(1650, 410);
+
+                   if(check(pos)==true){
+
+                       F8_Having_Animals_or_Seeds=0;
+                       F8_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
                        F8_Having_Animals_or_Seeds=1;
                        F8_Which_Of_Animals_or_Seeds=4;
+                       button->setEnabled(false);
                    }
+               }
 
-                   Get_info();
+               if(i==9 && ui->label_9->isHidden()){
 
-                   break;
-               case 9:
+                   button->setEnabled(false);
 
-                   if(F9_Having_Animals_or_Seeds==0){
+               }else if(i==9 && ui->label_9->isVisible()){
 
-                       wheat->pushButton->move(150, 640);
-                       wheat->pushButton->setParent(this);
-                       wheat->pushButton->show();
+                   QPoint pos(150, 640);
+
+                   if(check(pos)==true){
+
+                       F9_Having_Animals_or_Seeds=0;
+                       F9_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
                        F9_Having_Animals_or_Seeds=1;
                        F9_Which_Of_Animals_or_Seeds=4;
+                       button->setEnabled(false);
                    }
+               }
 
-                   Get_info();
+               if(i==10 && ui->label_10->isHidden()){
 
-                   break;
-               case 10:
+                   button->setEnabled(false);
 
-                   if(F10_Having_Animals_or_Seeds==0){
+               }else if(i==10 && ui->label_10->isVisible()){
 
-                       wheat->pushButton->move(540, 640);
-                       wheat->pushButton->setParent(this);
-                       wheat->pushButton->show();
+                   QPoint pos(540, 640);
+
+                   if(check(pos)==true){
+
+                       F10_Having_Animals_or_Seeds=0;
+                       F10_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
                        F10_Having_Animals_or_Seeds=1;
                        F10_Which_Of_Animals_or_Seeds=4;
+                       button->setEnabled(false);
                    }
+               }
 
-                   Get_info();
+               if(i==11 && ui->label_11->isHidden()){
 
-                   break;
-               case 11:
+                   button->setEnabled(false);
 
-                   if(F11_Having_Animals_or_Seeds==0){
+               }else if(i==11 && ui->label_11->isVisible()){
 
-                       wheat->pushButton->move(1260, 640);
-                       wheat->pushButton->setParent(this);
-                       wheat->pushButton->show();
+                   QPoint pos(1260, 640);
+
+                   if(check(pos)==true){
+
+                       F11_Having_Animals_or_Seeds=0;
+                       F11_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
                        F11_Having_Animals_or_Seeds=1;
                        F11_Which_Of_Animals_or_Seeds=4;
+                       button->setEnabled(false);
                    }
+               }
 
-                   Get_info();
+               if(i==12 && ui->label_12->isHidden()){
 
-                   break;
-               case 12:
+                   button->setEnabled(false);
 
-                   if(F12_Having_Animals_or_Seeds==0){
+               }else if(i==12 && ui->label_12->isVisible()){
 
-                       wheat->pushButton->move(1650, 640);
-                       wheat->pushButton->setParent(this);
-                       wheat->pushButton->show();
+                   QPoint pos(1650, 640);
+
+                   if(check(pos)==true){
+
+                       F12_Having_Animals_or_Seeds=0;
+                       F12_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
                        F12_Having_Animals_or_Seeds=1;
                        F12_Which_Of_Animals_or_Seeds=4;
+                       button->setEnabled(false);
                    }
+               }
 
-                   Get_info();
+               if(i==13 && ui->label_13->isHidden()){
 
-                   break;
-               case 13:
+                   button->setEnabled(false);
 
-                   if(F13_Having_Animals_or_Seeds==0){
+               }else if(i==13 && ui->label_13->isVisible()){
 
-                       wheat->pushButton->move(150, 870);
-                       wheat->pushButton->setParent(this);
-                       wheat->pushButton->show();
+                   QPoint pos(150, 870);
+
+                   if(check(pos)==true){
+
+                       F13_Having_Animals_or_Seeds=0;
+                       F13_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
                        F13_Having_Animals_or_Seeds=1;
                        F13_Which_Of_Animals_or_Seeds=4;
+                       button->setEnabled(false);
                    }
+               }
 
-                   Get_info();
+               if(i==14 && ui->label_14->isHidden()){
 
-                   break;
-               case 14:
+                   button->setEnabled(false);
 
-                   if(F14_Having_Animals_or_Seeds==0){
+               }else if(i==14 && ui->label_14->isVisible()){
 
-                       wheat->pushButton->move(540, 870);
-                       wheat->pushButton->setParent(this);
-                       wheat->pushButton->show();
+                   QPoint pos(540, 870);
+
+                   if(check(pos)==true){
+
+                       F14_Having_Animals_or_Seeds=0;
+                       F14_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
                        F14_Having_Animals_or_Seeds=1;
                        F14_Which_Of_Animals_or_Seeds=4;
+                       button->setEnabled(false);
                    }
+               }
 
-                   Get_info();
+               if(i==15 && ui->label_15->isHidden()){
 
-                   break;
-               case 15:
+                   button->setEnabled(false);
 
-                   if(F15_Having_Animals_or_Seeds==0){
+               }else if(i==15 && ui->label_15->isVisible()){
 
-                       wheat->pushButton->move(1260, 870);
-                       wheat->pushButton->setParent(this);
-                       wheat->pushButton->show();
+                   QPoint pos(1260, 870);
+
+                   if(check(pos)==true){
+
+                       F15_Having_Animals_or_Seeds=0;
+                       F15_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
                        F15_Having_Animals_or_Seeds=1;
                        F15_Which_Of_Animals_or_Seeds=4;
+                       button->setEnabled(false);
                    }
-
-                   Get_info();
-
-                   break;
-               case 16:
-
-                   if(F16_Having_Animals_or_Seeds==0){
-
-                       wheat->pushButton->move(1650, 870);
-                       wheat->pushButton->setParent(this);
-                       wheat->pushButton->show();
-                       F16_Having_Animals_or_Seeds=1;
-                       F6_Which_Of_Animals_or_Seeds=4;
-                   }
-
-                   Get_info();
-
-                   break;
-               case 17:
-                   //add to verticall layout
-                   wheat->pushButton->move(2000, 10);
-                   ui->Seeds_verticalLayout->addWidget(wheat->pushButton);
-
-                   Get_info();
-
-                   break;
-
-               default:
-
-                   Get_info();
-                   break;
                }
-           }
 
-        });
+               if(i==16 && ui->label_16->isHidden()){
 
-        msgBox.exec();
+                   button->setEnabled(false);
 
-       });
+               }else if(i==16 && ui->label_16->isVisible()){
+
+                   QPoint pos(1650, 870);
+
+                   if(check(pos)==true){
+
+                       F16_Having_Animals_or_Seeds=0;
+                       F16_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
+                       F16_Having_Animals_or_Seeds=1;
+                       F16_Which_Of_Animals_or_Seeds=4;
+                       button->setEnabled(false);
+                   }
+               }
+
+              if(i==17){
+
+                  button->setText("home");
+                  button->setMinimumSize(60,40);
+              }
+
+            }
+        // clazy:exclude:connect-3arg-lambda
+            QObject::connect(&msgBox, &QMessageBox::finished, [&](int result){
+               QAbstractButton* clickedButton = msgBox.clickedButton();
+               if (clickedButton) {
+                   int buttonNumber = buttonMap[clickedButton];
+
+                   switch(buttonNumber) {
+                   Get_info();
+                   case 1:
+
+                       if(F1_Having_Animals_or_Seeds==0){
+
+                           wheat->pushButton->move(150, 180);
+                           wheat->pushButton->setParent(this);
+                           wheat->pushButton->show();
+                           F1_Having_Animals_or_Seeds=1;
+                           F1_Which_Of_Animals_or_Seeds=4;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 2:
+
+                       if(F2_Having_Animals_or_Seeds==0){
+
+                           wheat->pushButton->move(540, 180);
+                           wheat->pushButton->setParent(this);
+                           wheat->pushButton->show();
+                           F2_Having_Animals_or_Seeds=1;
+                           F2_Which_Of_Animals_or_Seeds=4;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 3:
+
+                       if(F3_Having_Animals_or_Seeds==0){
+
+                           wheat->pushButton->move(1260, 180);
+                           wheat->pushButton->setParent(this);
+                           wheat->pushButton->show();
+                           F3_Having_Animals_or_Seeds=1;
+                           F3_Which_Of_Animals_or_Seeds=4;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 4:
+
+                       if(F4_Having_Animals_or_Seeds==0){
+
+                           wheat->pushButton->move(1650, 180);
+                           wheat->pushButton->setParent(this);
+                           wheat->pushButton->show();
+                           F4_Having_Animals_or_Seeds=1;
+                           F4_Which_Of_Animals_or_Seeds=4;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 5:
+
+                       if(F5_Having_Animals_or_Seeds==0){
+
+                           wheat->pushButton->move(150, 410);
+                           wheat->pushButton->setParent(this);
+                           wheat->pushButton->show();
+                           F5_Having_Animals_or_Seeds=1;
+                           F5_Which_Of_Animals_or_Seeds=4;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 6:
+
+                       if(F6_Having_Animals_or_Seeds==0){
+
+                           wheat->pushButton->move(540, 410);
+                           wheat->pushButton->setParent(this);
+                           wheat->pushButton->show();
+                           F6_Having_Animals_or_Seeds=1;
+                           F6_Which_Of_Animals_or_Seeds=4;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 7:
+
+                       if(F7_Having_Animals_or_Seeds==0){
+
+                           wheat->pushButton->move(1260, 410);
+                           wheat->pushButton->setParent(this);
+                           wheat->pushButton->show();
+                           F7_Having_Animals_or_Seeds=1;
+                           F7_Which_Of_Animals_or_Seeds=4;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 8:
+
+                       if(F8_Having_Animals_or_Seeds==0){
+
+                           wheat->pushButton->move(1650, 410);
+                           wheat->pushButton->setParent(this);
+                           wheat->pushButton->show();
+                           F8_Having_Animals_or_Seeds=1;
+                           F8_Which_Of_Animals_or_Seeds=4;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 9:
+
+                       if(F9_Having_Animals_or_Seeds==0){
+
+                           wheat->pushButton->move(150, 640);
+                           wheat->pushButton->setParent(this);
+                           wheat->pushButton->show();
+                           F9_Having_Animals_or_Seeds=1;
+                           F9_Which_Of_Animals_or_Seeds=4;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 10:
+
+                       if(F10_Having_Animals_or_Seeds==0){
+
+                           wheat->pushButton->move(540, 640);
+                           wheat->pushButton->setParent(this);
+                           wheat->pushButton->show();
+                           F10_Having_Animals_or_Seeds=1;
+                           F10_Which_Of_Animals_or_Seeds=4;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 11:
+
+                       if(F11_Having_Animals_or_Seeds==0){
+
+                           wheat->pushButton->move(1260, 640);
+                           wheat->pushButton->setParent(this);
+                           wheat->pushButton->show();
+                           F11_Having_Animals_or_Seeds=1;
+                           F11_Which_Of_Animals_or_Seeds=4;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 12:
+
+                       if(F12_Having_Animals_or_Seeds==0){
+
+                           wheat->pushButton->move(1650, 640);
+                           wheat->pushButton->setParent(this);
+                           wheat->pushButton->show();
+                           F12_Having_Animals_or_Seeds=1;
+                           F12_Which_Of_Animals_or_Seeds=4;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 13:
+
+                       if(F13_Having_Animals_or_Seeds==0){
+
+                           wheat->pushButton->move(150, 870);
+                           wheat->pushButton->setParent(this);
+                           wheat->pushButton->show();
+                           F13_Having_Animals_or_Seeds=1;
+                           F13_Which_Of_Animals_or_Seeds=4;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 14:
+
+                       if(F14_Having_Animals_or_Seeds==0){
+
+                           wheat->pushButton->move(540, 870);
+                           wheat->pushButton->setParent(this);
+                           wheat->pushButton->show();
+                           F14_Having_Animals_or_Seeds=1;
+                           F14_Which_Of_Animals_or_Seeds=4;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 15:
+
+                       if(F15_Having_Animals_or_Seeds==0){
+
+                           wheat->pushButton->move(1260, 870);
+                           wheat->pushButton->setParent(this);
+                           wheat->pushButton->show();
+                           F15_Having_Animals_or_Seeds=1;
+                           F15_Which_Of_Animals_or_Seeds=4;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 16:
+
+                       if(F16_Having_Animals_or_Seeds==0){
+
+                           wheat->pushButton->move(1650, 870);
+                           wheat->pushButton->setParent(this);
+                           wheat->pushButton->show();
+                           F16_Having_Animals_or_Seeds=1;
+                           F6_Which_Of_Animals_or_Seeds=4;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 17:
+                       //add to verticall layout
+                       wheat->pushButton->move(2000, 10);
+                       ui->Seeds_verticalLayout->addWidget(wheat->pushButton);
+
+                       Get_info();
+
+                       break;
+
+                   default:
+
+                       Get_info();
+                       break;
+                   }
+               }
+
+            });
+
+            msgBox.exec();
+
+           });
+
+    }else{
+
+        clearLayout(ui->verticalLayout_2);
+        QMessageBox::warning(this, "dssd", "asddsdsadsads");
+
+    }
+
+    clearLayout(ui->verticalLayout_2);
 }
 
 void Gamepage::on_Barley_pushButton_clicked()
 {
-    Barley * barley = new Barley(ui->Seeds_verticalLayout);
+    Barley * br = new Barley(ui->verticalLayout_2);
 
-    barley->pushButton->setObjectName("Barley");
+    if(score >= br->Purchase_price){
 
-    connect(barley->pushButton, &QPushButton::clicked, this, [this, barley](){ QMessageBox msgBox;
-        msgBox.setText("chicken""<ul>""<li>""@gmail.com""</li>" "<li>""@email.com""</li>" "<li>""@mail.um.ac""</li>""</ul>");
-        msgBox.setWindowFlags(msgBox.windowFlags() | Qt::WindowSystemMenuHint);
+        score = score - br->Purchase_price;
 
-        msgBox.setWindowTitle("Transfer to ...");
+        ui->label_Score->setText( "Score : " + QString::number(score));
 
-        // Set the icon
-        msgBox.setWindowIcon(QIcon("C:/Users/i/Downloads/iran.png"));
+        Barley * barley = new Barley(ui->Seeds_verticalLayout);
 
-        msgBox.setIconPixmap(QPixmap("C:/Users/i/Downloads/iran.png"));
+        barley->pushButton->setObjectName("Barley");
 
-        // Add custom buttons
-        QHash<QAbstractButton*, int> buttonMap;
-        for (int i = 1; i <= 17; ++i) {
-          QPushButton* button = new QPushButton(QString("%1").arg(i));
-          msgBox.addButton(button, i == 17 ? QMessageBox::RejectRole : QMessageBox::AcceptRole);
-          buttonMap[button] = i;
+        connect(barley->pushButton, &QPushButton::clicked, this, [this, barley](){ QMessageBox msgBox;
+            msgBox.setText("chicken""<ul>""<li>""@gmail.com""</li>" "<li>""@email.com""</li>" "<li>""@mail.um.ac""</li>""</ul>");
+            msgBox.setWindowFlags(msgBox.windowFlags() | Qt::WindowSystemMenuHint);
 
-        //  button->setMinimumSize(56, 40);
-           button->setMinimumSize(40, 40);
+            msgBox.setWindowTitle("Transfer to ...");
 
-           if(i==1){
+            // Set the icon
+            msgBox.setWindowIcon(QIcon("C:/Users/i/Downloads/iran.png"));
 
-               QPoint pos(150, 180);
+            msgBox.setIconPixmap(QPixmap("C:/Users/i/Downloads/iran.png"));
 
-               if(check(pos)==true){
+            // Add custom buttons
+            QHash<QAbstractButton*, int> buttonMap;
+            for (int i = 1; i <= 17; ++i) {
+              QPushButton* button = new QPushButton(QString("%1").arg(i));
+              msgBox.addButton(button, i == 17 ? QMessageBox::RejectRole : QMessageBox::AcceptRole);
+              buttonMap[button] = i;
 
-                   F1_Having_Animals_or_Seeds=0;
-                   F1_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
+            //  button->setMinimumSize(56, 40);
+               button->setMinimumSize(40, 40);
 
-                   F1_Having_Animals_or_Seeds=1;
-                   F1_Which_Of_Animals_or_Seeds=5;
-                   button->setEnabled(false);
-               }
-           }
+               if(i==1){
 
-           if((i==2 && ui->label_2->isHidden())){
+                   QPoint pos(150, 180);
 
-               button->setEnabled(false);
+                   if(check(pos)==true){
 
-           }else if(i==2 && ui->label_2->isVisible()){
+                       F1_Having_Animals_or_Seeds=0;
+                       F1_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
 
-               QPoint pos(540, 180);
-
-               if(check(pos)==true){
-
-
-                   F2_Having_Animals_or_Seeds=0;
-                   F2_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-
-                   F2_Having_Animals_or_Seeds=1;
-                   F2_Which_Of_Animals_or_Seeds=5;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==3 && ui->label_3->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==3 && ui->label_3->isVisible()){
-
-               QPoint pos(1260, 180);
-
-               if(check(pos)==true){
-
-                   F3_Having_Animals_or_Seeds=0;
-                   F3_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F3_Having_Animals_or_Seeds=1;
-                   F3_Which_Of_Animals_or_Seeds=5;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==4 && ui->label_4->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==4 && ui->label_4->isVisible()){
-
-               QPoint pos(1650, 180);
-
-               if(check(pos)==true){
-
-                   F4_Having_Animals_or_Seeds=0;
-                   F4_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F4_Having_Animals_or_Seeds=1;
-                   F4_Which_Of_Animals_or_Seeds=5;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==5 && ui->label_5->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==5 && ui->label_5->isVisible()){
-
-               QPoint pos(150, 410);
-
-               if(check(pos)==true){
-
-                   F5_Having_Animals_or_Seeds=0;
-                   F5_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F5_Having_Animals_or_Seeds=1;
-                   F5_Which_Of_Animals_or_Seeds=5;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==6 && ui->label_6->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==6 && ui->label_6->isVisible()){
-
-               QPoint pos(540, 410);
-
-               if(check(pos)==true){
-
-                   F6_Having_Animals_or_Seeds=0;
-                   F6_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F6_Having_Animals_or_Seeds=1;
-                   F6_Which_Of_Animals_or_Seeds=5;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==7 && ui->label_7->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==7 && ui->label_7->isVisible()){
-
-               QPoint pos(1260, 410);
-
-               if(check(pos)==true){
-
-                   F7_Having_Animals_or_Seeds=0;
-                   F7_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F7_Having_Animals_or_Seeds=1;
-                   F7_Which_Of_Animals_or_Seeds=5;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==8 && ui->label_8->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==8 && ui->label_8->isVisible()){
-
-               QPoint pos(1650, 410);
-
-               if(check(pos)==true){
-
-                   F8_Having_Animals_or_Seeds=0;
-                   F8_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F8_Having_Animals_or_Seeds=1;
-                   F8_Which_Of_Animals_or_Seeds=5;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==9 && ui->label_9->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==9 && ui->label_9->isVisible()){
-
-               QPoint pos(150, 640);
-
-               if(check(pos)==true){
-
-                   F9_Having_Animals_or_Seeds=0;
-                   F9_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F9_Having_Animals_or_Seeds=1;
-                   F9_Which_Of_Animals_or_Seeds=5;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==10 && ui->label_10->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==10 && ui->label_10->isVisible()){
-
-               QPoint pos(540, 640);
-
-               if(check(pos)==true){
-
-                   F10_Having_Animals_or_Seeds=0;
-                   F10_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F10_Having_Animals_or_Seeds=1;
-                   F10_Which_Of_Animals_or_Seeds=5;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==11 && ui->label_11->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==11 && ui->label_11->isVisible()){
-
-               QPoint pos(1260, 640);
-
-               if(check(pos)==true){
-
-                   F11_Having_Animals_or_Seeds=0;
-                   F11_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F11_Having_Animals_or_Seeds=1;
-                   F11_Which_Of_Animals_or_Seeds=5;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==12 && ui->label_12->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==12 && ui->label_12->isVisible()){
-
-               QPoint pos(1650, 640);
-
-               if(check(pos)==true){
-
-                   F12_Having_Animals_or_Seeds=0;
-                   F12_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F12_Having_Animals_or_Seeds=1;
-                   F12_Which_Of_Animals_or_Seeds=5;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==13 && ui->label_13->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==13 && ui->label_13->isVisible()){
-
-               QPoint pos(150, 870);
-
-               if(check(pos)==true){
-
-                   F13_Having_Animals_or_Seeds=0;
-                   F13_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F13_Having_Animals_or_Seeds=1;
-                   F13_Which_Of_Animals_or_Seeds=5;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==14 && ui->label_14->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==14 && ui->label_14->isVisible()){
-
-               QPoint pos(540, 870);
-
-               if(check(pos)==true){
-
-                   F14_Having_Animals_or_Seeds=0;
-                   F14_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F14_Having_Animals_or_Seeds=1;
-                   F14_Which_Of_Animals_or_Seeds=5;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==15 && ui->label_15->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==15 && ui->label_15->isVisible()){
-
-               QPoint pos(1260, 870);
-
-               if(check(pos)==true){
-
-                   F15_Having_Animals_or_Seeds=0;
-                   F15_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F15_Having_Animals_or_Seeds=1;
-                   F15_Which_Of_Animals_or_Seeds=5;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==16 && ui->label_16->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==16 && ui->label_16->isVisible()){
-
-               QPoint pos(1650, 870);
-
-               if(check(pos)==true){
-
-                   F16_Having_Animals_or_Seeds=0;
-                   F16_Which_Of_Animals_or_Seeds=0;
-                   button->setEnabled(true);
-               }
-               if(check(pos)==false){
-
-                   F16_Having_Animals_or_Seeds=1;
-                   F16_Which_Of_Animals_or_Seeds=5;
-                   button->setEnabled(false);
-               }
-           }
-
-          if(i==17){
-
-              button->setText("home");
-              button->setMinimumSize(60,40);
-          }
-
-        }
-    // clazy:exclude:connect-3arg-lambda
-        QObject::connect(&msgBox, &QMessageBox::finished, [&](int result){
-           QAbstractButton* clickedButton = msgBox.clickedButton();
-           if (clickedButton) {
-               int buttonNumber = buttonMap[clickedButton];
-
-               switch(buttonNumber) {
-               Get_info();
-               case 1:
-
-                   if(F1_Having_Animals_or_Seeds==0){
-
-                       barley->pushButton->move(150, 180);
-                       barley->pushButton->setParent(this);
-                       barley->pushButton->show();
                        F1_Having_Animals_or_Seeds=1;
                        F1_Which_Of_Animals_or_Seeds=5;
+                       button->setEnabled(false);
                    }
+               }
 
-                   Get_info();
+               if((i==2 && ui->label_2->isHidden())){
 
-                   break;
-               case 2:
+                   button->setEnabled(false);
 
-                   if(F2_Having_Animals_or_Seeds==0){
+               }else if(i==2 && ui->label_2->isVisible()){
 
-                       barley->pushButton->move(540, 180);
-                       barley->pushButton->setParent(this);
-                       barley->pushButton->show();
+                   QPoint pos(540, 180);
+
+                   if(check(pos)==true){
+
+
+                       F2_Having_Animals_or_Seeds=0;
+                       F2_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
+
                        F2_Having_Animals_or_Seeds=1;
                        F2_Which_Of_Animals_or_Seeds=5;
+                       button->setEnabled(false);
                    }
+               }
 
-                   Get_info();
+               if(i==3 && ui->label_3->isHidden()){
 
-                   break;
-               case 3:
+                   button->setEnabled(false);
 
-                   if(F3_Having_Animals_or_Seeds==0){
+               }else if(i==3 && ui->label_3->isVisible()){
 
-                       barley->pushButton->move(1260, 180);
-                       barley->pushButton->setParent(this);
-                       barley->pushButton->show();
+                   QPoint pos(1260, 180);
+
+                   if(check(pos)==true){
+
+                       F3_Having_Animals_or_Seeds=0;
+                       F3_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
                        F3_Having_Animals_or_Seeds=1;
                        F3_Which_Of_Animals_or_Seeds=5;
+                       button->setEnabled(false);
                    }
+               }
 
-                   Get_info();
+               if(i==4 && ui->label_4->isHidden()){
 
-                   break;
-               case 4:
+                   button->setEnabled(false);
 
-                   if(F4_Having_Animals_or_Seeds==0){
+               }else if(i==4 && ui->label_4->isVisible()){
 
-                       barley->pushButton->move(1650, 180);
-                       barley->pushButton->setParent(this);
-                       barley->pushButton->show();
+                   QPoint pos(1650, 180);
+
+                   if(check(pos)==true){
+
+                       F4_Having_Animals_or_Seeds=0;
+                       F4_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
                        F4_Having_Animals_or_Seeds=1;
                        F4_Which_Of_Animals_or_Seeds=5;
+                       button->setEnabled(false);
                    }
+               }
 
-                   Get_info();
+               if(i==5 && ui->label_5->isHidden()){
 
-                   break;
-               case 5:
+                   button->setEnabled(false);
 
-                   if(F5_Having_Animals_or_Seeds==0){
+               }else if(i==5 && ui->label_5->isVisible()){
 
-                       barley->pushButton->move(150, 410);
-                       barley->pushButton->setParent(this);
-                       barley->pushButton->show();
+                   QPoint pos(150, 410);
+
+                   if(check(pos)==true){
+
+                       F5_Having_Animals_or_Seeds=0;
+                       F5_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
                        F5_Having_Animals_or_Seeds=1;
                        F5_Which_Of_Animals_or_Seeds=5;
+                       button->setEnabled(false);
                    }
+               }
 
-                   Get_info();
+               if(i==6 && ui->label_6->isHidden()){
 
-                   break;
-               case 6:
+                   button->setEnabled(false);
 
-                   if(F6_Having_Animals_or_Seeds==0){
+               }else if(i==6 && ui->label_6->isVisible()){
 
-                       barley->pushButton->move(540, 410);
-                       barley->pushButton->setParent(this);
-                       barley->pushButton->show();
+                   QPoint pos(540, 410);
+
+                   if(check(pos)==true){
+
+                       F6_Having_Animals_or_Seeds=0;
+                       F6_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
                        F6_Having_Animals_or_Seeds=1;
                        F6_Which_Of_Animals_or_Seeds=5;
+                       button->setEnabled(false);
                    }
+               }
 
-                   Get_info();
+               if(i==7 && ui->label_7->isHidden()){
 
-                   break;
-               case 7:
+                   button->setEnabled(false);
 
-                   if(F7_Having_Animals_or_Seeds==0){
+               }else if(i==7 && ui->label_7->isVisible()){
 
-                       barley->pushButton->move(1260, 410);
-                       barley->pushButton->setParent(this);
-                       barley->pushButton->show();
+                   QPoint pos(1260, 410);
+
+                   if(check(pos)==true){
+
+                       F7_Having_Animals_or_Seeds=0;
+                       F7_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
                        F7_Having_Animals_or_Seeds=1;
                        F7_Which_Of_Animals_or_Seeds=5;
+                       button->setEnabled(false);
                    }
+               }
 
-                   Get_info();
+               if(i==8 && ui->label_8->isHidden()){
 
-                   break;
-               case 8:
+                   button->setEnabled(false);
 
-                   if(F8_Having_Animals_or_Seeds==0){
+               }else if(i==8 && ui->label_8->isVisible()){
 
-                       barley->pushButton->move(1650, 410);
-                       barley->pushButton->setParent(this);
-                       barley->pushButton->show();
+                   QPoint pos(1650, 410);
+
+                   if(check(pos)==true){
+
+                       F8_Having_Animals_or_Seeds=0;
+                       F8_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
                        F8_Having_Animals_or_Seeds=1;
                        F8_Which_Of_Animals_or_Seeds=5;
+                       button->setEnabled(false);
                    }
+               }
 
-                   Get_info();
+               if(i==9 && ui->label_9->isHidden()){
 
-                   break;
-               case 9:
+                   button->setEnabled(false);
 
-                   if(F9_Having_Animals_or_Seeds==0){
+               }else if(i==9 && ui->label_9->isVisible()){
 
-                       barley->pushButton->move(150, 640);
-                       barley->pushButton->setParent(this);
-                       barley->pushButton->show();
+                   QPoint pos(150, 640);
+
+                   if(check(pos)==true){
+
+                       F9_Having_Animals_or_Seeds=0;
+                       F9_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
                        F9_Having_Animals_or_Seeds=1;
                        F9_Which_Of_Animals_or_Seeds=5;
+                       button->setEnabled(false);
                    }
+               }
 
-                   Get_info();
+               if(i==10 && ui->label_10->isHidden()){
 
-                   break;
-               case 10:
+                   button->setEnabled(false);
 
-                   if(F10_Having_Animals_or_Seeds==0){
+               }else if(i==10 && ui->label_10->isVisible()){
 
-                       barley->pushButton->move(540, 640);
-                       barley->pushButton->setParent(this);
-                       barley->pushButton->show();
+                   QPoint pos(540, 640);
+
+                   if(check(pos)==true){
+
+                       F10_Having_Animals_or_Seeds=0;
+                       F10_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
                        F10_Having_Animals_or_Seeds=1;
                        F10_Which_Of_Animals_or_Seeds=5;
+                       button->setEnabled(false);
                    }
+               }
 
-                   Get_info();
+               if(i==11 && ui->label_11->isHidden()){
 
-                   break;
-               case 11:
+                   button->setEnabled(false);
 
-                   if(F11_Having_Animals_or_Seeds==0){
+               }else if(i==11 && ui->label_11->isVisible()){
 
-                       barley->pushButton->move(1260, 640);
-                       barley->pushButton->setParent(this);
-                       barley->pushButton->show();
+                   QPoint pos(1260, 640);
+
+                   if(check(pos)==true){
+
+                       F11_Having_Animals_or_Seeds=0;
+                       F11_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
                        F11_Having_Animals_or_Seeds=1;
                        F11_Which_Of_Animals_or_Seeds=5;
+                       button->setEnabled(false);
                    }
+               }
 
-                   Get_info();
+               if(i==12 && ui->label_12->isHidden()){
 
-                   break;
-               case 12:
+                   button->setEnabled(false);
 
-                   if(F12_Having_Animals_or_Seeds==0){
+               }else if(i==12 && ui->label_12->isVisible()){
 
-                       barley->pushButton->move(1650, 640);
-                       barley->pushButton->setParent(this);
-                       barley->pushButton->show();
+                   QPoint pos(1650, 640);
+
+                   if(check(pos)==true){
+
+                       F12_Having_Animals_or_Seeds=0;
+                       F12_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
                        F12_Having_Animals_or_Seeds=1;
                        F12_Which_Of_Animals_or_Seeds=5;
+                       button->setEnabled(false);
                    }
+               }
 
-                   Get_info();
+               if(i==13 && ui->label_13->isHidden()){
 
-                   break;
-               case 13:
+                   button->setEnabled(false);
 
-                   if(F13_Having_Animals_or_Seeds==0){
+               }else if(i==13 && ui->label_13->isVisible()){
 
-                       barley->pushButton->move(150, 870);
-                       barley->pushButton->setParent(this);
-                       barley->pushButton->show();
+                   QPoint pos(150, 870);
+
+                   if(check(pos)==true){
+
+                       F13_Having_Animals_or_Seeds=0;
+                       F13_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
                        F13_Having_Animals_or_Seeds=1;
                        F13_Which_Of_Animals_or_Seeds=5;
+                       button->setEnabled(false);
                    }
+               }
 
-                   Get_info();
+               if(i==14 && ui->label_14->isHidden()){
 
-                   break;
-               case 14:
+                   button->setEnabled(false);
 
-                   if(F14_Having_Animals_or_Seeds==0){
+               }else if(i==14 && ui->label_14->isVisible()){
 
-                       barley->pushButton->move(540, 870);
-                       barley->pushButton->setParent(this);
-                       barley->pushButton->show();
+                   QPoint pos(540, 870);
+
+                   if(check(pos)==true){
+
+                       F14_Having_Animals_or_Seeds=0;
+                       F14_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
                        F14_Having_Animals_or_Seeds=1;
                        F14_Which_Of_Animals_or_Seeds=5;
+                       button->setEnabled(false);
                    }
+               }
 
-                   Get_info();
+               if(i==15 && ui->label_15->isHidden()){
 
-                   break;
-               case 15:
+                   button->setEnabled(false);
 
-                   if(F15_Having_Animals_or_Seeds==0){
+               }else if(i==15 && ui->label_15->isVisible()){
 
-                       barley->pushButton->move(1260, 870);
-                       barley->pushButton->setParent(this);
-                       barley->pushButton->show();
+                   QPoint pos(1260, 870);
+
+                   if(check(pos)==true){
+
+                       F15_Having_Animals_or_Seeds=0;
+                       F15_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
                        F15_Having_Animals_or_Seeds=1;
                        F15_Which_Of_Animals_or_Seeds=5;
+                       button->setEnabled(false);
                    }
+               }
 
-                   Get_info();
+               if(i==16 && ui->label_16->isHidden()){
 
-                   break;
-               case 16:
+                   button->setEnabled(false);
 
-                   if(F16_Having_Animals_or_Seeds==0){
+               }else if(i==16 && ui->label_16->isVisible()){
 
-                       barley->pushButton->move(1650, 870);
-                       barley->pushButton->setParent(this);
-                       barley->pushButton->show();
+                   QPoint pos(1650, 870);
+
+                   if(check(pos)==true){
+
+                       F16_Having_Animals_or_Seeds=0;
+                       F16_Which_Of_Animals_or_Seeds=0;
+                       button->setEnabled(true);
+                   }
+                   if(check(pos)==false){
+
                        F16_Having_Animals_or_Seeds=1;
                        F16_Which_Of_Animals_or_Seeds=5;
+                       button->setEnabled(false);
                    }
-
-                   Get_info();
-
-                   break;
-               case 17:
-                   //add to verticall layout
-                   barley->pushButton->move(2000, 10);
-                   ui->Seeds_verticalLayout->addWidget(barley->pushButton);
-
-                   Get_info();
-
-                   break;
-
-               default:
-
-                   Get_info();
-                   break;
                }
-           }
 
-        });
+              if(i==17){
 
-        msgBox.exec();
+                  button->setText("home");
+                  button->setMinimumSize(60,40);
+              }
 
-       });
+            }
+        // clazy:exclude:connect-3arg-lambda
+            QObject::connect(&msgBox, &QMessageBox::finished, [&](int result){
+               QAbstractButton* clickedButton = msgBox.clickedButton();
+               if (clickedButton) {
+                   int buttonNumber = buttonMap[clickedButton];
+
+                   switch(buttonNumber) {
+                   Get_info();
+                   case 1:
+
+                       if(F1_Having_Animals_or_Seeds==0){
+
+                           barley->pushButton->move(150, 180);
+                           barley->pushButton->setParent(this);
+                           barley->pushButton->show();
+                           F1_Having_Animals_or_Seeds=1;
+                           F1_Which_Of_Animals_or_Seeds=5;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 2:
+
+                       if(F2_Having_Animals_or_Seeds==0){
+
+                           barley->pushButton->move(540, 180);
+                           barley->pushButton->setParent(this);
+                           barley->pushButton->show();
+                           F2_Having_Animals_or_Seeds=1;
+                           F2_Which_Of_Animals_or_Seeds=5;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 3:
+
+                       if(F3_Having_Animals_or_Seeds==0){
+
+                           barley->pushButton->move(1260, 180);
+                           barley->pushButton->setParent(this);
+                           barley->pushButton->show();
+                           F3_Having_Animals_or_Seeds=1;
+                           F3_Which_Of_Animals_or_Seeds=5;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 4:
+
+                       if(F4_Having_Animals_or_Seeds==0){
+
+                           barley->pushButton->move(1650, 180);
+                           barley->pushButton->setParent(this);
+                           barley->pushButton->show();
+                           F4_Having_Animals_or_Seeds=1;
+                           F4_Which_Of_Animals_or_Seeds=5;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 5:
+
+                       if(F5_Having_Animals_or_Seeds==0){
+
+                           barley->pushButton->move(150, 410);
+                           barley->pushButton->setParent(this);
+                           barley->pushButton->show();
+                           F5_Having_Animals_or_Seeds=1;
+                           F5_Which_Of_Animals_or_Seeds=5;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 6:
+
+                       if(F6_Having_Animals_or_Seeds==0){
+
+                           barley->pushButton->move(540, 410);
+                           barley->pushButton->setParent(this);
+                           barley->pushButton->show();
+                           F6_Having_Animals_or_Seeds=1;
+                           F6_Which_Of_Animals_or_Seeds=5;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 7:
+
+                       if(F7_Having_Animals_or_Seeds==0){
+
+                           barley->pushButton->move(1260, 410);
+                           barley->pushButton->setParent(this);
+                           barley->pushButton->show();
+                           F7_Having_Animals_or_Seeds=1;
+                           F7_Which_Of_Animals_or_Seeds=5;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 8:
+
+                       if(F8_Having_Animals_or_Seeds==0){
+
+                           barley->pushButton->move(1650, 410);
+                           barley->pushButton->setParent(this);
+                           barley->pushButton->show();
+                           F8_Having_Animals_or_Seeds=1;
+                           F8_Which_Of_Animals_or_Seeds=5;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 9:
+
+                       if(F9_Having_Animals_or_Seeds==0){
+
+                           barley->pushButton->move(150, 640);
+                           barley->pushButton->setParent(this);
+                           barley->pushButton->show();
+                           F9_Having_Animals_or_Seeds=1;
+                           F9_Which_Of_Animals_or_Seeds=5;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 10:
+
+                       if(F10_Having_Animals_or_Seeds==0){
+
+                           barley->pushButton->move(540, 640);
+                           barley->pushButton->setParent(this);
+                           barley->pushButton->show();
+                           F10_Having_Animals_or_Seeds=1;
+                           F10_Which_Of_Animals_or_Seeds=5;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 11:
+
+                       if(F11_Having_Animals_or_Seeds==0){
+
+                           barley->pushButton->move(1260, 640);
+                           barley->pushButton->setParent(this);
+                           barley->pushButton->show();
+                           F11_Having_Animals_or_Seeds=1;
+                           F11_Which_Of_Animals_or_Seeds=5;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 12:
+
+                       if(F12_Having_Animals_or_Seeds==0){
+
+                           barley->pushButton->move(1650, 640);
+                           barley->pushButton->setParent(this);
+                           barley->pushButton->show();
+                           F12_Having_Animals_or_Seeds=1;
+                           F12_Which_Of_Animals_or_Seeds=5;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 13:
+
+                       if(F13_Having_Animals_or_Seeds==0){
+
+                           barley->pushButton->move(150, 870);
+                           barley->pushButton->setParent(this);
+                           barley->pushButton->show();
+                           F13_Having_Animals_or_Seeds=1;
+                           F13_Which_Of_Animals_or_Seeds=5;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 14:
+
+                       if(F14_Having_Animals_or_Seeds==0){
+
+                           barley->pushButton->move(540, 870);
+                           barley->pushButton->setParent(this);
+                           barley->pushButton->show();
+                           F14_Having_Animals_or_Seeds=1;
+                           F14_Which_Of_Animals_or_Seeds=5;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 15:
+
+                       if(F15_Having_Animals_or_Seeds==0){
+
+                           barley->pushButton->move(1260, 870);
+                           barley->pushButton->setParent(this);
+                           barley->pushButton->show();
+                           F15_Having_Animals_or_Seeds=1;
+                           F15_Which_Of_Animals_or_Seeds=5;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 16:
+
+                       if(F16_Having_Animals_or_Seeds==0){
+
+                           barley->pushButton->move(1650, 870);
+                           barley->pushButton->setParent(this);
+                           barley->pushButton->show();
+                           F16_Having_Animals_or_Seeds=1;
+                           F16_Which_Of_Animals_or_Seeds=5;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 17:
+                       //add to verticall layout
+                       barley->pushButton->move(2000, 10);
+                       ui->Seeds_verticalLayout->addWidget(barley->pushButton);
+
+                       Get_info();
+
+                       break;
+
+                   default:
+
+                       Get_info();
+                       break;
+                   }
+               }
+
+            });
+
+            msgBox.exec();
+
+           });
+
+    }else{
+
+        clearLayout(ui->verticalLayout_2);
+        QMessageBox::warning(this, "weew", "sddddddd");
+    }
+
+    clearLayout(ui->verticalLayout_2);
 }
 
 void Gamepage::on_Farmer_pushButton_clicked()
 {
 
-    Farmer * farmer = new Farmer(ui->Farmer_verticalLayout);
+    Farmer * fr = new Farmer(ui->verticalLayout_2);
 
-    connect(farmer->pushButton, &QPushButton::clicked, this, [this, farmer](){ QMessageBox msgBox;
-        msgBox.setText("chicken""<ul>""<li>""@gmail.com""</li>" "<li>""@email.com""</li>" "<li>""@mail.um.ac""</li>""</ul>");
-        msgBox.setWindowFlags(msgBox.windowFlags() | Qt::WindowSystemMenuHint);
+    if(score >= fr->Purchase_price){
 
-        msgBox.setWindowTitle("Transfer to ...");
+        score = score - fr->Purchase_price;
 
-        // Set the icon
-        msgBox.setWindowIcon(QIcon("C:/Users/i/Downloads/iran.png"));
+        ui->label_Score->setText( "Score : " + QString::number(score));
 
-        msgBox.setIconPixmap(QPixmap("C:/Users/i/Downloads/iran.png"));
+        Farmer * farmer = new Farmer(ui->Farmer_verticalLayout);
 
+        connect(farmer->pushButton, &QPushButton::clicked, this, [this, farmer](){ QMessageBox msgBox;
+            msgBox.setText("chicken""<ul>""<li>""@gmail.com""</li>" "<li>""@email.com""</li>" "<li>""@mail.um.ac""</li>""</ul>");
+            msgBox.setWindowFlags(msgBox.windowFlags() | Qt::WindowSystemMenuHint);
 
+            msgBox.setWindowTitle("Transfer to ...");
 
-        // Add custom buttons
-        QHash<QAbstractButton*, int> buttonMap;
-        for (int i = 1; i <= 17; ++i) {
-          QPushButton* button = new QPushButton(QString("%1").arg(i));
-          msgBox.addButton(button, i == 17 ? QMessageBox::RejectRole : QMessageBox::AcceptRole);
-          buttonMap[button] = i;
+            // Set the icon
+            msgBox.setWindowIcon(QIcon("C:/Users/i/Downloads/iran.png"));
 
-        //  button->setMinimumSize(56, 40);
-           button->setMinimumSize(40, 40);
+            msgBox.setIconPixmap(QPixmap("C:/Users/i/Downloads/iran.png"));
 
-           if(i==1){
 
-               QPoint pos(210, 160);
 
-               if(check(pos)==true){
+            // Add custom buttons
+            QHash<QAbstractButton*, int> buttonMap;
+            for (int i = 1; i <= 17; ++i) {
+              QPushButton* button = new QPushButton(QString("%1").arg(i));
+              msgBox.addButton(button, i == 17 ? QMessageBox::RejectRole : QMessageBox::AcceptRole);
+              buttonMap[button] = i;
 
-                   F1_Having_Farmer=0;
-                   button->setEnabled(true);
-               }
-               if((check(pos)==false) || (check(pos)==true && ui->Cancel->isVisible())){
+            //  button->setMinimumSize(56, 40);
+               button->setMinimumSize(40, 40);
 
-                   F1_Having_Farmer=1;
-                   button->setEnabled(false);
-               }
-           }
+               if(i==1){
 
-           if(i==2 && ui->label_2->isHidden()){
+                   QPoint pos(210, 160);
 
-               button->setEnabled(false);
+                   if(check(pos)==true){
 
-           }else if(i==2 && ui->label_2->isVisible()){
+                       F1_Having_Farmer=0;
+                       button->setEnabled(true);
+                   }
+                   if((check(pos)==false) || (check(pos)==true && ui->Cancel->isVisible())){
 
-               QPoint pos(600, 160);
-
-               if(check(pos)==true){
-
-                   F2_Having_Farmer=0;
-                   button->setEnabled(true);
-               }
-               if((check(pos)==false) || (check(pos)==true && ui->Cancel_2->isVisible())) {
-
-                   F2_Having_Farmer=1;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==3 && ui->label_3->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==3 && ui->label_3->isVisible()){
-
-               QPoint pos(1320, 160);
-
-               if(check(pos)==true){
-
-                   F3_Having_Farmer=0;
-                   button->setEnabled(true);
-               }
-               if((check(pos)==false) || (check(pos)==true && ui->Cancel_3->isVisible())){
-
-                   F3_Having_Farmer=1;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==4 && ui->label_4->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==4 && ui->label_4->isVisible()){
-
-               QPoint pos(1710, 160);
-
-               if(check(pos)==true){
-
-                   F4_Having_Farmer=0;
-                   button->setEnabled(true);
-               }
-               if((check(pos)==false) || (check(pos)==true && ui->Cancel_4->isVisible())){
-
-                   F4_Having_Farmer=1;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==5 && ui->label_5->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==5 && ui->label_5->isVisible()){
-
-               QPoint pos(210, 390);
-
-               if(check(pos)==true){
-
-                   F5_Having_Farmer=0;
-                   button->setEnabled(true);
-               }
-               if((check(pos)==false) || (check(pos)==true && ui->Cancel_5->isVisible())){
-
-                   F5_Having_Farmer=1;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==6 && ui->label_6->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==6 && ui->label_6->isVisible()){
-
-               QPoint pos(600, 390);
-
-               if(check(pos)==true){
-
-                   F6_Having_Farmer=0;
-                   button->setEnabled(true);
-               }
-               if((check(pos)==false) || (check(pos)==true && ui->Cancel_6->isVisible())){
-
-                   F6_Having_Farmer=1;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==7 && ui->label_7->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==7 && ui->label_7->isVisible()){
-
-               QPoint pos(1320, 390);
-
-               if(check(pos)==true){
-
-                   F7_Having_Farmer=0;
-                   button->setEnabled(true);
-               }
-               if((check(pos)==false) || (check(pos)==true && ui->Cancel_7->isVisible())){
-
-                   F7_Having_Farmer=1;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==8 && ui->label_8->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==8 && ui->label_8->isVisible()){
-
-               QPoint pos(1710, 390);
-
-               if(check(pos)==true){
-
-                   F8_Having_Farmer=0;
-                   button->setEnabled(true);
-               }
-               if((check(pos)==false) || (check(pos)==true && ui->Cancel_8->isVisible())){
-
-                   F8_Having_Farmer=1;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==9 && ui->label_9->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==9 && ui->label_9->isVisible()){
-
-               QPoint pos(210, 620);
-
-               if(check(pos)==true){
-
-                   F9_Having_Farmer=0;
-                   button->setEnabled(true);
-               }
-               if((check(pos)==false) || (check(pos)==true && ui->Cancel_9->isVisible())){
-
-                   F9_Having_Farmer=1;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==10 && ui->label_10->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==10 && ui->label_10->isVisible()){
-
-               QPoint pos(600, 620);
-
-               if(check(pos)==true){
-
-                   F10_Having_Farmer=0;
-                   button->setEnabled(true);
-               }
-               if((check(pos)==false) || (check(pos)==true && ui->Cancel_10->isVisible())){
-
-                   F10_Having_Farmer=1;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==11 && ui->label_11->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==11 && ui->label_11->isVisible()){
-
-               QPoint pos(1320, 620);
-
-               if(check(pos)==true){
-
-                   F11_Having_Farmer=0;
-                   button->setEnabled(true);
-               }
-               if((check(pos)==false) || (check(pos)==true && ui->Cancel_11->isVisible())){
-
-                   F11_Having_Farmer=1;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==12 && ui->label_12->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==12 && ui->label_12->isVisible()){
-
-               QPoint pos(1710, 620);
-
-               if(check(pos)==true){
-
-                   F12_Having_Farmer=0;
-                   button->setEnabled(true);
-               }
-               if((check(pos)==false) || (check(pos)==true && ui->Cancel_12->isVisible())){
-
-                   F12_Having_Farmer=1;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==13 && ui->label_13->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==13 && ui->label_13->isVisible()){
-
-               QPoint pos(210, 850);
-
-               if(check(pos)==true){
-
-                   F13_Having_Farmer=0;
-                   button->setEnabled(true);
-               }
-               if((check(pos)==false) || (check(pos)==true && ui->Cancel_13->isVisible())){
-
-                   F13_Having_Farmer=1;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==14 && ui->label_14->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==14 && ui->label_14->isVisible()){
-
-               QPoint pos(600, 850);
-
-               if(check(pos)==true){
-
-                   F14_Having_Farmer=0;
-                   button->setEnabled(true);
-               }
-               if((check(pos)==false) || (check(pos)==true && ui->Cancel_14->isVisible())){
-
-                   F14_Having_Farmer=1;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==15 && ui->label_15->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==15 && ui->label_15->isVisible()){
-
-               QPoint pos(1320, 850);
-
-               if(check(pos)==true){
-
-                   F15_Having_Farmer=0;
-                   button->setEnabled(true);
-               }
-               if((check(pos)==false) || (check(pos)==true && ui->Cancel_15->isVisible())){
-
-                   F15_Having_Farmer=1;
-                   button->setEnabled(false);
-               }
-           }
-
-           if(i==16 && ui->label_16->isHidden()){
-
-               button->setEnabled(false);
-
-           }else if(i==16 && ui->label_16->isVisible()){
-
-               QPoint pos(1710, 850);
-
-               if(check(pos)==true){
-
-                   F16_Having_Farmer=0;
-                   button->setEnabled(true);
-               }
-               if((check(pos)==false) || (check(pos)==true && ui->Cancel_16->isVisible())){
-
-                   F16_Having_Farmer=1;
-                   button->setEnabled(false);
-               }
-           }
-
-          if(i==17){
-
-              button->setText("home");
-              button->setMinimumSize(60,40);
-
-          }
-
-        }
-    // clazy:exclude:connect-3arg-lambda
-        QObject::connect(&msgBox, &QMessageBox::finished, [&](int result){
-           QAbstractButton* clickedButton = msgBox.clickedButton();
-           if (clickedButton) {
-               int buttonNumber = buttonMap[clickedButton];
-
-               switch(buttonNumber) {
-
-               case 1:
-
-                   if(F1_Having_Farmer==0){
-
-                       farmer->pushButton->move(210, 160);
-                       farmer->pushButton->setParent(this);
-                       farmer->pushButton->show();
                        F1_Having_Farmer=1;
+                       button->setEnabled(false);
                    }
-
-                   Get_info();
-
-                   break;
-               case 2:
-
-                   if(F2_Having_Farmer==0){
-
-                       farmer->pushButton->move(600, 160);
-                       farmer->pushButton->setParent(this);
-                       farmer->pushButton->show();
-                       F2_Having_Farmer=1;
-                   }
-
-                   Get_info();
-
-
-                   break;
-               case 3:
-                   // Perform action for Button 2
-
-                   if(F3_Having_Farmer==0){
-
-                       farmer->pushButton->move(1320, 160);
-                       farmer->pushButton->setParent(this);
-                       farmer->pushButton->show();
-                       F3_Having_Farmer=1;
-                   }
-
-                   Get_info();
-
-                   break;
-               case 4:
-                   // Perform action for Button 2
-
-                   if(F4_Having_Farmer==0){
-
-                       farmer->pushButton->move(1710, 160);
-                       farmer->pushButton->setParent(this);
-                       farmer->pushButton->show();
-                       F4_Having_Farmer=1;
-                   }
-
-                   Get_info();
-
-                   break;
-               case 5:
-                   // Perform action for Button 2
-
-                   if(F5_Having_Farmer==0){
-
-                       farmer->pushButton->move(210, 390);
-                       farmer->pushButton->setParent(this);
-                       farmer->pushButton->show();
-                       F5_Having_Farmer=1;
-                   }
-
-                   Get_info();
-
-                   break;
-               case 6:
-                   // Perform action for Button 2
-
-                   if(F6_Having_Farmer==0){
-
-                       farmer->pushButton->move(600, 390);
-                       farmer->pushButton->setParent(this);
-                       farmer->pushButton->show();
-                       F6_Having_Farmer=1;
-                   }
-
-                   Get_info();
-
-
-                   break;
-               case 7:
-                   // Perform action for Button 2
-
-                   if(F7_Having_Farmer==0){
-
-                       farmer->pushButton->move(1320, 390);
-                       farmer->pushButton->setParent(this);
-                       farmer->pushButton->show();
-                       F7_Having_Farmer=1;
-                   }
-
-                   Get_info();
-
-                   break;
-               case 8:
-                   // Perform action for Button 2
-
-                   if(F8_Having_Farmer==0){
-
-                       farmer->pushButton->move(1710, 390);
-                       farmer->pushButton->setParent(this);
-                       farmer->pushButton->show();
-                       F8_Having_Farmer=1;
-                   }
-
-                   Get_info();
-
-                   break;
-               case 9:
-                   // Perform action for Button 2
-
-                   if(F9_Having_Farmer==0){
-
-                       farmer->pushButton->move(210, 620);
-                       farmer->pushButton->setParent(this);
-                       farmer->pushButton->show();
-                       F9_Having_Farmer=1;
-                   }
-
-                   Get_info();
-
-                   break;
-               case 10:
-                   // Perform action for Button 2
-
-                   if(F10_Having_Farmer==0){
-
-                       farmer->pushButton->move(600, 620);
-                       farmer->pushButton->setParent(this);
-                       farmer->pushButton->show();
-                       F10_Having_Farmer=1;
-                   }
-
-                   Get_info();
-
-                   break;
-               case 11:
-                   // Perform action for Button 2
-
-                   if(F11_Having_Farmer==0){
-
-                       farmer->pushButton->move(1320, 620);
-                       farmer->pushButton->setParent(this);
-                       farmer->pushButton->show();
-                       F11_Having_Farmer=1;
-                   }
-                   Get_info();
-
-                   break;
-               case 12:
-                   // Perform action for Button 2
-
-                   if(F12_Having_Farmer==0){
-
-                       farmer->pushButton->move(1710, 620);
-                       farmer->pushButton->setParent(this);
-                       farmer->pushButton->show();
-                       F12_Having_Farmer=1;
-                   }
-
-                   Get_info();
-
-                   break;
-               case 13:
-                   // Perform action for Button 2
-
-                   if(F13_Having_Farmer==0){
-
-                       farmer->pushButton->move(210, 850);
-                       farmer->pushButton->setParent(this);
-                       farmer->pushButton->show();
-                       F13_Having_Farmer=1;
-                   }
-
-                   Get_info();
-
-                   break;
-               case 14:
-                   // Perform action for Button 2
-
-                   if(F14_Having_Farmer==0){
-
-                       farmer->pushButton->move(600, 850);
-                       farmer->pushButton->setParent(this);
-                       farmer->pushButton->show();
-                       F14_Having_Farmer=1;
-                   }
-
-                   Get_info();
-
-                   break;
-               case 15:
-                   // Perform action for Button 2
-
-                   if(F15_Having_Farmer==0){
-
-                       farmer->pushButton->move(1320, 850);
-                       farmer->pushButton->setParent(this);
-                       farmer->pushButton->show();
-                       F15_Having_Farmer=1;
-                   }
-
-                   Get_info();
-
-
-                   break;
-               case 16:
-                   // Perform action for Button 2
-
-                   if(F16_Having_Farmer==0){
-
-                       farmer->pushButton->move(1710, 850);
-                       farmer->pushButton->setParent(this);
-                       farmer->pushButton->show();
-                       F16_Having_Farmer=1;
-                   }
-
-                   Get_info();
-
-
-
-                   break;
-               case 17:
-                   //add to verticall layout
-                   farmer->pushButton->move(2000, 10);
-
-                   ui->Farmer_verticalLayout->addWidget(farmer->pushButton);
-
-                   Get_info();
-
-                   break;
-
-               default:
-                   Get_info();
-                   break;
                }
-           }
 
-        });
+               if(i==2 && ui->label_2->isHidden()){
 
-        msgBox.exec();
+                   button->setEnabled(false);
 
-       });
+               }else if(i==2 && ui->label_2->isVisible()){
 
+                   QPoint pos(600, 160);
+
+                   if(check(pos)==true){
+
+                       F2_Having_Farmer=0;
+                       button->setEnabled(true);
+                   }
+                   if((check(pos)==false) || (check(pos)==true && ui->Cancel_2->isVisible())) {
+
+                       F2_Having_Farmer=1;
+                       button->setEnabled(false);
+                   }
+               }
+
+               if(i==3 && ui->label_3->isHidden()){
+
+                   button->setEnabled(false);
+
+               }else if(i==3 && ui->label_3->isVisible()){
+
+                   QPoint pos(1320, 160);
+
+                   if(check(pos)==true){
+
+                       F3_Having_Farmer=0;
+                       button->setEnabled(true);
+                   }
+                   if((check(pos)==false) || (check(pos)==true && ui->Cancel_3->isVisible())){
+
+                       F3_Having_Farmer=1;
+                       button->setEnabled(false);
+                   }
+               }
+
+               if(i==4 && ui->label_4->isHidden()){
+
+                   button->setEnabled(false);
+
+               }else if(i==4 && ui->label_4->isVisible()){
+
+                   QPoint pos(1710, 160);
+
+                   if(check(pos)==true){
+
+                       F4_Having_Farmer=0;
+                       button->setEnabled(true);
+                   }
+                   if((check(pos)==false) || (check(pos)==true && ui->Cancel_4->isVisible())){
+
+                       F4_Having_Farmer=1;
+                       button->setEnabled(false);
+                   }
+               }
+
+               if(i==5 && ui->label_5->isHidden()){
+
+                   button->setEnabled(false);
+
+               }else if(i==5 && ui->label_5->isVisible()){
+
+                   QPoint pos(210, 390);
+
+                   if(check(pos)==true){
+
+                       F5_Having_Farmer=0;
+                       button->setEnabled(true);
+                   }
+                   if((check(pos)==false) || (check(pos)==true && ui->Cancel_5->isVisible())){
+
+                       F5_Having_Farmer=1;
+                       button->setEnabled(false);
+                   }
+               }
+
+               if(i==6 && ui->label_6->isHidden()){
+
+                   button->setEnabled(false);
+
+               }else if(i==6 && ui->label_6->isVisible()){
+
+                   QPoint pos(600, 390);
+
+                   if(check(pos)==true){
+
+                       F6_Having_Farmer=0;
+                       button->setEnabled(true);
+                   }
+                   if((check(pos)==false) || (check(pos)==true && ui->Cancel_6->isVisible())){
+
+                       F6_Having_Farmer=1;
+                       button->setEnabled(false);
+                   }
+               }
+
+               if(i==7 && ui->label_7->isHidden()){
+
+                   button->setEnabled(false);
+
+               }else if(i==7 && ui->label_7->isVisible()){
+
+                   QPoint pos(1320, 390);
+
+                   if(check(pos)==true){
+
+                       F7_Having_Farmer=0;
+                       button->setEnabled(true);
+                   }
+                   if((check(pos)==false) || (check(pos)==true && ui->Cancel_7->isVisible())){
+
+                       F7_Having_Farmer=1;
+                       button->setEnabled(false);
+                   }
+               }
+
+               if(i==8 && ui->label_8->isHidden()){
+
+                   button->setEnabled(false);
+
+               }else if(i==8 && ui->label_8->isVisible()){
+
+                   QPoint pos(1710, 390);
+
+                   if(check(pos)==true){
+
+                       F8_Having_Farmer=0;
+                       button->setEnabled(true);
+                   }
+                   if((check(pos)==false) || (check(pos)==true && ui->Cancel_8->isVisible())){
+
+                       F8_Having_Farmer=1;
+                       button->setEnabled(false);
+                   }
+               }
+
+               if(i==9 && ui->label_9->isHidden()){
+
+                   button->setEnabled(false);
+
+               }else if(i==9 && ui->label_9->isVisible()){
+
+                   QPoint pos(210, 620);
+
+                   if(check(pos)==true){
+
+                       F9_Having_Farmer=0;
+                       button->setEnabled(true);
+                   }
+                   if((check(pos)==false) || (check(pos)==true && ui->Cancel_9->isVisible())){
+
+                       F9_Having_Farmer=1;
+                       button->setEnabled(false);
+                   }
+               }
+
+               if(i==10 && ui->label_10->isHidden()){
+
+                   button->setEnabled(false);
+
+               }else if(i==10 && ui->label_10->isVisible()){
+
+                   QPoint pos(600, 620);
+
+                   if(check(pos)==true){
+
+                       F10_Having_Farmer=0;
+                       button->setEnabled(true);
+                   }
+                   if((check(pos)==false) || (check(pos)==true && ui->Cancel_10->isVisible())){
+
+                       F10_Having_Farmer=1;
+                       button->setEnabled(false);
+                   }
+               }
+
+               if(i==11 && ui->label_11->isHidden()){
+
+                   button->setEnabled(false);
+
+               }else if(i==11 && ui->label_11->isVisible()){
+
+                   QPoint pos(1320, 620);
+
+                   if(check(pos)==true){
+
+                       F11_Having_Farmer=0;
+                       button->setEnabled(true);
+                   }
+                   if((check(pos)==false) || (check(pos)==true && ui->Cancel_11->isVisible())){
+
+                       F11_Having_Farmer=1;
+                       button->setEnabled(false);
+                   }
+               }
+
+               if(i==12 && ui->label_12->isHidden()){
+
+                   button->setEnabled(false);
+
+               }else if(i==12 && ui->label_12->isVisible()){
+
+                   QPoint pos(1710, 620);
+
+                   if(check(pos)==true){
+
+                       F12_Having_Farmer=0;
+                       button->setEnabled(true);
+                   }
+                   if((check(pos)==false) || (check(pos)==true && ui->Cancel_12->isVisible())){
+
+                       F12_Having_Farmer=1;
+                       button->setEnabled(false);
+                   }
+               }
+
+               if(i==13 && ui->label_13->isHidden()){
+
+                   button->setEnabled(false);
+
+               }else if(i==13 && ui->label_13->isVisible()){
+
+                   QPoint pos(210, 850);
+
+                   if(check(pos)==true){
+
+                       F13_Having_Farmer=0;
+                       button->setEnabled(true);
+                   }
+                   if((check(pos)==false) || (check(pos)==true && ui->Cancel_13->isVisible())){
+
+                       F13_Having_Farmer=1;
+                       button->setEnabled(false);
+                   }
+               }
+
+               if(i==14 && ui->label_14->isHidden()){
+
+                   button->setEnabled(false);
+
+               }else if(i==14 && ui->label_14->isVisible()){
+
+                   QPoint pos(600, 850);
+
+                   if(check(pos)==true){
+
+                       F14_Having_Farmer=0;
+                       button->setEnabled(true);
+                   }
+                   if((check(pos)==false) || (check(pos)==true && ui->Cancel_14->isVisible())){
+
+                       F14_Having_Farmer=1;
+                       button->setEnabled(false);
+                   }
+               }
+
+               if(i==15 && ui->label_15->isHidden()){
+
+                   button->setEnabled(false);
+
+               }else if(i==15 && ui->label_15->isVisible()){
+
+                   QPoint pos(1320, 850);
+
+                   if(check(pos)==true){
+
+                       F15_Having_Farmer=0;
+                       button->setEnabled(true);
+                   }
+                   if((check(pos)==false) || (check(pos)==true && ui->Cancel_15->isVisible())){
+
+                       F15_Having_Farmer=1;
+                       button->setEnabled(false);
+                   }
+               }
+
+               if(i==16 && ui->label_16->isHidden()){
+
+                   button->setEnabled(false);
+
+               }else if(i==16 && ui->label_16->isVisible()){
+
+                   QPoint pos(1710, 850);
+
+                   if(check(pos)==true){
+
+                       F16_Having_Farmer=0;
+                       button->setEnabled(true);
+                   }
+                   if((check(pos)==false) || (check(pos)==true && ui->Cancel_16->isVisible())){
+
+                       F16_Having_Farmer=1;
+                       button->setEnabled(false);
+                   }
+               }
+
+              if(i==17){
+
+                  button->setText("home");
+                  button->setMinimumSize(60,40);
+
+              }
+
+            }
+        // clazy:exclude:connect-3arg-lambda
+            QObject::connect(&msgBox, &QMessageBox::finished, [&](int result){
+               QAbstractButton* clickedButton = msgBox.clickedButton();
+               if (clickedButton) {
+                   int buttonNumber = buttonMap[clickedButton];
+
+                   switch(buttonNumber) {
+
+                   case 1:
+
+                       if(F1_Having_Farmer==0){
+
+                           farmer->pushButton->move(210, 160);
+                           farmer->pushButton->setParent(this);
+                           farmer->pushButton->show();
+                           F1_Having_Farmer=1;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 2:
+
+                       if(F2_Having_Farmer==0){
+
+                           farmer->pushButton->move(600, 160);
+                           farmer->pushButton->setParent(this);
+                           farmer->pushButton->show();
+                           F2_Having_Farmer=1;
+                       }
+
+                       Get_info();
+
+
+                       break;
+                   case 3:
+                       // Perform action for Button 2
+
+                       if(F3_Having_Farmer==0){
+
+                           farmer->pushButton->move(1320, 160);
+                           farmer->pushButton->setParent(this);
+                           farmer->pushButton->show();
+                           F3_Having_Farmer=1;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 4:
+                       // Perform action for Button 2
+
+                       if(F4_Having_Farmer==0){
+
+                           farmer->pushButton->move(1710, 160);
+                           farmer->pushButton->setParent(this);
+                           farmer->pushButton->show();
+                           F4_Having_Farmer=1;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 5:
+                       // Perform action for Button 2
+
+                       if(F5_Having_Farmer==0){
+
+                           farmer->pushButton->move(210, 390);
+                           farmer->pushButton->setParent(this);
+                           farmer->pushButton->show();
+                           F5_Having_Farmer=1;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 6:
+                       // Perform action for Button 2
+
+                       if(F6_Having_Farmer==0){
+
+                           farmer->pushButton->move(600, 390);
+                           farmer->pushButton->setParent(this);
+                           farmer->pushButton->show();
+                           F6_Having_Farmer=1;
+                       }
+
+                       Get_info();
+
+
+                       break;
+                   case 7:
+                       // Perform action for Button 2
+
+                       if(F7_Having_Farmer==0){
+
+                           farmer->pushButton->move(1320, 390);
+                           farmer->pushButton->setParent(this);
+                           farmer->pushButton->show();
+                           F7_Having_Farmer=1;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 8:
+                       // Perform action for Button 2
+
+                       if(F8_Having_Farmer==0){
+
+                           farmer->pushButton->move(1710, 390);
+                           farmer->pushButton->setParent(this);
+                           farmer->pushButton->show();
+                           F8_Having_Farmer=1;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 9:
+                       // Perform action for Button 2
+
+                       if(F9_Having_Farmer==0){
+
+                           farmer->pushButton->move(210, 620);
+                           farmer->pushButton->setParent(this);
+                           farmer->pushButton->show();
+                           F9_Having_Farmer=1;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 10:
+                       // Perform action for Button 2
+
+                       if(F10_Having_Farmer==0){
+
+                           farmer->pushButton->move(600, 620);
+                           farmer->pushButton->setParent(this);
+                           farmer->pushButton->show();
+                           F10_Having_Farmer=1;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 11:
+                       // Perform action for Button 2
+
+                       if(F11_Having_Farmer==0){
+
+                           farmer->pushButton->move(1320, 620);
+                           farmer->pushButton->setParent(this);
+                           farmer->pushButton->show();
+                           F11_Having_Farmer=1;
+                       }
+                       Get_info();
+
+                       break;
+                   case 12:
+                       // Perform action for Button 2
+
+                       if(F12_Having_Farmer==0){
+
+                           farmer->pushButton->move(1710, 620);
+                           farmer->pushButton->setParent(this);
+                           farmer->pushButton->show();
+                           F12_Having_Farmer=1;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 13:
+                       // Perform action for Button 2
+
+                       if(F13_Having_Farmer==0){
+
+                           farmer->pushButton->move(210, 850);
+                           farmer->pushButton->setParent(this);
+                           farmer->pushButton->show();
+                           F13_Having_Farmer=1;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 14:
+                       // Perform action for Button 2
+
+                       if(F14_Having_Farmer==0){
+
+                           farmer->pushButton->move(600, 850);
+                           farmer->pushButton->setParent(this);
+                           farmer->pushButton->show();
+                           F14_Having_Farmer=1;
+                       }
+
+                       Get_info();
+
+                       break;
+                   case 15:
+                       // Perform action for Button 2
+
+                       if(F15_Having_Farmer==0){
+
+                           farmer->pushButton->move(1320, 850);
+                           farmer->pushButton->setParent(this);
+                           farmer->pushButton->show();
+                           F15_Having_Farmer=1;
+                       }
+
+                       Get_info();
+
+
+                       break;
+                   case 16:
+                       // Perform action for Button 2
+
+                       if(F16_Having_Farmer==0){
+
+                           farmer->pushButton->move(1710, 850);
+                           farmer->pushButton->setParent(this);
+                           farmer->pushButton->show();
+                           F16_Having_Farmer=1;
+                       }
+
+                       Get_info();
+
+
+
+                       break;
+                   case 17:
+                       //add to verticall layout
+                       farmer->pushButton->move(2000, 10);
+
+                       ui->Farmer_verticalLayout->addWidget(farmer->pushButton);
+
+                       Get_info();
+
+                       break;
+
+                   default:
+                       Get_info();
+                       break;
+                   }
+               }
+
+            });
+
+            msgBox.exec();
+
+           });
+
+    }else{
+
+        clearLayout(ui->verticalLayout_2);
+        QMessageBox::warning(this, "ssdasda", "ddsdsdds");
+    }
+
+    clearLayout(ui->verticalLayout_2);
 }
 
 void Gamepage::on_New_farm_pushButton_clicked()
 {
-    if(ui->label_2->isHidden()){
 
-        ui->label_2->show();
+    if(ui->label_16->isVisible()){
 
-    }else if(ui->label_2->isVisible() && ui->label_3->isHidden()){
+        QMessageBox::information(this, "full", "addaddsad");
 
-        ui->label_3->show();
+    }else{
 
-    }else if(ui->label_3->isVisible() && ui->label_4->isHidden()){
+        if(score >= 3){
 
-        ui->label_4->show();
+            score = score - 3;
 
-    }else if(ui->label_4->isVisible() && ui->label_5->isHidden()){
+            ui->label_Score->setText( "Score : " + QString::number(score));
 
-        ui->label_5->show();
+            if(ui->label_2->isHidden()){
 
-    }else if(ui->label_5->isVisible() && ui->label_6->isHidden()){
+                ui->label_2->show();
 
-        ui->label_6->show();
+            }else if(ui->label_2->isVisible() && ui->label_3->isHidden()){
 
-    }else if(ui->label_6->isVisible() && ui->label_7->isHidden()){
+                ui->label_3->show();
 
-        ui->label_7->show();
+            }else if(ui->label_3->isVisible() && ui->label_4->isHidden()){
 
-    }else if(ui->label_7->isVisible() && ui->label_8->isHidden()){
+                ui->label_4->show();
 
-        ui->label_8->show();
+            }else if(ui->label_4->isVisible() && ui->label_5->isHidden()){
 
-    }else if(ui->label_8->isVisible() && ui->label_9->isHidden()){
+                ui->label_5->show();
 
-        ui->label_9->show();
+            }else if(ui->label_5->isVisible() && ui->label_6->isHidden()){
 
-    }else if(ui->label_9->isVisible() && ui->label_10->isHidden()){
+                ui->label_6->show();
 
-        ui->label_10->show();
+            }else if(ui->label_6->isVisible() && ui->label_7->isHidden()){
 
-    }else if(ui->label_10->isVisible() && ui->label_11->isHidden()){
+                ui->label_7->show();
 
-        ui->label_11->show();
+            }else if(ui->label_7->isVisible() && ui->label_8->isHidden()){
 
-    }else if(ui->label_11->isVisible() && ui->label_12->isHidden()){
+                ui->label_8->show();
 
-        ui->label_12->show();
+            }else if(ui->label_8->isVisible() && ui->label_9->isHidden()){
 
-    }else if(ui->label_12->isVisible() && ui->label_13->isHidden()){
+                ui->label_9->show();
 
-        ui->label_13->show();
+            }else if(ui->label_9->isVisible() && ui->label_10->isHidden()){
 
-    }else if(ui->label_13->isVisible() && ui->label_14->isHidden()){
+                ui->label_10->show();
 
-        ui->label_14->show();
+            }else if(ui->label_10->isVisible() && ui->label_11->isHidden()){
 
-    }else if(ui->label_14->isVisible() && ui->label_15->isHidden()){
+                ui->label_11->show();
 
-        ui->label_15->show();
+            }else if(ui->label_11->isVisible() && ui->label_12->isHidden()){
 
-    }else if(ui->label_15->isVisible() && ui->label_16->isHidden()){
+                ui->label_12->show();
 
-        ui->label_16->show();
+            }else if(ui->label_12->isVisible() && ui->label_13->isHidden()){
+
+                ui->label_13->show();
+
+            }else if(ui->label_13->isVisible() && ui->label_14->isHidden()){
+
+                ui->label_14->show();
+
+            }else if(ui->label_14->isVisible() && ui->label_15->isHidden()){
+
+                ui->label_15->show();
+
+            }else if(ui->label_15->isVisible() && ui->label_16->isHidden()){
+
+                ui->label_16->show();
+            }
+
+        }else{
+
+            clearLayout(ui->verticalLayout_2);
+            QMessageBox::warning(this, "sasas", "nadarim");
+        }
     }
+
+    clearLayout(ui->verticalLayout_2);
 }
 
 bool Gamepage::check(QPoint pos)

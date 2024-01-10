@@ -14,6 +14,8 @@ public:
     QPushButton* pushButton;
 
     bool Farmer_Status;
+
+    int Purchase_price;
 };
 
 #endif // FARMER_H
