@@ -87,13 +87,6 @@ Gamepage::Gamepage(QWidget *parent) :
 
     Hide_decrease_label();
 
-
-    ui->the_product_of_chicken_pushButton->setObjectName("chch");
-    ui->the_product_of_sheep_pushButton->setObjectName("ss");
-    ui->the_product_of_cow_pushButton->setObjectName("cc");
-    ui->the_product_of_wheat_pushButton->setObjectName("ww");
-    ui->the_product_of_barley_pushButton->setObjectName("bb");
-
     ui->label_Score->setText( "Score :" + QString::number(score));
 
 }
@@ -4040,33 +4033,10 @@ bool Gamepage::check(QPoint pos)
     return true;
 }
 
-bool Gamepage::check3(QPoint pos)
-{
-    QList<QPushButton*> buttons =  this->findChildren<QPushButton*>();
-    for (QPushButton* button : buttons) {
-       if (button->geometry().contains(pos)) {
-           // Perform your action here va hast
-           return true;
-       }
-    }
-    return false;
-
-}
-
 void Gamepage::check_our_farm_have_farmer_or_not()
 {
 
-
-//    ui->the_product_of_chicken_pushButton->setObjectName("chch");
-//    ui->the_product_of_sheep_pushButton->setObjectName("ss");
-//    ui->the_product_of_cow_pushButton->setObjectName("cc");
-//    ui->the_product_of_wheat_pushButton->setObjectName("ww");
-//    ui->the_product_of_barley_pushButton->setObjectName("bb");
-
     QPoint pos1(210, 160);
-
-//    QPoint Pos1(160, 140);
-//    QPushButton * button = this->check2(Pos1);
 
     if(check(pos1)==true){
 
@@ -4081,9 +4051,8 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     if(check(pos1)==false){
 
         F1_Having_Farmer=1;
-        if(F1_Having_Farmer==1 && F1_Having_Animals_or_Seeds==1 /*&& button->isHidden()*/){
+        if(F1_Having_Farmer==1 && F1_Having_Animals_or_Seeds==1 && ui->the_product_of_chicken_pushButton->isHidden()  && ui->the_product_of_sheep_pushButton->isHidden()  && ui->the_product_of_cow_pushButton->isHidden()  && ui->the_product_of_wheat_pushButton->isHidden()  && ui->the_product_of_barley_pushButton->isHidden()){
 
-//            qDebug()<<"1 show";
             ui->Start->show();
         }else if(F1_Having_Farmer==1 && F1_Having_Animals_or_Seeds==0){
 
@@ -4092,9 +4061,6 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     }
 
     QPoint pos2(600, 160);
-
-//    QPoint Pos2(550, 140);
-//    QPushButton * button2 = this->check2(Pos2);
 
     if(check(pos2)==true){
 
@@ -4107,9 +4073,7 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     if(check(pos2)==false){
 
         F2_Having_Farmer=1;
-        if(F2_Having_Farmer==1 && F2_Having_Animals_or_Seeds==1/* && button2->isHidden()*/){
-
-//            qDebug()<<"2 show";
+        if(F2_Having_Farmer==1 && F2_Having_Animals_or_Seeds==1 && ui->the_product_of_chicken_pushButton_2->isHidden()  && ui->the_product_of_sheep_pushButton_2->isHidden()  && ui->the_product_of_cow_pushButton_2->isHidden()  && ui->the_product_of_wheat_pushButton_2->isHidden()  && ui->the_product_of_barley_pushButton_2->isHidden()){
 
             ui->Start_2->show();
         }else if(F2_Having_Farmer==1 && F2_Having_Animals_or_Seeds==0){
@@ -4120,9 +4084,6 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     }
 
     QPoint pos3(1320, 160);
-
-//    QPoint Pos3(1270, 140);
-//    QPushButton * button3 = this->check2(Pos3);
 
     if(check(pos3)==true){
 
@@ -4135,9 +4096,8 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     if(check(pos3)==false){
 
         F3_Having_Farmer=1;
-        if(F3_Having_Farmer==1 && F3_Having_Animals_or_Seeds==1 /*&& button3->isHidden()*/){
+        if(F3_Having_Farmer==1 && F3_Having_Animals_or_Seeds==1 && ui->the_product_of_chicken_pushButton_3->isHidden()  && ui->the_product_of_sheep_pushButton_3->isHidden()  && ui->the_product_of_cow_pushButton_3->isHidden()  && ui->the_product_of_wheat_pushButton_3->isHidden()  && ui->the_product_of_barley_pushButton_3->isHidden()){
 
-//            qDebug()<<"3 show";
             ui->Start_3->show();
         }else if(F3_Having_Farmer==1 && F3_Having_Animals_or_Seeds==0){
 
@@ -4145,30 +4105,8 @@ void Gamepage::check_our_farm_have_farmer_or_not()
         }
     }
 
-//    qDebug()<<"F1_Having_Farmer = "<<F1_Having_Farmer;
-//    qDebug()<<"F1_Having_Animals_or_Seeds = "<<F1_Having_Animals_or_Seeds;
 
-//    qDebug()<<"F2_Having_Farmer = "<<F2_Having_Farmer;
-//    qDebug()<<"F2_Having_Animals_or_Seeds = "<<F2_Having_Animals_or_Seeds;
-
-//    qDebug()<<"F3_Having_Farmer = "<<F3_Having_Farmer;
-//    qDebug()<<"F3_Having_Animals_or_Seeds = "<<F3_Having_Animals_or_Seeds;
-//    if(button->isVisible()){
-
-//        qDebug()<<"11111111111111111";
-//    }
-//    if(button2->isVisible()){
-
-//        qDebug()<<"22222222222222222";
-//    }
-//    if(button3->isVisible()){
-
-//        qDebug()<<"333333333333";
-//    }
     QPoint pos4(1710, 160);
-
-    QPoint Pos4(1660, 140);
-    QPushButton * button4 = check2(Pos4);
 
     if(check(pos4)==true){
 
@@ -4181,7 +4119,7 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     if(check(pos4)==false){
 
         F4_Having_Farmer=1;
-        if(F4_Having_Farmer==1 && F4_Having_Animals_or_Seeds==1 && button4->isHidden()){
+        if(F4_Having_Farmer==1 && F4_Having_Animals_or_Seeds==1 && ui->the_product_of_chicken_pushButton_4->isHidden()  && ui->the_product_of_sheep_pushButton_4->isHidden()  && ui->the_product_of_cow_pushButton_4->isHidden()  && ui->the_product_of_wheat_pushButton_4->isHidden()  && ui->the_product_of_barley_pushButton_4->isHidden()){
 
             ui->Start_4->show();
         }else if(F4_Having_Farmer==1 && F4_Having_Animals_or_Seeds==0){
@@ -4191,9 +4129,6 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     }
 
     QPoint pos5(210, 390);
-
-    QPoint Pos5(160, 370);
-    QPushButton * button5 = check2(Pos5);
 
     if(check(pos5)==true){
 
@@ -4206,7 +4141,7 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     if(check(pos5)==false){
 
         F5_Having_Farmer=1;
-        if(F5_Having_Farmer==1 && F5_Having_Animals_or_Seeds==1 && button5->isHidden()){
+        if(F5_Having_Farmer==1 && F5_Having_Animals_or_Seeds==1 && ui->the_product_of_chicken_pushButton_5->isHidden()  && ui->the_product_of_sheep_pushButton_5->isHidden()  && ui->the_product_of_cow_pushButton_5->isHidden()  && ui->the_product_of_wheat_pushButton_5->isHidden()  && ui->the_product_of_barley_pushButton_5->isHidden()){
 
             ui->Start_5->show();
         }else if(F5_Having_Farmer==1 && F5_Having_Animals_or_Seeds==0){
@@ -4216,9 +4151,6 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     }
 
     QPoint pos6(600, 390);
-
-    QPoint Pos6(550, 370);
-    QPushButton * button6 = check2(Pos6);
 
     if(check(pos6)==true){
 
@@ -4231,7 +4163,7 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     if(check(pos6)==false){
 
         F6_Having_Farmer=1;
-        if(F6_Having_Farmer==1 && F6_Having_Animals_or_Seeds==1 && button6->isHidden()){
+        if(F6_Having_Farmer==1 && F6_Having_Animals_or_Seeds==1 && ui->the_product_of_chicken_pushButton_6->isHidden()  && ui->the_product_of_sheep_pushButton_6->isHidden()  && ui->the_product_of_cow_pushButton_6->isHidden()  && ui->the_product_of_wheat_pushButton_6->isHidden()  && ui->the_product_of_barley_pushButton_6->isHidden()){
 
             ui->Start_6->show();
         }else if(F6_Having_Farmer==1 && F6_Having_Animals_or_Seeds==0){
@@ -4241,9 +4173,6 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     }
 
     QPoint pos7(1320, 390);
-
-    QPoint Pos7(1270, 370);
-    QPushButton * button7 = check2(Pos7);
 
     if(check(pos7)==true){
 
@@ -4256,7 +4185,7 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     if(check(pos7)==false){
 
         F7_Having_Farmer=1;
-        if(F7_Having_Farmer==1 && F7_Having_Animals_or_Seeds==1 && button7->isHidden()){
+        if(F7_Having_Farmer==1 && F7_Having_Animals_or_Seeds==1 && ui->the_product_of_chicken_pushButton_7->isHidden()  && ui->the_product_of_sheep_pushButton_7->isHidden()  && ui->the_product_of_cow_pushButton_7->isHidden()  && ui->the_product_of_wheat_pushButton_7->isHidden()  && ui->the_product_of_barley_pushButton_7->isHidden()){
 
             ui->Start_2->show();
         }else if(F7_Having_Farmer==1 && F7_Having_Animals_or_Seeds==0){
@@ -4266,9 +4195,6 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     }
 
     QPoint pos8(1710, 390);
-
-    QPoint Pos8(1660, 370);
-    QPushButton * button8 = check2(Pos8);
 
     if(check(pos8)==true){
 
@@ -4281,7 +4207,7 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     if(check(pos8)==false){
 
         F8_Having_Farmer=1;
-        if(F8_Having_Farmer==1 && F8_Having_Animals_or_Seeds==1 && button8->isHidden()){
+        if(F8_Having_Farmer==1 && F8_Having_Animals_or_Seeds==1 && ui->the_product_of_chicken_pushButton_8->isHidden()  && ui->the_product_of_sheep_pushButton_8->isHidden()  && ui->the_product_of_cow_pushButton_8->isHidden()  && ui->the_product_of_wheat_pushButton_8->isHidden()  && ui->the_product_of_barley_pushButton_8->isHidden()){
 
             ui->Start_8->show();
         }else if(F8_Having_Farmer==1 && F8_Having_Animals_or_Seeds==0){
@@ -4291,9 +4217,6 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     }
 
     QPoint pos9(210, 620);
-
-    QPoint Pos9(160, 600);
-    QPushButton * button9 = check2(Pos9);
 
     if(check(pos9)==true){
 
@@ -4306,7 +4229,7 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     if(check(pos9)==false){
 
         F9_Having_Farmer=1;
-        if(F9_Having_Farmer==1 && F9_Having_Animals_or_Seeds==1 && button9->isHidden()){
+        if(F9_Having_Farmer==1 && F9_Having_Animals_or_Seeds==1 && ui->the_product_of_chicken_pushButton_9->isHidden()  && ui->the_product_of_sheep_pushButton_9->isHidden()  && ui->the_product_of_cow_pushButton_9->isHidden()  && ui->the_product_of_wheat_pushButton_9->isHidden()  && ui->the_product_of_barley_pushButton_9->isHidden()){
 
             ui->Start_9->show();
         }else if(F9_Having_Farmer==1 && F9_Having_Animals_or_Seeds==0){
@@ -4316,9 +4239,6 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     }
 
     QPoint pos10(600, 620);
-
-    QPoint Pos10(550, 600);
-    QPushButton * button10 = check2(Pos10);
 
     if(check(pos10)==true){
 
@@ -4331,7 +4251,7 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     if(check(pos10)==false){
 
         F10_Having_Farmer=1;
-        if(F10_Having_Farmer==1 && F10_Having_Animals_or_Seeds==1 && button10->isHidden()){
+        if(F10_Having_Farmer==1 && F10_Having_Animals_or_Seeds==1 && ui->the_product_of_chicken_pushButton_10->isHidden()  && ui->the_product_of_sheep_pushButton_10->isHidden()  && ui->the_product_of_cow_pushButton_10->isHidden()  && ui->the_product_of_wheat_pushButton_10->isHidden()  && ui->the_product_of_barley_pushButton_10->isHidden()){
 
             ui->Start_10->show();
         }else if(F10_Having_Farmer==1 && F10_Having_Animals_or_Seeds==0){
@@ -4341,9 +4261,6 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     }
 
     QPoint pos11(1320, 620);
-
-    QPoint Pos11(1270, 600);
-    QPushButton * button11 = check2(Pos11);
 
     if(check(pos11)==true){
 
@@ -4356,7 +4273,7 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     if(check(pos11)==false){
 
         F11_Having_Farmer=1;
-        if(F11_Having_Farmer==1 && F11_Having_Animals_or_Seeds==1 && button11->isHidden()){
+        if(F11_Having_Farmer==1 && F11_Having_Animals_or_Seeds==1 && ui->the_product_of_chicken_pushButton_11->isHidden()  && ui->the_product_of_sheep_pushButton_11->isHidden()  && ui->the_product_of_cow_pushButton_11->isHidden()  && ui->the_product_of_wheat_pushButton_11->isHidden()  && ui->the_product_of_barley_pushButton_11->isHidden()){
 
             ui->Start_11->show();
         }else if(F11_Having_Farmer==1 && F11_Having_Animals_or_Seeds==0){
@@ -4366,9 +4283,6 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     }
 
     QPoint pos12(1710, 620);
-
-    QPoint Pos12(1660, 600);
-    QPushButton * button12 = check2(Pos12);
 
     if(check(pos12)==true){
 
@@ -4381,7 +4295,7 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     if(check(pos12)==false){
 
         F12_Having_Farmer=1;
-        if(F12_Having_Farmer==1 && F12_Having_Animals_or_Seeds==1 && button12->isHidden()){
+        if(F12_Having_Farmer==1 && F12_Having_Animals_or_Seeds==1 && ui->the_product_of_chicken_pushButton_12->isHidden()  && ui->the_product_of_sheep_pushButton_12->isHidden()  && ui->the_product_of_cow_pushButton_12->isHidden()  && ui->the_product_of_wheat_pushButton_12->isHidden()  && ui->the_product_of_barley_pushButton_12->isHidden()){
 
             ui->Start_12->show();
         }else if(F12_Having_Farmer==1 && F12_Having_Animals_or_Seeds==0){
@@ -4391,9 +4305,6 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     }
 
     QPoint pos13(210, 850);
-
-    QPoint Pos13(160, 830);
-    QPushButton * button13 = check2(Pos13);
 
     if(check(pos13)==true){
 
@@ -4406,7 +4317,7 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     if(check(pos13)==false){
 
         F13_Having_Farmer=1;
-        if(F13_Having_Farmer==1 && F13_Having_Animals_or_Seeds==1 && button13->isHidden()){
+        if(F13_Having_Farmer==1 && F13_Having_Animals_or_Seeds==1 && ui->the_product_of_chicken_pushButton_13->isHidden()  && ui->the_product_of_sheep_pushButton_13->isHidden()  && ui->the_product_of_cow_pushButton_13->isHidden()  && ui->the_product_of_wheat_pushButton_13->isHidden()  && ui->the_product_of_barley_pushButton_13->isHidden()){
 
             ui->Start_13->show();
         }else if(F13_Having_Farmer==1 && F13_Having_Animals_or_Seeds==0){
@@ -4416,9 +4327,6 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     }
 
     QPoint pos14(600, 850);
-
-    QPoint Pos14(550, 830);
-    QPushButton * button14 = check2(Pos14);
 
     if(check(pos14)==true){
 
@@ -4431,7 +4339,7 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     if(check(pos14)==false){
 
         F14_Having_Farmer=1;
-        if(F14_Having_Farmer==1 && F14_Having_Animals_or_Seeds==1 && button14->isHidden()){
+        if(F14_Having_Farmer==1 && F14_Having_Animals_or_Seeds==1 && ui->the_product_of_chicken_pushButton_14->isHidden()  && ui->the_product_of_sheep_pushButton_14->isHidden()  && ui->the_product_of_cow_pushButton_14->isHidden()  && ui->the_product_of_wheat_pushButton_14->isHidden()  && ui->the_product_of_barley_pushButton_14->isHidden()){
 
             ui->Start_14->show();
         }else if(F14_Having_Farmer==1 && F14_Having_Animals_or_Seeds==0){
@@ -4441,9 +4349,6 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     }
 
     QPoint pos15(1320, 850);
-
-    QPoint Pos15(1270, 830);
-    QPushButton * button15 = check2(Pos15);
 
     if(check(pos15)==true){
 
@@ -4456,7 +4361,7 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     if(check(pos15)==false){
 
         F15_Having_Farmer=1;
-        if(F15_Having_Farmer==1 && F15_Having_Animals_or_Seeds==1 && button15->isHidden()){
+        if(F15_Having_Farmer==1 && F15_Having_Animals_or_Seeds==1 && ui->the_product_of_chicken_pushButton_15->isHidden()  && ui->the_product_of_sheep_pushButton_15->isHidden()  && ui->the_product_of_cow_pushButton_15->isHidden()  && ui->the_product_of_wheat_pushButton_15->isHidden()  && ui->the_product_of_barley_pushButton_15->isHidden()){
 
             ui->Start_15->show();
         }else if(F15_Having_Farmer==1 && F15_Having_Animals_or_Seeds==0){
@@ -4466,9 +4371,6 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     }
 
     QPoint pos16(1710, 850);
-
-    QPoint Pos16(1660, 830);
-    QPushButton * button16 = check2(Pos16);
 
     if(check(pos16)==true){
 
@@ -4481,7 +4383,7 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     if(check(pos16)==false){
 
         F16_Having_Farmer=1;
-        if(F16_Having_Farmer==1 && F16_Having_Animals_or_Seeds==1 && button16->isHidden()){
+        if(F16_Having_Farmer==1 && F16_Having_Animals_or_Seeds==1 && ui->the_product_of_chicken_pushButton_16->isHidden()  && ui->the_product_of_sheep_pushButton_16->isHidden()  && ui->the_product_of_cow_pushButton_16->isHidden()  && ui->the_product_of_wheat_pushButton_16->isHidden()  && ui->the_product_of_barley_pushButton_16->isHidden()){
 
             ui->Start_16->show();
         }else if(F16_Having_Farmer==1 && F16_Having_Animals_or_Seeds==0){
@@ -4504,13 +4406,6 @@ QPushButton * Gamepage::check2(QPoint pos)
 
 void Gamepage::Get_info()
 {
-
-    //    ui->the_product_of_chicken_pushButton->setObjectName("chch");
-    //    ui->the_product_of_sheep_pushButton->setObjectName("ss");
-    //    ui->the_product_of_cow_pushButton->setObjectName("cc");
-    //    ui->the_product_of_wheat_pushButton->setObjectName("ww");
-    //    ui->the_product_of_barley_pushButton->setObjectName("bb");
-
 
     QPoint Pos(150, 180);
 
@@ -4583,7 +4478,7 @@ void Gamepage::Get_info()
 
        if (buttonAtPos3->objectName() == "Chicken") {
            F3_Which_Of_Animals_or_Seeds=1;
-           F1_Having_Animals_or_Seeds=1;
+           F3_Having_Animals_or_Seeds=1;
 
        } else if (buttonAtPos3->objectName() == "Sheep") {
            F3_Which_Of_Animals_or_Seeds=2;
@@ -4615,18 +4510,23 @@ void Gamepage::Get_info()
 
        if (buttonAtPos4->objectName() == "Chicken") {
            F4_Which_Of_Animals_or_Seeds=1;
+           F4_Having_Animals_or_Seeds=1;
 
        } else if (buttonAtPos4->objectName() == "Sheep") {
            F4_Which_Of_Animals_or_Seeds=2;
+           F4_Having_Animals_or_Seeds=1;
 
        } else if (buttonAtPos4->objectName() == "Cow") {
            F4_Which_Of_Animals_or_Seeds=3;
+           F4_Having_Animals_or_Seeds=1;
 
        } else if (buttonAtPos4->objectName() == "Wheat") {
            F4_Which_Of_Animals_or_Seeds=4;
+           F4_Having_Animals_or_Seeds=1;
 
        } else if (buttonAtPos4->objectName() == "Barley") {
            F4_Which_Of_Animals_or_Seeds=5;
+           F4_Having_Animals_or_Seeds=1;
 
        }
     }else if(buttonAtPos4 == nullptr){
@@ -4642,18 +4542,23 @@ void Gamepage::Get_info()
 
        if (buttonAtPos5->objectName() == "Chicken") {
            F5_Which_Of_Animals_or_Seeds=1;
+           F5_Having_Animals_or_Seeds=1;
 
        } else if (buttonAtPos5->objectName() == "Sheep") {
            F5_Which_Of_Animals_or_Seeds=2;
+           F5_Having_Animals_or_Seeds=1;
 
        } else if (buttonAtPos5->objectName() == "Cow") {
            F5_Which_Of_Animals_or_Seeds=3;
+           F5_Having_Animals_or_Seeds=1;
 
        } else if (buttonAtPos5->objectName() == "Wheat") {
            F5_Which_Of_Animals_or_Seeds=4;
+           F5_Having_Animals_or_Seeds=1;
 
        } else if (buttonAtPos5->objectName() == "Barley") {
            F5_Which_Of_Animals_or_Seeds=5;
+           F5_Having_Animals_or_Seeds=1;
 
        }
     }else if(buttonAtPos5 == nullptr){
@@ -4669,18 +4574,23 @@ void Gamepage::Get_info()
 
        if (buttonAtPos6->objectName() == "Chicken") {
            F6_Which_Of_Animals_or_Seeds=1;
+           F6_Having_Animals_or_Seeds=1;
 
        } else if (buttonAtPos6->objectName() == "Sheep") {
            F6_Which_Of_Animals_or_Seeds=2;
+           F6_Having_Animals_or_Seeds=1;
 
        } else if (buttonAtPos6->objectName() == "Cow") {
            F6_Which_Of_Animals_or_Seeds=3;
+           F6_Having_Animals_or_Seeds=1;
 
        } else if (buttonAtPos6->objectName() == "Wheat") {
            F6_Which_Of_Animals_or_Seeds=4;
+           F6_Having_Animals_or_Seeds=1;
 
        } else if (buttonAtPos6->objectName() == "Barley") {
            F6_Which_Of_Animals_or_Seeds=5;
+           F6_Having_Animals_or_Seeds=1;
 
        }
     }else if(buttonAtPos6 == nullptr){
@@ -4696,18 +4606,23 @@ void Gamepage::Get_info()
 
        if (buttonAtPos7->objectName() == "Chicken") {
            F7_Which_Of_Animals_or_Seeds=1;
+           F7_Having_Animals_or_Seeds=1;
 
        } else if (buttonAtPos7->objectName() == "Sheep") {
            F7_Which_Of_Animals_or_Seeds=2;
+           F7_Having_Animals_or_Seeds=1;
 
        } else if (buttonAtPos7->objectName() == "Cow") {
            F7_Which_Of_Animals_or_Seeds=3;
+           F7_Having_Animals_or_Seeds=1;
 
        } else if (buttonAtPos7->objectName() == "Wheat") {
            F7_Which_Of_Animals_or_Seeds=4;
+           F7_Having_Animals_or_Seeds=1;
 
        } else if (buttonAtPos7->objectName() == "Barley") {
            F7_Which_Of_Animals_or_Seeds=5;
+           F7_Having_Animals_or_Seeds=1;
 
        }
     }else if(buttonAtPos7 == nullptr){
@@ -4723,18 +4638,23 @@ void Gamepage::Get_info()
 
        if (buttonAtPos8->objectName() == "Chicken") {
            F8_Which_Of_Animals_or_Seeds=1;
+           F8_Having_Animals_or_Seeds=1;
 
        } else if (buttonAtPos8->objectName() == "Sheep") {
            F8_Which_Of_Animals_or_Seeds=2;
+           F8_Having_Animals_or_Seeds=1;
 
        } else if (buttonAtPos8->objectName() == "Cow") {
            F8_Which_Of_Animals_or_Seeds=3;
+           F8_Having_Animals_or_Seeds=1;
 
        } else if (buttonAtPos8->objectName() == "Wheat") {
            F8_Which_Of_Animals_or_Seeds=4;
+           F8_Having_Animals_or_Seeds=1;
 
        } else if (buttonAtPos8->objectName() == "Barley") {
            F8_Which_Of_Animals_or_Seeds=5;
+           F8_Having_Animals_or_Seeds=1;
 
        }
     }else if(buttonAtPos8 == nullptr){
@@ -4750,18 +4670,23 @@ void Gamepage::Get_info()
 
        if (buttonAtPos9->objectName() == "Chicken") {
            F9_Which_Of_Animals_or_Seeds=1;
+           F9_Having_Animals_or_Seeds=1;
 
        } else if (buttonAtPos9->objectName() == "Sheep") {
            F9_Which_Of_Animals_or_Seeds=2;
+           F9_Having_Animals_or_Seeds=1;
 
        } else if (buttonAtPos9->objectName() == "Cow") {
            F9_Which_Of_Animals_or_Seeds=3;
+           F9_Having_Animals_or_Seeds=1;
 
        } else if (buttonAtPos9->objectName() == "Wheat") {
            F9_Which_Of_Animals_or_Seeds=4;
+           F9_Having_Animals_or_Seeds=1;
 
        } else if (buttonAtPos9->objectName() == "Barley") {
            F9_Which_Of_Animals_or_Seeds=5;
+           F9_Having_Animals_or_Seeds=1;
 
        }
     }else if(buttonAtPos9 == nullptr){
@@ -4777,18 +4702,23 @@ void Gamepage::Get_info()
 
        if (buttonAtPos10->objectName() == "Chicken") {
            F10_Which_Of_Animals_or_Seeds=1;
+           F10_Having_Animals_or_Seeds=1;
 
        } else if (buttonAtPos10->objectName() == "Sheep") {
            F10_Which_Of_Animals_or_Seeds=2;
+           F10_Having_Animals_or_Seeds=1;
 
        } else if (buttonAtPos10->objectName() == "Cow") {
            F10_Which_Of_Animals_or_Seeds=3;
+           F10_Having_Animals_or_Seeds=1;
 
        } else if (buttonAtPos10->objectName() == "Wheat") {
            F10_Which_Of_Animals_or_Seeds=4;
+           F10_Having_Animals_or_Seeds=1;
 
        } else if (buttonAtPos10->objectName() == "Barley") {
            F10_Which_Of_Animals_or_Seeds=5;
+           F10_Having_Animals_or_Seeds=1;
 
        }
     }else if(buttonAtPos10 == nullptr){
@@ -4804,18 +4734,23 @@ void Gamepage::Get_info()
 
        if (buttonAtPos11->objectName() == "Chicken") {
            F11_Which_Of_Animals_or_Seeds=1;
+           F11_Having_Animals_or_Seeds=1;
 
        } else if (buttonAtPos11->objectName() == "Sheep") {
            F11_Which_Of_Animals_or_Seeds=2;
+           F11_Having_Animals_or_Seeds=1;
 
        } else if (buttonAtPos11->objectName() == "Cow") {
            F11_Which_Of_Animals_or_Seeds=3;
+           F11_Having_Animals_or_Seeds=1;
 
        } else if (buttonAtPos11->objectName() == "Wheat") {
            F11_Which_Of_Animals_or_Seeds=4;
+           F11_Having_Animals_or_Seeds=1;
 
        } else if (buttonAtPos11->objectName() == "Barley") {
            F11_Which_Of_Animals_or_Seeds=5;
+           F11_Having_Animals_or_Seeds=1;
 
        }
     }else if(buttonAtPos11 == nullptr){
@@ -4831,18 +4766,23 @@ void Gamepage::Get_info()
 
        if (buttonAtPos12->objectName() == "Chicken") {
            F12_Which_Of_Animals_or_Seeds=1;
+           F12_Having_Animals_or_Seeds=1;
 
        } else if (buttonAtPos12->objectName() == "Sheep") {
            F12_Which_Of_Animals_or_Seeds=2;
+           F12_Having_Animals_or_Seeds=1;
 
        } else if (buttonAtPos12->objectName() == "Cow") {
            F12_Which_Of_Animals_or_Seeds=3;
+           F12_Having_Animals_or_Seeds=1;
 
        } else if (buttonAtPos12->objectName() == "Wheat") {
            F12_Which_Of_Animals_or_Seeds=4;
+           F12_Having_Animals_or_Seeds=1;
 
        } else if (buttonAtPos12->objectName() == "Barley") {
            F12_Which_Of_Animals_or_Seeds=5;
+           F12_Having_Animals_or_Seeds=1;
 
        }
     }else if(buttonAtPos12 == nullptr){
@@ -4858,18 +4798,23 @@ void Gamepage::Get_info()
 
        if (buttonAtPos13->objectName() == "Chicken") {
            F13_Which_Of_Animals_or_Seeds=1;
+           F13_Having_Animals_or_Seeds=1;
 
        } else if (buttonAtPos13->objectName() == "Sheep") {
            F13_Which_Of_Animals_or_Seeds=2;
+           F13_Having_Animals_or_Seeds=1;
 
        } else if (buttonAtPos13->objectName() == "Cow") {
            F13_Which_Of_Animals_or_Seeds=3;
+           F13_Having_Animals_or_Seeds=1;
 
        } else if (buttonAtPos13->objectName() == "Wheat") {
            F13_Which_Of_Animals_or_Seeds=4;
+           F13_Having_Animals_or_Seeds=1;
 
        } else if (buttonAtPos13->objectName() == "Barley") {
            F13_Which_Of_Animals_or_Seeds=5;
+           F13_Having_Animals_or_Seeds=1;
 
        }
     }else if(buttonAtPos13 == nullptr){
@@ -4885,18 +4830,23 @@ void Gamepage::Get_info()
 
        if (buttonAtPos14->objectName() == "Chicken") {
            F14_Which_Of_Animals_or_Seeds=1;
+           F14_Having_Animals_or_Seeds=1;
 
        } else if (buttonAtPos14->objectName() == "Sheep") {
            F14_Which_Of_Animals_or_Seeds=2;
+           F14_Having_Animals_or_Seeds=1;
 
        } else if (buttonAtPos14->objectName() == "Cow") {
            F14_Which_Of_Animals_or_Seeds=3;
+           F14_Having_Animals_or_Seeds=1;
 
        } else if (buttonAtPos14->objectName() == "Wheat") {
            F14_Which_Of_Animals_or_Seeds=4;
+           F14_Having_Animals_or_Seeds=1;
 
        } else if (buttonAtPos14->objectName() == "Barley") {
            F14_Which_Of_Animals_or_Seeds=5;
+           F14_Having_Animals_or_Seeds=1;
 
        }
     }else if(buttonAtPos14 == nullptr){
@@ -4912,18 +4862,23 @@ void Gamepage::Get_info()
 
        if (buttonAtPos15->objectName() == "Chicken") {
            F15_Which_Of_Animals_or_Seeds=1;
+           F15_Having_Animals_or_Seeds=1;
 
        } else if (buttonAtPos15->objectName() == "Sheep") {
            F15_Which_Of_Animals_or_Seeds=2;
+           F15_Having_Animals_or_Seeds=1;
 
        } else if (buttonAtPos15->objectName() == "Cow") {
            F15_Which_Of_Animals_or_Seeds=3;
+           F15_Having_Animals_or_Seeds=1;
 
        } else if (buttonAtPos15->objectName() == "Wheat") {
            F15_Which_Of_Animals_or_Seeds=4;
+           F15_Having_Animals_or_Seeds=1;
 
        } else if (buttonAtPos15->objectName() == "Barley") {
            F15_Which_Of_Animals_or_Seeds=5;
+           F15_Having_Animals_or_Seeds=1;
 
        }
     }else if(buttonAtPos15 == nullptr){
@@ -4939,18 +4894,23 @@ void Gamepage::Get_info()
 
        if (buttonAtPos16->objectName() == "Chicken") {
            F16_Which_Of_Animals_or_Seeds=1;
+           F16_Having_Animals_or_Seeds=1;
 
        } else if (buttonAtPos16->objectName() == "Sheep") {
            F16_Which_Of_Animals_or_Seeds=2;
+           F16_Having_Animals_or_Seeds=1;
 
        } else if (buttonAtPos16->objectName() == "Cow") {
            F16_Which_Of_Animals_or_Seeds=3;
+           F16_Having_Animals_or_Seeds=1;
 
        } else if (buttonAtPos16->objectName() == "Wheat") {
            F16_Which_Of_Animals_or_Seeds=4;
+           F16_Having_Animals_or_Seeds=1;
 
        } else if (buttonAtPos16->objectName() == "Barley") {
            F16_Which_Of_Animals_or_Seeds=5;
+           F16_Having_Animals_or_Seeds=1;
 
        }
     }else if(buttonAtPos16 == nullptr){
@@ -6067,7 +6027,6 @@ void Gamepage::on_Start_3_clicked()
 
     clearLayout(ui->verticalLayout);
 }
-
 
 void Gamepage::on_Cancel_3_clicked()
 {

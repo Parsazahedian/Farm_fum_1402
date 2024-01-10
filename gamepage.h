@@ -68,7 +68,7 @@ private slots:
 
     void on_Start_clicked();
 
-    bool check3(QPoint pos);
+//    bool check3(QPoint pos);
 
     void clearLayout(QLayout *layout);
 
