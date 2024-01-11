@@ -486,7 +486,8 @@ void Gamepage::on_Chicken_pushButton_clicked()
             }
 
         // clazy:exclude:connect-3arg-lambda
-            QObject::connect(&msgBox, &QMessageBox::finished, [&](int result){
+            QObject *context = this;
+            QObject::connect(&msgBox, &QMessageBox::finished, context,[&](){
 
                QAbstractButton* clickedButton = msgBox.clickedButton();
 
@@ -494,11 +495,8 @@ void Gamepage::on_Chicken_pushButton_clicked()
 
                    int buttonNumber = buttonMap[clickedButton];
 
-
-
-
                    switch(buttonNumber) {
-                   Get_info();
+
                    case 1:
 
                        if(F1_Having_Animals_or_Seeds==0){
@@ -760,6 +758,7 @@ void Gamepage::on_Chicken_pushButton_clicked()
         clearLayout(ui->verticalLayout_2);
         QMessageBox::warning(this,"ops", "you do nut have enogh gold");
     }
+    delete chicken;
 
     clearLayout(ui->verticalLayout_2);
     Get_info();
@@ -1162,13 +1161,13 @@ void Gamepage::on_Sheep_pushButton_clicked()
               }
             }
         // clazy:exclude:connect-3arg-lambda
-            QObject::connect(&msgBox, &QMessageBox::finished, [&](int result){
+            QObject *context = this;
+            QObject::connect(&msgBox, &QMessageBox::finished, context,[&](){
                QAbstractButton* clickedButton = msgBox.clickedButton();
                if (clickedButton) {
                    int buttonNumber = buttonMap[clickedButton];
 
                    switch(buttonNumber) {
-                   Get_info();
                    case 1:
 
                        if(F1_Having_Animals_or_Seeds==0){
@@ -1426,6 +1425,7 @@ void Gamepage::on_Sheep_pushButton_clicked()
         QMessageBox::warning(this, "ops", "reeeeeeeeee");
     }
 
+    delete sh;
     clearLayout(ui->verticalLayout_2);
     Get_info();
 }
@@ -1826,13 +1826,14 @@ void Gamepage::on_Cow_pushButton_clicked()
               }
             }
         // clazy:exclude:connect-3arg-lambda
-            QObject::connect(&msgBox, &QMessageBox::finished, [&](int result){
+            QObject *context = this;
+            QObject::connect(&msgBox, &QMessageBox::finished, context,[&](){
+
                QAbstractButton* clickedButton = msgBox.clickedButton();
                if (clickedButton) {
                    int buttonNumber = buttonMap[clickedButton];
 
                    switch(buttonNumber) {
-                   Get_info();
                    case 1:
 
                        if(F1_Having_Animals_or_Seeds==0){
@@ -2094,6 +2095,7 @@ void Gamepage::on_Cow_pushButton_clicked()
 
     }
 
+    delete co;
     clearLayout(ui->verticalLayout_2);
     Get_info();
 }
@@ -2490,13 +2492,13 @@ void Gamepage::on_Wheat_pushButton_clicked()
 
             }
         // clazy:exclude:connect-3arg-lambda
-            QObject::connect(&msgBox, &QMessageBox::finished, [&](int result){
+            QObject *context = this;
+            QObject::connect(&msgBox, &QMessageBox::finished, context,[&](){
                QAbstractButton* clickedButton = msgBox.clickedButton();
                if (clickedButton) {
                    int buttonNumber = buttonMap[clickedButton];
 
                    switch(buttonNumber) {
-                   Get_info();
                    case 1:
 
                        if(F1_Having_Animals_or_Seeds==0){
@@ -2750,6 +2752,7 @@ void Gamepage::on_Wheat_pushButton_clicked()
 
     }
 
+    delete wh;
     clearLayout(ui->verticalLayout_2);
     Get_info();
 }
@@ -3147,13 +3150,13 @@ void Gamepage::on_Barley_pushButton_clicked()
 
             }
         // clazy:exclude:connect-3arg-lambda
-            QObject::connect(&msgBox, &QMessageBox::finished, [&](int result){
+            QObject *context = this;
+            QObject::connect(&msgBox, &QMessageBox::finished, context,[&](){
                QAbstractButton* clickedButton = msgBox.clickedButton();
                if (clickedButton) {
                    int buttonNumber = buttonMap[clickedButton];
 
                    switch(buttonNumber) {
-                   Get_info();
                    case 1:
 
                        if(F1_Having_Animals_or_Seeds==0){
@@ -3406,6 +3409,8 @@ void Gamepage::on_Barley_pushButton_clicked()
         QMessageBox::warning(this, "weew", "sddddddd");
     }
 
+
+    delete br;
     clearLayout(ui->verticalLayout_2);
     Get_info();
 }
@@ -3777,7 +3782,8 @@ void Gamepage::on_Farmer_pushButton_clicked()
 
             }
         // clazy:exclude:connect-3arg-lambda
-            QObject::connect(&msgBox, &QMessageBox::finished, [&](int result){
+            QObject *context = this;
+            QObject::connect(&msgBox, &QMessageBox::finished, context,[&](){
                QAbstractButton* clickedButton = msgBox.clickedButton();
                if (clickedButton) {
                    int buttonNumber = buttonMap[clickedButton];
@@ -4038,6 +4044,7 @@ void Gamepage::on_Farmer_pushButton_clicked()
         QMessageBox::warning(this, "ssdasda", "ddsdsdds");
     }
 
+    delete fr;
     clearLayout(ui->verticalLayout_2);
     Get_info();
 }
@@ -4135,7 +4142,8 @@ void Gamepage::on_New_farm_pushButton_clicked()
 bool Gamepage::check(QPoint pos)
 {
     QList<QPushButton*> buttons =  this->findChildren<QPushButton*>();
-    for (QPushButton* button : buttons) {
+    for (QList<QPushButton*>::iterator it = buttons.begin(); it != buttons.end(); ++it) {
+         QPushButton* button = *it;
        if (button->geometry().contains(pos)) {
            // Perform your action here va hast
            return false;
@@ -4508,7 +4516,8 @@ void Gamepage::check_our_farm_have_farmer_or_not()
 QPushButton * Gamepage::check2(QPoint pos)
 {
     QList<QPushButton*> buttons = this->findChildren<QPushButton*>();
-       for (QPushButton* button : buttons) {
+    QList<QPushButton*> constButtons = qAsConst(buttons);
+       for (QPushButton* button : constButtons) {
            if (button->geometry().contains(pos)) {
                return button;
            }
@@ -6065,7 +6074,8 @@ void Gamepage::Default_farmer()
 
         }
     // clazy:exclude:connect-3arg-lambda
-        QObject::connect(&msgBox, &QMessageBox::finished, [&](int result){
+        QObject *context = this;
+        QObject::connect(&msgBox, &QMessageBox::finished, context,[&](){
            QAbstractButton* clickedButton = msgBox.clickedButton();
            if (clickedButton) {
                int buttonNumber = buttonMap[clickedButton];
