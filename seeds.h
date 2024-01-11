@@ -7,6 +7,9 @@
 #include "QPushButton"
 #include "QPropertyAnimation"
 
+extern int number_of_farmers;
+extern int number_of_Free_farmers;
+
 class Seeds : public QObject
 {
     Q_OBJECT
@@ -39,6 +42,8 @@ public:
     int Product_Collection_Delay_time;
 
     void SetTimerLabel(QLabel* label);
+
+    void Set_Farmer_status_Label(QLabel* label);
 
     void Timer_Stop();
     void Timer2_Stop();
@@ -119,6 +124,8 @@ private:
     QLabel * TimerLabel;
 
     QLabel * TimerLabel2;
+
+    QLabel * Farmers_status_label;
 
     QPushButton* Product_Pushbutton;
 

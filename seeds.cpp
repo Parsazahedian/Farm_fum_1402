@@ -42,6 +42,8 @@ void Seeds::TurnTimerOn()
         Animals_or_Seeds_Pushbutton->setEnabled(true);
         Farmer1_Pushbutton->setEnabled(true);
         Farmer1_Pushbutton->move(X2, Y2);
+        number_of_Free_farmers++;
+        Farmers_status_label->setText(QString::number(number_of_Free_farmers) + " / " + QString::number(number_of_farmers));
 
     } else {
         timer->start(1000);
@@ -65,6 +67,8 @@ void Seeds::TurnTimerOn2()
         Animals_or_Seeds_Pushbutton->setEnabled(true);
         Farmer2_Pushbutton->setEnabled(true);
         Farmer2_Pushbutton->move(X2, Y2);
+        number_of_Free_farmers++;
+        Farmers_status_label->setText(QString::number(number_of_Free_farmers) + " / " + QString::number(number_of_farmers));
 
     } else {
         timer2->start(1000);
@@ -88,6 +92,8 @@ void Seeds::TurnTimerOn3()
         Animals_or_Seeds_Pushbutton->setEnabled(true);
         Farmer3_Pushbutton->setEnabled(true);
         Farmer3_Pushbutton->move(X2, Y2);
+        number_of_Free_farmers++;
+        Farmers_status_label->setText(QString::number(number_of_Free_farmers) + " / " + QString::number(number_of_farmers));
 
     } else {
         timer3->start(1000);
@@ -111,6 +117,8 @@ void Seeds::TurnTimerOn4()
         Animals_or_Seeds_Pushbutton->setEnabled(true);
         Farmer4_Pushbutton->setEnabled(true);
         Farmer4_Pushbutton->move(X2, Y2);
+        number_of_Free_farmers++;
+        Farmers_status_label->setText(QString::number(number_of_Free_farmers) + " / " + QString::number(number_of_farmers));
 
     } else {
         timer4->start(1000);
@@ -134,6 +142,8 @@ void Seeds::TurnTimerOn5()
         Animals_or_Seeds_Pushbutton->setEnabled(true);
         Farmer5_Pushbutton->setEnabled(true);
         Farmer5_Pushbutton->move(X2, Y2);
+        number_of_Free_farmers++;
+        Farmers_status_label->setText(QString::number(number_of_Free_farmers) + " / " + QString::number(number_of_farmers));
 
     } else {
         timer5->start(1000);
@@ -157,6 +167,8 @@ void Seeds::TurnTimerOn6()
         Animals_or_Seeds_Pushbutton->setEnabled(true);
         Farmer6_Pushbutton->setEnabled(true);
         Farmer6_Pushbutton->move(X2, Y2);
+        number_of_Free_farmers++;
+        Farmers_status_label->setText(QString::number(number_of_Free_farmers) + " / " + QString::number(number_of_farmers));
 
     } else {
         timer6->start(1000);
@@ -180,6 +192,8 @@ void Seeds::TurnTimerOn7()
         Animals_or_Seeds_Pushbutton->setEnabled(true);
         Farmer7_Pushbutton->setEnabled(true);
         Farmer7_Pushbutton->move(X2, Y2);
+        number_of_Free_farmers++;
+        Farmers_status_label->setText(QString::number(number_of_Free_farmers) + " / " + QString::number(number_of_farmers));
 
     } else {
         timer7->start(1000);
@@ -203,6 +217,8 @@ void Seeds::TurnTimerOn8()
         Animals_or_Seeds_Pushbutton->setEnabled(true);
         Farmer8_Pushbutton->setEnabled(true);
         Farmer8_Pushbutton->move(X2, Y2);
+        number_of_Free_farmers++;
+        Farmers_status_label->setText(QString::number(number_of_Free_farmers) + " / " + QString::number(number_of_farmers));
 
     } else {
         timer8->start(1000);
@@ -226,6 +242,8 @@ void Seeds::TurnTimerOn9()
         Animals_or_Seeds_Pushbutton->setEnabled(true);
         Farmer9_Pushbutton->setEnabled(true);
         Farmer9_Pushbutton->move(X2, Y2);
+        number_of_Free_farmers++;
+        Farmers_status_label->setText(QString::number(number_of_Free_farmers) + " / " + QString::number(number_of_farmers));
 
     } else {
         timer9->start(1000);
@@ -249,6 +267,8 @@ void Seeds::TurnTimerOn10()
         Animals_or_Seeds_Pushbutton->setEnabled(true);
         Farmer10_Pushbutton->setEnabled(true);
         Farmer10_Pushbutton->move(X2, Y2);
+        number_of_Free_farmers++;
+        Farmers_status_label->setText(QString::number(number_of_Free_farmers) + " / " + QString::number(number_of_farmers));
 
     } else {
         timer10->start(1000);
@@ -272,6 +292,8 @@ void Seeds::TurnTimerOn11()
         Animals_or_Seeds_Pushbutton->setEnabled(true);
         Farmer11_Pushbutton->setEnabled(true);
         Farmer11_Pushbutton->move(X2, Y2);
+        number_of_Free_farmers++;
+        Farmers_status_label->setText(QString::number(number_of_Free_farmers) + " / " + QString::number(number_of_farmers));
 
     } else {
         timer11->start(1000);
@@ -295,6 +317,8 @@ void Seeds::TurnTimerOn12()
         Animals_or_Seeds_Pushbutton->setEnabled(true);
         Farmer12_Pushbutton->setEnabled(true);
         Farmer12_Pushbutton->move(X2, Y2);
+        number_of_Free_farmers++;
+        Farmers_status_label->setText(QString::number(number_of_Free_farmers) + " / " + QString::number(number_of_farmers));
 
     } else {
         timer12->start(1000);
@@ -318,6 +342,8 @@ void Seeds::TurnTimerOn13()
         Animals_or_Seeds_Pushbutton->setEnabled(true);
         Farmer13_Pushbutton->setEnabled(true);
         Farmer13_Pushbutton->move(X2, Y2);
+        number_of_Free_farmers++;
+        Farmers_status_label->setText(QString::number(number_of_Free_farmers) + " / " + QString::number(number_of_farmers));
 
     } else {
         timer13->start(1000);
@@ -341,6 +367,8 @@ void Seeds::TurnTimerOn14()
         Animals_or_Seeds_Pushbutton->setEnabled(true);
         Farmer14_Pushbutton->setEnabled(true);
         Farmer14_Pushbutton->move(X2, Y2);
+        number_of_Free_farmers++;
+        Farmers_status_label->setText(QString::number(number_of_Free_farmers) + " / " + QString::number(number_of_farmers));
 
     } else {
         timer14->start(1000);
@@ -364,6 +392,8 @@ void Seeds::TurnTimerOn15()
         Animals_or_Seeds_Pushbutton->setEnabled(true);
         Farmer15_Pushbutton->setEnabled(true);
         Farmer15_Pushbutton->move(X2, Y2);
+        number_of_Free_farmers++;
+        Farmers_status_label->setText(QString::number(number_of_Free_farmers) + " / " + QString::number(number_of_farmers));
 
     } else {
         timer15->start(1000);
@@ -387,6 +417,8 @@ void Seeds::TurnTimerOn16()
         Animals_or_Seeds_Pushbutton->setEnabled(true);
         Farmer16_Pushbutton->setEnabled(true);
         Farmer16_Pushbutton->move(X2, Y2);
+        number_of_Free_farmers++;
+        Farmers_status_label->setText(QString::number(number_of_Free_farmers) + " / " + QString::number(number_of_farmers));
 
     } else {
         timer16->start(1000);
@@ -401,6 +433,11 @@ void Seeds::TurnTimerOn16()
 void Seeds::SetTimerLabel(QLabel *label)
 {
     TimerLabel = label;
+}
+
+void Seeds::Set_Farmer_status_Label(QLabel *label)
+{
+    Farmers_status_label = label;
 }
 
 void Seeds::Timer_Stop()

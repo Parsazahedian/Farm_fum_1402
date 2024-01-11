@@ -11,7 +11,7 @@
 #include "animals.h"
 #include "seeds.h"
 
-int score=10;
+int score=10, number_of_farmers=1, number_of_Free_farmers=1;
 
 Chicken * ch1; Sheep * sheep1; Cow * cow1;  Wheat * wheat1;  Barley * barley1;
 Chicken * ch2; Sheep * sheep2; Cow * cow2;  Wheat * wheat2;  Barley * barley2;
@@ -65,6 +65,8 @@ Gamepage::Gamepage(QWidget *parent) :
     Hide_decrease_label();
 
     ui->label_Score->setText( "Score : " + QString::number(score));
+
+    ui->number_of_Farmers_label ->setText( QString::number(number_of_Free_farmers) + " / " + QString::number(number_of_farmers));
 
 }
 
@@ -760,6 +762,7 @@ void Gamepage::on_Chicken_pushButton_clicked()
     }
 
     clearLayout(ui->verticalLayout_2);
+    Get_info();
 }
 
 void Gamepage::on_Sheep_pushButton_clicked()
@@ -1424,6 +1427,7 @@ void Gamepage::on_Sheep_pushButton_clicked()
     }
 
     clearLayout(ui->verticalLayout_2);
+    Get_info();
 }
 
 void Gamepage::on_Cow_pushButton_clicked()
@@ -2091,6 +2095,7 @@ void Gamepage::on_Cow_pushButton_clicked()
     }
 
     clearLayout(ui->verticalLayout_2);
+    Get_info();
 }
 
 void Gamepage::on_Wheat_pushButton_clicked()
@@ -2746,6 +2751,7 @@ void Gamepage::on_Wheat_pushButton_clicked()
     }
 
     clearLayout(ui->verticalLayout_2);
+    Get_info();
 }
 
 void Gamepage::on_Barley_pushButton_clicked()
@@ -3401,6 +3407,7 @@ void Gamepage::on_Barley_pushButton_clicked()
     }
 
     clearLayout(ui->verticalLayout_2);
+    Get_info();
 }
 
 void Gamepage::on_Farmer_pushButton_clicked()
@@ -3415,6 +3422,12 @@ void Gamepage::on_Farmer_pushButton_clicked()
         ui->label_Score->setText( "Score : " + QString::number(score));
 
         Farmer * farmer = new Farmer(ui->Farmer_verticalLayout);
+
+        number_of_farmers++;
+
+        number_of_Free_farmers++;
+
+        ui->number_of_Farmers_label ->setText( QString::number(number_of_Free_farmers) + " / " + QString::number(number_of_farmers));
 
         connect(farmer->pushButton, &QPushButton::clicked, this, [this, farmer](){ QMessageBox msgBox;
             msgBox.setText("chicken""<ul>""<li>""@gmail.com""</li>" "<li>""@email.com""</li>" "<li>""@mail.um.ac""</li>""</ul>");
@@ -4026,6 +4039,7 @@ void Gamepage::on_Farmer_pushButton_clicked()
     }
 
     clearLayout(ui->verticalLayout_2);
+    Get_info();
 }
 
 void Gamepage::on_New_farm_pushButton_clicked()
@@ -4104,14 +4118,18 @@ void Gamepage::on_New_farm_pushButton_clicked()
                 ui->label_16->show();
             }
 
+            Get_info();
         }else{
 
             clearLayout(ui->verticalLayout_2);
             QMessageBox::warning(this, "sasas", "nadarim");
+            Get_info();
         }
+        Get_info();
     }
 
     clearLayout(ui->verticalLayout_2);
+    Get_info();
 }
 
 bool Gamepage::check(QPoint pos)
@@ -4145,7 +4163,7 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     if(check(pos1)==false){
 
         F1_Having_Farmer=1;
-        if(F1_Having_Farmer==1 && F1_Having_Animals_or_Seeds==1 && ui->the_product_of_chicken_pushButton->isHidden()  && ui->the_product_of_sheep_pushButton->isHidden()  && ui->the_product_of_cow_pushButton->isHidden()  && ui->the_product_of_wheat_pushButton->isHidden()  && ui->the_product_of_barley_pushButton->isHidden()){
+        if(F1_Having_Farmer==1 && F1_Having_Animals_or_Seeds==1 && ui->the_product_of_chicken_pushButton->isHidden()  && ui->the_product_of_sheep_pushButton->isHidden()  && ui->the_product_of_cow_pushButton->isHidden()  && ui->the_product_of_wheat_pushButton->isHidden()  && ui->the_product_of_barley_pushButton->isHidden() && ui->timer_label->isHidden()){
 
             ui->Start->show();
         }else if(F1_Having_Farmer==1 && F1_Having_Animals_or_Seeds==0){
@@ -4167,7 +4185,7 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     if(check(pos2)==false){
 
         F2_Having_Farmer=1;
-        if(F2_Having_Farmer==1 && F2_Having_Animals_or_Seeds==1 && ui->the_product_of_chicken_pushButton_2->isHidden()  && ui->the_product_of_sheep_pushButton_2->isHidden()  && ui->the_product_of_cow_pushButton_2->isHidden()  && ui->the_product_of_wheat_pushButton_2->isHidden()  && ui->the_product_of_barley_pushButton_2->isHidden()){
+        if(F2_Having_Farmer==1 && F2_Having_Animals_or_Seeds==1 && ui->the_product_of_chicken_pushButton_2->isHidden()  && ui->the_product_of_sheep_pushButton_2->isHidden()  && ui->the_product_of_cow_pushButton_2->isHidden()  && ui->the_product_of_wheat_pushButton_2->isHidden()  && ui->the_product_of_barley_pushButton_2->isHidden() && ui->timer_label_2->isHidden()){
 
             ui->Start_2->show();
         }else if(F2_Having_Farmer==1 && F2_Having_Animals_or_Seeds==0){
@@ -4190,7 +4208,7 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     if(check(pos3)==false){
 
         F3_Having_Farmer=1;
-        if(F3_Having_Farmer==1 && F3_Having_Animals_or_Seeds==1 && ui->the_product_of_chicken_pushButton_3->isHidden()  && ui->the_product_of_sheep_pushButton_3->isHidden()  && ui->the_product_of_cow_pushButton_3->isHidden()  && ui->the_product_of_wheat_pushButton_3->isHidden()  && ui->the_product_of_barley_pushButton_3->isHidden()){
+        if(F3_Having_Farmer==1 && F3_Having_Animals_or_Seeds==1 && ui->the_product_of_chicken_pushButton_3->isHidden()  && ui->the_product_of_sheep_pushButton_3->isHidden()  && ui->the_product_of_cow_pushButton_3->isHidden()  && ui->the_product_of_wheat_pushButton_3->isHidden()  && ui->the_product_of_barley_pushButton_3->isHidden() && ui->timer_label_3->isHidden()){
 
             ui->Start_3->show();
         }else if(F3_Having_Farmer==1 && F3_Having_Animals_or_Seeds==0){
@@ -4213,7 +4231,7 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     if(check(pos4)==false){
 
         F4_Having_Farmer=1;
-        if(F4_Having_Farmer==1 && F4_Having_Animals_or_Seeds==1 && ui->the_product_of_chicken_pushButton_4->isHidden()  && ui->the_product_of_sheep_pushButton_4->isHidden()  && ui->the_product_of_cow_pushButton_4->isHidden()  && ui->the_product_of_wheat_pushButton_4->isHidden()  && ui->the_product_of_barley_pushButton_4->isHidden()){
+        if(F4_Having_Farmer==1 && F4_Having_Animals_or_Seeds==1 && ui->the_product_of_chicken_pushButton_4->isHidden()  && ui->the_product_of_sheep_pushButton_4->isHidden()  && ui->the_product_of_cow_pushButton_4->isHidden()  && ui->the_product_of_wheat_pushButton_4->isHidden()  && ui->the_product_of_barley_pushButton_4->isHidden() && ui->timer_label_4->isHidden()){
 
             ui->Start_4->show();
         }else if(F4_Having_Farmer==1 && F4_Having_Animals_or_Seeds==0){
@@ -4235,7 +4253,7 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     if(check(pos5)==false){
 
         F5_Having_Farmer=1;
-        if(F5_Having_Farmer==1 && F5_Having_Animals_or_Seeds==1 && ui->the_product_of_chicken_pushButton_5->isHidden()  && ui->the_product_of_sheep_pushButton_5->isHidden()  && ui->the_product_of_cow_pushButton_5->isHidden()  && ui->the_product_of_wheat_pushButton_5->isHidden()  && ui->the_product_of_barley_pushButton_5->isHidden()){
+        if(F5_Having_Farmer==1 && F5_Having_Animals_or_Seeds==1 && ui->the_product_of_chicken_pushButton_5->isHidden()  && ui->the_product_of_sheep_pushButton_5->isHidden()  && ui->the_product_of_cow_pushButton_5->isHidden()  && ui->the_product_of_wheat_pushButton_5->isHidden()  && ui->the_product_of_barley_pushButton_5->isHidden() && ui->timer_label_5->isHidden()){
 
             ui->Start_5->show();
         }else if(F5_Having_Farmer==1 && F5_Having_Animals_or_Seeds==0){
@@ -4257,7 +4275,7 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     if(check(pos6)==false){
 
         F6_Having_Farmer=1;
-        if(F6_Having_Farmer==1 && F6_Having_Animals_or_Seeds==1 && ui->the_product_of_chicken_pushButton_6->isHidden()  && ui->the_product_of_sheep_pushButton_6->isHidden()  && ui->the_product_of_cow_pushButton_6->isHidden()  && ui->the_product_of_wheat_pushButton_6->isHidden()  && ui->the_product_of_barley_pushButton_6->isHidden()){
+        if(F6_Having_Farmer==1 && F6_Having_Animals_or_Seeds==1 && ui->the_product_of_chicken_pushButton_6->isHidden()  && ui->the_product_of_sheep_pushButton_6->isHidden()  && ui->the_product_of_cow_pushButton_6->isHidden()  && ui->the_product_of_wheat_pushButton_6->isHidden()  && ui->the_product_of_barley_pushButton_6->isHidden() && ui->timer_label_6->isHidden()){
 
             ui->Start_6->show();
         }else if(F6_Having_Farmer==1 && F6_Having_Animals_or_Seeds==0){
@@ -4279,7 +4297,7 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     if(check(pos7)==false){
 
         F7_Having_Farmer=1;
-        if(F7_Having_Farmer==1 && F7_Having_Animals_or_Seeds==1 && ui->the_product_of_chicken_pushButton_7->isHidden()  && ui->the_product_of_sheep_pushButton_7->isHidden()  && ui->the_product_of_cow_pushButton_7->isHidden()  && ui->the_product_of_wheat_pushButton_7->isHidden()  && ui->the_product_of_barley_pushButton_7->isHidden()){
+        if(F7_Having_Farmer==1 && F7_Having_Animals_or_Seeds==1 && ui->the_product_of_chicken_pushButton_7->isHidden()  && ui->the_product_of_sheep_pushButton_7->isHidden()  && ui->the_product_of_cow_pushButton_7->isHidden()  && ui->the_product_of_wheat_pushButton_7->isHidden()  && ui->the_product_of_barley_pushButton_7->isHidden() && ui->timer_label_7->isHidden()){
 
             ui->Start_7->show();
         }else if(F7_Having_Farmer==1 && F7_Having_Animals_or_Seeds==0){
@@ -4301,7 +4319,7 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     if(check(pos8)==false){
 
         F8_Having_Farmer=1;
-        if(F8_Having_Farmer==1 && F8_Having_Animals_or_Seeds==1 && ui->the_product_of_chicken_pushButton_8->isHidden()  && ui->the_product_of_sheep_pushButton_8->isHidden()  && ui->the_product_of_cow_pushButton_8->isHidden()  && ui->the_product_of_wheat_pushButton_8->isHidden()  && ui->the_product_of_barley_pushButton_8->isHidden()){
+        if(F8_Having_Farmer==1 && F8_Having_Animals_or_Seeds==1 && ui->the_product_of_chicken_pushButton_8->isHidden()  && ui->the_product_of_sheep_pushButton_8->isHidden()  && ui->the_product_of_cow_pushButton_8->isHidden()  && ui->the_product_of_wheat_pushButton_8->isHidden()  && ui->the_product_of_barley_pushButton_8->isHidden() && ui->timer_label_8->isHidden()){
 
             ui->Start_8->show();
         }else if(F8_Having_Farmer==1 && F8_Having_Animals_or_Seeds==0){
@@ -4323,7 +4341,7 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     if(check(pos9)==false){
 
         F9_Having_Farmer=1;
-        if(F9_Having_Farmer==1 && F9_Having_Animals_or_Seeds==1 && ui->the_product_of_chicken_pushButton_9->isHidden()  && ui->the_product_of_sheep_pushButton_9->isHidden()  && ui->the_product_of_cow_pushButton_9->isHidden()  && ui->the_product_of_wheat_pushButton_9->isHidden()  && ui->the_product_of_barley_pushButton_9->isHidden()){
+        if(F9_Having_Farmer==1 && F9_Having_Animals_or_Seeds==1 && ui->the_product_of_chicken_pushButton_9->isHidden()  && ui->the_product_of_sheep_pushButton_9->isHidden()  && ui->the_product_of_cow_pushButton_9->isHidden()  && ui->the_product_of_wheat_pushButton_9->isHidden()  && ui->the_product_of_barley_pushButton_9->isHidden() && ui->timer_label_9->isHidden()){
 
             ui->Start_9->show();
         }else if(F9_Having_Farmer==1 && F9_Having_Animals_or_Seeds==0){
@@ -4345,7 +4363,7 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     if(check(pos10)==false){
 
         F10_Having_Farmer=1;
-        if(F10_Having_Farmer==1 && F10_Having_Animals_or_Seeds==1 && ui->the_product_of_chicken_pushButton_10->isHidden()  && ui->the_product_of_sheep_pushButton_10->isHidden()  && ui->the_product_of_cow_pushButton_10->isHidden()  && ui->the_product_of_wheat_pushButton_10->isHidden()  && ui->the_product_of_barley_pushButton_10->isHidden()){
+        if(F10_Having_Farmer==1 && F10_Having_Animals_or_Seeds==1 && ui->the_product_of_chicken_pushButton_10->isHidden()  && ui->the_product_of_sheep_pushButton_10->isHidden()  && ui->the_product_of_cow_pushButton_10->isHidden()  && ui->the_product_of_wheat_pushButton_10->isHidden()  && ui->the_product_of_barley_pushButton_10->isHidden() && ui->timer_label_10->isHidden()){
 
             ui->Start_10->show();
         }else if(F10_Having_Farmer==1 && F10_Having_Animals_or_Seeds==0){
@@ -4367,7 +4385,7 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     if(check(pos11)==false){
 
         F11_Having_Farmer=1;
-        if(F11_Having_Farmer==1 && F11_Having_Animals_or_Seeds==1 && ui->the_product_of_chicken_pushButton_11->isHidden()  && ui->the_product_of_sheep_pushButton_11->isHidden()  && ui->the_product_of_cow_pushButton_11->isHidden()  && ui->the_product_of_wheat_pushButton_11->isHidden()  && ui->the_product_of_barley_pushButton_11->isHidden()){
+        if(F11_Having_Farmer==1 && F11_Having_Animals_or_Seeds==1 && ui->the_product_of_chicken_pushButton_11->isHidden()  && ui->the_product_of_sheep_pushButton_11->isHidden()  && ui->the_product_of_cow_pushButton_11->isHidden()  && ui->the_product_of_wheat_pushButton_11->isHidden()  && ui->the_product_of_barley_pushButton_11->isHidden() && ui->timer_label_11->isHidden()){
 
             ui->Start_11->show();
         }else if(F11_Having_Farmer==1 && F11_Having_Animals_or_Seeds==0){
@@ -4389,7 +4407,7 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     if(check(pos12)==false){
 
         F12_Having_Farmer=1;
-        if(F12_Having_Farmer==1 && F12_Having_Animals_or_Seeds==1 && ui->the_product_of_chicken_pushButton_12->isHidden()  && ui->the_product_of_sheep_pushButton_12->isHidden()  && ui->the_product_of_cow_pushButton_12->isHidden()  && ui->the_product_of_wheat_pushButton_12->isHidden()  && ui->the_product_of_barley_pushButton_12->isHidden()){
+        if(F12_Having_Farmer==1 && F12_Having_Animals_or_Seeds==1 && ui->the_product_of_chicken_pushButton_12->isHidden()  && ui->the_product_of_sheep_pushButton_12->isHidden()  && ui->the_product_of_cow_pushButton_12->isHidden()  && ui->the_product_of_wheat_pushButton_12->isHidden()  && ui->the_product_of_barley_pushButton_12->isHidden() && ui->timer_label_12->isHidden()){
 
             ui->Start_12->show();
         }else if(F12_Having_Farmer==1 && F12_Having_Animals_or_Seeds==0){
@@ -4411,7 +4429,7 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     if(check(pos13)==false){
 
         F13_Having_Farmer=1;
-        if(F13_Having_Farmer==1 && F13_Having_Animals_or_Seeds==1 && ui->the_product_of_chicken_pushButton_13->isHidden()  && ui->the_product_of_sheep_pushButton_13->isHidden()  && ui->the_product_of_cow_pushButton_13->isHidden()  && ui->the_product_of_wheat_pushButton_13->isHidden()  && ui->the_product_of_barley_pushButton_13->isHidden()){
+        if(F13_Having_Farmer==1 && F13_Having_Animals_or_Seeds==1 && ui->the_product_of_chicken_pushButton_13->isHidden()  && ui->the_product_of_sheep_pushButton_13->isHidden()  && ui->the_product_of_cow_pushButton_13->isHidden()  && ui->the_product_of_wheat_pushButton_13->isHidden()  && ui->the_product_of_barley_pushButton_13->isHidden() && ui->timer_label_13->isHidden()){
 
             ui->Start_13->show();
         }else if(F13_Having_Farmer==1 && F13_Having_Animals_or_Seeds==0){
@@ -4433,7 +4451,7 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     if(check(pos14)==false){
 
         F14_Having_Farmer=1;
-        if(F14_Having_Farmer==1 && F14_Having_Animals_or_Seeds==1 && ui->the_product_of_chicken_pushButton_14->isHidden()  && ui->the_product_of_sheep_pushButton_14->isHidden()  && ui->the_product_of_cow_pushButton_14->isHidden()  && ui->the_product_of_wheat_pushButton_14->isHidden()  && ui->the_product_of_barley_pushButton_14->isHidden()){
+        if(F14_Having_Farmer==1 && F14_Having_Animals_or_Seeds==1 && ui->the_product_of_chicken_pushButton_14->isHidden()  && ui->the_product_of_sheep_pushButton_14->isHidden()  && ui->the_product_of_cow_pushButton_14->isHidden()  && ui->the_product_of_wheat_pushButton_14->isHidden()  && ui->the_product_of_barley_pushButton_14->isHidden() && ui->timer_label_14->isHidden()){
 
             ui->Start_14->show();
         }else if(F14_Having_Farmer==1 && F14_Having_Animals_or_Seeds==0){
@@ -4455,7 +4473,7 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     if(check(pos15)==false){
 
         F15_Having_Farmer=1;
-        if(F15_Having_Farmer==1 && F15_Having_Animals_or_Seeds==1 && ui->the_product_of_chicken_pushButton_15->isHidden()  && ui->the_product_of_sheep_pushButton_15->isHidden()  && ui->the_product_of_cow_pushButton_15->isHidden()  && ui->the_product_of_wheat_pushButton_15->isHidden()  && ui->the_product_of_barley_pushButton_15->isHidden()){
+        if(F15_Having_Farmer==1 && F15_Having_Animals_or_Seeds==1 && ui->the_product_of_chicken_pushButton_15->isHidden()  && ui->the_product_of_sheep_pushButton_15->isHidden()  && ui->the_product_of_cow_pushButton_15->isHidden()  && ui->the_product_of_wheat_pushButton_15->isHidden()  && ui->the_product_of_barley_pushButton_15->isHidden() && ui->timer_label_15->isHidden()){
 
             ui->Start_15->show();
         }else if(F15_Having_Farmer==1 && F15_Having_Animals_or_Seeds==0){
@@ -4477,7 +4495,7 @@ void Gamepage::check_our_farm_have_farmer_or_not()
     if(check(pos16)==false){
 
         F16_Having_Farmer=1;
-        if(F16_Having_Farmer==1 && F16_Having_Animals_or_Seeds==1 && ui->the_product_of_chicken_pushButton_16->isHidden()  && ui->the_product_of_sheep_pushButton_16->isHidden()  && ui->the_product_of_cow_pushButton_16->isHidden()  && ui->the_product_of_wheat_pushButton_16->isHidden()  && ui->the_product_of_barley_pushButton_16->isHidden()){
+        if(F16_Having_Farmer==1 && F16_Having_Animals_or_Seeds==1 && ui->the_product_of_chicken_pushButton_16->isHidden()  && ui->the_product_of_sheep_pushButton_16->isHidden()  && ui->the_product_of_cow_pushButton_16->isHidden()  && ui->the_product_of_wheat_pushButton_16->isHidden()  && ui->the_product_of_barley_pushButton_16->isHidden() && ui->timer_label_16->isHidden()){
 
             ui->Start_16->show();
         }else if(F16_Having_Farmer==1 && F16_Having_Animals_or_Seeds==0){
@@ -5019,6 +5037,10 @@ check_our_farm_have_farmer_or_not();
 
 void Gamepage::on_Start_clicked()
 {
+    number_of_Free_farmers--;
+
+    ui->number_of_Farmers_label ->setText( QString::number(number_of_Free_farmers) + " / " + QString::number(number_of_farmers));
+
     ui->Start->hide();
     ui->Cancel->show();
     ui->timer_label->show();
@@ -5048,6 +5070,8 @@ void Gamepage::on_Start_clicked()
            ch1->Set_decrease_label(ui->decrease_point_label);
            ch1->decrease_label_position(170, 120);
 
+           ch1->Set_Farmer_status_Label(ui->number_of_Farmers_label);
+
            ch1->Farmer_pushbutton_position(210, 160);
            animation1 = new QPropertyAnimation(buttonAtPos2_ch1, "geometry", this);
            animation1->setStartValue(QRect(210, 160, buttonAtPos2_ch1->geometry().width(), buttonAtPos2_ch1->geometry().height()));
@@ -5069,6 +5093,8 @@ void Gamepage::on_Start_clicked()
            sheep1->Set_Farmer_Pushbutton(buttonAtPos2_Sheep1);
            sheep1->Set_decrease_label(ui->decrease_point_label);          
            sheep1->decrease_label_position(170, 120);
+
+           sheep1->Set_Farmer_status_Label(ui->number_of_Farmers_label);
 
            sheep1->Farmer_pushbutton_position(210, 160);
            animation1 = new QPropertyAnimation(buttonAtPos2_Sheep1, "geometry", this);
@@ -5092,6 +5118,8 @@ void Gamepage::on_Start_clicked()
            cow1->Set_decrease_label(ui->decrease_point_label);
            cow1->decrease_label_position(170, 120);
 
+           cow1->Set_Farmer_status_Label(ui->number_of_Farmers_label);
+
            cow1->Farmer_pushbutton_position(210, 160);
            animation1 = new QPropertyAnimation(buttonAtPos2_cow1, "geometry", this);
            animation1->setStartValue(QRect(210, 160, buttonAtPos2_cow1->geometry().width(), buttonAtPos2_cow1->geometry().height()));
@@ -5114,6 +5142,8 @@ void Gamepage::on_Start_clicked()
            wheat1->Set_decrease_label(ui->decrease_point_label);
            wheat1->decrease_label_position(170, 120);
 
+           wheat1->Set_Farmer_status_Label(ui->number_of_Farmers_label);
+
            wheat1->Farmer_pushbutton_position(210, 160);
            animation1 = new QPropertyAnimation(buttonAtPos2_wheat1, "geometry", this);
            animation1->setStartValue(QRect(210, 160, buttonAtPos2_wheat1->geometry().width(), buttonAtPos2_wheat1->geometry().height()));
@@ -5135,6 +5165,8 @@ void Gamepage::on_Start_clicked()
            barley1->Set_Farmer_Pushbutton(buttonAtPos2_barley1);
            barley1->Set_decrease_label(ui->decrease_point_label);
            barley1->decrease_label_position(170, 120);
+
+           barley1->Set_Farmer_status_Label(ui->number_of_Farmers_label);
 
            barley1->Farmer_pushbutton_position(210, 160);
            animation1 = new QPropertyAnimation(buttonAtPos2_barley1, "geometry", this);
@@ -5197,6 +5229,9 @@ void Gamepage::clearLayout(QLayout *layout)
 
 void Gamepage::on_Cancel_clicked()
 {
+    number_of_Free_farmers++;
+
+    ui->number_of_Farmers_label ->setText( QString::number(number_of_Free_farmers) + " / " + QString::number(number_of_farmers));
 
     Get_info();
 
@@ -5279,80 +5314,116 @@ void Gamepage::on_Cancel_clicked()
 
 void Gamepage::on_the_product_of_chicken_pushButton_clicked()
 {
-    score = score + (ch1->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_chicken_pushButton->hide();
-    ch1->TimerDelay_Stop();
+    if(number_of_Free_farmers >= 1){
+
+        score = score + (ch1->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_chicken_pushButton->hide();
+        ch1->TimerDelay_Stop();
+        Get_info();
+        ui->decrease_point_label->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+    }
+
     Get_info();
-    ui->decrease_point_label->hide();
 }
 
 void Gamepage::on_the_product_of_sheep_pushButton_clicked()
-{
-    score = score + (sheep1->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_sheep_pushButton->hide();
-    sheep1->TimerDelay_Stop();
+{  
+    if(number_of_Free_farmers >= 1){
+
+        score = score + (sheep1->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_sheep_pushButton->hide();
+        sheep1->TimerDelay_Stop();
+        Get_info();
+        ui->decrease_point_label->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+    }
     Get_info();
-    ui->decrease_point_label->hide();
 }
 
 void Gamepage::on_the_product_of_cow_pushButton_clicked()
-{
-    score = score + (cow1->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_cow_pushButton->hide();
-    cow1->TimerDelay_Stop();
+{    
+    if(number_of_Free_farmers >= 1){
+
+        score = score + (cow1->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_cow_pushButton->hide();
+        cow1->TimerDelay_Stop();
+        Get_info();
+        ui->decrease_point_label->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+    }
     Get_info();
-    ui->decrease_point_label->hide();
 }
 
 void Gamepage::on_the_product_of_wheat_pushButton_clicked()
-{
-    score = score + (wheat1->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_wheat_pushButton->hide();
-    wheat1->TimerDelay_Stop();
-    Get_info();
+{  
+    if(number_of_Free_farmers >= 1){
 
-    QPoint Pos(150, 180);
+        score = score + (wheat1->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_wheat_pushButton->hide();
+        wheat1->TimerDelay_Stop();
+        Get_info();
 
-    QPushButton* buttonAtPos = this->check2(Pos);
+        QPoint Pos(150, 180);
 
-    if (buttonAtPos != nullptr) {
+        QPushButton* buttonAtPos = this->check2(Pos);
 
-        if (buttonAtPos->objectName() == "Wheat") {
+        if (buttonAtPos != nullptr) {
 
-            delete  buttonAtPos;
+            if (buttonAtPos->objectName() == "Wheat") {
 
-            Get_info();
+                delete  buttonAtPos;
+
+                Get_info();
+            }
         }
+        ui->decrease_point_label->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
     }
-    ui->decrease_point_label->hide();
+    Get_info();
 }
 
 void Gamepage::on_the_product_of_barley_pushButton_clicked()
-{
-    score = score + (barley1->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_barley_pushButton->hide();
-    barley1->TimerDelay_Stop();
-    Get_info();
+{  
+    if(number_of_Free_farmers >= 1){
 
-    QPoint Pos(150, 180);
+        score = score + (barley1->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_barley_pushButton->hide();
+        barley1->TimerDelay_Stop();
+        Get_info();
 
-    QPushButton* buttonAtPos = this->check2(Pos);
+        QPoint Pos(150, 180);
 
-    if (buttonAtPos != nullptr) {
+        QPushButton* buttonAtPos = this->check2(Pos);
 
-         if (buttonAtPos->objectName() == "Barley") {
+        if (buttonAtPos != nullptr) {
 
-            delete  buttonAtPos;
+             if (buttonAtPos->objectName() == "Barley") {
 
-             Get_info();
-         }
+                delete  buttonAtPos;
+
+                 Get_info();
+             }
+        }
+        ui->decrease_point_label->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
     }
-    ui->decrease_point_label->hide();
+    Get_info();
 }
 
 void Gamepage::Move_the_product_of_Animals_and_seeds_pushButton()
@@ -6253,6 +6324,10 @@ void Gamepage::Default_farmer()
 
 void Gamepage::on_Start_2_clicked()
 {
+    number_of_Free_farmers--;
+
+    ui->number_of_Farmers_label ->setText( QString::number(number_of_Free_farmers) + " / " + QString::number(number_of_farmers));
+
     ui->Start_2->hide();
     ui->Cancel_2->show();
     ui->timer_label_2->show();
@@ -6282,6 +6357,8 @@ void Gamepage::on_Start_2_clicked()
            ch2->Set_decrease_label(ui->decrease_point_label_2);
            ch2->decrease_label_position(560, 120);
 
+           ch2->Set_Farmer_status_Label(ui->number_of_Farmers_label);
+
            ch2->Farmer_pushbutton_position(600, 160);
            animation2 = new QPropertyAnimation(buttonAtPos2_ch2, "geometry", this);
            animation2->setStartValue(QRect(600, 160, buttonAtPos2_ch2->geometry().width(), buttonAtPos2_ch2->geometry().height()));
@@ -6304,6 +6381,8 @@ void Gamepage::on_Start_2_clicked()
            sheep2->Set_decrease_label(ui->decrease_point_label_2);
            sheep2->decrease_label_position(560, 120);
 
+           sheep2->Set_Farmer_status_Label(ui->number_of_Farmers_label);
+
            sheep2->Farmer_pushbutton_position(600, 160);
            animation2 = new QPropertyAnimation(buttonAtPos2_Sheep2, "geometry", this);
            animation2->setStartValue(QRect(600, 160, buttonAtPos2_Sheep2->geometry().width(), buttonAtPos2_Sheep2->geometry().height()));
@@ -6325,6 +6404,8 @@ void Gamepage::on_Start_2_clicked()
            cow2->Set_Farmer_Pushbutton(buttonAtPos2_cow2);
            cow2->Set_decrease_label(ui->decrease_point_label_2);
            cow2->decrease_label_position(560, 120);
+
+           cow2->Set_Farmer_status_Label(ui->number_of_Farmers_label);
 
            cow2->Farmer_pushbutton_position(600, 160);
            animation2 = new QPropertyAnimation(buttonAtPos2_cow2, "geometry", this);
@@ -6349,6 +6430,8 @@ void Gamepage::on_Start_2_clicked()
            wheat2->Set_decrease_label(ui->decrease_point_label_2);
            wheat2->decrease_label_position(560, 120);
 
+           wheat2->Set_Farmer_status_Label(ui->number_of_Farmers_label);
+
            wheat2->Farmer_pushbutton_position(600, 160);
            animation2 = new QPropertyAnimation(buttonAtPos2_wheat2, "geometry", this);
            animation2->setStartValue(QRect(600, 160, buttonAtPos2_wheat2->geometry().width(), buttonAtPos2_wheat2->geometry().height()));
@@ -6370,6 +6453,8 @@ void Gamepage::on_Start_2_clicked()
            barley2->Set_Farmer_Pushbutton(buttonAtPos2_barley2);
            barley2->Set_decrease_label(ui->decrease_point_label_2);
            barley2->decrease_label_position(560, 120);
+
+           barley2->Set_Farmer_status_Label(ui->number_of_Farmers_label);
 
            barley2->Farmer_pushbutton_position(600, 160);
            animation2 = new QPropertyAnimation(buttonAtPos2_barley2, "geometry", this);
@@ -6414,6 +6499,10 @@ void Gamepage::on_Start_2_clicked()
 
 void Gamepage::on_Cancel_2_clicked()
 {
+    number_of_Free_farmers++;
+
+    ui->number_of_Farmers_label ->setText( QString::number(number_of_Free_farmers) + " / " + QString::number(number_of_farmers));
+
     Get_info();
 
     ui->Cancel_2->hide();
@@ -6494,85 +6583,125 @@ void Gamepage::on_Cancel_2_clicked()
 }
 
 void Gamepage::on_the_product_of_chicken_pushButton_2_clicked()
-{
-    score = score + (ch2->Product_Collection_Point);
-    ui->label_Score->setText( "Score : " + QString::number(score));
-    ui->the_product_of_chicken_pushButton_2->hide();
-    ch2->TimerDelay_Stop();
+{  
+    if(number_of_Free_farmers >= 1){
+
+        score = score + (ch2->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_chicken_pushButton_2->hide();
+        ch2->TimerDelay_Stop();
+        Get_info();
+        ui->decrease_point_label_2->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+    }
     Get_info();
-    ui->decrease_point_label_2->hide();
 }
 
 void Gamepage::on_the_product_of_sheep_pushButton_2_clicked()
-{
-    score = score + (sheep2->Product_Collection_Point);
-    ui->label_Score->setText( "Score : " + QString::number(score));
-    ui->the_product_of_sheep_pushButton_2->hide();
-    sheep2->TimerDelay_Stop();
+{   
+    if(number_of_Free_farmers >= 1){
+
+        score = score + (sheep2->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_sheep_pushButton_2->hide();
+        sheep2->TimerDelay_Stop();
+        Get_info();
+        ui->decrease_point_label_2->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+    }
     Get_info();
-    ui->decrease_point_label_2->hide();
 }
 
 void Gamepage::on_the_product_of_cow_pushButton_2_clicked()
-{
-    score = score + (cow2->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_cow_pushButton_2->hide();
-    cow2->TimerDelay_Stop();
+{       
+    if(number_of_Free_farmers >= 1){
+
+        score = score + (cow2->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_cow_pushButton_2->hide();
+        cow2->TimerDelay_Stop();
+        Get_info();
+        ui->decrease_point_label_2->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+    }
     Get_info();
-    ui->decrease_point_label_2->hide();
 }
 
 void Gamepage::on_the_product_of_wheat_pushButton_2_clicked()
-{
-    score = score + (wheat2->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_wheat_pushButton_2->hide();
-    wheat2->TimerDelay_Stop();
-    Get_info();
+{        
+    if(number_of_Free_farmers >= 1){
 
-    QPoint Pos(540, 180);
+        score = score + (wheat2->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_wheat_pushButton_2->hide();
+        wheat2->TimerDelay_Stop();
+        Get_info();
 
-    QPushButton* buttonAtPos = this->check2(Pos);
+        QPoint Pos(540, 180);
 
-    if (buttonAtPos != nullptr) {
+        QPushButton* buttonAtPos = this->check2(Pos);
 
-        if (buttonAtPos->objectName() == "Wheat") {
+        if (buttonAtPos != nullptr) {
 
-            delete  buttonAtPos;
+            if (buttonAtPos->objectName() == "Wheat") {
 
-            Get_info();
+                delete  buttonAtPos;
+
+                Get_info();
+            }
         }
+        ui->decrease_point_label_2->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
     }
-    ui->decrease_point_label_2->hide();
+    Get_info();
 }
 
 void Gamepage::on_the_product_of_barley_pushButton_2_clicked()
-{
-    score = score + (barley2->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_barley_pushButton_2->hide();
-    barley2->TimerDelay_Stop();
-    Get_info();
+{    
+    if(number_of_Free_farmers >= 1){
 
-    QPoint Pos(540, 180);
+        score = score + (barley2->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_barley_pushButton_2->hide();
+        barley2->TimerDelay_Stop();
+        Get_info();
 
-    QPushButton* buttonAtPos = this->check2(Pos);
+        QPoint Pos(540, 180);
 
-    if (buttonAtPos != nullptr) {
+        QPushButton* buttonAtPos = this->check2(Pos);
 
-         if (buttonAtPos->objectName() == "Barley") {
+        if (buttonAtPos != nullptr) {
 
-            delete  buttonAtPos;
+             if (buttonAtPos->objectName() == "Barley") {
 
-             Get_info();
-         }
+                delete  buttonAtPos;
+
+                 Get_info();
+             }
+        }
+        ui->decrease_point_label_2->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
     }
-    ui->decrease_point_label_2->hide();
+    Get_info();
 }
 
 void Gamepage::on_Start_3_clicked()
 {
+    number_of_Free_farmers--;
+
+    ui->number_of_Farmers_label ->setText( QString::number(number_of_Free_farmers) + " / " + QString::number(number_of_farmers));
+
+
     ui->Start_3->hide();
     ui->Cancel_3->show();
     ui->timer_label_3->show();
@@ -6602,6 +6731,8 @@ void Gamepage::on_Start_3_clicked()
            ch3->Set_decrease_label(ui->decrease_point_label_3);
            ch3->decrease_label_position(1280, 120);
 
+           ch3->Set_Farmer_status_Label(ui->number_of_Farmers_label);
+
            ch3->Farmer_pushbutton_position(1320, 160);
            animation3 = new QPropertyAnimation(buttonAtPos2_ch3, "geometry", this);
            animation3->setStartValue(QRect(1320, 160, buttonAtPos2_ch3->geometry().width(), buttonAtPos2_ch3->geometry().height()));
@@ -6623,6 +6754,8 @@ void Gamepage::on_Start_3_clicked()
            sheep3->Set_Farmer_Pushbutton(buttonAtPos2_Sheep3);
            sheep3->Set_decrease_label(ui->decrease_point_label_3);
            sheep3->decrease_label_position(1280, 120);
+
+           sheep3->Set_Farmer_status_Label(ui->number_of_Farmers_label);
 
            sheep3->Farmer_pushbutton_position(1320, 160);
            animation3 = new QPropertyAnimation(buttonAtPos2_Sheep3, "geometry", this);
@@ -6646,6 +6779,8 @@ void Gamepage::on_Start_3_clicked()
            cow3->Set_decrease_label(ui->decrease_point_label_3);
            cow3->decrease_label_position(1280, 120);
 
+           cow3->Set_Farmer_status_Label(ui->number_of_Farmers_label);
+
            cow3->Farmer_pushbutton_position(1320, 160);
            animation3 = new QPropertyAnimation(buttonAtPos2_cow3, "geometry", this);
            animation3->setStartValue(QRect(1320, 160, buttonAtPos2_cow3->geometry().width(), buttonAtPos2_cow3->geometry().height()));
@@ -6668,6 +6803,8 @@ void Gamepage::on_Start_3_clicked()
            wheat3->Set_decrease_label(ui->decrease_point_label_3);
            wheat3->decrease_label_position(1280, 120);
 
+           wheat3->Set_Farmer_status_Label(ui->number_of_Farmers_label);
+
            wheat3->Farmer_pushbutton_position(1320, 160);
            animation3 = new QPropertyAnimation(buttonAtPos2_wheat3, "geometry", this);
            animation3->setStartValue(QRect(1320, 160, buttonAtPos2_wheat3->geometry().width(), buttonAtPos2_wheat3->geometry().height()));
@@ -6689,6 +6826,8 @@ void Gamepage::on_Start_3_clicked()
            barley3->Set_Farmer_Pushbutton(buttonAtPos2_barley3);
            barley3->Set_decrease_label(ui->decrease_point_label_3);
            barley3->decrease_label_position(1280, 120);
+
+           barley3->Set_Farmer_status_Label(ui->number_of_Farmers_label);
 
            barley3->Farmer_pushbutton_position(1320, 160);
            animation3 = new QPropertyAnimation(buttonAtPos2_barley3, "geometry", this);
@@ -6733,6 +6872,10 @@ void Gamepage::on_Start_3_clicked()
 
 void Gamepage::on_Cancel_3_clicked()
 {
+    number_of_Free_farmers++;
+
+    ui->number_of_Farmers_label ->setText( QString::number(number_of_Free_farmers) + " / " + QString::number(number_of_farmers));
+
     Get_info();
 
     ui->Cancel_3->hide();
@@ -6813,85 +6956,125 @@ void Gamepage::on_Cancel_3_clicked()
 }
 
 void Gamepage::on_the_product_of_chicken_pushButton_3_clicked()
-{
-    score = score + (ch3->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_chicken_pushButton_3->hide();
-    ch3->TimerDelay_Stop();
+{  
+    if(number_of_Free_farmers >= 1){
+
+        score = score + (ch3->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_chicken_pushButton_3->hide();
+        ch3->TimerDelay_Stop();
+        Get_info();
+        ui->decrease_point_label_3->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+    }
     Get_info();
-    ui->decrease_point_label_3->hide();
 }
 
 void Gamepage::on_the_product_of_sheep_pushButton_3_clicked()
-{
-    score = score + (sheep3->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_sheep_pushButton_3->hide();
-    sheep3->TimerDelay_Stop();
+{   
+    if(number_of_Free_farmers >= 1){
+
+        score = score + (sheep3->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_sheep_pushButton_3->hide();
+        sheep3->TimerDelay_Stop();
+        Get_info();
+        ui->decrease_point_label_3->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+    }
     Get_info();
-    ui->decrease_point_label_3->hide();
 }
 
 void Gamepage::on_the_product_of_cow_pushButton_3_clicked()
-{
-    score = score + (cow3->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_cow_pushButton_3->hide();
-    cow3->TimerDelay_Stop();
+{   
+    if(number_of_Free_farmers >= 1){
+
+        score = score + (cow3->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_cow_pushButton_3->hide();
+        cow3->TimerDelay_Stop();
+        Get_info();
+        ui->decrease_point_label_3->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+    }
     Get_info();
-    ui->decrease_point_label_3->hide();
 }
 
 void Gamepage::on_the_product_of_wheat_pushButton_3_clicked()
-{
-    score = score + (wheat3->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_wheat_pushButton_3->hide();
-    wheat3->TimerDelay_Stop();
-    Get_info();
+{ 
+    if(number_of_Free_farmers >= 1){
 
-    QPoint Pos(1260, 180);
+        score = score + (wheat3->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_wheat_pushButton_3->hide();
+        wheat3->TimerDelay_Stop();
+        Get_info();
 
-    QPushButton* buttonAtPos = this->check2(Pos);
+        QPoint Pos(1260, 180);
 
-    if (buttonAtPos != nullptr) {
+        QPushButton* buttonAtPos = this->check2(Pos);
 
-        if (buttonAtPos->objectName() == "Wheat") {
+        if (buttonAtPos != nullptr) {
 
-            delete  buttonAtPos;
+            if (buttonAtPos->objectName() == "Wheat") {
 
-            Get_info();
+                delete  buttonAtPos;
+
+                Get_info();
+            }
         }
+        ui->decrease_point_label_3->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
     }
-    ui->decrease_point_label_3->hide();
+    Get_info();
 }
 
 void Gamepage::on_the_product_of_barley_pushButton_3_clicked()
-{
-    score = score + (barley3->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_barley_pushButton_3->hide();
-    barley3->TimerDelay_Stop();
-    Get_info();
+{ 
+    if(number_of_Free_farmers >= 1){
 
-    QPoint Pos(1260, 180);
+        score = score + (barley3->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_barley_pushButton_3->hide();
+        barley3->TimerDelay_Stop();
+        Get_info();
 
-    QPushButton* buttonAtPos = this->check2(Pos);
+        QPoint Pos(1260, 180);
 
-    if (buttonAtPos != nullptr) {
+        QPushButton* buttonAtPos = this->check2(Pos);
 
-         if (buttonAtPos->objectName() == "Barley") {
+        if (buttonAtPos != nullptr) {
 
-            delete  buttonAtPos;
+             if (buttonAtPos->objectName() == "Barley") {
 
-             Get_info();
-         }
+                delete  buttonAtPos;
+
+                 Get_info();
+             }
+        }
+        ui->decrease_point_label_3->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
     }
-    ui->decrease_point_label_3->hide();
+    Get_info();
 }
 
 void Gamepage::on_Start_4_clicked()
 {
+    number_of_Free_farmers--;
+
+    ui->number_of_Farmers_label ->setText( QString::number(number_of_Free_farmers) + " / " + QString::number(number_of_farmers));
+
+
     ui->Start_4->hide();
     ui->Cancel_4->show();
     ui->timer_label_4->show();
@@ -6921,6 +7104,8 @@ void Gamepage::on_Start_4_clicked()
            ch4->Set_decrease_label(ui->decrease_point_label_4);
            ch4->decrease_label_position(1670, 120);
 
+           ch4->Set_Farmer_status_Label(ui->number_of_Farmers_label);
+
            ch4->Farmer_pushbutton_position(1710, 160);
            animation4 = new QPropertyAnimation(buttonAtPos2_ch4, "geometry", this);
            animation4->setStartValue(QRect(1710, 160, buttonAtPos2_ch4->geometry().width(), buttonAtPos2_ch4->geometry().height()));
@@ -6942,6 +7127,8 @@ void Gamepage::on_Start_4_clicked()
            sheep4->Set_Farmer_Pushbutton(buttonAtPos2_Sheep4);
            sheep4->Set_decrease_label(ui->decrease_point_label_4);
            sheep4->decrease_label_position(1670, 120);
+
+           sheep4->Set_Farmer_status_Label(ui->number_of_Farmers_label);
 
            sheep4->Farmer_pushbutton_position(1710, 160);
            animation4 = new QPropertyAnimation(buttonAtPos2_Sheep4, "geometry", this);
@@ -6965,6 +7152,8 @@ void Gamepage::on_Start_4_clicked()
            cow4->Set_decrease_label(ui->decrease_point_label_4);
            cow4->decrease_label_position(1670, 120);
 
+           cow4->Set_Farmer_status_Label(ui->number_of_Farmers_label);
+
            cow4->Farmer_pushbutton_position(1710, 160);
            animation4 = new QPropertyAnimation(buttonAtPos2_cow4, "geometry", this);
            animation4->setStartValue(QRect(1710, 160, buttonAtPos2_cow4->geometry().width(), buttonAtPos2_cow4->geometry().height()));
@@ -6987,6 +7176,8 @@ void Gamepage::on_Start_4_clicked()
            wheat4->Set_decrease_label(ui->decrease_point_label_4);
            wheat4->decrease_label_position(1670, 120);
 
+           wheat4->Set_Farmer_status_Label(ui->number_of_Farmers_label);
+
            wheat4->Farmer_pushbutton_position(1710, 160);
            animation4 = new QPropertyAnimation(buttonAtPos2_wheat4, "geometry", this);
            animation4->setStartValue(QRect(1710, 160, buttonAtPos2_wheat4->geometry().width(), buttonAtPos2_wheat4->geometry().height()));
@@ -7008,6 +7199,8 @@ void Gamepage::on_Start_4_clicked()
            barley4->Set_Farmer_Pushbutton(buttonAtPos2_barley4);
            barley4->Set_decrease_label(ui->decrease_point_label_4);
            barley4->decrease_label_position(1670, 120);
+
+           barley4->Set_Farmer_status_Label(ui->number_of_Farmers_label);
 
            barley4->Farmer_pushbutton_position(1710, 160);
            animation4 = new QPropertyAnimation(buttonAtPos2_barley4, "geometry", this);
@@ -7052,6 +7245,10 @@ void Gamepage::on_Start_4_clicked()
 
 void Gamepage::on_Cancel_4_clicked()
 {
+    number_of_Free_farmers++;
+
+    ui->number_of_Farmers_label ->setText( QString::number(number_of_Free_farmers) + " / " + QString::number(number_of_farmers));
+
     Get_info();
 
     ui->Cancel_4->hide();
@@ -7132,85 +7329,125 @@ void Gamepage::on_Cancel_4_clicked()
 }
 
 void Gamepage::on_the_product_of_chicken_pushButton_4_clicked()
-{
-    score = score + (ch4->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_chicken_pushButton_4->hide();
-    ch4->TimerDelay_Stop();
+{   
+    if(number_of_Free_farmers >= 1){
+
+        score = score + (ch4->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_chicken_pushButton_4->hide();
+        ch4->TimerDelay_Stop();
+        Get_info();
+        ui->decrease_point_label_4->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+    }
     Get_info();
-    ui->decrease_point_label_4->hide();
 }
 
 void Gamepage::on_the_product_of_sheep_pushButton_4_clicked()
 {
-    score = score + (sheep4->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_sheep_pushButton_4->hide();
-    sheep4->TimerDelay_Stop();
+    if(number_of_Free_farmers >= 1){
+
+        score = score + (sheep4->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_sheep_pushButton_4->hide();
+        sheep4->TimerDelay_Stop();
+        Get_info();
+        ui->decrease_point_label_4->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+    }
     Get_info();
-    ui->decrease_point_label_4->hide();
 }
 
 void Gamepage::on_the_product_of_cow_pushButton_4_clicked()
-{
-    score = score + (cow4->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_cow_pushButton_4->hide();
-    cow4->TimerDelay_Stop();
+{  
+    if(number_of_Free_farmers >= 1){
+
+        score = score + (cow4->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_cow_pushButton_4->hide();
+        cow4->TimerDelay_Stop();
+        Get_info();
+        ui->decrease_point_label_4->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+    }
     Get_info();
-    ui->decrease_point_label_4->hide();
 }
 
 void Gamepage::on_the_product_of_wheat_pushButton_4_clicked()
-{
-    score = score + (wheat4->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_wheat_pushButton_4->hide();
-    wheat4->TimerDelay_Stop();
-    Get_info();
+{  
+    if(number_of_Free_farmers >= 1){
 
-    QPoint Pos(1650, 180);
+        score = score + (wheat4->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_wheat_pushButton_4->hide();
+        wheat4->TimerDelay_Stop();
+        Get_info();
 
-    QPushButton* buttonAtPos = this->check2(Pos);
+        QPoint Pos(1650, 180);
 
-    if (buttonAtPos != nullptr) {
+        QPushButton* buttonAtPos = this->check2(Pos);
 
-        if (buttonAtPos->objectName() == "Wheat") {
+        if (buttonAtPos != nullptr) {
 
-            delete  buttonAtPos;
+            if (buttonAtPos->objectName() == "Wheat") {
 
-            Get_info();
+                delete  buttonAtPos;
+
+                Get_info();
+            }
         }
+        ui->decrease_point_label_4->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
     }
-    ui->decrease_point_label_4->hide();
+    Get_info();
 }
 
 void Gamepage::on_the_product_of_barley_pushButton_4_clicked()
-{
-    score = score + (barley4->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_barley_pushButton_4->hide();
-    barley4->TimerDelay_Stop();
-    Get_info();
+{  
+    if(number_of_Free_farmers >= 1){
 
-    QPoint Pos(1650, 180);
+        score = score + (barley4->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_barley_pushButton_4->hide();
+        barley4->TimerDelay_Stop();
+        Get_info();
 
-    QPushButton* buttonAtPos = this->check2(Pos);
+        QPoint Pos(1650, 180);
 
-    if (buttonAtPos != nullptr) {
+        QPushButton* buttonAtPos = this->check2(Pos);
 
-         if (buttonAtPos->objectName() == "Barley") {
+        if (buttonAtPos != nullptr) {
 
-            delete  buttonAtPos;
+             if (buttonAtPos->objectName() == "Barley") {
 
-             Get_info();
-         }
+                delete  buttonAtPos;
+
+                 Get_info();
+             }
+        }
+        ui->decrease_point_label_4->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
     }
-    ui->decrease_point_label_4->hide();
+    Get_info();
 }
 
 void Gamepage::on_Start_5_clicked()
 {
+    number_of_Free_farmers--;
+
+    ui->number_of_Farmers_label ->setText( QString::number(number_of_Free_farmers) + " / " + QString::number(number_of_farmers));
+
+
     ui->Start_5->hide();
     ui->Cancel_5->show();
     ui->timer_label_5->show();
@@ -7240,6 +7477,8 @@ void Gamepage::on_Start_5_clicked()
            ch5->Set_decrease_label(ui->decrease_point_label_5);
            ch5->decrease_label_position(170, 350);
 
+           ch5->Set_Farmer_status_Label(ui->number_of_Farmers_label);
+
            ch5->Farmer_pushbutton_position(210, 390);
            animation5 = new QPropertyAnimation(buttonAtPos2_ch5, "geometry", this);
            animation5->setStartValue(QRect(210, 390, buttonAtPos2_ch5->geometry().width(), buttonAtPos2_ch5->geometry().height()));
@@ -7261,6 +7500,8 @@ void Gamepage::on_Start_5_clicked()
            sheep5->Set_Farmer_Pushbutton(buttonAtPos2_Sheep5);
            sheep5->Set_decrease_label(ui->decrease_point_label_5);
            sheep5->decrease_label_position(170, 350);
+
+           sheep5->Set_Farmer_status_Label(ui->number_of_Farmers_label);
 
            sheep5->Farmer_pushbutton_position(210, 390);
            animation5 = new QPropertyAnimation(buttonAtPos2_Sheep5, "geometry", this);
@@ -7284,6 +7525,8 @@ void Gamepage::on_Start_5_clicked()
            cow5->Set_decrease_label(ui->decrease_point_label_5);
            cow5->decrease_label_position(170, 350);
 
+           cow5->Set_Farmer_status_Label(ui->number_of_Farmers_label);
+
            cow5->Farmer_pushbutton_position(210, 390);
            animation5 = new QPropertyAnimation(buttonAtPos2_cow5, "geometry", this);
            animation5->setStartValue(QRect(210, 390, buttonAtPos2_cow5->geometry().width(), buttonAtPos2_cow5->geometry().height()));
@@ -7306,6 +7549,8 @@ void Gamepage::on_Start_5_clicked()
            wheat5->Set_decrease_label(ui->decrease_point_label_5);
            wheat5->decrease_label_position(170, 350);
 
+           wheat5->Set_Farmer_status_Label(ui->number_of_Farmers_label);
+
            wheat5->Farmer_pushbutton_position(210, 390);
            animation5 = new QPropertyAnimation(buttonAtPos2_wheat5, "geometry", this);
            animation5->setStartValue(QRect(210, 390, buttonAtPos2_wheat5->geometry().width(), buttonAtPos2_wheat5->geometry().height()));
@@ -7327,6 +7572,8 @@ void Gamepage::on_Start_5_clicked()
            barley5->Set_Farmer_Pushbutton(buttonAtPos2_barley5);
            barley5->Set_decrease_label(ui->decrease_point_label_5);
            barley5->decrease_label_position(170, 350);
+
+           barley5->Set_Farmer_status_Label(ui->number_of_Farmers_label);
 
            barley5->Farmer_pushbutton_position(210, 390);
            animation5 = new QPropertyAnimation(buttonAtPos2_barley5, "geometry", this);
@@ -7371,6 +7618,10 @@ void Gamepage::on_Start_5_clicked()
 
 void Gamepage::on_Cancel_5_clicked()
 {
+    number_of_Free_farmers++;
+
+    ui->number_of_Farmers_label ->setText( QString::number(number_of_Free_farmers) + " / " + QString::number(number_of_farmers));
+
     Get_info();
 
     ui->Cancel_5->hide();
@@ -7451,85 +7702,124 @@ void Gamepage::on_Cancel_5_clicked()
 }
 
 void Gamepage::on_the_product_of_chicken_pushButton_5_clicked()
-{
-    score = score + (ch5->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_chicken_pushButton_5->hide();
-    ch5->TimerDelay_Stop();
+{   
+    if(number_of_Free_farmers >= 1){
+
+        score = score + (ch5->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_chicken_pushButton_5->hide();
+        ch5->TimerDelay_Stop();
+        Get_info();
+        ui->decrease_point_label_5->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+    }
     Get_info();
-    ui->decrease_point_label_5->hide();
 }
 
 void Gamepage::on_the_product_of_sheep_pushButton_5_clicked()
-{
-    score = score + (sheep5->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_sheep_pushButton_5->hide();
-    sheep5->TimerDelay_Stop();
+{   
+    if(number_of_Free_farmers >= 1){
+
+        score = score + (sheep5->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_sheep_pushButton_5->hide();
+        sheep5->TimerDelay_Stop();
+        Get_info();
+        ui->decrease_point_label_5->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+    }
     Get_info();
-    ui->decrease_point_label_5->hide();
 }
 
 void Gamepage::on_the_product_of_cow_pushButton_5_clicked()
-{
-    score = score + (cow5->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_cow_pushButton_5->hide();
-    cow5->TimerDelay_Stop();
+{   
+    if(number_of_Free_farmers >= 1){
+
+        score = score + (cow5->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_cow_pushButton_5->hide();
+        cow5->TimerDelay_Stop();
+        Get_info();
+        ui->decrease_point_label_5->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+    }
     Get_info();
-    ui->decrease_point_label_5->hide();
 }
 
 void Gamepage::on_the_product_of_wheat_pushButton_5_clicked()
-{
-    score = score + (wheat5->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_wheat_pushButton_5->hide();
-    wheat5->TimerDelay_Stop();
-    Get_info();
+{  
+    if(number_of_Free_farmers >= 1){
 
-    QPoint Pos(150, 410);
+        score = score + (wheat5->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_wheat_pushButton_5->hide();
+        wheat5->TimerDelay_Stop();
+        Get_info();
 
-    QPushButton* buttonAtPos = this->check2(Pos);
+        QPoint Pos(150, 410);
 
-    if (buttonAtPos != nullptr) {
+        QPushButton* buttonAtPos = this->check2(Pos);
 
-        if (buttonAtPos->objectName() == "Wheat") {
+        if (buttonAtPos != nullptr) {
 
-            delete  buttonAtPos;
+            if (buttonAtPos->objectName() == "Wheat") {
 
-            Get_info();
+                delete  buttonAtPos;
+
+                Get_info();
+            }
         }
+        ui->decrease_point_label_5->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
     }
-    ui->decrease_point_label_5->hide();
+    Get_info();
 }
 
 void Gamepage::on_the_product_of_barley_pushButton_5_clicked()
-{
-    score = score + (barley5->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_barley_pushButton_5->hide();
-    barley5->TimerDelay_Stop();
-    Get_info();
+{   
+    if(number_of_Free_farmers >= 1){
 
-    QPoint Pos(150, 410);
+        score = score + (barley5->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_barley_pushButton_5->hide();
+        barley5->TimerDelay_Stop();
+        Get_info();
 
-    QPushButton* buttonAtPos = this->check2(Pos);
+        QPoint Pos(150, 410);
 
-    if (buttonAtPos != nullptr) {
+        QPushButton* buttonAtPos = this->check2(Pos);
 
-         if (buttonAtPos->objectName() == "Barley") {
+        if (buttonAtPos != nullptr) {
 
-            delete  buttonAtPos;
+             if (buttonAtPos->objectName() == "Barley") {
 
-             Get_info();
-         }
+                delete  buttonAtPos;
+
+                 Get_info();
+             }
+        }
+        ui->decrease_point_label_5->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
     }
-    ui->decrease_point_label_5->hide();
+    Get_info();
 }
 
 void Gamepage::on_Start_6_clicked()
-{
+{    
+    number_of_Free_farmers--;
+
+    ui->number_of_Farmers_label ->setText( QString::number(number_of_Free_farmers) + " / " + QString::number(number_of_farmers));
+
     ui->Start_6->hide();
     ui->Cancel_6->show();
     ui->timer_label_6->show();
@@ -7559,6 +7849,8 @@ void Gamepage::on_Start_6_clicked()
            ch6->Set_decrease_label(ui->decrease_point_label_6);
            ch6->decrease_label_position(560, 350);
 
+           ch6->Set_Farmer_status_Label(ui->number_of_Farmers_label);
+
            ch6->Farmer_pushbutton_position(600, 390);
            animation6 = new QPropertyAnimation(buttonAtPos2_ch6, "geometry", this);
            animation6->setStartValue(QRect(600, 390, buttonAtPos2_ch6->geometry().width(), buttonAtPos2_ch6->geometry().height()));
@@ -7580,6 +7872,8 @@ void Gamepage::on_Start_6_clicked()
            sheep6->Set_Farmer_Pushbutton(buttonAtPos2_Sheep6);
            sheep6->Set_decrease_label(ui->decrease_point_label_6);
            sheep6->decrease_label_position(560, 350);
+
+           sheep6->Set_Farmer_status_Label(ui->number_of_Farmers_label);
 
            sheep6->Farmer_pushbutton_position(600, 390);
            animation6 = new QPropertyAnimation(buttonAtPos2_Sheep6, "geometry", this);
@@ -7603,6 +7897,8 @@ void Gamepage::on_Start_6_clicked()
            cow6->Set_decrease_label(ui->decrease_point_label_6);
            cow6->decrease_label_position(560, 350);
 
+           cow6->Set_Farmer_status_Label(ui->number_of_Farmers_label);
+
            cow6->Farmer_pushbutton_position(600, 390);
            animation6 = new QPropertyAnimation(buttonAtPos2_cow6, "geometry", this);
            animation6->setStartValue(QRect(600, 390, buttonAtPos2_cow6->geometry().width(), buttonAtPos2_cow6->geometry().height()));
@@ -7625,6 +7921,8 @@ void Gamepage::on_Start_6_clicked()
            wheat6->Set_decrease_label(ui->decrease_point_label_6);
            wheat6->decrease_label_position(560, 350);
 
+           wheat6->Set_Farmer_status_Label(ui->number_of_Farmers_label);
+
            wheat6->Farmer_pushbutton_position(600, 390);
            animation6 = new QPropertyAnimation(buttonAtPos2_wheat6, "geometry", this);
            animation6->setStartValue(QRect(600, 390, buttonAtPos2_wheat6->geometry().width(), buttonAtPos2_wheat6->geometry().height()));
@@ -7646,6 +7944,8 @@ void Gamepage::on_Start_6_clicked()
            barley6->Set_Farmer_Pushbutton(buttonAtPos2_barley6);
            barley6->Set_decrease_label(ui->decrease_point_label_6);
            barley6->decrease_label_position(560, 350);
+
+           barley6->Set_Farmer_status_Label(ui->number_of_Farmers_label);
 
            barley6->Farmer_pushbutton_position(600, 390);
            animation6 = new QPropertyAnimation(buttonAtPos2_barley6, "geometry", this);
@@ -7690,6 +7990,10 @@ void Gamepage::on_Start_6_clicked()
 
 void Gamepage::on_Cancel_6_clicked()
 {
+    number_of_Free_farmers++;
+
+    ui->number_of_Farmers_label ->setText( QString::number(number_of_Free_farmers) + " / " + QString::number(number_of_farmers));
+
     Get_info();
 
     ui->Cancel_6->hide();
@@ -7770,85 +8074,125 @@ void Gamepage::on_Cancel_6_clicked()
 }
 
 void Gamepage::on_the_product_of_chicken_pushButton_6_clicked()
-{
-    score = score + (ch6->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_chicken_pushButton_6->hide();
-    ch6->TimerDelay_Stop();
+{    
+    if(number_of_Free_farmers >= 1){
+
+        score = score + (ch6->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_chicken_pushButton_6->hide();
+        ch6->TimerDelay_Stop();
+        Get_info();
+        ui->decrease_point_label_6->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+    }
     Get_info();
-    ui->decrease_point_label_6->hide();
 }
 
 void Gamepage::on_the_product_of_sheep_pushButton_6_clicked()
-{
-    score = score + (sheep6->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_sheep_pushButton_6->hide();
-    sheep6->TimerDelay_Stop();
+{  
+    if(number_of_Free_farmers >= 1){
+
+        score = score + (sheep6->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_sheep_pushButton_6->hide();
+        sheep6->TimerDelay_Stop();
+        Get_info();
+        ui->decrease_point_label_6->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+    }
     Get_info();
-    ui->decrease_point_label_6->hide();
 }
 
 void Gamepage::on_the_product_of_cow_pushButton_6_clicked()
-{
-    score = score + (cow6->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_cow_pushButton_6->hide();
-    cow6->TimerDelay_Stop();
+{    
+    if(number_of_Free_farmers >= 1){
+
+        score = score + (cow6->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_cow_pushButton_6->hide();
+        cow6->TimerDelay_Stop();
+        Get_info();
+        ui->decrease_point_label_6->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+    }
     Get_info();
-    ui->decrease_point_label_6->hide();
 }
 
 void Gamepage::on_the_product_of_wheat_pushButton_6_clicked()
-{
-    score = score + (wheat6->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_wheat_pushButton_6->hide();
-    wheat6->TimerDelay_Stop();
-    Get_info();
+{   
+    if(number_of_Free_farmers >= 1){
 
-    QPoint Pos(540, 410);
+        score = score + (wheat6->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_wheat_pushButton_6->hide();
+        wheat6->TimerDelay_Stop();
+        Get_info();
 
-    QPushButton* buttonAtPos = this->check2(Pos);
+        QPoint Pos(540, 410);
 
-    if (buttonAtPos != nullptr) {
+        QPushButton* buttonAtPos = this->check2(Pos);
 
-        if (buttonAtPos->objectName() == "Wheat") {
+        if (buttonAtPos != nullptr) {
 
-            delete  buttonAtPos;
+            if (buttonAtPos->objectName() == "Wheat") {
 
-            Get_info();
+                delete  buttonAtPos;
+
+                Get_info();
+            }
         }
+        ui->decrease_point_label_6->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
     }
-    ui->decrease_point_label_6->hide();
+    Get_info();
 }
 
 void Gamepage::on_the_product_of_barley_pushButton_6_clicked()
-{
-    score = score + (barley6->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_barley_pushButton_6->hide();
-    barley6->TimerDelay_Stop();
-    Get_info();
+{   
+    if(number_of_Free_farmers >= 1){
 
-    QPoint Pos(540, 410);
+        score = score + (barley6->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_barley_pushButton_6->hide();
+        barley6->TimerDelay_Stop();
+        Get_info();
 
-    QPushButton* buttonAtPos = this->check2(Pos);
+        QPoint Pos(540, 410);
 
-    if (buttonAtPos != nullptr) {
+        QPushButton* buttonAtPos = this->check2(Pos);
 
-         if (buttonAtPos->objectName() == "Barley") {
+        if (buttonAtPos != nullptr) {
 
-            delete  buttonAtPos;
+             if (buttonAtPos->objectName() == "Barley") {
 
-             Get_info();
-         }
+                delete  buttonAtPos;
+
+                 Get_info();
+             }
+        }
+        ui->decrease_point_label_6->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
     }
-    ui->decrease_point_label_6->hide();
+    Get_info();
 }
 
 void Gamepage::on_Start_7_clicked()
 {
+
+    number_of_Free_farmers--;
+
+    ui->number_of_Farmers_label ->setText( QString::number(number_of_Free_farmers) + " / " + QString::number(number_of_farmers));
+
     ui->Start_7->hide();
     ui->Cancel_7->show();
     ui->timer_label_7->show();
@@ -7878,6 +8222,8 @@ void Gamepage::on_Start_7_clicked()
            ch7->Set_decrease_label(ui->decrease_point_label_7);
            ch7->decrease_label_position(1280, 350);
 
+           ch7->Set_Farmer_status_Label(ui->number_of_Farmers_label);
+
            ch7->Farmer_pushbutton_position(1320, 390);
            animation7 = new QPropertyAnimation(buttonAtPos2_ch7, "geometry", this);
            animation7->setStartValue(QRect(1320, 390, buttonAtPos2_ch7->geometry().width(), buttonAtPos2_ch7->geometry().height()));
@@ -7899,6 +8245,8 @@ void Gamepage::on_Start_7_clicked()
            sheep7->Set_Farmer_Pushbutton(buttonAtPos2_Sheep7);
            sheep7->Set_decrease_label(ui->decrease_point_label_7);
            sheep7->decrease_label_position(1280, 350);
+
+           sheep7->Set_Farmer_status_Label(ui->number_of_Farmers_label);
 
            sheep7->Farmer_pushbutton_position(1320, 390);
            animation7 = new QPropertyAnimation(buttonAtPos2_Sheep7, "geometry", this);
@@ -7922,6 +8270,8 @@ void Gamepage::on_Start_7_clicked()
            cow7->Set_decrease_label(ui->decrease_point_label_7);
            cow7->decrease_label_position(560, 350);
 
+           cow7->Set_Farmer_status_Label(ui->number_of_Farmers_label);
+
            cow7->Farmer_pushbutton_position(1320, 390);
            animation7 = new QPropertyAnimation(buttonAtPos2_cow7, "geometry", this);
            animation7->setStartValue(QRect(1320, 390, buttonAtPos2_cow7->geometry().width(), buttonAtPos2_cow7->geometry().height()));
@@ -7944,6 +8294,8 @@ void Gamepage::on_Start_7_clicked()
            wheat7->Set_decrease_label(ui->decrease_point_label_7);
            wheat7->decrease_label_position(1280, 350);
 
+           wheat7->Set_Farmer_status_Label(ui->number_of_Farmers_label);
+
            wheat7->Farmer_pushbutton_position(1320, 390);
            animation7 = new QPropertyAnimation(buttonAtPos2_wheat7, "geometry", this);
            animation7->setStartValue(QRect(1320, 390, buttonAtPos2_wheat7->geometry().width(), buttonAtPos2_wheat7->geometry().height()));
@@ -7965,6 +8317,8 @@ void Gamepage::on_Start_7_clicked()
            barley7->Set_Farmer_Pushbutton(buttonAtPos2_barley7);
            barley7->Set_decrease_label(ui->decrease_point_label_7);
            barley7->decrease_label_position(1280, 350);
+
+           barley7->Set_Farmer_status_Label(ui->number_of_Farmers_label);
 
            barley7->Farmer_pushbutton_position(1320, 390);
            animation7 = new QPropertyAnimation(buttonAtPos2_barley7, "geometry", this);
@@ -8009,6 +8363,10 @@ void Gamepage::on_Start_7_clicked()
 
 void Gamepage::on_Cancel_7_clicked()
 {
+    number_of_Free_farmers++;
+
+    ui->number_of_Farmers_label ->setText( QString::number(number_of_Free_farmers) + " / " + QString::number(number_of_farmers));
+
     Get_info();
 
     ui->Cancel_7->hide();
@@ -8089,85 +8447,125 @@ void Gamepage::on_Cancel_7_clicked()
 }
 
 void Gamepage::on_the_product_of_chicken_pushButton_7_clicked()
-{
-    score = score + (ch7->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_chicken_pushButton_7->hide();
-    ch7->TimerDelay_Stop();
+{   
+    if(number_of_Free_farmers >= 1){
+
+        score = score + (ch7->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_chicken_pushButton_7->hide();
+        ch7->TimerDelay_Stop();
+        Get_info();
+        ui->decrease_point_label_7->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+    }
     Get_info();
-    ui->decrease_point_label_7->hide();
 }
 
 void Gamepage::on_the_product_of_sheep_pushButton_7_clicked()
-{
-    score = score + (sheep7->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_sheep_pushButton_7->hide();
-    sheep7->TimerDelay_Stop();
+{   
+    if(number_of_Free_farmers >= 1){
+
+        score = score + (sheep7->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_sheep_pushButton_7->hide();
+        sheep7->TimerDelay_Stop();
+        Get_info();
+        ui->decrease_point_label_7->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+    }
     Get_info();
-    ui->decrease_point_label_7->hide();
 }
 
 void Gamepage::on_the_product_of_cow_pushButton_7_clicked()
-{
-    score = score + (cow7->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_cow_pushButton_7->hide();
-    cow7->TimerDelay_Stop();
+{   
+    if(number_of_Free_farmers >= 1){
+
+        score = score + (cow7->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_cow_pushButton_7->hide();
+        cow7->TimerDelay_Stop();
+        Get_info();
+        ui->decrease_point_label_7->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+    }
     Get_info();
-    ui->decrease_point_label_7->hide();
 }
 
 void Gamepage::on_the_product_of_wheat_pushButton_7_clicked()
-{
-    score = score + (wheat7->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_wheat_pushButton_7->hide();
-    wheat7->TimerDelay_Stop();
-    Get_info();
+{  
+    if(number_of_Free_farmers >= 1){
 
-    QPoint Pos(1260, 410);
+        score = score + (wheat7->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_wheat_pushButton_7->hide();
+        wheat7->TimerDelay_Stop();
+        Get_info();
 
-    QPushButton* buttonAtPos = this->check2(Pos);
+        QPoint Pos(1260, 410);
 
-    if (buttonAtPos != nullptr) {
+        QPushButton* buttonAtPos = this->check2(Pos);
 
-        if (buttonAtPos->objectName() == "Wheat") {
+        if (buttonAtPos != nullptr) {
 
-            delete  buttonAtPos;
+            if (buttonAtPos->objectName() == "Wheat") {
 
-            Get_info();
+                delete  buttonAtPos;
+
+                Get_info();
+            }
         }
+        ui->decrease_point_label_7->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
     }
-    ui->decrease_point_label_7->hide();
+    Get_info();
 }
 
 void Gamepage::on_the_product_of_barley_pushButton_7_clicked()
-{
-    score = score + (barley7->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_barley_pushButton_7->hide();
-    barley7->TimerDelay_Stop();
-    Get_info();
+{   
+    if(number_of_Free_farmers >= 1){
 
-    QPoint Pos(1260, 410);
+        score = score + (barley7->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_barley_pushButton_7->hide();
+        barley7->TimerDelay_Stop();
+        Get_info();
 
-    QPushButton* buttonAtPos = this->check2(Pos);
+        QPoint Pos(1260, 410);
 
-    if (buttonAtPos != nullptr) {
+        QPushButton* buttonAtPos = this->check2(Pos);
 
-         if (buttonAtPos->objectName() == "Barley") {
+        if (buttonAtPos != nullptr) {
 
-            delete  buttonAtPos;
+             if (buttonAtPos->objectName() == "Barley") {
 
-             Get_info();
-         }
+                delete  buttonAtPos;
+
+                 Get_info();
+             }
+        }
+        ui->decrease_point_label_7->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
     }
-    ui->decrease_point_label_7->hide();
+    Get_info();
 }
 
 void Gamepage::on_Start_8_clicked()
 {
+    number_of_Free_farmers--;
+
+    ui->number_of_Farmers_label ->setText( QString::number(number_of_Free_farmers) + " / " + QString::number(number_of_farmers));
+
+
     ui->Start_8->hide();
     ui->Cancel_8->show();
     ui->timer_label_8->show();
@@ -8197,6 +8595,8 @@ void Gamepage::on_Start_8_clicked()
            ch8->Set_decrease_label(ui->decrease_point_label_8);
            ch8->decrease_label_position(1670, 350);
 
+           ch8->Set_Farmer_status_Label(ui->number_of_Farmers_label);
+
            ch8->Farmer_pushbutton_position(1710, 390);
            animation8 = new QPropertyAnimation(buttonAtPos2_ch8, "geometry", this);
            animation8->setStartValue(QRect(1710, 390, buttonAtPos2_ch8->geometry().width(), buttonAtPos2_ch8->geometry().height()));
@@ -8218,6 +8618,8 @@ void Gamepage::on_Start_8_clicked()
            sheep8->Set_Farmer_Pushbutton(buttonAtPos2_Sheep8);
            sheep8->Set_decrease_label(ui->decrease_point_label_8);
            sheep8->decrease_label_position(1670, 350);
+
+           sheep8->Set_Farmer_status_Label(ui->number_of_Farmers_label);
 
            sheep8->Farmer_pushbutton_position(1710, 390);
            animation8 = new QPropertyAnimation(buttonAtPos2_Sheep8, "geometry", this);
@@ -8241,6 +8643,8 @@ void Gamepage::on_Start_8_clicked()
            cow8->Set_decrease_label(ui->decrease_point_label_8);
            cow8->decrease_label_position(1670, 350);
 
+           cow8->Set_Farmer_status_Label(ui->number_of_Farmers_label);
+
            cow8->Farmer_pushbutton_position(1710, 390);
            animation8 = new QPropertyAnimation(buttonAtPos2_cow8, "geometry", this);
            animation8->setStartValue(QRect(1710, 390, buttonAtPos2_cow8->geometry().width(), buttonAtPos2_cow8->geometry().height()));
@@ -8263,6 +8667,8 @@ void Gamepage::on_Start_8_clicked()
            wheat8->Set_decrease_label(ui->decrease_point_label_8);
            wheat8->decrease_label_position(1670, 350);
 
+           wheat8->Set_Farmer_status_Label(ui->number_of_Farmers_label);
+
            wheat8->Farmer_pushbutton_position(1710, 390);
            animation8 = new QPropertyAnimation(buttonAtPos2_wheat8, "geometry", this);
            animation8->setStartValue(QRect(1710, 390, buttonAtPos2_wheat8->geometry().width(), buttonAtPos2_wheat8->geometry().height()));
@@ -8284,6 +8690,8 @@ void Gamepage::on_Start_8_clicked()
            barley8->Set_Farmer_Pushbutton(buttonAtPos2_barley8);
            barley8->Set_decrease_label(ui->decrease_point_label_8);
            barley8->decrease_label_position(1670, 350);
+
+           barley8->Set_Farmer_status_Label(ui->number_of_Farmers_label);
 
            barley8->Farmer_pushbutton_position(1710, 390);
            animation8 = new QPropertyAnimation(buttonAtPos2_barley8, "geometry", this);
@@ -8328,6 +8736,10 @@ void Gamepage::on_Start_8_clicked()
 
 void Gamepage::on_Cancel_8_clicked()
 {
+    number_of_Free_farmers++;
+
+    ui->number_of_Farmers_label ->setText( QString::number(number_of_Free_farmers) + " / " + QString::number(number_of_farmers));
+
     Get_info();
 
     ui->Cancel_8->hide();
@@ -8408,85 +8820,125 @@ void Gamepage::on_Cancel_8_clicked()
 }
 
 void Gamepage::on_the_product_of_chicken_pushButton_8_clicked()
-{
-    score = score + (ch8->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_chicken_pushButton_8->hide();
-    ch8->TimerDelay_Stop();
+{   
+    if(number_of_Free_farmers >= 1){
+
+        score = score + (ch8->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_chicken_pushButton_8->hide();
+        ch8->TimerDelay_Stop();
+        Get_info();
+        ui->decrease_point_label_8->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+    }
     Get_info();
-    ui->decrease_point_label_8->hide();
 }
 
 void Gamepage::on_the_product_of_sheep_pushButton_8_clicked()
-{
-    score = score + (sheep8->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_sheep_pushButton_8->hide();
-    sheep8->TimerDelay_Stop();
+{   
+    if(number_of_Free_farmers >= 1){
+
+        score = score + (sheep8->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_sheep_pushButton_8->hide();
+        sheep8->TimerDelay_Stop();
+        Get_info();
+        ui->decrease_point_label_8->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+    }
     Get_info();
-    ui->decrease_point_label_8->hide();
 }
 
 void Gamepage::on_the_product_of_cow_pushButton_8_clicked()
-{
-    score = score + (cow8->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_cow_pushButton_8->hide();
-    cow8->TimerDelay_Stop();
+{  
+    if(number_of_Free_farmers >= 1){
+
+        score = score + (cow8->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_cow_pushButton_8->hide();
+        cow8->TimerDelay_Stop();
+        Get_info();
+        ui->decrease_point_label_8->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+    }
     Get_info();
-    ui->decrease_point_label_8->hide();
 }
 
 void Gamepage::on_the_product_of_wheat_pushButton_8_clicked()
 {
-    score = score + (wheat8->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_wheat_pushButton_8->hide();
-    wheat8->TimerDelay_Stop();
-    Get_info();
+    if(number_of_Free_farmers >= 1){
 
-    QPoint Pos(1650, 410);
+        score = score + (wheat8->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_wheat_pushButton_8->hide();
+        wheat8->TimerDelay_Stop();
+        Get_info();
 
-    QPushButton* buttonAtPos = this->check2(Pos);
+        QPoint Pos(1650, 410);
 
-    if (buttonAtPos != nullptr) {
+        QPushButton* buttonAtPos = this->check2(Pos);
 
-        if (buttonAtPos->objectName() == "Wheat") {
+        if (buttonAtPos != nullptr) {
 
-            delete  buttonAtPos;
+            if (buttonAtPos->objectName() == "Wheat") {
 
-            Get_info();
+                delete  buttonAtPos;
+
+                Get_info();
+            }
         }
+        ui->decrease_point_label_8->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
     }
-    ui->decrease_point_label_8->hide();
+    Get_info();
 }
 
 void Gamepage::on_the_product_of_barley_pushButton_8_clicked()
-{
-    score = score + (barley8->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_barley_pushButton_8->hide();
-    barley8->TimerDelay_Stop();
-    Get_info();
+{   
+    if(number_of_Free_farmers >= 1){
 
-    QPoint Pos(1650, 410);
+        score = score + (barley8->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_barley_pushButton_8->hide();
+        barley8->TimerDelay_Stop();
+        Get_info();
 
-    QPushButton* buttonAtPos = this->check2(Pos);
+        QPoint Pos(1650, 410);
 
-    if (buttonAtPos != nullptr) {
+        QPushButton* buttonAtPos = this->check2(Pos);
 
-         if (buttonAtPos->objectName() == "Barley") {
+        if (buttonAtPos != nullptr) {
 
-            delete  buttonAtPos;
+             if (buttonAtPos->objectName() == "Barley") {
 
-             Get_info();
-         }
+                delete  buttonAtPos;
+
+                 Get_info();
+             }
+        }
+        ui->decrease_point_label_8->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
     }
-    ui->decrease_point_label_8->hide();
+    Get_info();
 }
 
 void Gamepage::on_Start_9_clicked()
 {
+
+    number_of_Free_farmers--;
+
+    ui->number_of_Farmers_label ->setText( QString::number(number_of_Free_farmers) + " / " + QString::number(number_of_farmers));
+
     ui->Start_9->hide();
     ui->Cancel_9->show();
     ui->timer_label_9->show();
@@ -8516,6 +8968,8 @@ void Gamepage::on_Start_9_clicked()
            ch9->Set_decrease_label(ui->decrease_point_label_9);
            ch9->decrease_label_position(170, 580);
 
+           ch9->Set_Farmer_status_Label(ui->number_of_Farmers_label);
+
            ch9->Farmer_pushbutton_position(210, 620);
            animation9 = new QPropertyAnimation(buttonAtPos2_ch9, "geometry", this);
            animation9->setStartValue(QRect(210, 620, buttonAtPos2_ch9->geometry().width(), buttonAtPos2_ch9->geometry().height()));
@@ -8537,6 +8991,8 @@ void Gamepage::on_Start_9_clicked()
            sheep9->Set_Farmer_Pushbutton(buttonAtPos2_Sheep9);
            sheep9->Set_decrease_label(ui->decrease_point_label_9);
            sheep9->decrease_label_position(170, 580);
+
+           sheep9->Set_Farmer_status_Label(ui->number_of_Farmers_label);
 
            sheep9->Farmer_pushbutton_position(210, 620);
            animation9 = new QPropertyAnimation(buttonAtPos2_Sheep9, "geometry", this);
@@ -8560,6 +9016,8 @@ void Gamepage::on_Start_9_clicked()
            cow9->Set_decrease_label(ui->decrease_point_label_9);
            cow9->decrease_label_position(170, 580);
 
+           cow9->Set_Farmer_status_Label(ui->number_of_Farmers_label);
+
            cow9->Farmer_pushbutton_position(210, 620);
            animation9 = new QPropertyAnimation(buttonAtPos2_cow9, "geometry", this);
            animation9->setStartValue(QRect(210, 620, buttonAtPos2_cow9->geometry().width(), buttonAtPos2_cow9->geometry().height()));
@@ -8582,6 +9040,8 @@ void Gamepage::on_Start_9_clicked()
            wheat9->Set_decrease_label(ui->decrease_point_label_9);
            wheat9->decrease_label_position(170, 580);
 
+           wheat9->Set_Farmer_status_Label(ui->number_of_Farmers_label);
+
            wheat9->Farmer_pushbutton_position(210, 620);
            animation9 = new QPropertyAnimation(buttonAtPos2_wheat9, "geometry", this);
            animation9->setStartValue(QRect(210, 620, buttonAtPos2_wheat9->geometry().width(), buttonAtPos2_wheat9->geometry().height()));
@@ -8603,6 +9063,8 @@ void Gamepage::on_Start_9_clicked()
            barley9->Set_Farmer_Pushbutton(buttonAtPos2_barley9);
            barley9->Set_decrease_label(ui->decrease_point_label_9);
            barley9->decrease_label_position(170, 580);
+
+           barley9->Set_Farmer_status_Label(ui->number_of_Farmers_label);
 
            barley9->Farmer_pushbutton_position(210, 620);
            animation9 = new QPropertyAnimation(buttonAtPos2_barley9, "geometry", this);
@@ -8647,6 +9109,10 @@ void Gamepage::on_Start_9_clicked()
 
 void Gamepage::on_Cancel_9_clicked()
 {
+    number_of_Free_farmers++;
+
+    ui->number_of_Farmers_label ->setText( QString::number(number_of_Free_farmers) + " / " + QString::number(number_of_farmers));
+
     Get_info();
 
     ui->Cancel_9->hide();
@@ -8727,85 +9193,125 @@ void Gamepage::on_Cancel_9_clicked()
 }
 
 void Gamepage::on_the_product_of_chicken_pushButton_9_clicked()
-{
-    score = score + (ch9->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_chicken_pushButton_9->hide();
-    ch9->TimerDelay_Stop();
+{   
+    if(number_of_Free_farmers >= 1){
+
+        score = score + (ch9->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_chicken_pushButton_9->hide();
+        ch9->TimerDelay_Stop();
+        Get_info();
+        ui->decrease_point_label_9->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+    }
     Get_info();
-    ui->decrease_point_label_9->hide();
 }
 
 void Gamepage::on_the_product_of_sheep_pushButton_9_clicked()
-{
-    score = score + (sheep9->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_sheep_pushButton_9->hide();
-    sheep9->TimerDelay_Stop();
+{  
+    if(number_of_Free_farmers >= 1){
+
+        score = score + (sheep9->Product_Collection_Point);
+        ui->label_Score->setText( "Score :" + QString::number(score));
+        ui->the_product_of_sheep_pushButton_9->hide();
+        sheep9->TimerDelay_Stop();
+        Get_info();
+        ui->decrease_point_label_9->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+    }
     Get_info();
-    ui->decrease_point_label_9->hide();
 }
 
 void Gamepage::on_the_product_of_cow_pushButton_9_clicked()
-{
-    score = score + (cow9->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_cow_pushButton_9->hide();
-    cow9->TimerDelay_Stop();
+{  
+    if(number_of_Free_farmers >= 1){
+
+        score = score + (cow9->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_cow_pushButton_9->hide();
+        cow9->TimerDelay_Stop();
+        Get_info();
+        ui->decrease_point_label_9->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+    }
     Get_info();
-    ui->decrease_point_label_9->hide();
 }
 
 void Gamepage::on_the_product_of_wheat_pushButton_9_clicked()
-{
-    score = score + (wheat9->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_wheat_pushButton_9->hide();
-    wheat9->TimerDelay_Stop();
-    Get_info();
+{    
+    if(number_of_Free_farmers >= 1){
 
-    QPoint Pos(150, 640);
+        score = score + (wheat9->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_wheat_pushButton_9->hide();
+        wheat9->TimerDelay_Stop();
+        Get_info();
 
-    QPushButton* buttonAtPos = this->check2(Pos);
+        QPoint Pos(150, 640);
 
-    if (buttonAtPos != nullptr) {
+        QPushButton* buttonAtPos = this->check2(Pos);
 
-        if (buttonAtPos->objectName() == "Wheat") {
+        if (buttonAtPos != nullptr) {
 
-            delete  buttonAtPos;
+            if (buttonAtPos->objectName() == "Wheat") {
 
-            Get_info();
+                delete  buttonAtPos;
+
+                Get_info();
+            }
         }
+        ui->decrease_point_label_9->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
     }
-    ui->decrease_point_label_9->hide();
+    Get_info();
 }
 
 void Gamepage::on_the_product_of_barley_pushButton_9_clicked()
-{
-    score = score + (barley9->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_barley_pushButton_9->hide();
-    barley9->TimerDelay_Stop();
-    Get_info();
+{   
+    if(number_of_Free_farmers >= 1){
 
-    QPoint Pos(150, 640);
+        score = score + (barley9->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_barley_pushButton_9->hide();
+        barley9->TimerDelay_Stop();
+        Get_info();
 
-    QPushButton* buttonAtPos = this->check2(Pos);
+        QPoint Pos(150, 640);
 
-    if (buttonAtPos != nullptr) {
+        QPushButton* buttonAtPos = this->check2(Pos);
 
-         if (buttonAtPos->objectName() == "Barley") {
+        if (buttonAtPos != nullptr) {
 
-            delete  buttonAtPos;
+             if (buttonAtPos->objectName() == "Barley") {
 
-             Get_info();
-         }
+                delete  buttonAtPos;
+
+                 Get_info();
+             }
+        }
+        ui->decrease_point_label_9->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
     }
-    ui->decrease_point_label_9->hide();
+    Get_info();
 }
 
 void Gamepage::on_Start_10_clicked()
 {
+
+    number_of_Free_farmers--;
+
+    ui->number_of_Farmers_label ->setText( QString::number(number_of_Free_farmers) + " / " + QString::number(number_of_farmers));
+
     ui->Start_10->hide();
     ui->Cancel_10->show();
     ui->timer_label_10->show();
@@ -8835,6 +9341,8 @@ void Gamepage::on_Start_10_clicked()
            ch10->Set_decrease_label(ui->decrease_point_label_10);
            ch10->decrease_label_position(560, 580);
 
+           ch10->Set_Farmer_status_Label(ui->number_of_Farmers_label);
+
            ch10->Farmer_pushbutton_position(600, 620);
            animation10 = new QPropertyAnimation(buttonAtPos2_ch10, "geometry", this);
            animation10->setStartValue(QRect(600, 620, buttonAtPos2_ch10->geometry().width(), buttonAtPos2_ch10->geometry().height()));
@@ -8856,6 +9364,8 @@ void Gamepage::on_Start_10_clicked()
            sheep10->Set_Farmer_Pushbutton(buttonAtPos2_Sheep10);
            sheep10->Set_decrease_label(ui->decrease_point_label_10);
            sheep10->decrease_label_position(560, 580);
+
+           sheep10->Set_Farmer_status_Label(ui->number_of_Farmers_label);
 
            sheep10->Farmer_pushbutton_position(600, 620);
            animation10 = new QPropertyAnimation(buttonAtPos2_Sheep10, "geometry", this);
@@ -8879,6 +9389,8 @@ void Gamepage::on_Start_10_clicked()
            cow10->Set_decrease_label(ui->decrease_point_label_10);
            cow10->decrease_label_position(560, 580);
 
+           cow10->Set_Farmer_status_Label(ui->number_of_Farmers_label);
+
            cow10->Farmer_pushbutton_position(600, 620);
            animation10 = new QPropertyAnimation(buttonAtPos2_cow10, "geometry", this);
            animation10->setStartValue(QRect(600, 620, buttonAtPos2_cow10->geometry().width(), buttonAtPos2_cow10->geometry().height()));
@@ -8901,6 +9413,8 @@ void Gamepage::on_Start_10_clicked()
            wheat10->Set_decrease_label(ui->decrease_point_label_10);
            wheat10->decrease_label_position(560, 580);
 
+           wheat10->Set_Farmer_status_Label(ui->number_of_Farmers_label);
+
            wheat10->Farmer_pushbutton_position(600, 620);
            animation10 = new QPropertyAnimation(buttonAtPos2_wheat10, "geometry", this);
            animation10->setStartValue(QRect(600, 620, buttonAtPos2_wheat10->geometry().width(), buttonAtPos2_wheat10->geometry().height()));
@@ -8922,6 +9436,8 @@ void Gamepage::on_Start_10_clicked()
            barley10->Set_Farmer_Pushbutton(buttonAtPos2_barley10);
            barley10->Set_decrease_label(ui->decrease_point_label_10);
            barley10->decrease_label_position(560, 580);
+
+           barley10->Set_Farmer_status_Label(ui->number_of_Farmers_label);
 
            barley10->Farmer_pushbutton_position(600, 620);
            animation10 = new QPropertyAnimation(buttonAtPos2_barley10, "geometry", this);
@@ -8966,6 +9482,10 @@ void Gamepage::on_Start_10_clicked()
 
 void Gamepage::on_Cancel_10_clicked()
 {
+    number_of_Free_farmers++;
+
+    ui->number_of_Farmers_label ->setText( QString::number(number_of_Free_farmers) + " / " + QString::number(number_of_farmers));
+
     Get_info();
 
     ui->Cancel_10->hide();
@@ -9046,85 +9566,124 @@ void Gamepage::on_Cancel_10_clicked()
 }
 
 void Gamepage::on_the_product_of_chicken_pushButton_10_clicked()
-{
-    score = score + (ch10->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_chicken_pushButton_10->hide();
-    ch10->TimerDelay_Stop();
+{  
+    if(number_of_Free_farmers >= 1){
+
+        score = score + (ch10->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_chicken_pushButton_10->hide();
+        ch10->TimerDelay_Stop();
+        Get_info();
+        ui->decrease_point_label_10->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+    }
     Get_info();
-    ui->decrease_point_label_10->hide();
 }
 
 void Gamepage::on_the_product_of_sheep_pushButton_10_clicked()
-{
-    score = score + (sheep10->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_sheep_pushButton_10->hide();
-    sheep10->TimerDelay_Stop();
+{   
+    if(number_of_Free_farmers >= 1){
+
+        score = score + (sheep10->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_sheep_pushButton_10->hide();
+        sheep10->TimerDelay_Stop();
+        Get_info();
+        ui->decrease_point_label_10->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+    }
     Get_info();
-    ui->decrease_point_label_10->hide();
 }
 
 void Gamepage::on_the_product_of_cow_pushButton_10_clicked()
-{
-    score = score + (cow10->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_cow_pushButton_10->hide();
-    cow10->TimerDelay_Stop();
+{  
+    if(number_of_Free_farmers >= 1){
+
+        score = score + (cow10->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_cow_pushButton_10->hide();
+        cow10->TimerDelay_Stop();
+        Get_info();
+        ui->decrease_point_label_10->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+    }
     Get_info();
-    ui->decrease_point_label_10->hide();
 }
 
 void Gamepage::on_the_product_of_wheat_pushButton_10_clicked()
-{
-    score = score + (wheat10->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_wheat_pushButton_10->hide();
-    wheat10->TimerDelay_Stop();
-    Get_info();
+{    
+    if(number_of_Free_farmers >= 1){
 
-    QPoint Pos(540, 640);
+        score = score + (wheat10->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_wheat_pushButton_10->hide();
+        wheat10->TimerDelay_Stop();
+        Get_info();
 
-    QPushButton* buttonAtPos = this->check2(Pos);
+        QPoint Pos(540, 640);
 
-    if (buttonAtPos != nullptr) {
+        QPushButton* buttonAtPos = this->check2(Pos);
 
-        if (buttonAtPos->objectName() == "Wheat") {
+        if (buttonAtPos != nullptr) {
 
-            delete  buttonAtPos;
+            if (buttonAtPos->objectName() == "Wheat") {
 
-            Get_info();
+                delete  buttonAtPos;
+
+                Get_info();
+            }
         }
+        ui->decrease_point_label_10->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
     }
-    ui->decrease_point_label_10->hide();
+    Get_info();
 }
 
 void Gamepage::on_the_product_of_barley_pushButton_10_clicked()
-{
-    score = score + (barley10->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_barley_pushButton_10->hide();
-    barley10->TimerDelay_Stop();
-    Get_info();
+{   
+    if(number_of_Free_farmers >= 1){
 
-    QPoint Pos(540, 640);
+        score = score + (barley10->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_barley_pushButton_10->hide();
+        barley10->TimerDelay_Stop();
+        Get_info();
 
-    QPushButton* buttonAtPos = this->check2(Pos);
+        QPoint Pos(540, 640);
 
-    if (buttonAtPos != nullptr) {
+        QPushButton* buttonAtPos = this->check2(Pos);
 
-         if (buttonAtPos->objectName() == "Barley") {
+        if (buttonAtPos != nullptr) {
 
-            delete  buttonAtPos;
+             if (buttonAtPos->objectName() == "Barley") {
 
-             Get_info();
-         }
+                delete  buttonAtPos;
+
+                 Get_info();
+             }
+        }
+        ui->decrease_point_label_10->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
     }
-    ui->decrease_point_label_10->hide();
+    Get_info();
 }
 
 void Gamepage::on_Start_11_clicked()
 {
+    number_of_Free_farmers--;
+
+    ui->number_of_Farmers_label ->setText( QString::number(number_of_Free_farmers) + " / " + QString::number(number_of_farmers));
+
     ui->Start_11->hide();
     ui->Cancel_11->show();
     ui->timer_label_11->show();
@@ -9154,6 +9713,8 @@ void Gamepage::on_Start_11_clicked()
            ch11->Set_decrease_label(ui->decrease_point_label_11);
            ch11->decrease_label_position(1280, 580);
 
+           ch11->Set_Farmer_status_Label(ui->number_of_Farmers_label);
+
            ch11->Farmer_pushbutton_position(1320, 620);
            animation11 = new QPropertyAnimation(buttonAtPos2_ch11, "geometry", this);
            animation11->setStartValue(QRect(1320, 620, buttonAtPos2_ch11->geometry().width(), buttonAtPos2_ch11->geometry().height()));
@@ -9175,6 +9736,8 @@ void Gamepage::on_Start_11_clicked()
            sheep11->Set_Farmer_Pushbutton(buttonAtPos2_Sheep11);
            sheep11->Set_decrease_label(ui->decrease_point_label_11);
            sheep11->decrease_label_position(1280, 580);
+
+           sheep11->Set_Farmer_status_Label(ui->number_of_Farmers_label);
 
            sheep11->Farmer_pushbutton_position(1320, 620);
            animation11 = new QPropertyAnimation(buttonAtPos2_Sheep11, "geometry", this);
@@ -9198,6 +9761,8 @@ void Gamepage::on_Start_11_clicked()
            cow11->Set_decrease_label(ui->decrease_point_label_11);
            cow11->decrease_label_position(1280, 580);
 
+           cow11->Set_Farmer_status_Label(ui->number_of_Farmers_label);
+
            cow11->Farmer_pushbutton_position(1320, 620);
            animation11 = new QPropertyAnimation(buttonAtPos2_cow11, "geometry", this);
            animation11->setStartValue(QRect(1320, 620, buttonAtPos2_cow11->geometry().width(), buttonAtPos2_cow11->geometry().height()));
@@ -9220,6 +9785,8 @@ void Gamepage::on_Start_11_clicked()
            wheat11->Set_decrease_label(ui->decrease_point_label_11);
            wheat11->decrease_label_position(1280, 580);
 
+           wheat11->Set_Farmer_status_Label(ui->number_of_Farmers_label);
+
            wheat11->Farmer_pushbutton_position(1320, 620);
            animation11 = new QPropertyAnimation(buttonAtPos2_wheat11, "geometry", this);
            animation11->setStartValue(QRect(1320, 620, buttonAtPos2_wheat11->geometry().width(), buttonAtPos2_wheat11->geometry().height()));
@@ -9241,6 +9808,8 @@ void Gamepage::on_Start_11_clicked()
            barley11->Set_Farmer_Pushbutton(buttonAtPos2_barley11);
            barley11->Set_decrease_label(ui->decrease_point_label_11);
            barley11->decrease_label_position(1280, 580);
+
+           barley11->Set_Farmer_status_Label(ui->number_of_Farmers_label);
 
            barley11->Farmer_pushbutton_position(1320, 620);
            animation11 = new QPropertyAnimation(buttonAtPos2_barley11, "geometry", this);
@@ -9285,6 +9854,10 @@ void Gamepage::on_Start_11_clicked()
 
 void Gamepage::on_Cancel_11_clicked()
 {
+    number_of_Free_farmers++;
+
+    ui->number_of_Farmers_label ->setText( QString::number(number_of_Free_farmers) + " / " + QString::number(number_of_farmers));
+
     Get_info();
 
     ui->Cancel_11->hide();
@@ -9365,85 +9938,123 @@ void Gamepage::on_Cancel_11_clicked()
 }
 
 void Gamepage::on_the_product_of_chicken_pushButton_11_clicked()
-{
-    score = score + (ch11->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_chicken_pushButton_11->hide();
-    ch11->TimerDelay_Stop();
+{    
+    if(number_of_Free_farmers >= 1){
+
+        score = score + (ch11->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_chicken_pushButton_11->hide();
+        ch11->TimerDelay_Stop();
+        Get_info();
+        ui->decrease_point_label_11->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+    }
     Get_info();
-    ui->decrease_point_label_11->hide();
 }
 
 void Gamepage::on_the_product_of_sheep_pushButton_11_clicked()
-{
-    score = score + (sheep11->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_sheep_pushButton_11->hide();
-    sheep11->TimerDelay_Stop();
+{    
+    if(number_of_Free_farmers >= 1){
+
+        score = score + (sheep11->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_sheep_pushButton_11->hide();
+        sheep11->TimerDelay_Stop();
+        Get_info();
+        ui->decrease_point_label_11->hide();
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+    }
     Get_info();
-    ui->decrease_point_label_11->hide();
 }
 
 void Gamepage::on_the_product_of_cow_pushButton_11_clicked()
-{
-    score = score + (cow11->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_cow_pushButton_11->hide();
-    cow11->TimerDelay_Stop();
+{    
+    if(number_of_Free_farmers >= 1){
+
+        score = score + (cow11->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_cow_pushButton_11->hide();
+        cow11->TimerDelay_Stop();
+        Get_info();
+        ui->decrease_point_label_11->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+    }
     Get_info();
-    ui->decrease_point_label_11->hide();
 }
 
 void Gamepage::on_the_product_of_wheat_pushButton_11_clicked()
-{
-    score = score + (wheat11->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_wheat_pushButton_11->hide();
-    wheat11->TimerDelay_Stop();
-    Get_info();
+{   
+    if(number_of_Free_farmers >= 1){
 
-    QPoint Pos(1260, 640);
+        score = score + (wheat11->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_wheat_pushButton_11->hide();
+        wheat11->TimerDelay_Stop();
+        Get_info();
 
-    QPushButton* buttonAtPos = this->check2(Pos);
+        QPoint Pos(1260, 640);
 
-    if (buttonAtPos != nullptr) {
+        QPushButton* buttonAtPos = this->check2(Pos);
 
-        if (buttonAtPos->objectName() == "Wheat") {
+        if (buttonAtPos != nullptr) {
 
-            delete  buttonAtPos;
+            if (buttonAtPos->objectName() == "Wheat") {
 
-            Get_info();
+                delete  buttonAtPos;
+
+                Get_info();
+            }
         }
+        ui->decrease_point_label_11->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
     }
-    ui->decrease_point_label_11->hide();
+    Get_info();
 }
 
 void Gamepage::on_the_product_of_barley_pushButton_11_clicked()
-{
-    score = score + (barley11->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_barley_pushButton_11->hide();
-    barley11->TimerDelay_Stop();
-    Get_info();
+{   
+    if(number_of_Free_farmers >= 1){
 
-    QPoint Pos(1260, 640);
+        score = score + (barley11->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_barley_pushButton_11->hide();
+        barley11->TimerDelay_Stop();
+        Get_info();
 
-    QPushButton* buttonAtPos = this->check2(Pos);
+        QPoint Pos(1260, 640);
 
-    if (buttonAtPos != nullptr) {
+        QPushButton* buttonAtPos = this->check2(Pos);
 
-         if (buttonAtPos->objectName() == "Barley") {
+        if (buttonAtPos != nullptr) {
 
-            delete  buttonAtPos;
+             if (buttonAtPos->objectName() == "Barley") {
 
-             Get_info();
-         }
+                delete  buttonAtPos;
+
+                 Get_info();
+             }
+        }
+        ui->decrease_point_label_11->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
     }
-    ui->decrease_point_label_11->hide();
+    Get_info();
 }
 
 void Gamepage::on_Start_12_clicked()
 {
+    number_of_Free_farmers--;
+
+    ui->number_of_Farmers_label ->setText( QString::number(number_of_Free_farmers) + " / " + QString::number(number_of_farmers));
+
     ui->Start_12->hide();
     ui->Cancel_12->show();
     ui->timer_label_12->show();
@@ -9473,6 +10084,8 @@ void Gamepage::on_Start_12_clicked()
            ch12->Set_decrease_label(ui->decrease_point_label_12);
            ch12->decrease_label_position(1670, 580);
 
+           ch12->Set_Farmer_status_Label(ui->number_of_Farmers_label);
+
            ch12->Farmer_pushbutton_position(1710, 620);
            animation12 = new QPropertyAnimation(buttonAtPos2_ch12, "geometry", this);
            animation12->setStartValue(QRect(1710, 620, buttonAtPos2_ch12->geometry().width(), buttonAtPos2_ch12->geometry().height()));
@@ -9494,6 +10107,8 @@ void Gamepage::on_Start_12_clicked()
            sheep12->Set_Farmer_Pushbutton(buttonAtPos2_Sheep12);
            sheep12->Set_decrease_label(ui->decrease_point_label_12);
            sheep12->decrease_label_position(1670, 580);
+
+           sheep12->Set_Farmer_status_Label(ui->number_of_Farmers_label);
 
            sheep12->Farmer_pushbutton_position(1710, 620);
            animation12 = new QPropertyAnimation(buttonAtPos2_Sheep12, "geometry", this);
@@ -9517,6 +10132,8 @@ void Gamepage::on_Start_12_clicked()
            cow12->Set_decrease_label(ui->decrease_point_label_12);
            cow12->decrease_label_position(1670, 580);
 
+           cow12->Set_Farmer_status_Label(ui->number_of_Farmers_label);
+
            cow12->Farmer_pushbutton_position(1710, 620);
            animation12 = new QPropertyAnimation(buttonAtPos2_cow12, "geometry", this);
            animation12->setStartValue(QRect(1710, 620, buttonAtPos2_cow12->geometry().width(), buttonAtPos2_cow12->geometry().height()));
@@ -9539,6 +10156,8 @@ void Gamepage::on_Start_12_clicked()
            wheat12->Set_decrease_label(ui->decrease_point_label_12);
            wheat12->decrease_label_position(1670, 580);
 
+           wheat12->Set_Farmer_status_Label(ui->number_of_Farmers_label);
+
            wheat12->Farmer_pushbutton_position(1710, 620);
            animation12 = new QPropertyAnimation(buttonAtPos2_wheat12, "geometry", this);
            animation12->setStartValue(QRect(1710, 620, buttonAtPos2_wheat12->geometry().width(), buttonAtPos2_wheat12->geometry().height()));
@@ -9560,6 +10179,8 @@ void Gamepage::on_Start_12_clicked()
            barley12->Set_Farmer_Pushbutton(buttonAtPos2_barley12);
            barley12->Set_decrease_label(ui->decrease_point_label_12);
            barley12->decrease_label_position(1670, 580);
+
+           barley12->Set_Farmer_status_Label(ui->number_of_Farmers_label);
 
            barley12->Farmer_pushbutton_position(1710, 620);
            animation12 = new QPropertyAnimation(buttonAtPos2_barley12, "geometry", this);
@@ -9604,6 +10225,10 @@ void Gamepage::on_Start_12_clicked()
 
 void Gamepage::on_Cancel_12_clicked()
 {
+    number_of_Free_farmers++;
+
+    ui->number_of_Farmers_label ->setText( QString::number(number_of_Free_farmers) + " / " + QString::number(number_of_farmers));
+
     Get_info();
 
     ui->Cancel_12->hide();
@@ -9684,85 +10309,124 @@ void Gamepage::on_Cancel_12_clicked()
 }
 
 void Gamepage::on_the_product_of_chicken_pushButton_12_clicked()
-{
-    score = score + (ch12->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_chicken_pushButton_12->hide();
-    ch12->TimerDelay_Stop();
+{   
+    if(number_of_Free_farmers >= 1){
+
+        score = score + (ch12->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_chicken_pushButton_12->hide();
+        ch12->TimerDelay_Stop();
+        Get_info();
+        ui->decrease_point_label_12->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+    }
     Get_info();
-    ui->decrease_point_label_12->hide();
 }
 
 void Gamepage::on_the_product_of_sheep_pushButton_12_clicked()
-{
-    score = score + (sheep12->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_sheep_pushButton_12->hide();
-    sheep12->TimerDelay_Stop();
+{    
+    if(number_of_Free_farmers >= 1){
+
+        score = score + (sheep12->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_sheep_pushButton_12->hide();
+        sheep12->TimerDelay_Stop();
+        Get_info();
+        ui->decrease_point_label_12->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+    }
     Get_info();
-    ui->decrease_point_label_12->hide();
 }
 
 void Gamepage::on_the_product_of_cow_pushButton_12_clicked()
-{
-    score = score + (cow12->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_cow_pushButton_12->hide();
-    cow12->TimerDelay_Stop();
+{    
+    if(number_of_Free_farmers >= 1){
+
+        score = score + (cow12->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_cow_pushButton_12->hide();
+        cow12->TimerDelay_Stop();
+        Get_info();
+        ui->decrease_point_label_12->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+    }
     Get_info();
-    ui->decrease_point_label_12->hide();
 }
 
 void Gamepage::on_the_product_of_wheat_pushButton_12_clicked()
-{
-    score = score + (wheat12->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_wheat_pushButton_12->hide();
-    wheat12->TimerDelay_Stop();
-    Get_info();
+{    
+    if(number_of_Free_farmers >= 1){
 
-    QPoint Pos(1650, 640);
+        score = score + (wheat12->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_wheat_pushButton_12->hide();
+        wheat12->TimerDelay_Stop();
+        Get_info();
 
-    QPushButton* buttonAtPos = this->check2(Pos);
+        QPoint Pos(1650, 640);
 
-    if (buttonAtPos != nullptr) {
+        QPushButton* buttonAtPos = this->check2(Pos);
 
-        if (buttonAtPos->objectName() == "Wheat") {
+        if (buttonAtPos != nullptr) {
 
-            delete  buttonAtPos;
+            if (buttonAtPos->objectName() == "Wheat") {
 
-            Get_info();
+                delete  buttonAtPos;
+
+                Get_info();
+            }
         }
+        ui->decrease_point_label_12->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
     }
-    ui->decrease_point_label_12->hide();
+    Get_info();
 }
 
 void Gamepage::on_the_product_of_barley_pushButton_12_clicked()
-{
-    score = score + (barley12->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_barley_pushButton_12->hide();
-    barley12->TimerDelay_Stop();
-    Get_info();
+{    
+    if(number_of_Free_farmers >= 1){
 
-    QPoint Pos(1650, 640);
+        score = score + (barley12->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_barley_pushButton_12->hide();
+        barley12->TimerDelay_Stop();
+        Get_info();
 
-    QPushButton* buttonAtPos = this->check2(Pos);
+        QPoint Pos(1650, 640);
 
-    if (buttonAtPos != nullptr) {
+        QPushButton* buttonAtPos = this->check2(Pos);
 
-         if (buttonAtPos->objectName() == "Barley") {
+        if (buttonAtPos != nullptr) {
 
-            delete  buttonAtPos;
+             if (buttonAtPos->objectName() == "Barley") {
 
-             Get_info();
-         }
+                delete  buttonAtPos;
+
+                 Get_info();
+             }
+        }
+        ui->decrease_point_label_12->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
     }
-    ui->decrease_point_label_12->hide();
+    Get_info();
 }
 
 void Gamepage::on_Start_13_clicked()
 {
+    number_of_Free_farmers--;
+
+    ui->number_of_Farmers_label ->setText( QString::number(number_of_Free_farmers) + " / " + QString::number(number_of_farmers));
+
     ui->Start_13->hide();
     ui->Cancel_13->show();
     ui->timer_label_13->show();
@@ -9792,6 +10456,8 @@ void Gamepage::on_Start_13_clicked()
            ch13->Set_decrease_label(ui->decrease_point_label_13);
            ch13->decrease_label_position(170, 810);
 
+           ch13->Set_Farmer_status_Label(ui->number_of_Farmers_label);
+
            ch13->Farmer_pushbutton_position(210, 850);
            animation13 = new QPropertyAnimation(buttonAtPos2_ch13, "geometry", this);
            animation13->setStartValue(QRect(210, 850, buttonAtPos2_ch13->geometry().width(), buttonAtPos2_ch13->geometry().height()));
@@ -9813,6 +10479,8 @@ void Gamepage::on_Start_13_clicked()
            sheep13->Set_Farmer_Pushbutton(buttonAtPos2_Sheep13);
            sheep13->Set_decrease_label(ui->decrease_point_label_13);
            sheep13->decrease_label_position(170, 810);
+
+           sheep13->Set_Farmer_status_Label(ui->number_of_Farmers_label);
 
            sheep13->Farmer_pushbutton_position(210, 850);
            animation13 = new QPropertyAnimation(buttonAtPos2_Sheep13, "geometry", this);
@@ -9836,6 +10504,8 @@ void Gamepage::on_Start_13_clicked()
            cow13->Set_decrease_label(ui->decrease_point_label_13);
            cow13->decrease_label_position(170, 810);
 
+           cow13->Set_Farmer_status_Label(ui->number_of_Farmers_label);
+
            cow13->Farmer_pushbutton_position(210, 850);
            animation13 = new QPropertyAnimation(buttonAtPos2_cow13, "geometry", this);
            animation13->setStartValue(QRect(210, 850, buttonAtPos2_cow13->geometry().width(), buttonAtPos2_cow13->geometry().height()));
@@ -9858,6 +10528,8 @@ void Gamepage::on_Start_13_clicked()
            wheat13->Set_decrease_label(ui->decrease_point_label_13);
            wheat13->decrease_label_position(170, 810);
 
+           wheat13->Set_Farmer_status_Label(ui->number_of_Farmers_label);
+
            wheat13->Farmer_pushbutton_position(210, 850);
            animation13 = new QPropertyAnimation(buttonAtPos2_wheat13, "geometry", this);
            animation13->setStartValue(QRect(210, 850, buttonAtPos2_wheat13->geometry().width(), buttonAtPos2_wheat13->geometry().height()));
@@ -9879,6 +10551,8 @@ void Gamepage::on_Start_13_clicked()
            barley13->Set_Farmer_Pushbutton(buttonAtPos2_barley13);
            barley13->Set_decrease_label(ui->decrease_point_label_13);
            barley13->decrease_label_position(170, 810);
+
+           barley13->Set_Farmer_status_Label(ui->number_of_Farmers_label);
 
            barley13->Farmer_pushbutton_position(210, 850);
            animation13 = new QPropertyAnimation(buttonAtPos2_barley13, "geometry", this);
@@ -9923,6 +10597,10 @@ void Gamepage::on_Start_13_clicked()
 
 void Gamepage::on_Cancel_13_clicked()
 {
+    number_of_Free_farmers++;
+
+    ui->number_of_Farmers_label ->setText( QString::number(number_of_Free_farmers) + " / " + QString::number(number_of_farmers));
+
     Get_info();
 
     ui->Cancel_13->hide();
@@ -10003,85 +10681,124 @@ void Gamepage::on_Cancel_13_clicked()
 }
 
 void Gamepage::on_the_product_of_chicken_pushButton_13_clicked()
-{
-    score = score + (ch13->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_chicken_pushButton_13->hide();
-    ch13->TimerDelay_Stop();
+{   
+    if(number_of_Free_farmers >= 1){
+
+        score = score + (ch13->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_chicken_pushButton_13->hide();
+        ch13->TimerDelay_Stop();
+        Get_info();
+        ui->decrease_point_label_13->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+    }
     Get_info();
-    ui->decrease_point_label_13->hide();
 }
 
 void Gamepage::on_the_product_of_sheep_pushButton_13_clicked()
-{
-    score = score + (sheep13->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_sheep_pushButton_13->hide();
-    sheep13->TimerDelay_Stop();
+{    
+    if(number_of_Free_farmers >= 1){
+
+        score = score + (sheep13->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_sheep_pushButton_13->hide();
+        sheep13->TimerDelay_Stop();
+        Get_info();
+        ui->decrease_point_label_13->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+    }
     Get_info();
-    ui->decrease_point_label_13->hide();
 }
 
 void Gamepage::on_the_product_of_cow_pushButton_13_clicked()
-{
-    score = score + (cow13->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_cow_pushButton_13->hide();
-    cow13->TimerDelay_Stop();
+{   
+    if(number_of_Free_farmers >= 1){
+
+        score = score + (cow13->Product_Collection_Point);
+        ui->label_Score->setText( "Score :" + QString::number(score));
+        ui->the_product_of_cow_pushButton_13->hide();
+        cow13->TimerDelay_Stop();
+        Get_info();
+        ui->decrease_point_label_13->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+    }
     Get_info();
-    ui->decrease_point_label_13->hide();
 }
 
 void Gamepage::on_the_product_of_wheat_pushButton_13_clicked()
-{
-    score = score + (wheat13->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_wheat_pushButton_13->hide();
-    wheat13->TimerDelay_Stop();
-    Get_info();
+{    
+    if(number_of_Free_farmers >= 1){
 
-    QPoint Pos(150, 870);
+        score = score + (wheat13->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_wheat_pushButton_13->hide();
+        wheat13->TimerDelay_Stop();
+        Get_info();
 
-    QPushButton* buttonAtPos = this->check2(Pos);
+        QPoint Pos(150, 870);
 
-    if (buttonAtPos != nullptr) {
+        QPushButton* buttonAtPos = this->check2(Pos);
 
-        if (buttonAtPos->objectName() == "Wheat") {
+        if (buttonAtPos != nullptr) {
 
-            delete  buttonAtPos;
+            if (buttonAtPos->objectName() == "Wheat") {
 
-            Get_info();
+                delete  buttonAtPos;
+
+                Get_info();
+            }
         }
+        ui->decrease_point_label_13->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
     }
-    ui->decrease_point_label_13->hide();
+    Get_info();
 }
 
 void Gamepage::on_the_product_of_barley_pushButton_13_clicked()
-{
-    score = score + (barley13->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_barley_pushButton_13->hide();
-    barley13->TimerDelay_Stop();
-    Get_info();
+{    
+    if(number_of_Free_farmers >= 1){
 
-    QPoint Pos(150, 870);
+        score = score + (barley13->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_barley_pushButton_13->hide();
+        barley13->TimerDelay_Stop();
+        Get_info();
 
-    QPushButton* buttonAtPos = this->check2(Pos);
+        QPoint Pos(150, 870);
 
-    if (buttonAtPos != nullptr) {
+        QPushButton* buttonAtPos = this->check2(Pos);
 
-         if (buttonAtPos->objectName() == "Barley") {
+        if (buttonAtPos != nullptr) {
 
-            delete  buttonAtPos;
+             if (buttonAtPos->objectName() == "Barley") {
 
-             Get_info();
-         }
+                delete  buttonAtPos;
+
+                 Get_info();
+             }
+        }
+        ui->decrease_point_label_13->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
     }
-    ui->decrease_point_label_13->hide();
+    Get_info();
 }
 
 void Gamepage::on_Start_14_clicked()
 {
+    number_of_Free_farmers--;
+
+    ui->number_of_Farmers_label ->setText( QString::number(number_of_Free_farmers) + " / " + QString::number(number_of_farmers));
+
     ui->Start_14->hide();
     ui->Cancel_14->show();
     ui->timer_label_14->show();
@@ -10111,6 +10828,8 @@ void Gamepage::on_Start_14_clicked()
            ch14->Set_decrease_label(ui->decrease_point_label_14);
            ch14->decrease_label_position(560, 810);
 
+           ch14->Set_Farmer_status_Label(ui->number_of_Farmers_label);
+
            ch14->Farmer_pushbutton_position(600, 850);
            animation14 = new QPropertyAnimation(buttonAtPos2_ch14, "geometry", this);
            animation14->setStartValue(QRect(600, 850, buttonAtPos2_ch14->geometry().width(), buttonAtPos2_ch14->geometry().height()));
@@ -10132,6 +10851,8 @@ void Gamepage::on_Start_14_clicked()
            sheep14->Set_Farmer_Pushbutton(buttonAtPos2_Sheep14);
            sheep14->Set_decrease_label(ui->decrease_point_label_14);
            sheep14->decrease_label_position(560, 810);
+
+           sheep14->Set_Farmer_status_Label(ui->number_of_Farmers_label);
 
            sheep14->Farmer_pushbutton_position(600, 850);
            animation14 = new QPropertyAnimation(buttonAtPos2_Sheep14, "geometry", this);
@@ -10155,6 +10876,8 @@ void Gamepage::on_Start_14_clicked()
            cow14->Set_decrease_label(ui->decrease_point_label_14);
            cow14->decrease_label_position(560, 810);
 
+           cow14->Set_Farmer_status_Label(ui->number_of_Farmers_label);
+
            cow14->Farmer_pushbutton_position(600, 850);
            animation14 = new QPropertyAnimation(buttonAtPos2_cow14, "geometry", this);
            animation14->setStartValue(QRect(600, 850, buttonAtPos2_cow14->geometry().width(), buttonAtPos2_cow14->geometry().height()));
@@ -10177,6 +10900,8 @@ void Gamepage::on_Start_14_clicked()
            wheat14->Set_decrease_label(ui->decrease_point_label_14);
            wheat14->decrease_label_position(560, 810);
 
+           wheat14->Set_Farmer_status_Label(ui->number_of_Farmers_label);
+
            wheat14->Farmer_pushbutton_position(600, 850);
            animation14 = new QPropertyAnimation(buttonAtPos2_wheat14, "geometry", this);
            animation14->setStartValue(QRect(600, 850, buttonAtPos2_wheat14->geometry().width(), buttonAtPos2_wheat14->geometry().height()));
@@ -10198,6 +10923,8 @@ void Gamepage::on_Start_14_clicked()
            barley14->Set_Farmer_Pushbutton(buttonAtPos2_barley14);
            barley14->Set_decrease_label(ui->decrease_point_label_14);
            barley14->decrease_label_position(560, 810);
+
+           barley14->Set_Farmer_status_Label(ui->number_of_Farmers_label);
 
            barley14->Farmer_pushbutton_position(600, 850);
            animation14 = new QPropertyAnimation(buttonAtPos2_barley14, "geometry", this);
@@ -10242,6 +10969,10 @@ void Gamepage::on_Start_14_clicked()
 
 void Gamepage::on_Cancel_14_clicked()
 {
+    number_of_Free_farmers++;
+
+    ui->number_of_Farmers_label ->setText( QString::number(number_of_Free_farmers) + " / " + QString::number(number_of_farmers));
+
     Get_info();
 
     ui->Cancel_14->hide();
@@ -10322,85 +11053,125 @@ void Gamepage::on_Cancel_14_clicked()
 }
 
 void Gamepage::on_the_product_of_chicken_pushButton_14_clicked()
-{
-    score = score + (ch14->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_chicken_pushButton_14->hide();
-    ch14->TimerDelay_Stop();
+{   
+    if(number_of_Free_farmers >= 1){
+
+        score = score + (ch14->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_chicken_pushButton_14->hide();
+        ch14->TimerDelay_Stop();
+        Get_info();
+        ui->decrease_point_label_14->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+    }
     Get_info();
-    ui->decrease_point_label_14->hide();
 }
 
 void Gamepage::on_the_product_of_sheep_pushButton_14_clicked()
-{
-    score = score + (sheep14->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_sheep_pushButton_14->hide();
-    sheep14->TimerDelay_Stop();
+{    
+    if(number_of_Free_farmers >= 1){
+
+        score = score + (sheep14->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_sheep_pushButton_14->hide();
+        sheep14->TimerDelay_Stop();
+        Get_info();
+        ui->decrease_point_label_14->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+    }
     Get_info();
-    ui->decrease_point_label_14->hide();
 }
 
 void Gamepage::on_the_product_of_cow_pushButton_14_clicked()
-{
-    score = score + (cow14->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_cow_pushButton_14->hide();
-    cow14->TimerDelay_Stop();
+{   
+    if(number_of_Free_farmers >= 1){
+
+        score = score + (cow14->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_cow_pushButton_14->hide();
+        cow14->TimerDelay_Stop();
+        Get_info();
+        ui->decrease_point_label_14->hide();
+
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+    }
     Get_info();
-    ui->decrease_point_label_14->hide();
 }
 
 void Gamepage::on_the_product_of_wheat_pushButton_14_clicked()
-{
-    score = score + (wheat14->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_wheat_pushButton_14->hide();
-    wheat14->TimerDelay_Stop();
-    Get_info();
+{   
+    if(number_of_Free_farmers >= 1){
 
-    QPoint Pos(540, 870);
+        score = score + (wheat14->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_wheat_pushButton_14->hide();
+        wheat14->TimerDelay_Stop();
+        Get_info();
 
-    QPushButton* buttonAtPos = this->check2(Pos);
+        QPoint Pos(540, 870);
 
-    if (buttonAtPos != nullptr) {
+        QPushButton* buttonAtPos = this->check2(Pos);
 
-        if (buttonAtPos->objectName() == "Wheat") {
+        if (buttonAtPos != nullptr) {
 
-            delete  buttonAtPos;
+            if (buttonAtPos->objectName() == "Wheat") {
 
-            Get_info();
+                delete  buttonAtPos;
+
+                Get_info();
+            }
         }
+        ui->decrease_point_label_14->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
     }
-    ui->decrease_point_label_14->hide();
+    Get_info();
 }
 
 void Gamepage::on_the_product_of_barley_pushButton_14_clicked()
-{
-    score = score + (barley14->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_barley_pushButton_14->hide();
-    barley14->TimerDelay_Stop();
-    Get_info();
+{   
+    if(number_of_Free_farmers >= 1){
 
-    QPoint Pos(540, 870);
+        score = score + (barley14->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_barley_pushButton_14->hide();
+        barley14->TimerDelay_Stop();
+        Get_info();
 
-    QPushButton* buttonAtPos = this->check2(Pos);
+        QPoint Pos(540, 870);
 
-    if (buttonAtPos != nullptr) {
+        QPushButton* buttonAtPos = this->check2(Pos);
 
-         if (buttonAtPos->objectName() == "Barley") {
+        if (buttonAtPos != nullptr) {
 
-            delete  buttonAtPos;
+             if (buttonAtPos->objectName() == "Barley") {
 
-             Get_info();
-         }
+                delete  buttonAtPos;
+
+                 Get_info();
+             }
+        }
+        ui->decrease_point_label_14->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
     }
-    ui->decrease_point_label_14->hide();
+    Get_info();
 }
 
 void Gamepage::on_Start_15_clicked()
 {
+    number_of_Free_farmers--;
+
+    ui->number_of_Farmers_label ->setText( QString::number(number_of_Free_farmers) + " / " + QString::number(number_of_farmers));
+
     ui->Start_15->hide();
     ui->Cancel_15->show();
     ui->timer_label_15->show();
@@ -10430,6 +11201,8 @@ void Gamepage::on_Start_15_clicked()
            ch15->Set_decrease_label(ui->decrease_point_label_15);
            ch15->decrease_label_position(1280, 810);
 
+           ch15->Set_Farmer_status_Label(ui->number_of_Farmers_label);
+
            ch15->Farmer_pushbutton_position(1320, 850);
            animation15 = new QPropertyAnimation(buttonAtPos2_ch15, "geometry", this);
            animation15->setStartValue(QRect(1320, 850, buttonAtPos2_ch15->geometry().width(), buttonAtPos2_ch15->geometry().height()));
@@ -10451,6 +11224,8 @@ void Gamepage::on_Start_15_clicked()
            sheep15->Set_Farmer_Pushbutton(buttonAtPos2_Sheep15);
            sheep15->Set_decrease_label(ui->decrease_point_label_15);
            sheep15->decrease_label_position(1280, 810);
+
+           sheep15->Set_Farmer_status_Label(ui->number_of_Farmers_label);
 
            sheep15->Farmer_pushbutton_position(1320, 850);
            animation15 = new QPropertyAnimation(buttonAtPos2_Sheep15, "geometry", this);
@@ -10474,6 +11249,8 @@ void Gamepage::on_Start_15_clicked()
            cow15->Set_decrease_label(ui->decrease_point_label_15);
            cow15->decrease_label_position(1280, 810);
 
+           cow15->Set_Farmer_status_Label(ui->number_of_Farmers_label);
+
            cow15->Farmer_pushbutton_position(1320, 850);
            animation15 = new QPropertyAnimation(buttonAtPos2_cow15, "geometry", this);
            animation15->setStartValue(QRect(1320, 850, buttonAtPos2_cow15->geometry().width(), buttonAtPos2_cow15->geometry().height()));
@@ -10496,6 +11273,8 @@ void Gamepage::on_Start_15_clicked()
            wheat15->Set_decrease_label(ui->decrease_point_label_15);
            wheat15->decrease_label_position(1280, 810);
 
+           wheat15->Set_Farmer_status_Label(ui->number_of_Farmers_label);
+
            wheat15->Farmer_pushbutton_position(1320, 850);
            animation15 = new QPropertyAnimation(buttonAtPos2_wheat15, "geometry", this);
            animation15->setStartValue(QRect(1320, 850, buttonAtPos2_wheat15->geometry().width(), buttonAtPos2_wheat15->geometry().height()));
@@ -10517,6 +11296,8 @@ void Gamepage::on_Start_15_clicked()
            barley15->Set_Farmer_Pushbutton(buttonAtPos2_barley15);
            barley15->Set_decrease_label(ui->decrease_point_label_15);
            barley15->decrease_label_position(1280, 810);
+
+           barley15->Set_Farmer_status_Label(ui->number_of_Farmers_label);
 
            barley15->Farmer_pushbutton_position(1320, 850);
            animation15 = new QPropertyAnimation(buttonAtPos2_barley15, "geometry", this);
@@ -10561,6 +11342,10 @@ void Gamepage::on_Start_15_clicked()
 
 void Gamepage::on_Cancel_15_clicked()
 {
+    number_of_Free_farmers++;
+
+    ui->number_of_Farmers_label ->setText( QString::number(number_of_Free_farmers) + " / " + QString::number(number_of_farmers));
+
     Get_info();
 
     ui->Cancel_15->hide();
@@ -10641,85 +11426,124 @@ void Gamepage::on_Cancel_15_clicked()
 }
 
 void Gamepage::on_the_product_of_chicken_pushButton_15_clicked()
-{
-    score = score + (ch15->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_chicken_pushButton_15->hide();
-    ch15->TimerDelay_Stop();
+{   
+    if(number_of_Free_farmers >= 1){
+
+        score = score + (ch15->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_chicken_pushButton_15->hide();
+        ch15->TimerDelay_Stop();
+        Get_info();
+        ui->decrease_point_label_15->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+    }
     Get_info();
-    ui->decrease_point_label_15->hide();
 }
 
 void Gamepage::on_the_product_of_sheep_pushButton_15_clicked()
-{
-    score = score + (sheep15->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_sheep_pushButton_15->hide();
-    sheep15->TimerDelay_Stop();
+{   
+    if(number_of_Free_farmers >= 1){
+
+        score = score + (sheep15->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_sheep_pushButton_15->hide();
+        sheep15->TimerDelay_Stop();
+        Get_info();
+        ui->decrease_point_label_15->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+    }
     Get_info();
-    ui->decrease_point_label_15->hide();
 }
 
 void Gamepage::on_the_product_of_cow_pushButton_15_clicked()
-{
-    score = score + (cow15->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_cow_pushButton_15->hide();
-    cow15->TimerDelay_Stop();
+{   
+    if(number_of_Free_farmers >= 1){
+
+        score = score + (cow15->Product_Collection_Point);
+        ui->label_Score->setText( "Score :" + QString::number(score));
+        ui->the_product_of_cow_pushButton_15->hide();
+        cow15->TimerDelay_Stop();
+        Get_info();
+        ui->decrease_point_label_15->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+    }
     Get_info();
-    ui->decrease_point_label_15->hide();
 }
 
 void Gamepage::on_the_product_of_wheat_pushButton_15_clicked()
-{
-    score = score + (wheat15->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_wheat_pushButton_15->hide();
-    wheat15->TimerDelay_Stop();
-    Get_info();
+{   
+    if(number_of_Free_farmers >= 1){
 
-    QPoint Pos(1260, 870);
+        score = score + (wheat15->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_wheat_pushButton_15->hide();
+        wheat15->TimerDelay_Stop();
+        Get_info();
 
-    QPushButton* buttonAtPos = this->check2(Pos);
+        QPoint Pos(1260, 870);
 
-    if (buttonAtPos != nullptr) {
+        QPushButton* buttonAtPos = this->check2(Pos);
 
-        if (buttonAtPos->objectName() == "Wheat") {
+        if (buttonAtPos != nullptr) {
 
-            delete  buttonAtPos;
+            if (buttonAtPos->objectName() == "Wheat") {
 
-            Get_info();
+                delete  buttonAtPos;
+
+                Get_info();
+            }
         }
+        ui->decrease_point_label_15->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
     }
-    ui->decrease_point_label_15->hide();
+    Get_info();
 }
 
 void Gamepage::on_the_product_of_barley_pushButton_15_clicked()
-{
-    score = score + (barley15->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_barley_pushButton_15->hide();
-    barley15->TimerDelay_Stop();
-    Get_info();
+{   
+    if(number_of_Free_farmers >= 1){
 
-    QPoint Pos(1260, 870);
+        score = score + (barley15->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_barley_pushButton_15->hide();
+        barley15->TimerDelay_Stop();
+        Get_info();
 
-    QPushButton* buttonAtPos = this->check2(Pos);
+        QPoint Pos(1260, 870);
 
-    if (buttonAtPos != nullptr) {
+        QPushButton* buttonAtPos = this->check2(Pos);
 
-         if (buttonAtPos->objectName() == "Barley") {
+        if (buttonAtPos != nullptr) {
 
-            delete  buttonAtPos;
+             if (buttonAtPos->objectName() == "Barley") {
 
-             Get_info();
-         }
+                delete  buttonAtPos;
+
+                 Get_info();
+             }
+        }
+        ui->decrease_point_label_15->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
     }
-    ui->decrease_point_label_15->hide();
+    Get_info();
 }
 
 void Gamepage::on_Start_16_clicked()
 {
+    number_of_Free_farmers--;
+
+    ui->number_of_Farmers_label ->setText( QString::number(number_of_Free_farmers) + " / " + QString::number(number_of_farmers));
+
     ui->Start_16->hide();
     ui->Cancel_16->show();
     ui->timer_label_16->show();
@@ -10749,6 +11573,8 @@ void Gamepage::on_Start_16_clicked()
            ch16->Set_decrease_label(ui->decrease_point_label_16);
            ch16->decrease_label_position(1670, 810);
 
+           ch16->Set_Farmer_status_Label(ui->number_of_Farmers_label);
+
            ch16->Farmer_pushbutton_position(1710, 850);
            animation16 = new QPropertyAnimation(buttonAtPos2_ch16, "geometry", this);
            animation16->setStartValue(QRect(1710, 850, buttonAtPos2_ch16->geometry().width(), buttonAtPos2_ch16->geometry().height()));
@@ -10770,6 +11596,8 @@ void Gamepage::on_Start_16_clicked()
            sheep16->Set_Farmer_Pushbutton(buttonAtPos2_Sheep16);
            sheep16->Set_decrease_label(ui->decrease_point_label_16);
            sheep16->decrease_label_position(1670, 810);
+
+           sheep16->Set_Farmer_status_Label(ui->number_of_Farmers_label);
 
            sheep16->Farmer_pushbutton_position(1710, 850);
            animation16 = new QPropertyAnimation(buttonAtPos2_Sheep16, "geometry", this);
@@ -10793,6 +11621,8 @@ void Gamepage::on_Start_16_clicked()
            cow16->Set_decrease_label(ui->decrease_point_label_16);
            cow16->decrease_label_position(1670, 810);
 
+           cow16->Set_Farmer_status_Label(ui->number_of_Farmers_label);
+
            cow16->Farmer_pushbutton_position(1710, 850);
            animation16 = new QPropertyAnimation(buttonAtPos2_cow16, "geometry", this);
            animation16->setStartValue(QRect(1710, 850, buttonAtPos2_cow16->geometry().width(), buttonAtPos2_cow16->geometry().height()));
@@ -10815,6 +11645,8 @@ void Gamepage::on_Start_16_clicked()
            wheat16->Set_decrease_label(ui->decrease_point_label_16);
            wheat16->decrease_label_position(1670, 810);
 
+           wheat16->Set_Farmer_status_Label(ui->number_of_Farmers_label);
+
            wheat16->Farmer_pushbutton_position(1710, 850);
            animation16 = new QPropertyAnimation(buttonAtPos2_wheat16, "geometry", this);
            animation16->setStartValue(QRect(1710, 850, buttonAtPos2_wheat16->geometry().width(), buttonAtPos2_wheat16->geometry().height()));
@@ -10836,6 +11668,8 @@ void Gamepage::on_Start_16_clicked()
            barley16->Set_Farmer_Pushbutton(buttonAtPos2_barley16);
            barley16->Set_decrease_label(ui->decrease_point_label_16);
            barley16->decrease_label_position(1670, 810);
+
+           barley16->Set_Farmer_status_Label(ui->number_of_Farmers_label);
 
            barley16->Farmer_pushbutton_position(1710, 850);
            animation16 = new QPropertyAnimation(buttonAtPos2_barley16, "geometry", this);
@@ -10880,6 +11714,10 @@ void Gamepage::on_Start_16_clicked()
 
 void Gamepage::on_Cancel_16_clicked()
 {
+    number_of_Free_farmers++;
+
+    ui->number_of_Farmers_label ->setText( QString::number(number_of_Free_farmers) + " / " + QString::number(number_of_farmers));
+
     Get_info();
 
     ui->Cancel_16->hide();
@@ -10960,79 +11798,114 @@ void Gamepage::on_Cancel_16_clicked()
 }
 
 void Gamepage::on_the_product_of_chicken_pushButton_16_clicked()
-{
-    score = score + (ch16->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_chicken_pushButton_16->hide();
-    ch16->TimerDelay_Stop();
+{   
+    if(number_of_Free_farmers >= 1){
+
+        score = score + (ch16->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_chicken_pushButton_16->hide();
+        ch16->TimerDelay_Stop();
+        Get_info();
+        ui->decrease_point_label_16->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+    }
     Get_info();
-    ui->decrease_point_label_16->hide();
 }
 
 void Gamepage::on_the_product_of_sheep_pushButton_16_clicked()
-{
-    score = score + (sheep16->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_sheep_pushButton_16->hide();
-    sheep16->TimerDelay_Stop();
+{   
+    if(number_of_Free_farmers >= 1){
+
+        score = score + (sheep16->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_sheep_pushButton_16->hide();
+        sheep16->TimerDelay_Stop();
+        Get_info();
+        ui->decrease_point_label_16->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+    }
     Get_info();
-    ui->decrease_point_label_16->hide();
 }
 
 void Gamepage::on_the_product_of_cow_pushButton_16_clicked()
-{
-    score = score + (cow16->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_cow_pushButton_16->hide();
-    cow16->TimerDelay_Stop();
+{    
+    if(number_of_Free_farmers >= 1){
+
+        score = score + (cow16->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_cow_pushButton_16->hide();
+        cow16->TimerDelay_Stop();
+        Get_info();
+        ui->decrease_point_label_16->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+    }
     Get_info();
-    ui->decrease_point_label_16->hide();
 }
 
 void Gamepage::on_the_product_of_wheat_pushButton_16_clicked()
-{
-    score = score + (wheat16->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_wheat_pushButton_16->hide();
-    wheat16->TimerDelay_Stop();
-    Get_info();
+{    
+    if(number_of_Free_farmers >= 1){
 
-    QPoint Pos(1650, 870);
+        score = score + (wheat16->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_wheat_pushButton_16->hide();
+        wheat16->TimerDelay_Stop();
+        Get_info();
 
-    QPushButton* buttonAtPos = this->check2(Pos);
+        QPoint Pos(1650, 870);
 
-    if (buttonAtPos != nullptr) {
+        QPushButton* buttonAtPos = this->check2(Pos);
 
-        if (buttonAtPos->objectName() == "Wheat") {
+        if (buttonAtPos != nullptr) {
 
-            delete  buttonAtPos;
+            if (buttonAtPos->objectName() == "Wheat") {
 
-            Get_info();
+                delete  buttonAtPos;
+
+                Get_info();
+            }
         }
+        ui->decrease_point_label_16->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
     }
-    ui->decrease_point_label_16->hide();
+    Get_info();
 }
 
 void Gamepage::on_the_product_of_barley_pushButton_16_clicked()
-{
-    score = score + (barley16->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
-    ui->the_product_of_barley_pushButton_16->hide();
-    barley16->TimerDelay_Stop();
-    Get_info();
+{   
+    if(number_of_Free_farmers >= 1){
 
-    QPoint Pos(1650, 870);
+        score = score + (barley16->Product_Collection_Point);
+        ui->label_Score->setText( "Score : " + QString::number(score));
+        ui->the_product_of_barley_pushButton_16->hide();
+        barley16->TimerDelay_Stop();
+        Get_info();
 
-    QPushButton* buttonAtPos = this->check2(Pos);
+        QPoint Pos(1650, 870);
 
-    if (buttonAtPos != nullptr) {
+        QPushButton* buttonAtPos = this->check2(Pos);
 
-         if (buttonAtPos->objectName() == "Barley") {
+        if (buttonAtPos != nullptr) {
 
-            delete  buttonAtPos;
+             if (buttonAtPos->objectName() == "Barley") {
 
-             Get_info();
-         }
+                delete  buttonAtPos;
+
+                 Get_info();
+             }
+        }
+        ui->decrease_point_label_16->hide();
+    }else{
+
+        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
     }
-    ui->decrease_point_label_16->hide();
+    Get_info();
 }

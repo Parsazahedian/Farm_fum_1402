@@ -521,9 +521,14 @@
      <rect>
       <x>20</x>
       <y>10</y>
-      <width>91</width>
+      <width>101</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(255, 255, 255);</string>
@@ -535,9 +540,9 @@
    <widget class="QLabel" name="label_Time">
     <property name="geometry">
      <rect>
-      <x>120</x>
+      <x>130</x>
       <y>10</y>
-      <width>91</width>
+      <width>101</width>
       <height>41</height>
      </rect>
     </property>
@@ -2617,6 +2622,27 @@
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_2"/>
+   </widget>
+   <widget class="QLabel" name="number_of_Farmers_label">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>10</y>
+      <width>51</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
    </widget>
   </widget>
  </widget>
