@@ -82,6 +82,8 @@ private slots:
 
     void Hide_decrease_label();
 
+    void Default_farmer();
+
     void on_Start_clicked();
     void on_Cancel_clicked();
     void on_the_product_of_chicken_pushButton_clicked();

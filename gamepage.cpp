@@ -55,6 +55,8 @@ Gamepage::Gamepage(QWidget *parent) :
 
     Hide_Farms();
 
+    Default_farmer();
+
     setMinimumSize(1908,978);
     setMaximumSize(1908,978);
 
@@ -731,6 +733,8 @@ void Gamepage::on_Chicken_pushButton_clicked()
                        break;
                    case 18:
                        // remove pushbutton
+                       score = score + ch->Price_of_meat;
+                       ui->label_Score->setText( "Score : " + QString::number(score));
                        ui->Animals_verticalLayout->removeWidget(ch->pushButton);
                        delete ch->pushButton;
 
@@ -1394,6 +1398,8 @@ void Gamepage::on_Sheep_pushButton_clicked()
                        break;
                    case 18:
                        // remove pushbutton
+                       score = score + sheep->Price_of_meat;
+                       ui->label_Score->setText( "Score : " + QString::number(score));
                        ui->Animals_verticalLayout->removeWidget(sheep->pushButton);
                        delete sheep->pushButton;
 
@@ -2057,6 +2063,8 @@ void Gamepage::on_Cow_pushButton_clicked()
                        break;
                    case 18:
                        // remove pushbutton
+                       score = score + cow->Price_of_meat;
+                       ui->label_Score->setText( "Score : " + QString::number(score));
                        ui->Animals_verticalLayout->removeWidget(cow->pushButton);
                        delete cow->pushButton;
 
@@ -5634,6 +5642,615 @@ void Gamepage::Hide_decrease_label()
     ui->decrease_point_label_16->hide();
 }
 
+void Gamepage::Default_farmer()
+{
+    Farmer * farmer = new Farmer(ui->Farmer_verticalLayout);
+
+    connect(farmer->pushButton, &QPushButton::clicked, this, [this, farmer](){ QMessageBox msgBox;
+        msgBox.setText("chicken""<ul>""<li>""@gmail.com""</li>" "<li>""@email.com""</li>" "<li>""@mail.um.ac""</li>""</ul>");
+        msgBox.setWindowFlags(msgBox.windowFlags() | Qt::WindowSystemMenuHint);
+
+        msgBox.setWindowTitle("Transfer to ...");
+
+        // Set the icon
+        msgBox.setWindowIcon(QIcon("C:/Users/i/Downloads/iran.png"));
+
+        msgBox.setIconPixmap(QPixmap("C:/Users/i/Downloads/iran.png"));
+
+
+
+        // Add custom buttons
+        QHash<QAbstractButton*, int> buttonMap;
+        for (int i = 1; i <= 17; ++i) {
+          QPushButton* button = new QPushButton(QString("%1").arg(i));
+          msgBox.addButton(button, i == 17 ? QMessageBox::RejectRole : QMessageBox::AcceptRole);
+          buttonMap[button] = i;
+
+        //  button->setMinimumSize(56, 40);
+           button->setMinimumSize(40, 40);
+
+           if(i==1){
+
+               QPoint pos(210, 160);
+
+               if(check(pos)==true){
+
+                   F1_Having_Farmer=0;
+                   button->setEnabled(true);
+               }
+               if((check(pos)==false) || (check(pos)==true && ui->Cancel->isVisible())){
+
+                   F1_Having_Farmer=1;
+                   button->setEnabled(false);
+               }
+           }
+
+           if(i==2 && ui->label_2->isHidden()){
+
+               button->setEnabled(false);
+
+           }else if(i==2 && ui->label_2->isVisible()){
+
+               QPoint pos(600, 160);
+
+               if(check(pos)==true){
+
+                   F2_Having_Farmer=0;
+                   button->setEnabled(true);
+               }
+               if((check(pos)==false) || (check(pos)==true && ui->Cancel_2->isVisible())) {
+
+                   F2_Having_Farmer=1;
+                   button->setEnabled(false);
+               }
+           }
+
+           if(i==3 && ui->label_3->isHidden()){
+
+               button->setEnabled(false);
+
+           }else if(i==3 && ui->label_3->isVisible()){
+
+               QPoint pos(1320, 160);
+
+               if(check(pos)==true){
+
+                   F3_Having_Farmer=0;
+                   button->setEnabled(true);
+               }
+               if((check(pos)==false) || (check(pos)==true && ui->Cancel_3->isVisible())){
+
+                   F3_Having_Farmer=1;
+                   button->setEnabled(false);
+               }
+           }
+
+           if(i==4 && ui->label_4->isHidden()){
+
+               button->setEnabled(false);
+
+           }else if(i==4 && ui->label_4->isVisible()){
+
+               QPoint pos(1710, 160);
+
+               if(check(pos)==true){
+
+                   F4_Having_Farmer=0;
+                   button->setEnabled(true);
+               }
+               if((check(pos)==false) || (check(pos)==true && ui->Cancel_4->isVisible())){
+
+                   F4_Having_Farmer=1;
+                   button->setEnabled(false);
+               }
+           }
+
+           if(i==5 && ui->label_5->isHidden()){
+
+               button->setEnabled(false);
+
+           }else if(i==5 && ui->label_5->isVisible()){
+
+               QPoint pos(210, 390);
+
+               if(check(pos)==true){
+
+                   F5_Having_Farmer=0;
+                   button->setEnabled(true);
+               }
+               if((check(pos)==false) || (check(pos)==true && ui->Cancel_5->isVisible())){
+
+                   F5_Having_Farmer=1;
+                   button->setEnabled(false);
+               }
+           }
+
+           if(i==6 && ui->label_6->isHidden()){
+
+               button->setEnabled(false);
+
+           }else if(i==6 && ui->label_6->isVisible()){
+
+               QPoint pos(600, 390);
+
+               if(check(pos)==true){
+
+                   F6_Having_Farmer=0;
+                   button->setEnabled(true);
+               }
+               if((check(pos)==false) || (check(pos)==true && ui->Cancel_6->isVisible())){
+
+                   F6_Having_Farmer=1;
+                   button->setEnabled(false);
+               }
+           }
+
+           if(i==7 && ui->label_7->isHidden()){
+
+               button->setEnabled(false);
+
+           }else if(i==7 && ui->label_7->isVisible()){
+
+               QPoint pos(1320, 390);
+
+               if(check(pos)==true){
+
+                   F7_Having_Farmer=0;
+                   button->setEnabled(true);
+               }
+               if((check(pos)==false) || (check(pos)==true && ui->Cancel_7->isVisible())){
+
+                   F7_Having_Farmer=1;
+                   button->setEnabled(false);
+               }
+           }
+
+           if(i==8 && ui->label_8->isHidden()){
+
+               button->setEnabled(false);
+
+           }else if(i==8 && ui->label_8->isVisible()){
+
+               QPoint pos(1710, 390);
+
+               if(check(pos)==true){
+
+                   F8_Having_Farmer=0;
+                   button->setEnabled(true);
+               }
+               if((check(pos)==false) || (check(pos)==true && ui->Cancel_8->isVisible())){
+
+                   F8_Having_Farmer=1;
+                   button->setEnabled(false);
+               }
+           }
+
+           if(i==9 && ui->label_9->isHidden()){
+
+               button->setEnabled(false);
+
+           }else if(i==9 && ui->label_9->isVisible()){
+
+               QPoint pos(210, 620);
+
+               if(check(pos)==true){
+
+                   F9_Having_Farmer=0;
+                   button->setEnabled(true);
+               }
+               if((check(pos)==false) || (check(pos)==true && ui->Cancel_9->isVisible())){
+
+                   F9_Having_Farmer=1;
+                   button->setEnabled(false);
+               }
+           }
+
+           if(i==10 && ui->label_10->isHidden()){
+
+               button->setEnabled(false);
+
+           }else if(i==10 && ui->label_10->isVisible()){
+
+               QPoint pos(600, 620);
+
+               if(check(pos)==true){
+
+                   F10_Having_Farmer=0;
+                   button->setEnabled(true);
+               }
+               if((check(pos)==false) || (check(pos)==true && ui->Cancel_10->isVisible())){
+
+                   F10_Having_Farmer=1;
+                   button->setEnabled(false);
+               }
+           }
+
+           if(i==11 && ui->label_11->isHidden()){
+
+               button->setEnabled(false);
+
+           }else if(i==11 && ui->label_11->isVisible()){
+
+               QPoint pos(1320, 620);
+
+               if(check(pos)==true){
+
+                   F11_Having_Farmer=0;
+                   button->setEnabled(true);
+               }
+               if((check(pos)==false) || (check(pos)==true && ui->Cancel_11->isVisible())){
+
+                   F11_Having_Farmer=1;
+                   button->setEnabled(false);
+               }
+           }
+
+           if(i==12 && ui->label_12->isHidden()){
+
+               button->setEnabled(false);
+
+           }else if(i==12 && ui->label_12->isVisible()){
+
+               QPoint pos(1710, 620);
+
+               if(check(pos)==true){
+
+                   F12_Having_Farmer=0;
+                   button->setEnabled(true);
+               }
+               if((check(pos)==false) || (check(pos)==true && ui->Cancel_12->isVisible())){
+
+                   F12_Having_Farmer=1;
+                   button->setEnabled(false);
+               }
+           }
+
+           if(i==13 && ui->label_13->isHidden()){
+
+               button->setEnabled(false);
+
+           }else if(i==13 && ui->label_13->isVisible()){
+
+               QPoint pos(210, 850);
+
+               if(check(pos)==true){
+
+                   F13_Having_Farmer=0;
+                   button->setEnabled(true);
+               }
+               if((check(pos)==false) || (check(pos)==true && ui->Cancel_13->isVisible())){
+
+                   F13_Having_Farmer=1;
+                   button->setEnabled(false);
+               }
+           }
+
+           if(i==14 && ui->label_14->isHidden()){
+
+               button->setEnabled(false);
+
+           }else if(i==14 && ui->label_14->isVisible()){
+
+               QPoint pos(600, 850);
+
+               if(check(pos)==true){
+
+                   F14_Having_Farmer=0;
+                   button->setEnabled(true);
+               }
+               if((check(pos)==false) || (check(pos)==true && ui->Cancel_14->isVisible())){
+
+                   F14_Having_Farmer=1;
+                   button->setEnabled(false);
+               }
+           }
+
+           if(i==15 && ui->label_15->isHidden()){
+
+               button->setEnabled(false);
+
+           }else if(i==15 && ui->label_15->isVisible()){
+
+               QPoint pos(1320, 850);
+
+               if(check(pos)==true){
+
+                   F15_Having_Farmer=0;
+                   button->setEnabled(true);
+               }
+               if((check(pos)==false) || (check(pos)==true && ui->Cancel_15->isVisible())){
+
+                   F15_Having_Farmer=1;
+                   button->setEnabled(false);
+               }
+           }
+
+           if(i==16 && ui->label_16->isHidden()){
+
+               button->setEnabled(false);
+
+           }else if(i==16 && ui->label_16->isVisible()){
+
+               QPoint pos(1710, 850);
+
+               if(check(pos)==true){
+
+                   F16_Having_Farmer=0;
+                   button->setEnabled(true);
+               }
+               if((check(pos)==false) || (check(pos)==true && ui->Cancel_16->isVisible())){
+
+                   F16_Having_Farmer=1;
+                   button->setEnabled(false);
+               }
+           }
+
+          if(i==17){
+
+              button->setText("home");
+              button->setMinimumSize(60,40);
+
+          }
+
+        }
+    // clazy:exclude:connect-3arg-lambda
+        QObject::connect(&msgBox, &QMessageBox::finished, [&](int result){
+           QAbstractButton* clickedButton = msgBox.clickedButton();
+           if (clickedButton) {
+               int buttonNumber = buttonMap[clickedButton];
+
+               switch(buttonNumber) {
+
+               case 1:
+
+                   if(F1_Having_Farmer==0){
+
+                       farmer->pushButton->move(210, 160);
+                       farmer->pushButton->setParent(this);
+                       farmer->pushButton->show();
+                       F1_Having_Farmer=1;
+                   }
+
+                   Get_info();
+
+                   break;
+               case 2:
+
+                   if(F2_Having_Farmer==0){
+
+                       farmer->pushButton->move(600, 160);
+                       farmer->pushButton->setParent(this);
+                       farmer->pushButton->show();
+                       F2_Having_Farmer=1;
+                   }
+
+                   Get_info();
+
+
+                   break;
+               case 3:
+                   // Perform action for Button 2
+
+                   if(F3_Having_Farmer==0){
+
+                       farmer->pushButton->move(1320, 160);
+                       farmer->pushButton->setParent(this);
+                       farmer->pushButton->show();
+                       F3_Having_Farmer=1;
+                   }
+
+                   Get_info();
+
+                   break;
+               case 4:
+                   // Perform action for Button 2
+
+                   if(F4_Having_Farmer==0){
+
+                       farmer->pushButton->move(1710, 160);
+                       farmer->pushButton->setParent(this);
+                       farmer->pushButton->show();
+                       F4_Having_Farmer=1;
+                   }
+
+                   Get_info();
+
+                   break;
+               case 5:
+                   // Perform action for Button 2
+
+                   if(F5_Having_Farmer==0){
+
+                       farmer->pushButton->move(210, 390);
+                       farmer->pushButton->setParent(this);
+                       farmer->pushButton->show();
+                       F5_Having_Farmer=1;
+                   }
+
+                   Get_info();
+
+                   break;
+               case 6:
+                   // Perform action for Button 2
+
+                   if(F6_Having_Farmer==0){
+
+                       farmer->pushButton->move(600, 390);
+                       farmer->pushButton->setParent(this);
+                       farmer->pushButton->show();
+                       F6_Having_Farmer=1;
+                   }
+
+                   Get_info();
+
+
+                   break;
+               case 7:
+                   // Perform action for Button 2
+
+                   if(F7_Having_Farmer==0){
+
+                       farmer->pushButton->move(1320, 390);
+                       farmer->pushButton->setParent(this);
+                       farmer->pushButton->show();
+                       F7_Having_Farmer=1;
+                   }
+
+                   Get_info();
+
+                   break;
+               case 8:
+                   // Perform action for Button 2
+
+                   if(F8_Having_Farmer==0){
+
+                       farmer->pushButton->move(1710, 390);
+                       farmer->pushButton->setParent(this);
+                       farmer->pushButton->show();
+                       F8_Having_Farmer=1;
+                   }
+
+                   Get_info();
+
+                   break;
+               case 9:
+                   // Perform action for Button 2
+
+                   if(F9_Having_Farmer==0){
+
+                       farmer->pushButton->move(210, 620);
+                       farmer->pushButton->setParent(this);
+                       farmer->pushButton->show();
+                       F9_Having_Farmer=1;
+                   }
+
+                   Get_info();
+
+                   break;
+               case 10:
+                   // Perform action for Button 2
+
+                   if(F10_Having_Farmer==0){
+
+                       farmer->pushButton->move(600, 620);
+                       farmer->pushButton->setParent(this);
+                       farmer->pushButton->show();
+                       F10_Having_Farmer=1;
+                   }
+
+                   Get_info();
+
+                   break;
+               case 11:
+                   // Perform action for Button 2
+
+                   if(F11_Having_Farmer==0){
+
+                       farmer->pushButton->move(1320, 620);
+                       farmer->pushButton->setParent(this);
+                       farmer->pushButton->show();
+                       F11_Having_Farmer=1;
+                   }
+                   Get_info();
+
+                   break;
+               case 12:
+                   // Perform action for Button 2
+
+                   if(F12_Having_Farmer==0){
+
+                       farmer->pushButton->move(1710, 620);
+                       farmer->pushButton->setParent(this);
+                       farmer->pushButton->show();
+                       F12_Having_Farmer=1;
+                   }
+
+                   Get_info();
+
+                   break;
+               case 13:
+                   // Perform action for Button 2
+
+                   if(F13_Having_Farmer==0){
+
+                       farmer->pushButton->move(210, 850);
+                       farmer->pushButton->setParent(this);
+                       farmer->pushButton->show();
+                       F13_Having_Farmer=1;
+                   }
+
+                   Get_info();
+
+                   break;
+               case 14:
+                   // Perform action for Button 2
+
+                   if(F14_Having_Farmer==0){
+
+                       farmer->pushButton->move(600, 850);
+                       farmer->pushButton->setParent(this);
+                       farmer->pushButton->show();
+                       F14_Having_Farmer=1;
+                   }
+
+                   Get_info();
+
+                   break;
+               case 15:
+                   // Perform action for Button 2
+
+                   if(F15_Having_Farmer==0){
+
+                       farmer->pushButton->move(1320, 850);
+                       farmer->pushButton->setParent(this);
+                       farmer->pushButton->show();
+                       F15_Having_Farmer=1;
+                   }
+
+                   Get_info();
+
+
+                   break;
+               case 16:
+                   // Perform action for Button 2
+
+                   if(F16_Having_Farmer==0){
+
+                       farmer->pushButton->move(1710, 850);
+                       farmer->pushButton->setParent(this);
+                       farmer->pushButton->show();
+                       F16_Having_Farmer=1;
+                   }
+
+                   Get_info();
+
+
+
+                   break;
+               case 17:
+                   //add to verticall layout
+                   farmer->pushButton->move(2000, 10);
+
+                   ui->Farmer_verticalLayout->addWidget(farmer->pushButton);
+
+                   Get_info();
+
+                   break;
+
+               default:
+                   Get_info();
+                   break;
+               }
+           }
+
+        });
+
+        msgBox.exec();
+
+       });
+
+}
+
 void Gamepage::on_Start_2_clicked()
 {
     ui->Start_2->hide();
@@ -5879,7 +6496,7 @@ void Gamepage::on_Cancel_2_clicked()
 void Gamepage::on_the_product_of_chicken_pushButton_2_clicked()
 {
     score = score + (ch2->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
+    ui->label_Score->setText( "Score : " + QString::number(score));
     ui->the_product_of_chicken_pushButton_2->hide();
     ch2->TimerDelay_Stop();
     Get_info();
@@ -5889,7 +6506,7 @@ void Gamepage::on_the_product_of_chicken_pushButton_2_clicked()
 void Gamepage::on_the_product_of_sheep_pushButton_2_clicked()
 {
     score = score + (sheep2->Product_Collection_Point);
-    ui->label_Score->setText( "Score :" + QString::number(score));
+    ui->label_Score->setText( "Score : " + QString::number(score));
     ui->the_product_of_sheep_pushButton_2->hide();
     sheep2->TimerDelay_Stop();
     Get_info();
