@@ -10,6 +10,15 @@
 #include "QMessageBox"
 #include "animals.h"
 #include "seeds.h"
+#include "QSqlDriver"
+#include "QSqlQuery"
+#include "QSqlQueryModel"
+
+
+
+QTimer* Timer_for_timer_label;
+
+extern int Number_Of_Players;
 
 int score=10, number_of_farmers=1, number_of_Free_farmers=1;
 
@@ -43,6 +52,11 @@ Gamepage::Gamepage(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    QSqlDatabase database;
+    database=QSqlDatabase::addDatabase("QSQLITE");
+    database.setDatabaseName("e:\\schema2.db");
+    database.open();
+
     Move_the_product_of_Animals_and_seeds_pushButton();
 
     Hide_the_product_of_Animals_and_seeds_pushButton();
@@ -64,10 +78,14 @@ Gamepage::Gamepage(QWidget *parent) :
 
     Hide_decrease_label();
 
+    ui->label_Time->setText("3:00");
+
     ui->label_Score->setText( "Score : " + QString::number(score));
 
     ui->number_of_Farmers_label ->setText( QString::number(number_of_Free_farmers) + " / " + QString::number(number_of_farmers));
 
+    Timer_for_timer_label = new QTimer(this);
+    connect(Timer_for_timer_label, &QTimer::timeout, this, &Gamepage::updateCountdown);
 }
 
 Gamepage::~Gamepage()
@@ -85,6 +103,54 @@ void Gamepage::on_Shop_pushButton_clicked()
 
         ui->groupBox->show();
     }
+}
+
+void Gamepage::updateCountdown()
+{
+   static int remainingTime = 12; // Start at 3 minutes
+
+   if (remainingTime > 0) {
+       --remainingTime;
+       int minutes = remainingTime / 60;
+       int seconds = remainingTime % 60;
+
+       if (remainingTime == 10) {
+                ui->label_Time->setStyleSheet("QLabel { color: red; }");
+            }
+
+       ui->label_Time->setText(QString("%1:%2").arg(minutes, 1, 10, QChar('0')).arg(seconds, 2, 10, QChar('0')));
+   } else {
+       Timer_for_timer_label->stop();
+       QSqlQuery b;
+       b.exec("SELECT Username FROM Game_Players WHERE Number = '"+QString::number(1)+"' ");
+       QString s;
+       if(b.first()){
+
+           s = b.value(0).toString();
+       }
+
+       QMessageBox::information(this, "point",""+s+" your score = "+QString::number(score)+" ");
+
+
+       Set_window_to_the_default();
+
+       Number_Of_Players--;
+
+       while(Number_Of_Players > 0){
+
+            Get_info();
+            Number_Of_Players--;
+       }
+   }
+}
+
+void Gamepage::Delete_all_created_pushbuttos(QWidget* parent, const QString& name)
+{
+    QList<QPushButton*> buttons = parent->findChildren<QPushButton*>(name);
+       foreach(QPushButton* button, buttons) {
+           button->deleteLater();
+
+       }
 }
 
 void Gamepage::on_Chicken_pushButton_clicked()
@@ -3428,6 +3494,8 @@ void Gamepage::on_Farmer_pushButton_clicked()
 
         Farmer * farmer = new Farmer(ui->Farmer_verticalLayout);
 
+        farmer->pushButton->setObjectName("Farmer");
+
         number_of_farmers++;
 
         number_of_Free_farmers++;
@@ -4511,6 +4579,8 @@ void Gamepage::check_our_farm_have_farmer_or_not()
             ui->Start_16->hide();
         }
     }
+
+    qDebug()<<"F1_Having_Farmer = " <<F1_Having_Farmer<<"\n"<<"F1_Having_Animals_or_Seeds = "<< F1_Having_Animals_or_Seeds;
 }
 
 QPushButton * Gamepage::check2(QPoint pos)
@@ -5725,6 +5795,8 @@ void Gamepage::Hide_decrease_label()
 void Gamepage::Default_farmer()
 {
     Farmer * farmer = new Farmer(ui->Farmer_verticalLayout);
+
+    farmer->pushButton->setObjectName("Farmer");
 
     connect(farmer->pushButton, &QPushButton::clicked, this, [this, farmer](){ QMessageBox msgBox;
         msgBox.setText("chicken""<ul>""<li>""@gmail.com""</li>" "<li>""@email.com""</li>" "<li>""@mail.um.ac""</li>""</ul>");
@@ -11917,5 +11989,1712 @@ void Gamepage::on_the_product_of_barley_pushButton_16_clicked()
 
         QMessageBox::warning(this, "sdsad", "no free farmer to collect");
     }
+    Get_info();
+}
+
+void Gamepage::Set_window_to_the_default()
+{
+    if(ui->Cancel->isVisible()){
+
+        QPoint Pos(150, 180);
+
+        QPushButton* buttonAtPos = this->check2(Pos);
+
+        if (buttonAtPos != nullptr) {
+
+           if (buttonAtPos->objectName() == "Chicken") {
+
+               buttonAtPos->setEnabled(true);
+
+               ch1->Set_Farmer_Pushbutton(buttonAtPos2_ch1);
+               ch1->Farmer_pushbutton_position(210, 160);
+               ch1->Set_Farmer_animation(animation1);
+
+               ch1->Farmer_pushbutton_setenable();
+               ch1->Timer_Stop();
+               ch1->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           } else if (buttonAtPos->objectName() == "Sheep") {
+
+               buttonAtPos->setEnabled(true);
+
+               sheep1->Set_Farmer_Pushbutton(buttonAtPos2_Sheep1);
+               sheep1->Farmer_pushbutton_position(210, 160);
+               sheep1->Set_Farmer_animation(animation1);
+
+               sheep1->Farmer_pushbutton_setenable();
+               sheep1->Timer_Stop();
+               sheep1->TimerDelay_Stop();
+               delete buttonAtPos2_Sheep1;
+
+           } else if (buttonAtPos->objectName() == "Cow") {
+
+               buttonAtPos->setEnabled(true);
+
+               cow1->Set_Farmer_Pushbutton(buttonAtPos2_cow1);
+               cow1->Farmer_pushbutton_position(210, 160);
+               cow1->Set_Farmer_animation(animation1);
+
+               cow1->Farmer_pushbutton_setenable();
+               cow1->Timer_Stop();
+               cow1->TimerDelay_Stop();
+               delete buttonAtPos2_cow1;
+
+           } else if (buttonAtPos->objectName() == "Wheat") {
+
+               buttonAtPos->setEnabled(true);
+
+               wheat1->Set_Farmer_Pushbutton(buttonAtPos2_wheat1);
+               wheat1->Farmer_pushbutton_position(210, 160);
+               wheat1->Set_Farmer_animation(animation1);
+
+               wheat1->Farmer_pushbutton_setenable();
+               wheat1->Timer_Stop();
+               wheat1->TimerDelay_Stop();
+               delete buttonAtPos2_wheat1;
+
+           } else if (buttonAtPos->objectName() == "Barley") {
+
+               buttonAtPos->setEnabled(true);
+
+               barley1->Set_Farmer_Pushbutton(buttonAtPos2_barley1);
+               barley1->Farmer_pushbutton_position(210, 160);
+               barley1->Set_Farmer_animation(animation1);
+
+               barley1->Farmer_pushbutton_setenable();
+               barley1->Timer_Stop();
+               barley1->TimerDelay_Stop();
+               delete buttonAtPos2_barley1;
+
+           }
+        }
+    }
+    if(ui->the_product_of_chicken_pushButton->isVisible()){
+
+        ch1->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+    if(ui->the_product_of_sheep_pushButton->isVisible()){
+
+        sheep1->TimerDelay_Stop();
+        delete buttonAtPos2_Sheep1;
+    }
+    if(ui->the_product_of_cow_pushButton->isVisible()){
+
+        cow1->TimerDelay_Stop();
+        delete buttonAtPos2_cow1;
+    }
+    if(ui->the_product_of_wheat_pushButton->isVisible()){
+
+        wheat1->TimerDelay_Stop();
+        delete buttonAtPos2_wheat1;
+    }
+    if(ui->the_product_of_barley_pushButton->isVisible()){
+
+        barley1->TimerDelay_Stop();
+        delete buttonAtPos2_barley1;
+    }
+
+    if(ui->Cancel_2->isVisible()){
+
+        QPoint Pos(540, 180);
+
+        QPushButton* buttonAtPos = this->check2(Pos);
+
+        if (buttonAtPos != nullptr) {
+
+           if (buttonAtPos->objectName() == "Chicken") {
+
+               buttonAtPos->setEnabled(true);
+
+               ch2->Set_Farmer_Pushbutton(buttonAtPos2_ch2);
+               ch2->Farmer_pushbutton_position(600, 160);
+               ch2->Set_Farmer_animation(animation2);
+
+               ch2->Farmer_pushbutton_setenable2();
+               ch2->Timer2_Stop();
+               ch2->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           } else if (buttonAtPos->objectName() == "Sheep") {
+
+               buttonAtPos->setEnabled(true);
+
+               sheep2->Set_Farmer_Pushbutton(buttonAtPos2_Sheep2);
+               sheep2->Farmer_pushbutton_position(600, 160);
+               sheep2->Set_Farmer_animation(animation2);
+
+               sheep2->Farmer_pushbutton_setenable2();
+               sheep2->Timer2_Stop();
+               sheep2->TimerDelay_Stop();
+               delete buttonAtPos2_barley1;
+
+           } else if (buttonAtPos->objectName() == "Cow") {
+
+               buttonAtPos->setEnabled(true);
+
+               cow2->Set_Farmer_Pushbutton(buttonAtPos2_cow2);
+               cow2->Farmer_pushbutton_position(600, 160);
+               cow2->Set_Farmer_animation(animation2);
+
+               cow2->Farmer_pushbutton_setenable2();
+               cow2->Timer2_Stop();
+               cow2->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           } else if (buttonAtPos->objectName() == "Wheat") {
+
+               buttonAtPos->setEnabled(true);
+
+               wheat2->Set_Farmer_Pushbutton(buttonAtPos2_wheat2);
+               wheat2->Farmer_pushbutton_position(600, 160);
+               wheat2->Set_Farmer_animation(animation2);
+
+               wheat2->Farmer_pushbutton_setenable2();
+               wheat2->Timer2_Stop();
+               wheat2->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           } else if (buttonAtPos->objectName() == "Barley") {
+
+               buttonAtPos->setEnabled(true);
+
+               barley2->Set_Farmer_Pushbutton(buttonAtPos2_barley2);
+               barley2->Farmer_pushbutton_position(600, 160);
+               barley2->Set_Farmer_animation(animation2);
+
+               barley2->Farmer_pushbutton_setenable2();
+               barley2->Timer2_Stop();
+               barley2->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           }
+        }
+    }
+    if(ui->the_product_of_chicken_pushButton_2->isVisible()){
+
+        ch2->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+    if(ui->the_product_of_sheep_pushButton_2->isVisible()){
+
+        sheep2->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+    if(ui->the_product_of_cow_pushButton_2->isVisible()){
+
+        cow2->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+    if(ui->the_product_of_wheat_pushButton_2->isVisible()){
+
+        wheat2->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+    if(ui->the_product_of_barley_pushButton_2->isVisible()){
+
+        barley2->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+
+    if(ui->Cancel_3->isVisible()){
+
+        QPoint Pos(1260, 180);
+
+        QPushButton* buttonAtPos = this->check2(Pos);
+
+        if (buttonAtPos != nullptr) {
+
+           if (buttonAtPos->objectName() == "Chicken") {
+
+               buttonAtPos->setEnabled(true);
+
+               ch3->Set_Farmer_Pushbutton(buttonAtPos2_ch3);
+               ch3->Farmer_pushbutton_position(1320, 160);
+               ch3->Set_Farmer_animation(animation3);
+
+               ch3->Farmer_pushbutton_setenable3();
+               ch3->Timer3_Stop();
+               ch3->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           } else if (buttonAtPos->objectName() == "Sheep") {
+
+               buttonAtPos->setEnabled(true);
+
+               sheep3->Set_Farmer_Pushbutton(buttonAtPos2_Sheep3);
+               sheep3->Farmer_pushbutton_position(1320, 160);
+               sheep3->Set_Farmer_animation(animation3);
+
+               sheep3->Farmer_pushbutton_setenable3();
+               sheep3->Timer3_Stop();
+               sheep3->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           } else if (buttonAtPos->objectName() == "Cow") {
+
+               buttonAtPos->setEnabled(true);
+
+               cow3->Set_Farmer_Pushbutton(buttonAtPos2_cow3);
+               cow3->Farmer_pushbutton_position(1320, 160);
+               cow3->Set_Farmer_animation(animation3);
+
+               cow3->Farmer_pushbutton_setenable3();
+               cow3->Timer3_Stop();
+               cow3->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           } else if (buttonAtPos->objectName() == "Wheat") {
+
+               buttonAtPos->setEnabled(true);
+
+               wheat3->Set_Farmer_Pushbutton(buttonAtPos2_wheat3);
+               wheat3->Farmer_pushbutton_position(1320, 160);
+               wheat3->Set_Farmer_animation(animation3);
+
+               wheat3->Farmer_pushbutton_setenable3();
+               wheat3->Timer3_Stop();
+               wheat3->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           } else if (buttonAtPos->objectName() == "Barley") {
+
+               buttonAtPos->setEnabled(true);
+
+               barley3->Set_Farmer_Pushbutton(buttonAtPos2_barley3);
+               barley3->Farmer_pushbutton_position(1320, 160);
+               barley3->Set_Farmer_animation(animation3);
+
+               barley3->Farmer_pushbutton_setenable3();
+               barley3->Timer3_Stop();
+               barley3->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           }
+        }
+    }
+    if(ui->the_product_of_chicken_pushButton_3->isVisible()){
+
+        ch3->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+    if(ui->the_product_of_sheep_pushButton_3->isVisible()){
+
+        sheep3->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+    if(ui->the_product_of_cow_pushButton_3->isVisible()){
+
+        cow3->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+    if(ui->the_product_of_wheat_pushButton_3->isVisible()){
+
+        wheat3->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+    if(ui->the_product_of_barley_pushButton_3->isVisible()){
+
+        barley3->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+
+    if(ui->Cancel_4->isVisible()){
+
+        QPoint Pos(1650, 180);
+
+        QPushButton* buttonAtPos = this->check2(Pos);
+
+        if (buttonAtPos != nullptr) {
+
+           if (buttonAtPos->objectName() == "Chicken") {
+
+               buttonAtPos->setEnabled(true);
+
+               ch4->Set_Farmer_Pushbutton(buttonAtPos2_ch4);
+               ch4->Farmer_pushbutton_position(1710, 160);
+               ch4->Set_Farmer_animation(animation4);
+
+               ch4->Farmer_pushbutton_setenable4();
+               ch4->Timer4_Stop();
+               ch4->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           } else if (buttonAtPos->objectName() == "Sheep") {
+
+               buttonAtPos->setEnabled(true);
+
+               sheep4->Set_Farmer_Pushbutton(buttonAtPos2_Sheep4);
+               sheep4->Farmer_pushbutton_position(1710, 160);
+               sheep4->Set_Farmer_animation(animation4);
+
+               sheep4->Farmer_pushbutton_setenable4();
+               sheep4->Timer4_Stop();
+               sheep4->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           } else if (buttonAtPos->objectName() == "Cow") {
+
+               buttonAtPos->setEnabled(true);
+
+               cow4->Set_Farmer_Pushbutton(buttonAtPos2_cow4);
+               cow4->Farmer_pushbutton_position(1710, 160);
+               cow4->Set_Farmer_animation(animation4);
+
+               cow4->Farmer_pushbutton_setenable4();
+               cow4->Timer4_Stop();
+               cow4->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           } else if (buttonAtPos->objectName() == "Wheat") {
+
+               buttonAtPos->setEnabled(true);
+
+               wheat4->Set_Farmer_Pushbutton(buttonAtPos2_wheat4);
+               wheat4->Farmer_pushbutton_position(1710, 160);
+               wheat4->Set_Farmer_animation(animation4);
+
+               wheat4->Farmer_pushbutton_setenable4();
+               wheat4->Timer4_Stop();
+               wheat4->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           } else if (buttonAtPos->objectName() == "Barley") {
+
+               buttonAtPos->setEnabled(true);
+
+               barley4->Set_Farmer_Pushbutton(buttonAtPos2_barley4);
+               barley4->Farmer_pushbutton_position(1710, 160);
+               barley4->Set_Farmer_animation(animation4);
+
+               barley4->Farmer_pushbutton_setenable4();
+               barley4->Timer4_Stop();
+               barley4->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           }
+        }
+
+    }
+    if(ui->the_product_of_chicken_pushButton_4->isVisible()){
+
+        ch4->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+    if(ui->the_product_of_sheep_pushButton_4->isVisible()){
+
+        sheep4->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+    if(ui->the_product_of_cow_pushButton_4->isVisible()){
+
+        cow4->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+    if(ui->the_product_of_wheat_pushButton_4->isVisible()){
+
+        wheat4->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+    if(ui->the_product_of_barley_pushButton_4->isVisible()){
+
+        barley4->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+
+    if(ui->Cancel_5->isVisible()){
+
+        QPoint Pos(150, 410);
+
+        QPushButton* buttonAtPos = this->check2(Pos);
+
+        if (buttonAtPos != nullptr) {
+
+           if (buttonAtPos->objectName() == "Chicken") {
+
+               buttonAtPos->setEnabled(true);
+
+               ch5->Set_Farmer_Pushbutton(buttonAtPos2_ch5);
+               ch5->Farmer_pushbutton_position(210, 390);
+               ch5->Set_Farmer_animation(animation5);
+
+               ch5->Farmer_pushbutton_setenable5();
+               ch5->Timer5_Stop();
+               ch5->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           } else if (buttonAtPos->objectName() == "Sheep") {
+
+               buttonAtPos->setEnabled(true);
+
+               sheep5->Set_Farmer_Pushbutton(buttonAtPos2_Sheep5);
+               sheep5->Farmer_pushbutton_position(210, 390);
+               sheep5->Set_Farmer_animation(animation5);
+
+               sheep5->Farmer_pushbutton_setenable5();
+               sheep5->Timer5_Stop();
+               sheep5->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           } else if (buttonAtPos->objectName() == "Cow") {
+
+               buttonAtPos->setEnabled(true);
+
+               cow5->Set_Farmer_Pushbutton(buttonAtPos2_cow5);
+               cow5->Farmer_pushbutton_position(210, 390);
+               cow5->Set_Farmer_animation(animation5);
+
+               cow5->Farmer_pushbutton_setenable5();
+               cow5->Timer5_Stop();
+               cow5->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           } else if (buttonAtPos->objectName() == "Wheat") {
+
+               buttonAtPos->setEnabled(true);
+
+               wheat5->Set_Farmer_Pushbutton(buttonAtPos2_wheat5);
+               wheat5->Farmer_pushbutton_position(210, 390);
+               wheat5->Set_Farmer_animation(animation5);
+
+               wheat5->Farmer_pushbutton_setenable5();
+               wheat5->Timer5_Stop();
+               wheat5->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           } else if (buttonAtPos->objectName() == "Barley") {
+
+               buttonAtPos->setEnabled(true);
+
+               barley5->Set_Farmer_Pushbutton(buttonAtPos2_barley5);
+               barley5->Farmer_pushbutton_position(210, 390);
+               barley5->Set_Farmer_animation(animation5);
+
+               barley5->Farmer_pushbutton_setenable5();
+               barley5->Timer5_Stop();
+               barley5->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           }
+        }
+    }
+    if(ui->the_product_of_chicken_pushButton_5->isVisible()){
+
+        ch5->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+    if(ui->the_product_of_sheep_pushButton_5->isVisible()){
+
+        sheep5->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+    if(ui->the_product_of_cow_pushButton_5->isVisible()){
+
+        cow5->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+    if(ui->the_product_of_wheat_pushButton_5->isVisible()){
+
+        wheat5->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+    if(ui->the_product_of_barley_pushButton_5->isVisible()){
+
+        barley5->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+
+    if(ui->Cancel_6->isVisible()){
+
+        QPoint Pos(540, 410);
+
+        QPushButton* buttonAtPos = this->check2(Pos);
+
+        if (buttonAtPos != nullptr) {
+
+           if (buttonAtPos->objectName() == "Chicken") {
+
+               buttonAtPos->setEnabled(true);
+
+               ch6->Set_Farmer_Pushbutton(buttonAtPos2_ch6);
+               ch6->Farmer_pushbutton_position(600, 390);
+               ch6->Set_Farmer_animation(animation6);
+
+               ch6->Farmer_pushbutton_setenable6();
+               ch6->Timer6_Stop();
+               ch6->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           } else if (buttonAtPos->objectName() == "Sheep") {
+
+               buttonAtPos->setEnabled(true);
+
+               sheep6->Set_Farmer_Pushbutton(buttonAtPos2_Sheep6);
+               sheep6->Farmer_pushbutton_position(600, 390);
+               sheep6->Set_Farmer_animation(animation6);
+
+               sheep6->Farmer_pushbutton_setenable6();
+               sheep6->Timer6_Stop();
+               sheep6->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           } else if (buttonAtPos->objectName() == "Cow") {
+
+               buttonAtPos->setEnabled(true);
+
+               cow6->Set_Farmer_Pushbutton(buttonAtPos2_cow6);
+               cow6->Farmer_pushbutton_position(600, 390);
+               cow6->Set_Farmer_animation(animation6);
+
+               cow6->Farmer_pushbutton_setenable6();
+               cow6->Timer6_Stop();
+               cow6->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           } else if (buttonAtPos->objectName() == "Wheat") {
+
+               buttonAtPos->setEnabled(true);
+
+               wheat6->Set_Farmer_Pushbutton(buttonAtPos2_wheat6);
+               wheat6->Farmer_pushbutton_position(600, 390);
+               wheat6->Set_Farmer_animation(animation6);
+
+               wheat6->Farmer_pushbutton_setenable6();
+               wheat6->Timer6_Stop();
+               wheat6->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           } else if (buttonAtPos->objectName() == "Barley") {
+
+               buttonAtPos->setEnabled(true);
+
+               barley6->Set_Farmer_Pushbutton(buttonAtPos2_barley6);
+               barley6->Farmer_pushbutton_position(600, 390);
+               barley6->Set_Farmer_animation(animation6);
+
+               barley6->Farmer_pushbutton_setenable6();
+               barley6->Timer6_Stop();
+               barley6->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           }
+        }
+    }
+    if(ui->the_product_of_chicken_pushButton_6->isVisible()){
+
+        ch6->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+    if(ui->the_product_of_sheep_pushButton_6->isVisible()){
+
+        sheep6->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+    if(ui->the_product_of_cow_pushButton_6->isVisible()){
+
+        cow6->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+    if(ui->the_product_of_wheat_pushButton_6->isVisible()){
+
+        wheat6->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+    if(ui->the_product_of_barley_pushButton_6->isVisible()){
+
+        barley6->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+
+    if(ui->Cancel_7->isVisible()){
+
+        QPoint Pos(1260, 410);
+
+        QPushButton* buttonAtPos = this->check2(Pos);
+
+        if (buttonAtPos != nullptr) {
+
+           if (buttonAtPos->objectName() == "Chicken") {
+
+               buttonAtPos->setEnabled(true);
+
+               ch7->Set_Farmer_Pushbutton(buttonAtPos2_ch7);
+               ch7->Farmer_pushbutton_position(1320, 390);
+               ch7->Set_Farmer_animation(animation7);
+
+               ch7->Farmer_pushbutton_setenable7();
+               ch7->Timer7_Stop();
+               ch7->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           } else if (buttonAtPos->objectName() == "Sheep") {
+
+               buttonAtPos->setEnabled(true);
+
+               sheep7->Set_Farmer_Pushbutton(buttonAtPos2_Sheep7);
+               sheep7->Farmer_pushbutton_position(1320, 390);
+               sheep7->Set_Farmer_animation(animation7);
+
+               sheep7->Farmer_pushbutton_setenable7();
+               sheep7->Timer7_Stop();
+               sheep7->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           } else if (buttonAtPos->objectName() == "Cow") {
+
+               buttonAtPos->setEnabled(true);
+
+               cow7->Set_Farmer_Pushbutton(buttonAtPos2_cow7);
+               cow7->Farmer_pushbutton_position(1320, 390);
+               cow7->Set_Farmer_animation(animation7);
+
+               cow7->Farmer_pushbutton_setenable7();
+               cow7->Timer7_Stop();
+               cow7->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           } else if (buttonAtPos->objectName() == "Wheat") {
+
+               buttonAtPos->setEnabled(true);
+
+               wheat7->Set_Farmer_Pushbutton(buttonAtPos2_wheat7);
+               wheat7->Farmer_pushbutton_position(1320, 390);
+               wheat7->Set_Farmer_animation(animation7);
+
+               wheat7->Farmer_pushbutton_setenable7();
+               wheat7->Timer7_Stop();
+               wheat7->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           } else if (buttonAtPos->objectName() == "Barley") {
+
+               buttonAtPos->setEnabled(true);
+
+               barley7->Set_Farmer_Pushbutton(buttonAtPos2_barley7);
+               barley7->Farmer_pushbutton_position(1320, 390);
+               barley7->Set_Farmer_animation(animation7);
+
+               barley7->Farmer_pushbutton_setenable7();
+               barley7->Timer7_Stop();
+               barley7->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           }
+        }
+    }
+    if(ui->the_product_of_chicken_pushButton_7->isVisible()){
+
+        ch7->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+    if(ui->the_product_of_sheep_pushButton_7->isVisible()){
+
+        sheep7->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+    if(ui->the_product_of_cow_pushButton_7->isVisible()){
+
+        cow7->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+    if(ui->the_product_of_wheat_pushButton_7->isVisible()){
+
+        wheat7->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+    if(ui->the_product_of_barley_pushButton_7->isVisible()){
+
+        barley7->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+
+    if(ui->Cancel_8->isVisible()){
+
+        QPoint Pos(1650, 410);
+
+        QPushButton* buttonAtPos = this->check2(Pos);
+
+        if (buttonAtPos != nullptr) {
+
+           if (buttonAtPos->objectName() == "Chicken") {
+
+               buttonAtPos->setEnabled(true);
+
+               ch8->Set_Farmer_Pushbutton(buttonAtPos2_ch8);
+               ch8->Farmer_pushbutton_position(1710, 390);
+               ch8->Set_Farmer_animation(animation8);
+
+               ch8->Farmer_pushbutton_setenable8();
+               ch8->Timer8_Stop();
+               ch8->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           } else if (buttonAtPos->objectName() == "Sheep") {
+
+               buttonAtPos->setEnabled(true);
+
+               sheep8->Set_Farmer_Pushbutton(buttonAtPos2_Sheep8);
+               sheep8->Farmer_pushbutton_position(1710, 390);
+               sheep8->Set_Farmer_animation(animation8);
+
+               sheep8->Farmer_pushbutton_setenable8();
+               sheep8->Timer8_Stop();
+               sheep8->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           } else if (buttonAtPos->objectName() == "Cow") {
+
+               buttonAtPos->setEnabled(true);
+
+               cow8->Set_Farmer_Pushbutton(buttonAtPos2_cow8);
+               cow8->Farmer_pushbutton_position(1710, 390);
+               cow8->Set_Farmer_animation(animation8);
+
+               cow8->Farmer_pushbutton_setenable8();
+               cow8->Timer8_Stop();
+               cow8->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           } else if (buttonAtPos->objectName() == "Wheat") {
+
+               buttonAtPos->setEnabled(true);
+
+               wheat8->Set_Farmer_Pushbutton(buttonAtPos2_wheat8);
+               wheat8->Farmer_pushbutton_position(1710, 390);
+               wheat8->Set_Farmer_animation(animation8);
+
+               wheat8->Farmer_pushbutton_setenable8();
+               wheat8->Timer8_Stop();
+               wheat8->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           } else if (buttonAtPos->objectName() == "Barley") {
+
+               buttonAtPos->setEnabled(true);
+
+               barley8->Set_Farmer_Pushbutton(buttonAtPos2_barley8);
+               barley8->Farmer_pushbutton_position(1710, 390);
+               barley8->Set_Farmer_animation(animation8);
+
+               barley8->Farmer_pushbutton_setenable8();
+               barley8->Timer8_Stop();
+               barley8->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           }
+        }
+
+    }
+    if(ui->the_product_of_chicken_pushButton_8->isVisible()){
+
+        ch8->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+    if(ui->the_product_of_sheep_pushButton_8->isVisible()){
+
+        sheep8->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+    if(ui->the_product_of_cow_pushButton_8->isVisible()){
+
+        cow8->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+    if(ui->the_product_of_wheat_pushButton_8->isVisible()){
+
+        wheat8->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+    if(ui->the_product_of_barley_pushButton_8->isVisible()){
+
+        barley8->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+
+    if(ui->Cancel_9->isVisible()){
+
+        QPoint Pos(150, 640);
+
+        QPushButton* buttonAtPos = this->check2(Pos);
+
+        if (buttonAtPos != nullptr) {
+
+           if (buttonAtPos->objectName() == "Chicken") {
+
+               buttonAtPos->setEnabled(true);
+
+               ch9->Set_Farmer_Pushbutton(buttonAtPos2_ch9);
+               ch9->Farmer_pushbutton_position(210, 620);
+               ch9->Set_Farmer_animation(animation9);
+
+               ch9->Farmer_pushbutton_setenable9();
+               ch9->Timer9_Stop();
+               ch9->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           } else if (buttonAtPos->objectName() == "Sheep") {
+
+               buttonAtPos->setEnabled(true);
+
+               sheep9->Set_Farmer_Pushbutton(buttonAtPos2_Sheep9);
+               sheep9->Farmer_pushbutton_position(210, 620);
+               sheep9->Set_Farmer_animation(animation9);
+
+               sheep9->Farmer_pushbutton_setenable9();
+               sheep9->Timer9_Stop();
+               sheep9->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           } else if (buttonAtPos->objectName() == "Cow") {
+
+               buttonAtPos->setEnabled(true);
+
+               cow9->Set_Farmer_Pushbutton(buttonAtPos2_cow9);
+               cow9->Farmer_pushbutton_position(210, 620);
+               cow9->Set_Farmer_animation(animation9);
+
+               cow9->Farmer_pushbutton_setenable9();
+               cow9->Timer9_Stop();
+               cow9->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           } else if (buttonAtPos->objectName() == "Wheat") {
+
+               buttonAtPos->setEnabled(true);
+
+               wheat9->Set_Farmer_Pushbutton(buttonAtPos2_wheat9);
+               wheat9->Farmer_pushbutton_position(210, 620);
+               wheat9->Set_Farmer_animation(animation9);
+
+               wheat9->Farmer_pushbutton_setenable9();
+               wheat9->Timer9_Stop();
+               wheat9->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           } else if (buttonAtPos->objectName() == "Barley") {
+
+               buttonAtPos->setEnabled(true);
+
+               barley9->Set_Farmer_Pushbutton(buttonAtPos2_barley9);
+               barley9->Farmer_pushbutton_position(210, 620);
+               barley9->Set_Farmer_animation(animation9);
+
+               barley9->Farmer_pushbutton_setenable9();
+               barley9->Timer9_Stop();
+               barley9->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           }
+        }
+    }
+    if(ui->the_product_of_chicken_pushButton_9->isVisible()){
+
+        ch9->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+    if(ui->the_product_of_sheep_pushButton_9->isVisible()){
+
+        sheep9->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+    if(ui->the_product_of_cow_pushButton_9->isVisible()){
+
+        cow9->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+    if(ui->the_product_of_wheat_pushButton_9->isVisible()){
+
+        wheat9->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+    if(ui->the_product_of_barley_pushButton_9->isVisible()){
+
+        barley9->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+
+    if(ui->Cancel_10->isVisible()){
+
+        QPoint Pos(540, 640);
+
+        QPushButton* buttonAtPos = this->check2(Pos);
+
+        if (buttonAtPos != nullptr) {
+
+           if (buttonAtPos->objectName() == "Chicken") {
+
+               buttonAtPos->setEnabled(true);
+
+               ch10->Set_Farmer_Pushbutton(buttonAtPos2_ch10);
+               ch10->Farmer_pushbutton_position(600, 620);
+               ch10->Set_Farmer_animation(animation10);
+
+               ch10->Farmer_pushbutton_setenable10();
+               ch10->Timer10_Stop();
+               ch10->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           } else if (buttonAtPos->objectName() == "Sheep") {
+
+               buttonAtPos->setEnabled(true);
+
+               sheep10->Set_Farmer_Pushbutton(buttonAtPos2_Sheep10);
+               sheep10->Farmer_pushbutton_position(600, 620);
+               sheep10->Set_Farmer_animation(animation10);
+
+               sheep10->Farmer_pushbutton_setenable10();
+               sheep10->Timer10_Stop();
+               sheep10->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           } else if (buttonAtPos->objectName() == "Cow") {
+
+               buttonAtPos->setEnabled(true);
+
+               cow10->Set_Farmer_Pushbutton(buttonAtPos2_cow10);
+               cow10->Farmer_pushbutton_position(600, 620);
+               cow10->Set_Farmer_animation(animation10);
+
+               cow10->Farmer_pushbutton_setenable10();
+               cow10->Timer10_Stop();
+               cow10->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           } else if (buttonAtPos->objectName() == "Wheat") {
+
+               buttonAtPos->setEnabled(true);
+
+               wheat10->Set_Farmer_Pushbutton(buttonAtPos2_wheat10);
+               wheat10->Farmer_pushbutton_position(600, 620);
+               wheat10->Set_Farmer_animation(animation10);
+
+               wheat10->Farmer_pushbutton_setenable10();
+               wheat10->Timer10_Stop();
+               wheat10->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           } else if (buttonAtPos->objectName() == "Barley") {
+
+               buttonAtPos->setEnabled(true);
+
+               barley10->Set_Farmer_Pushbutton(buttonAtPos2_barley10);
+               barley10->Farmer_pushbutton_position(600, 620);
+               barley10->Set_Farmer_animation(animation10);
+
+               barley10->Farmer_pushbutton_setenable10();
+               barley10->Timer10_Stop();
+               barley10->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           }
+        }
+    }
+    if(ui->the_product_of_chicken_pushButton_10->isVisible()){
+
+        ch10->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+    if(ui->the_product_of_sheep_pushButton_10->isVisible()){
+
+        sheep10->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+    if(ui->the_product_of_cow_pushButton_10->isVisible()){
+
+        cow10->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+    if(ui->the_product_of_wheat_pushButton_10->isVisible()){
+
+        wheat10->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+    if(ui->the_product_of_barley_pushButton_10->isVisible()){
+
+        barley10->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+
+    if(ui->Cancel_11->isVisible()){
+
+        QPoint Pos(1260, 640);
+
+        QPushButton* buttonAtPos = this->check2(Pos);
+
+        if (buttonAtPos != nullptr) {
+
+           if (buttonAtPos->objectName() == "Chicken") {
+
+               buttonAtPos->setEnabled(true);
+
+               ch11->Set_Farmer_Pushbutton(buttonAtPos2_ch11);
+               ch11->Farmer_pushbutton_position(1320, 620);
+               ch11->Set_Farmer_animation(animation11);
+
+               ch11->Farmer_pushbutton_setenable11();
+               ch11->Timer11_Stop();
+               ch11->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           } else if (buttonAtPos->objectName() == "Sheep") {
+
+               buttonAtPos->setEnabled(true);
+
+               sheep11->Set_Farmer_Pushbutton(buttonAtPos2_Sheep11);
+               sheep11->Farmer_pushbutton_position(1320, 620);
+               sheep11->Set_Farmer_animation(animation11);
+
+               sheep11->Farmer_pushbutton_setenable11();
+               sheep11->Timer11_Stop();
+               sheep11->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           } else if (buttonAtPos->objectName() == "Cow") {
+
+               buttonAtPos->setEnabled(true);
+
+               cow11->Set_Farmer_Pushbutton(buttonAtPos2_cow11);
+               cow11->Farmer_pushbutton_position(1320, 620);
+               cow11->Set_Farmer_animation(animation11);
+
+               cow11->Farmer_pushbutton_setenable11();
+               cow11->Timer11_Stop();
+               cow11->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           } else if (buttonAtPos->objectName() == "Wheat") {
+
+               buttonAtPos->setEnabled(true);
+
+               wheat11->Set_Farmer_Pushbutton(buttonAtPos2_wheat11);
+               wheat11->Farmer_pushbutton_position(1320, 620);
+               wheat11->Set_Farmer_animation(animation11);
+
+               wheat11->Farmer_pushbutton_setenable11();
+               wheat11->Timer11_Stop();
+               wheat11->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           } else if (buttonAtPos->objectName() == "Barley") {
+
+               buttonAtPos->setEnabled(true);
+
+               barley11->Set_Farmer_Pushbutton(buttonAtPos2_barley11);
+               barley11->Farmer_pushbutton_position(1320, 620);
+               barley11->Set_Farmer_animation(animation11);
+
+               barley11->Farmer_pushbutton_setenable11();
+               barley11->Timer11_Stop();
+               barley11->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           }
+        }
+    }
+    if(ui->the_product_of_chicken_pushButton_11->isVisible()){
+
+        ch11->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+    if(ui->the_product_of_sheep_pushButton_11->isVisible()){
+
+        sheep11->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+    if(ui->the_product_of_cow_pushButton_11->isVisible()){
+
+        cow11->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+    if(ui->the_product_of_wheat_pushButton_11->isVisible()){
+
+        wheat11->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+    if(ui->the_product_of_barley_pushButton_11->isVisible()){
+
+        barley11->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+
+    if(ui->Cancel_12->isVisible()){
+
+        QPoint Pos(1650, 640);
+
+        QPushButton* buttonAtPos = this->check2(Pos);
+
+        if (buttonAtPos != nullptr) {
+
+           if (buttonAtPos->objectName() == "Chicken") {
+
+               buttonAtPos->setEnabled(true);
+
+               ch12->Set_Farmer_Pushbutton(buttonAtPos2_ch12);
+               ch12->Farmer_pushbutton_position(1710, 620);
+               ch12->Set_Farmer_animation(animation12);
+
+               ch12->Farmer_pushbutton_setenable12();
+               ch12->Timer12_Stop();
+               ch12->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           } else if (buttonAtPos->objectName() == "Sheep") {
+
+               buttonAtPos->setEnabled(true);
+
+               sheep12->Set_Farmer_Pushbutton(buttonAtPos2_Sheep12);
+               sheep12->Farmer_pushbutton_position(1710, 620);
+               sheep12->Set_Farmer_animation(animation12);
+
+               sheep12->Farmer_pushbutton_setenable12();
+               sheep12->Timer12_Stop();
+               sheep12->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           } else if (buttonAtPos->objectName() == "Cow") {
+
+               buttonAtPos->setEnabled(true);
+
+               cow12->Set_Farmer_Pushbutton(buttonAtPos2_cow12);
+               cow12->Farmer_pushbutton_position(1710, 620);
+               cow12->Set_Farmer_animation(animation12);
+
+               cow12->Farmer_pushbutton_setenable12();
+               cow12->Timer12_Stop();
+               cow12->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           } else if (buttonAtPos->objectName() == "Wheat") {
+
+               buttonAtPos->setEnabled(true);
+
+               wheat12->Set_Farmer_Pushbutton(buttonAtPos2_wheat12);
+               wheat12->Farmer_pushbutton_position(1710, 620);
+               wheat12->Set_Farmer_animation(animation12);
+
+               wheat12->Farmer_pushbutton_setenable12();
+               wheat12->Timer12_Stop();
+               wheat12->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           } else if (buttonAtPos->objectName() == "Barley") {
+
+               buttonAtPos->setEnabled(true);
+
+               barley12->Set_Farmer_Pushbutton(buttonAtPos2_barley12);
+               barley12->Farmer_pushbutton_position(1710, 620);
+               barley12->Set_Farmer_animation(animation12);
+
+               barley12->Farmer_pushbutton_setenable12();
+               barley12->Timer12_Stop();
+               barley12->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           }
+        }
+    }
+    if(ui->the_product_of_chicken_pushButton_12->isVisible()){
+
+        ch12->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+    if(ui->the_product_of_sheep_pushButton_12->isVisible()){
+
+        sheep12->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+    if(ui->the_product_of_cow_pushButton_12->isVisible()){
+
+        cow12->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+    if(ui->the_product_of_wheat_pushButton_12->isVisible()){
+
+        wheat12->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+    if(ui->the_product_of_barley_pushButton_12->isVisible()){
+
+        barley12->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+
+    if(ui->Cancel_13->isVisible()){
+
+        QPoint Pos(150, 870);
+
+        QPushButton* buttonAtPos = this->check2(Pos);
+
+        if (buttonAtPos != nullptr) {
+
+           if (buttonAtPos->objectName() == "Chicken") {
+
+               buttonAtPos->setEnabled(true);
+
+               ch13->Set_Farmer_Pushbutton(buttonAtPos2_ch13);
+               ch13->Farmer_pushbutton_position(210, 850);
+               ch13->Set_Farmer_animation(animation13);
+
+               ch13->Farmer_pushbutton_setenable13();
+               ch13->Timer13_Stop();
+               ch13->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           } else if (buttonAtPos->objectName() == "Sheep") {
+
+               buttonAtPos->setEnabled(true);
+
+               sheep13->Set_Farmer_Pushbutton(buttonAtPos2_Sheep13);
+               sheep13->Farmer_pushbutton_position(210, 850);
+               sheep13->Set_Farmer_animation(animation13);
+
+               sheep13->Farmer_pushbutton_setenable13();
+               sheep13->Timer13_Stop();
+               sheep13->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           } else if (buttonAtPos->objectName() == "Cow") {
+
+               buttonAtPos->setEnabled(true);
+
+               cow13->Set_Farmer_Pushbutton(buttonAtPos2_cow13);
+               cow13->Farmer_pushbutton_position(210, 850);
+               cow13->Set_Farmer_animation(animation13);
+
+               cow13->Farmer_pushbutton_setenable13();
+               cow13->Timer13_Stop();
+               cow13->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           } else if (buttonAtPos->objectName() == "Wheat") {
+
+               buttonAtPos->setEnabled(true);
+
+               wheat13->Set_Farmer_Pushbutton(buttonAtPos2_wheat13);
+               wheat13->Farmer_pushbutton_position(210, 850);
+               wheat13->Set_Farmer_animation(animation13);
+
+               wheat13->Farmer_pushbutton_setenable13();
+               wheat13->Timer13_Stop();
+               wheat13->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           } else if (buttonAtPos->objectName() == "Barley") {
+
+               buttonAtPos->setEnabled(true);
+
+               barley13->Set_Farmer_Pushbutton(buttonAtPos2_barley13);
+               barley13->Farmer_pushbutton_position(210, 850);
+               barley13->Set_Farmer_animation(animation13);
+
+               barley13->Farmer_pushbutton_setenable13();
+               barley13->Timer13_Stop();
+               barley13->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           }
+        }
+    }
+    if(ui->the_product_of_chicken_pushButton_13->isVisible()){
+
+        ch13->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+    if(ui->the_product_of_sheep_pushButton_13->isVisible()){
+
+        sheep13->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+    if(ui->the_product_of_cow_pushButton_13->isVisible()){
+
+        cow13->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+    if(ui->the_product_of_wheat_pushButton_13->isVisible()){
+
+        wheat13->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+    if(ui->the_product_of_barley_pushButton_13->isVisible()){
+
+        barley13->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+
+    if(ui->Cancel_14->isVisible()){
+
+        QPoint Pos(540, 870);
+
+        QPushButton* buttonAtPos = this->check2(Pos);
+
+        if (buttonAtPos != nullptr) {
+
+           if (buttonAtPos->objectName() == "Chicken") {
+
+               buttonAtPos->setEnabled(true);
+
+               ch14->Set_Farmer_Pushbutton(buttonAtPos2_ch14);
+               ch14->Farmer_pushbutton_position(600, 850);
+               ch14->Set_Farmer_animation(animation14);
+
+               ch14->Farmer_pushbutton_setenable14();
+               ch14->Timer14_Stop();
+               ch14->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           } else if (buttonAtPos->objectName() == "Sheep") {
+
+               buttonAtPos->setEnabled(true);
+
+               sheep14->Set_Farmer_Pushbutton(buttonAtPos2_Sheep14);
+               sheep14->Farmer_pushbutton_position(600, 850);
+               sheep14->Set_Farmer_animation(animation14);
+
+               sheep14->Farmer_pushbutton_setenable14();
+               sheep14->Timer14_Stop();
+               sheep14->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           } else if (buttonAtPos->objectName() == "Cow") {
+
+               buttonAtPos->setEnabled(true);
+
+               cow14->Set_Farmer_Pushbutton(buttonAtPos2_cow14);
+               cow14->Farmer_pushbutton_position(210, 850);
+               cow14->Set_Farmer_animation(animation14);
+
+               cow14->Farmer_pushbutton_setenable14();
+               cow14->Timer14_Stop();
+               cow14->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           } else if (buttonAtPos->objectName() == "Wheat") {
+
+               buttonAtPos->setEnabled(true);
+
+               wheat14->Set_Farmer_Pushbutton(buttonAtPos2_wheat14);
+               wheat14->Farmer_pushbutton_position(600, 850);
+               wheat14->Set_Farmer_animation(animation14);
+
+               wheat14->Farmer_pushbutton_setenable14();
+               wheat14->Timer14_Stop();
+               wheat14->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           } else if (buttonAtPos->objectName() == "Barley") {
+
+               buttonAtPos->setEnabled(true);
+
+               barley14->Set_Farmer_Pushbutton(buttonAtPos2_barley14);
+               barley14->Farmer_pushbutton_position(600, 850);
+               barley14->Set_Farmer_animation(animation14);
+
+               barley14->Farmer_pushbutton_setenable14();
+               barley14->Timer14_Stop();
+               barley14->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           }
+        }
+    }
+    if(ui->the_product_of_chicken_pushButton_14->isVisible()){
+
+        ch14->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+    if(ui->the_product_of_sheep_pushButton_14->isVisible()){
+
+        sheep14->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+    if(ui->the_product_of_cow_pushButton_14->isVisible()){
+
+        cow14->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+    if(ui->the_product_of_wheat_pushButton_14->isVisible()){
+
+        wheat14->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+    if(ui->the_product_of_barley_pushButton_14->isVisible()){
+
+        barley14->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+
+    if(ui->Cancel_15->isVisible()){
+
+        QPoint Pos(1260, 870);
+
+        QPushButton* buttonAtPos = this->check2(Pos);
+
+        if (buttonAtPos != nullptr) {
+
+           if (buttonAtPos->objectName() == "Chicken") {
+
+               buttonAtPos->setEnabled(true);
+
+               ch15->Set_Farmer_Pushbutton(buttonAtPos2_ch15);
+               ch15->Farmer_pushbutton_position(1320, 850);
+               ch15->Set_Farmer_animation(animation15);
+
+               ch15->Farmer_pushbutton_setenable15();
+               ch15->Timer15_Stop();
+               ch15->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           } else if (buttonAtPos->objectName() == "Sheep") {
+
+               buttonAtPos->setEnabled(true);
+
+               sheep15->Set_Farmer_Pushbutton(buttonAtPos2_Sheep15);
+               sheep15->Farmer_pushbutton_position(1320, 850);
+               sheep15->Set_Farmer_animation(animation15);
+
+               sheep15->Farmer_pushbutton_setenable15();
+               sheep15->Timer15_Stop();
+               sheep15->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           } else if (buttonAtPos->objectName() == "Cow") {
+
+               buttonAtPos->setEnabled(true);
+
+               cow15->Set_Farmer_Pushbutton(buttonAtPos2_cow15);
+               cow15->Farmer_pushbutton_position(1320, 850);
+               cow15->Set_Farmer_animation(animation15);
+
+               cow15->Farmer_pushbutton_setenable15();
+               cow15->Timer15_Stop();
+               cow15->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           } else if (buttonAtPos->objectName() == "Wheat") {
+
+               buttonAtPos->setEnabled(true);
+
+               wheat15->Set_Farmer_Pushbutton(buttonAtPos2_wheat15);
+               wheat15->Farmer_pushbutton_position(1320, 850);
+               wheat15->Set_Farmer_animation(animation15);
+
+               wheat15->Farmer_pushbutton_setenable15();
+               wheat15->Timer15_Stop();
+               wheat15->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           } else if (buttonAtPos->objectName() == "Barley") {
+
+               buttonAtPos->setEnabled(true);
+
+               barley15->Set_Farmer_Pushbutton(buttonAtPos2_barley15);
+               barley15->Farmer_pushbutton_position(1320, 850);
+               barley15->Set_Farmer_animation(animation15);
+
+               barley15->Farmer_pushbutton_setenable15();
+               barley15->Timer15_Stop();
+               barley15->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           }
+        }
+    }
+    if(ui->the_product_of_chicken_pushButton_15->isVisible()){
+
+        ch15->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+    if(ui->the_product_of_sheep_pushButton_15->isVisible()){
+
+        sheep15->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+    if(ui->the_product_of_cow_pushButton_15->isVisible()){
+
+        cow15->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+    if(ui->the_product_of_wheat_pushButton_15->isVisible()){
+
+        wheat15->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+    if(ui->the_product_of_barley_pushButton_15->isVisible()){
+
+        barley15->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+
+    if(ui->Cancel_16->isVisible()){
+
+        QPoint Pos(1650, 870);
+
+        QPushButton* buttonAtPos = this->check2(Pos);
+
+        if (buttonAtPos != nullptr) {
+
+           if (buttonAtPos->objectName() == "Chicken") {
+
+               buttonAtPos->setEnabled(true);
+
+               ch16->Set_Farmer_Pushbutton(buttonAtPos2_ch16);
+               ch16->Farmer_pushbutton_position(1710, 850);
+               ch16->Set_Farmer_animation(animation16);
+
+               ch16->Farmer_pushbutton_setenable16();
+               ch16->Timer16_Stop();
+               ch16->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           } else if (buttonAtPos->objectName() == "Sheep") {
+
+               buttonAtPos->setEnabled(true);
+
+               sheep16->Set_Farmer_Pushbutton(buttonAtPos2_Sheep16);
+               sheep16->Farmer_pushbutton_position(1710, 850);
+               sheep16->Set_Farmer_animation(animation16);
+
+               sheep16->Farmer_pushbutton_setenable16();
+               sheep16->Timer16_Stop();
+               sheep16->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           } else if (buttonAtPos->objectName() == "Cow") {
+
+               buttonAtPos->setEnabled(true);
+
+               cow16->Set_Farmer_Pushbutton(buttonAtPos2_cow16);
+               cow16->Farmer_pushbutton_position(1710, 850);
+               cow16->Set_Farmer_animation(animation16);
+
+               cow16->Farmer_pushbutton_setenable16();
+               cow16->Timer16_Stop();
+               cow16->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           } else if (buttonAtPos->objectName() == "Wheat") {
+
+               buttonAtPos->setEnabled(true);
+
+               wheat16->Set_Farmer_Pushbutton(buttonAtPos2_wheat16);
+               wheat16->Farmer_pushbutton_position(1710, 850);
+               wheat16->Set_Farmer_animation(animation16);
+
+               wheat16->Farmer_pushbutton_setenable16();
+               wheat16->Timer16_Stop();
+               wheat16->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           } else if (buttonAtPos->objectName() == "Barley") {
+
+               buttonAtPos->setEnabled(true);
+
+               barley16->Set_Farmer_Pushbutton(buttonAtPos2_barley16);
+               barley16->Farmer_pushbutton_position(1710, 850);
+               barley16->Set_Farmer_animation(animation16);
+
+               barley16->Farmer_pushbutton_setenable16();
+               barley16->Timer16_Stop();
+               barley16->TimerDelay_Stop();
+               delete buttonAtPos2_ch1;
+
+           }
+        }
+    }
+    if(ui->the_product_of_chicken_pushButton_16->isVisible()){
+
+        ch16->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+    if(ui->the_product_of_sheep_pushButton_16->isVisible()){
+
+        sheep16->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+    if(ui->the_product_of_cow_pushButton_16->isVisible()){
+
+        cow16->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+    if(ui->the_product_of_wheat_pushButton_16->isVisible()){
+
+        wheat16->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+    if(ui->the_product_of_barley_pushButton_16->isVisible()){
+
+        barley16->TimerDelay_Stop();
+        delete buttonAtPos2_ch1;
+    }
+
+
+
+    Delete_all_created_pushbuttos(this, "Chicken");
+    Delete_all_created_pushbuttos(this, "Sheep");
+    Delete_all_created_pushbuttos(this, "Cow");
+    Delete_all_created_pushbuttos(this, "Wheat");
+    Delete_all_created_pushbuttos(this, "Barley");
+    Delete_all_created_pushbuttos(this, "Farmer");
+
+    Default_farmer();
+    score =10;
+    ui->label_Score->setText( "Score : " + QString::number(score));
+
+    number_of_farmers=1;
+    number_of_Free_farmers=1;
+    ui->number_of_Farmers_label ->setText( QString::number(number_of_Free_farmers) + " / " + QString::number(number_of_farmers));
+
+    ui->label_Time->setText("3:00");
+
+    Move_the_product_of_Animals_and_seeds_pushButton();
+
+    Hide_the_product_of_Animals_and_seeds_pushButton();
+
+    Hide_Timer_labels();
+
+    Hide_Start_pushbuttuns();
+
+    Hide_Cancel_pushbuttons();
+
+    Hide_Farms();
+
+    ui->groupBox->hide();
+
+    Hide_decrease_label();
+    F1_Having_Farmer=0, F1_Having_Animals_or_Seeds=0;
+    F2_Having_Farmer=0, F2_Having_Animals_or_Seeds=0;
+    F3_Having_Farmer=0, F3_Having_Animals_or_Seeds=0;
+    F4_Having_Farmer=0, F4_Having_Animals_or_Seeds=0;
+    F5_Having_Farmer=0, F5_Having_Animals_or_Seeds=0;
+    F6_Having_Farmer=0, F6_Having_Animals_or_Seeds=0;
+    F7_Having_Farmer=0, F7_Having_Animals_or_Seeds=0;
+    F8_Having_Farmer=0, F8_Having_Animals_or_Seeds=0;
+    F9_Having_Farmer=0, F9_Having_Animals_or_Seeds=0;
+    F10_Having_Farmer=0, F10_Having_Animals_or_Seeds=0;
+    F11_Having_Farmer=0, F11_Having_Animals_or_Seeds=0;
+    F12_Having_Farmer=0, F12_Having_Animals_or_Seeds=0;
+    F13_Having_Farmer=0, F13_Having_Animals_or_Seeds=0;
+    F14_Having_Farmer=0, F14_Having_Animals_or_Seeds=0;
+    F15_Having_Farmer=0, F15_Having_Animals_or_Seeds=0;
+    F16_Having_Farmer=0, F16_Having_Animals_or_Seeds=0;
+
+    F1_Which_Of_Animals_or_Seeds=0;
+    F2_Which_Of_Animals_or_Seeds=0;
+    F3_Which_Of_Animals_or_Seeds=0;
+    F4_Which_Of_Animals_or_Seeds=0;
+    F5_Which_Of_Animals_or_Seeds=0;
+    F6_Which_Of_Animals_or_Seeds=0;
+    F7_Which_Of_Animals_or_Seeds=0;
+    F8_Which_Of_Animals_or_Seeds=0;
+    F9_Which_Of_Animals_or_Seeds=0;
+    F10_Which_Of_Animals_or_Seeds=0;
+    F11_Which_Of_Animals_or_Seeds=0;
+    F12_Which_Of_Animals_or_Seeds=0;
+    F13_Which_Of_Animals_or_Seeds=0;
+    F14_Which_Of_Animals_or_Seeds=0;
+    F15_Which_Of_Animals_or_Seeds=0;
+    F16_Which_Of_Animals_or_Seeds=0;
+
     Get_info();
 }

@@ -44,6 +44,12 @@ public:
 private slots:
     void on_Shop_pushButton_clicked();
 
+    void updateCountdown();
+
+    void Set_window_to_the_default();
+
+    void Delete_all_created_pushbuttos(QWidget* parent, const QString& name);
+
     void on_Chicken_pushButton_clicked();
 
     void on_Sheep_pushButton_clicked();

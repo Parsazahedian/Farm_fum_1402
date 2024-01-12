@@ -10,7 +10,10 @@
 #include "QSequentialAnimationGroup"
 #include "QPropertyAnimation"
 #include "gamepage.h"
+#include "QMessageBox"
 
+extern int score;
+extern QTimer* Timer_for_timer_label;
 extern MainWindow* mainWindowPtr;
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -124,6 +127,25 @@ void MainWindow::on_pushButton_2_clicked()
     p->show();
     backmusic1->stop();
     mainWindowPtr->close();
+
+    QSqlQuery b;
+    b.exec("SELECT Username FROM Game_Players WHERE Number = '"+QString::number(1)+"' ");
+    QString s;
+    if(b.first()){
+
+        s = b.value(0).toString();
+    }
+
+    QMessageBox msgBox(p);
+    msgBox.setWindowTitle("Transfer to ...");
+    msgBox.setText(""+s+" Are You Ready to Start?");
+    msgBox.setStandardButtons(QMessageBox::Yes);
+    int ret = msgBox.exec();
+
+    if (ret == QMessageBox::Yes) {
+       Timer_for_timer_label->start(1000);
+    }
+
 }
 
 void MainWindow::on_pushButton_3_clicked()

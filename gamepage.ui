@@ -542,15 +542,20 @@
      <rect>
       <x>130</x>
       <y>10</y>
-      <width>101</width>
+      <width>51</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
-     <string>Time</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="Start">
@@ -2628,7 +2633,7 @@
      <rect>
       <x>240</x>
       <y>10</y>
-      <width>51</width>
+      <width>71</width>
       <height>41</height>
      </rect>
     </property>
