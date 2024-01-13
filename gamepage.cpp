@@ -147,7 +147,7 @@ void Gamepage::on_Shop_pushButton_clicked()
 
 void Gamepage::Timer()
 {
-   static int remainingTime = 12; // Start at 3 minutes
+   static int remainingTime = 80; // Start at 3 minutes
 
    if (remainingTime > 0) {
        --remainingTime;
@@ -13846,6 +13846,8 @@ void Gamepage::Set_window_to_the_default()
     ui->Results->hide();
 
     Hide_decrease_label();
+
+    setCursorForAllButtons(this);
     F1_Having_Farmer=0, F1_Having_Animals_or_Seeds=0;
     F2_Having_Farmer=0, F2_Having_Animals_or_Seeds=0;
     F3_Having_Farmer=0, F3_Having_Animals_or_Seeds=0;

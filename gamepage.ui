@@ -23,8 +23,11 @@
       <height>101</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/shop.png);</string>
+    </property>
     <property name="text">
-     <string>Shop</string>
+     <string/>
     </property>
    </widget>
    <widget class="QGroupBox" name="groupBox">
@@ -48,8 +51,11 @@
        <height>50</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/wheat (1).png);</string>
+     </property>
      <property name="text">
-      <string>Wheat</string>
+      <string/>
      </property>
     </widget>
     <widget class="QPushButton" name="Barley_pushButton">
@@ -61,8 +67,11 @@
        <height>50</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/barley.png);</string>
+     </property>
      <property name="text">
-      <string>Barley</string>
+      <string/>
      </property>
     </widget>
     <widget class="QPushButton" name="Cow_pushButton">
@@ -74,8 +83,11 @@
        <height>50</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/cow.png);</string>
+     </property>
      <property name="text">
-      <string>Cow</string>
+      <string/>
      </property>
     </widget>
     <widget class="QPushButton" name="Chicken_pushButton">
@@ -87,8 +99,11 @@
        <height>50</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/hen.png);</string>
+     </property>
      <property name="text">
-      <string>Chicken</string>
+      <string/>
      </property>
     </widget>
     <widget class="QPushButton" name="Sheep_pushButton">
@@ -100,8 +115,11 @@
        <height>50</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/sheep.png);</string>
+     </property>
      <property name="text">
-      <string>Sheep</string>
+      <string/>
      </property>
     </widget>
     <widget class="QPushButton" name="Farmer_pushButton">
@@ -113,8 +131,11 @@
        <height>70</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/farmer.png);</string>
+     </property>
      <property name="text">
-      <string>Farmer</string>
+      <string/>
      </property>
     </widget>
     <widget class="QPushButton" name="New_farm_pushButton">
@@ -473,10 +494,11 @@ border-image: url(:/Farm.images/C:/Users/i/Downloads/Grass2.jpg);</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 255);</string>
+     <string notr="true">background-color: rgb(255, 255, 255);
+border-image: url(:/Farm.images/C:/Users/i/Downloads/barn.png);</string>
     </property>
     <property name="text">
-     <string>Animals</string>
+     <string/>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -492,10 +514,11 @@ border-image: url(:/Farm.images/C:/Users/i/Downloads/Grass2.jpg);</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 255);</string>
+     <string notr="true">background-color: rgb(255, 255, 255);
+border-image: url(:/Farm.images/C:/Users/i/Downloads/seeds.png);</string>
     </property>
     <property name="text">
-     <string>Seeds</string>
+     <string/>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -511,13 +534,14 @@ border-image: url(:/Farm.images/C:/Users/i/Downloads/Grass2.jpg);</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 255);</string>
+     <string notr="true">background-color: rgb(255, 255, 255);
+border-image: url(:/Farm.images/C:/Users/i/Downloads/house.png);</string>
     </property>
     <property name="frameShadow">
      <enum>QFrame::Plain</enum>
     </property>
     <property name="text">
-     <string>Farmers</string>
+     <string/>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
