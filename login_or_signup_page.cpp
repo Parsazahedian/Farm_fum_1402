@@ -22,6 +22,8 @@
 #include "gamepage.h"
 using namespace std;
 
+extern int score;
+extern QTimer* Timer_for_timer_label;
 QString cap="";
 int Number_Of_Players;
 int Number_of_Successful_Players_in_registration=0;
@@ -298,6 +300,24 @@ void Login_or_SignUp_page::on_Login_of_LoginGroupbox_clicked()
         Successful_login_or_SignUp->pause();
         this->close();
         closeMainWindow();
+
+        QSqlQuery c;
+        c.exec("SELECT Username FROM Game_Players WHERE Number = '"+QString::number(1)+"' ");
+        QString s;
+        if(c.first()){
+
+            s = c.value(0).toString();
+        }
+
+        QMessageBox msgBox(p);
+        msgBox.setWindowTitle("Transfer to ...");
+        msgBox.setText(""+s+" Are You Ready to Start?");
+        msgBox.setStandardButtons(QMessageBox::Yes);
+        int ret = msgBox.exec();
+
+        if (ret == QMessageBox::Yes) {
+           Timer_for_timer_label->start(1000);
+        }
     }
 }
 
@@ -570,6 +590,24 @@ void Login_or_SignUp_page::on_SignUp_of_Signup_clicked()
            Successful_login_or_SignUp->pause();
            this->close();
            closeMainWindow();
+
+           QSqlQuery v;
+           v.exec("SELECT Username FROM Game_Players WHERE Number = '"+QString::number(1)+"' ");
+           QString s;
+           if(v.first()){
+
+               s = v.value(0).toString();
+           }
+
+           QMessageBox msgBox(p);
+           msgBox.setWindowTitle("Transfer to ...");
+           msgBox.setText(""+s+" Are You Ready to Start?");
+           msgBox.setStandardButtons(QMessageBox::Yes);
+           int ret = msgBox.exec();
+
+           if (ret == QMessageBox::Yes) {
+              Timer_for_timer_label->start(1000);
+           }
        }
 }
 

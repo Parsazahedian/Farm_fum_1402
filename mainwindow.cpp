@@ -111,6 +111,9 @@ void MainWindow::on_pushButton_clicked()
 {
     ui->pushButton_3->show();
     ui->lineEdit->show();
+    QSqlQuery query_3;
+    query_3.exec("DELETE FROM Game_Players");
+
     QString a="0";
     QSqlQuery q;
     q.exec("UPDATE ResumeGame SET isStarted = '"+a+"' ");

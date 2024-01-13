@@ -13,12 +13,16 @@
 #include "QSqlDriver"
 #include "QSqlQuery"
 #include "QSqlQueryModel"
-
-
+#include "QThread"
+#include "QSqlError"
+#include "QSortFilterProxyModel"
 
 QTimer* Timer_for_timer_label;
+QTimer* Timer_for_timer_label_2;
 
-extern int Number_Of_Players;
+int Number_of_Players;
+
+int player_number=1;
 
 int score=10, number_of_farmers=1, number_of_Free_farmers=1;
 
@@ -52,10 +56,16 @@ Gamepage::Gamepage(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    QSqlDatabase database;
+  //  QSqlDatabase database;
     database=QSqlDatabase::addDatabase("QSQLITE");
     database.setDatabaseName("e:\\schema2.db");
     database.open();
+
+    QSqlQuery query;
+    query.exec("SELECT * FROM UserInput");
+    if (query.next()) {
+    Number_of_Players = query.value("Number_of_players").toInt();
+    }
 
     Move_the_product_of_Animals_and_seeds_pushButton();
 
@@ -76,7 +86,11 @@ Gamepage::Gamepage(QWidget *parent) :
 
     ui->groupBox->hide();
 
+    ui->Results->hide();
+
     Hide_decrease_label();
+
+    qDebug()<<"Number_Of_Players = "<<Number_of_Players;
 
     ui->label_Time->setText("3:00");
 
@@ -85,12 +99,14 @@ Gamepage::Gamepage(QWidget *parent) :
     ui->number_of_Farmers_label ->setText( QString::number(number_of_Free_farmers) + " / " + QString::number(number_of_farmers));
 
     Timer_for_timer_label = new QTimer(this);
-    connect(Timer_for_timer_label, &QTimer::timeout, this, &Gamepage::updateCountdown);
+    connect(Timer_for_timer_label, &QTimer::timeout, this, &Gamepage::Timer);
+
 }
 
 Gamepage::~Gamepage()
 {
     delete ui;
+    delete Timer_for_timer_label_2;
 }
 
 void Gamepage::on_Shop_pushButton_clicked()
@@ -105,7 +121,7 @@ void Gamepage::on_Shop_pushButton_clicked()
     }
 }
 
-void Gamepage::updateCountdown()
+void Gamepage::Timer()
 {
    static int remainingTime = 12; // Start at 3 minutes
 
@@ -122,26 +138,164 @@ void Gamepage::updateCountdown()
    } else {
        Timer_for_timer_label->stop();
        QSqlQuery b;
-       b.exec("SELECT Username FROM Game_Players WHERE Number = '"+QString::number(1)+"' ");
-       QString s;
+       b.exec("SELECT Username FROM Game_Players WHERE Number = '"+QString::number(player_number)+"' ");
+       player_number++;
+       QString username;
        if(b.first()){
 
-           s = b.value(0).toString();
+           username = b.value(0).toString();
        }
 
-       QMessageBox::information(this, "point",""+s+" your score = "+QString::number(score)+" ");
+       QMessageBox::information(this, "point",""+username+" your score = "+QString::number(score)+" ");
 
+       QSqlQuery query;
+           query.prepare("UPDATE Game_Players SET Score = :score WHERE Username = :username");
+           query.bindValue(":score", score);
+           query.bindValue(":username", username);
+           if(!query.exec()){
+               qDebug() << query.lastError().text();
+           }
 
        Set_window_to_the_default();
 
-       Number_Of_Players--;
+       Number_of_Players--;
 
-       while(Number_Of_Players > 0){
+       if(Number_of_Players==0){
 
-            Get_info();
-            Number_Of_Players--;
+           qDebug()<<"finished";
+           QSqlQueryModel* model = new QSqlQueryModel(this);
+           QSqlQuery* query = new QSqlQuery(database);;
+           query->prepare("SELECT Username, Score FROM Game_Players ORDER BY Score DESC");
+           query->exec();
+           model->setQuery(*query);
+           QSortFilterProxyModel* proxyModel = new QSortFilterProxyModel(this);
+           proxyModel->setSourceModel(model);
+           proxyModel->sort(1, Qt::DescendingOrder);
+           ui->tableView->setModel(proxyModel);
+           ui->Results->show();
+           QPropertyAnimation *animation1 = new QPropertyAnimation(ui->Results, "geometry", this);
+           animation1->setStartValue(QRect(750, -900, ui->Results->geometry().width(), ui->Results->geometry().height()));
+           animation1->setEndValue(QRect(750, 200, ui->Results->geometry().width(), ui->Results->geometry().height()));
+           animation1->setEasingCurve(QEasingCurve::Type::InOutBounce);
+           animation1->setDuration(5000);
+           animation1->start();
+
+           QSqlQuery query_3;
+           query_3.exec("DELETE FROM Game_Players");
+
+           QString z="0";
+           QSqlQuery q;
+           q.exec("UPDATE ResumeGame SET isStarted = '"+z+"' ");
+
+
+       }else{
+
+           For_Repeated();
+
        }
+
    }
+}
+
+void Gamepage::Timer_2()
+{
+    static int remainingTime = 12; // Start at 3 minutes
+
+    if (remainingTime > 0) {
+        --remainingTime;
+        int minutes = remainingTime / 60;
+        int seconds = remainingTime % 60;
+
+        if (remainingTime == 10) {
+                 ui->label_Time->setStyleSheet("QLabel { color: red; }");
+             }
+
+        ui->label_Time->setText(QString("%1:%2").arg(minutes, 1, 10, QChar('0')).arg(seconds, 2, 10, QChar('0')));
+    } else {
+        Timer_for_timer_label_2->stop();
+        remainingTime = 12;
+        QSqlQuery v;
+        v.exec("SELECT Username FROM Game_Players WHERE Number = '"+QString::number(player_number)+"' ");
+        player_number++;
+        QString Username;
+        if(v.first()){
+
+            Username = v.value(0).toString();
+        }
+        QMessageBox::information(this, "point",""+Username+" your score = "+QString::number(score)+" ");
+
+        QSqlQuery query;
+            query.prepare("UPDATE Game_Players SET Score = :score WHERE Username = :username");
+            query.bindValue(":score", score);
+            query.bindValue(":username", Username);
+            if(!query.exec()){
+                qDebug() << query.lastError().text();
+            }
+
+        Set_window_to_the_default();
+        if(Number_of_Players==0){
+
+            qDebug()<<"finished";
+            QSqlQueryModel* model = new QSqlQueryModel(this);
+            QSqlQuery* query = new QSqlQuery(database);;
+            query->prepare("SELECT Username, Score FROM Game_Players ORDER BY Score DESC");
+            query->exec();
+            model->setQuery(*query);
+            QSortFilterProxyModel* proxyModel = new QSortFilterProxyModel(this);
+            proxyModel->setSourceModel(model);
+            proxyModel->sort(1, Qt::DescendingOrder);
+            ui->tableView->setModel(proxyModel);
+            ui->Results->show();
+            QPropertyAnimation *animation1 = new QPropertyAnimation(ui->Results, "geometry", this);
+            animation1->setStartValue(QRect(750, -900, ui->Results->geometry().width(), ui->Results->geometry().height()));
+            animation1->setEndValue(QRect(750, 200, ui->Results->geometry().width(), ui->Results->geometry().height()));
+            animation1->setEasingCurve(QEasingCurve::Type::InOutBounce);
+            animation1->setDuration(5000);
+            animation1->start();
+
+            QSqlQuery query_3;
+            query_3.exec("DELETE FROM Game_Players");
+
+            QString z="0";
+            QSqlQuery q;
+            q.exec("UPDATE ResumeGame SET isStarted = '"+z+"' ");
+
+        }else{
+
+            For_Repeated();
+
+        }
+    }
+}
+
+void Gamepage::For_Repeated()
+{
+    if(Number_of_Players > 0){
+
+        QSqlQuery v;
+        v.exec("SELECT Username FROM Game_Players WHERE Number = '"+QString::number(player_number)+"' ");
+        QString Username;
+        if(v.first()){
+
+            Username = v.value(0).toString();
+        }
+
+        QMessageBox msgBox(this);
+        msgBox.setWindowTitle("hi");
+        msgBox.setText(""+Username+" Are You Ready to Start?");
+        msgBox.setStandardButtons(QMessageBox::Yes);
+        int ret = msgBox.exec();
+
+           if (ret == QMessageBox::Yes) {
+               if (!Timer_for_timer_label_2) {
+                   Timer_for_timer_label_2 = new QTimer(this);
+                   connect(Timer_for_timer_label_2, &QTimer::timeout, this, &Gamepage::Timer_2);
+               }
+               Timer_for_timer_label_2->start(1000);
+           }
+           Number_of_Players--;
+       }
+
 }
 
 void Gamepage::Delete_all_created_pushbuttos(QWidget* parent, const QString& name)
@@ -4580,7 +4734,6 @@ void Gamepage::check_our_farm_have_farmer_or_not()
         }
     }
 
-    qDebug()<<"F1_Having_Farmer = " <<F1_Having_Farmer<<"\n"<<"F1_Having_Animals_or_Seeds = "<< F1_Having_Animals_or_Seeds;
 }
 
 QPushButton * Gamepage::check2(QPoint pos)
@@ -12115,7 +12268,7 @@ void Gamepage::Set_window_to_the_default()
                ch2->Farmer_pushbutton_setenable2();
                ch2->Timer2_Stop();
                ch2->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_ch2;
 
            } else if (buttonAtPos->objectName() == "Sheep") {
 
@@ -12128,7 +12281,7 @@ void Gamepage::Set_window_to_the_default()
                sheep2->Farmer_pushbutton_setenable2();
                sheep2->Timer2_Stop();
                sheep2->TimerDelay_Stop();
-               delete buttonAtPos2_barley1;
+               delete buttonAtPos2_Sheep2;
 
            } else if (buttonAtPos->objectName() == "Cow") {
 
@@ -12141,7 +12294,7 @@ void Gamepage::Set_window_to_the_default()
                cow2->Farmer_pushbutton_setenable2();
                cow2->Timer2_Stop();
                cow2->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_cow2;
 
            } else if (buttonAtPos->objectName() == "Wheat") {
 
@@ -12154,7 +12307,7 @@ void Gamepage::Set_window_to_the_default()
                wheat2->Farmer_pushbutton_setenable2();
                wheat2->Timer2_Stop();
                wheat2->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_wheat2;
 
            } else if (buttonAtPos->objectName() == "Barley") {
 
@@ -12167,7 +12320,7 @@ void Gamepage::Set_window_to_the_default()
                barley2->Farmer_pushbutton_setenable2();
                barley2->Timer2_Stop();
                barley2->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_barley2;
 
            }
         }
@@ -12175,27 +12328,27 @@ void Gamepage::Set_window_to_the_default()
     if(ui->the_product_of_chicken_pushButton_2->isVisible()){
 
         ch2->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_ch2;
     }
     if(ui->the_product_of_sheep_pushButton_2->isVisible()){
 
         sheep2->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_Sheep2;
     }
     if(ui->the_product_of_cow_pushButton_2->isVisible()){
 
         cow2->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_cow2;
     }
     if(ui->the_product_of_wheat_pushButton_2->isVisible()){
 
         wheat2->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_wheat2;
     }
     if(ui->the_product_of_barley_pushButton_2->isVisible()){
 
         barley2->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_barley2;
     }
 
     if(ui->Cancel_3->isVisible()){
@@ -12217,7 +12370,7 @@ void Gamepage::Set_window_to_the_default()
                ch3->Farmer_pushbutton_setenable3();
                ch3->Timer3_Stop();
                ch3->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_ch3;
 
            } else if (buttonAtPos->objectName() == "Sheep") {
 
@@ -12230,7 +12383,7 @@ void Gamepage::Set_window_to_the_default()
                sheep3->Farmer_pushbutton_setenable3();
                sheep3->Timer3_Stop();
                sheep3->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_Sheep3;
 
            } else if (buttonAtPos->objectName() == "Cow") {
 
@@ -12243,7 +12396,7 @@ void Gamepage::Set_window_to_the_default()
                cow3->Farmer_pushbutton_setenable3();
                cow3->Timer3_Stop();
                cow3->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_cow3;
 
            } else if (buttonAtPos->objectName() == "Wheat") {
 
@@ -12256,7 +12409,7 @@ void Gamepage::Set_window_to_the_default()
                wheat3->Farmer_pushbutton_setenable3();
                wheat3->Timer3_Stop();
                wheat3->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_wheat3;
 
            } else if (buttonAtPos->objectName() == "Barley") {
 
@@ -12269,7 +12422,7 @@ void Gamepage::Set_window_to_the_default()
                barley3->Farmer_pushbutton_setenable3();
                barley3->Timer3_Stop();
                barley3->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_barley3;
 
            }
         }
@@ -12277,27 +12430,27 @@ void Gamepage::Set_window_to_the_default()
     if(ui->the_product_of_chicken_pushButton_3->isVisible()){
 
         ch3->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_ch3;
     }
     if(ui->the_product_of_sheep_pushButton_3->isVisible()){
 
         sheep3->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_Sheep3;
     }
     if(ui->the_product_of_cow_pushButton_3->isVisible()){
 
         cow3->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_cow3;
     }
     if(ui->the_product_of_wheat_pushButton_3->isVisible()){
 
         wheat3->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_wheat3;
     }
     if(ui->the_product_of_barley_pushButton_3->isVisible()){
 
         barley3->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_barley3;
     }
 
     if(ui->Cancel_4->isVisible()){
@@ -12319,7 +12472,7 @@ void Gamepage::Set_window_to_the_default()
                ch4->Farmer_pushbutton_setenable4();
                ch4->Timer4_Stop();
                ch4->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_ch4;
 
            } else if (buttonAtPos->objectName() == "Sheep") {
 
@@ -12332,7 +12485,7 @@ void Gamepage::Set_window_to_the_default()
                sheep4->Farmer_pushbutton_setenable4();
                sheep4->Timer4_Stop();
                sheep4->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_Sheep4;
 
            } else if (buttonAtPos->objectName() == "Cow") {
 
@@ -12345,7 +12498,7 @@ void Gamepage::Set_window_to_the_default()
                cow4->Farmer_pushbutton_setenable4();
                cow4->Timer4_Stop();
                cow4->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_cow4;
 
            } else if (buttonAtPos->objectName() == "Wheat") {
 
@@ -12358,7 +12511,7 @@ void Gamepage::Set_window_to_the_default()
                wheat4->Farmer_pushbutton_setenable4();
                wheat4->Timer4_Stop();
                wheat4->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_wheat4;
 
            } else if (buttonAtPos->objectName() == "Barley") {
 
@@ -12371,7 +12524,7 @@ void Gamepage::Set_window_to_the_default()
                barley4->Farmer_pushbutton_setenable4();
                barley4->Timer4_Stop();
                barley4->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_barley4;
 
            }
         }
@@ -12380,27 +12533,27 @@ void Gamepage::Set_window_to_the_default()
     if(ui->the_product_of_chicken_pushButton_4->isVisible()){
 
         ch4->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_ch4;
     }
     if(ui->the_product_of_sheep_pushButton_4->isVisible()){
 
         sheep4->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_Sheep4;
     }
     if(ui->the_product_of_cow_pushButton_4->isVisible()){
 
         cow4->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_cow4;
     }
     if(ui->the_product_of_wheat_pushButton_4->isVisible()){
 
         wheat4->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_wheat4;
     }
     if(ui->the_product_of_barley_pushButton_4->isVisible()){
 
         barley4->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_barley4;
     }
 
     if(ui->Cancel_5->isVisible()){
@@ -12422,7 +12575,7 @@ void Gamepage::Set_window_to_the_default()
                ch5->Farmer_pushbutton_setenable5();
                ch5->Timer5_Stop();
                ch5->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_ch5;
 
            } else if (buttonAtPos->objectName() == "Sheep") {
 
@@ -12435,7 +12588,7 @@ void Gamepage::Set_window_to_the_default()
                sheep5->Farmer_pushbutton_setenable5();
                sheep5->Timer5_Stop();
                sheep5->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_Sheep5;
 
            } else if (buttonAtPos->objectName() == "Cow") {
 
@@ -12448,7 +12601,7 @@ void Gamepage::Set_window_to_the_default()
                cow5->Farmer_pushbutton_setenable5();
                cow5->Timer5_Stop();
                cow5->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_cow5;
 
            } else if (buttonAtPos->objectName() == "Wheat") {
 
@@ -12461,7 +12614,7 @@ void Gamepage::Set_window_to_the_default()
                wheat5->Farmer_pushbutton_setenable5();
                wheat5->Timer5_Stop();
                wheat5->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_wheat5;
 
            } else if (buttonAtPos->objectName() == "Barley") {
 
@@ -12474,7 +12627,7 @@ void Gamepage::Set_window_to_the_default()
                barley5->Farmer_pushbutton_setenable5();
                barley5->Timer5_Stop();
                barley5->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_barley5;
 
            }
         }
@@ -12482,27 +12635,27 @@ void Gamepage::Set_window_to_the_default()
     if(ui->the_product_of_chicken_pushButton_5->isVisible()){
 
         ch5->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_ch5;
     }
     if(ui->the_product_of_sheep_pushButton_5->isVisible()){
 
         sheep5->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_Sheep5;
     }
     if(ui->the_product_of_cow_pushButton_5->isVisible()){
 
         cow5->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_cow5;
     }
     if(ui->the_product_of_wheat_pushButton_5->isVisible()){
 
         wheat5->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_wheat5;
     }
     if(ui->the_product_of_barley_pushButton_5->isVisible()){
 
         barley5->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_barley5;
     }
 
     if(ui->Cancel_6->isVisible()){
@@ -12524,7 +12677,7 @@ void Gamepage::Set_window_to_the_default()
                ch6->Farmer_pushbutton_setenable6();
                ch6->Timer6_Stop();
                ch6->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_ch6;
 
            } else if (buttonAtPos->objectName() == "Sheep") {
 
@@ -12537,7 +12690,7 @@ void Gamepage::Set_window_to_the_default()
                sheep6->Farmer_pushbutton_setenable6();
                sheep6->Timer6_Stop();
                sheep6->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_Sheep6;
 
            } else if (buttonAtPos->objectName() == "Cow") {
 
@@ -12550,7 +12703,7 @@ void Gamepage::Set_window_to_the_default()
                cow6->Farmer_pushbutton_setenable6();
                cow6->Timer6_Stop();
                cow6->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_cow6;
 
            } else if (buttonAtPos->objectName() == "Wheat") {
 
@@ -12563,7 +12716,7 @@ void Gamepage::Set_window_to_the_default()
                wheat6->Farmer_pushbutton_setenable6();
                wheat6->Timer6_Stop();
                wheat6->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_wheat6;
 
            } else if (buttonAtPos->objectName() == "Barley") {
 
@@ -12576,7 +12729,7 @@ void Gamepage::Set_window_to_the_default()
                barley6->Farmer_pushbutton_setenable6();
                barley6->Timer6_Stop();
                barley6->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_barley6;
 
            }
         }
@@ -12584,27 +12737,27 @@ void Gamepage::Set_window_to_the_default()
     if(ui->the_product_of_chicken_pushButton_6->isVisible()){
 
         ch6->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_ch6;
     }
     if(ui->the_product_of_sheep_pushButton_6->isVisible()){
 
         sheep6->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_Sheep6;
     }
     if(ui->the_product_of_cow_pushButton_6->isVisible()){
 
         cow6->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_cow6;
     }
     if(ui->the_product_of_wheat_pushButton_6->isVisible()){
 
         wheat6->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_wheat6;
     }
     if(ui->the_product_of_barley_pushButton_6->isVisible()){
 
         barley6->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_barley6;
     }
 
     if(ui->Cancel_7->isVisible()){
@@ -12626,7 +12779,7 @@ void Gamepage::Set_window_to_the_default()
                ch7->Farmer_pushbutton_setenable7();
                ch7->Timer7_Stop();
                ch7->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_ch7;
 
            } else if (buttonAtPos->objectName() == "Sheep") {
 
@@ -12639,7 +12792,7 @@ void Gamepage::Set_window_to_the_default()
                sheep7->Farmer_pushbutton_setenable7();
                sheep7->Timer7_Stop();
                sheep7->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_Sheep7;
 
            } else if (buttonAtPos->objectName() == "Cow") {
 
@@ -12652,7 +12805,7 @@ void Gamepage::Set_window_to_the_default()
                cow7->Farmer_pushbutton_setenable7();
                cow7->Timer7_Stop();
                cow7->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_cow7;
 
            } else if (buttonAtPos->objectName() == "Wheat") {
 
@@ -12665,7 +12818,7 @@ void Gamepage::Set_window_to_the_default()
                wheat7->Farmer_pushbutton_setenable7();
                wheat7->Timer7_Stop();
                wheat7->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_wheat7;
 
            } else if (buttonAtPos->objectName() == "Barley") {
 
@@ -12678,7 +12831,7 @@ void Gamepage::Set_window_to_the_default()
                barley7->Farmer_pushbutton_setenable7();
                barley7->Timer7_Stop();
                barley7->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_barley7;
 
            }
         }
@@ -12686,27 +12839,27 @@ void Gamepage::Set_window_to_the_default()
     if(ui->the_product_of_chicken_pushButton_7->isVisible()){
 
         ch7->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_ch7;
     }
     if(ui->the_product_of_sheep_pushButton_7->isVisible()){
 
         sheep7->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_Sheep7;
     }
     if(ui->the_product_of_cow_pushButton_7->isVisible()){
 
         cow7->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_cow7;
     }
     if(ui->the_product_of_wheat_pushButton_7->isVisible()){
 
         wheat7->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_wheat7;
     }
     if(ui->the_product_of_barley_pushButton_7->isVisible()){
 
         barley7->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_barley7;
     }
 
     if(ui->Cancel_8->isVisible()){
@@ -12728,7 +12881,7 @@ void Gamepage::Set_window_to_the_default()
                ch8->Farmer_pushbutton_setenable8();
                ch8->Timer8_Stop();
                ch8->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_ch8;
 
            } else if (buttonAtPos->objectName() == "Sheep") {
 
@@ -12741,7 +12894,7 @@ void Gamepage::Set_window_to_the_default()
                sheep8->Farmer_pushbutton_setenable8();
                sheep8->Timer8_Stop();
                sheep8->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_Sheep8;
 
            } else if (buttonAtPos->objectName() == "Cow") {
 
@@ -12754,7 +12907,7 @@ void Gamepage::Set_window_to_the_default()
                cow8->Farmer_pushbutton_setenable8();
                cow8->Timer8_Stop();
                cow8->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_cow8;
 
            } else if (buttonAtPos->objectName() == "Wheat") {
 
@@ -12767,7 +12920,7 @@ void Gamepage::Set_window_to_the_default()
                wheat8->Farmer_pushbutton_setenable8();
                wheat8->Timer8_Stop();
                wheat8->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_wheat8;
 
            } else if (buttonAtPos->objectName() == "Barley") {
 
@@ -12780,7 +12933,7 @@ void Gamepage::Set_window_to_the_default()
                barley8->Farmer_pushbutton_setenable8();
                barley8->Timer8_Stop();
                barley8->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_barley8;
 
            }
         }
@@ -12789,27 +12942,27 @@ void Gamepage::Set_window_to_the_default()
     if(ui->the_product_of_chicken_pushButton_8->isVisible()){
 
         ch8->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_ch8;
     }
     if(ui->the_product_of_sheep_pushButton_8->isVisible()){
 
         sheep8->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_Sheep8;
     }
     if(ui->the_product_of_cow_pushButton_8->isVisible()){
 
         cow8->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_cow8;
     }
     if(ui->the_product_of_wheat_pushButton_8->isVisible()){
 
         wheat8->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_wheat8;
     }
     if(ui->the_product_of_barley_pushButton_8->isVisible()){
 
         barley8->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_barley8;
     }
 
     if(ui->Cancel_9->isVisible()){
@@ -12831,7 +12984,7 @@ void Gamepage::Set_window_to_the_default()
                ch9->Farmer_pushbutton_setenable9();
                ch9->Timer9_Stop();
                ch9->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_ch9;
 
            } else if (buttonAtPos->objectName() == "Sheep") {
 
@@ -12844,7 +12997,7 @@ void Gamepage::Set_window_to_the_default()
                sheep9->Farmer_pushbutton_setenable9();
                sheep9->Timer9_Stop();
                sheep9->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_Sheep9;
 
            } else if (buttonAtPos->objectName() == "Cow") {
 
@@ -12857,7 +13010,7 @@ void Gamepage::Set_window_to_the_default()
                cow9->Farmer_pushbutton_setenable9();
                cow9->Timer9_Stop();
                cow9->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_cow9;
 
            } else if (buttonAtPos->objectName() == "Wheat") {
 
@@ -12870,7 +13023,7 @@ void Gamepage::Set_window_to_the_default()
                wheat9->Farmer_pushbutton_setenable9();
                wheat9->Timer9_Stop();
                wheat9->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_wheat9;
 
            } else if (buttonAtPos->objectName() == "Barley") {
 
@@ -12883,7 +13036,7 @@ void Gamepage::Set_window_to_the_default()
                barley9->Farmer_pushbutton_setenable9();
                barley9->Timer9_Stop();
                barley9->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_barley9;
 
            }
         }
@@ -12891,27 +13044,27 @@ void Gamepage::Set_window_to_the_default()
     if(ui->the_product_of_chicken_pushButton_9->isVisible()){
 
         ch9->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_ch9;
     }
     if(ui->the_product_of_sheep_pushButton_9->isVisible()){
 
         sheep9->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_Sheep9;
     }
     if(ui->the_product_of_cow_pushButton_9->isVisible()){
 
         cow9->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_cow9;
     }
     if(ui->the_product_of_wheat_pushButton_9->isVisible()){
 
         wheat9->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_wheat9;
     }
     if(ui->the_product_of_barley_pushButton_9->isVisible()){
 
         barley9->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_barley9;
     }
 
     if(ui->Cancel_10->isVisible()){
@@ -12933,7 +13086,7 @@ void Gamepage::Set_window_to_the_default()
                ch10->Farmer_pushbutton_setenable10();
                ch10->Timer10_Stop();
                ch10->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_ch10;
 
            } else if (buttonAtPos->objectName() == "Sheep") {
 
@@ -12946,7 +13099,7 @@ void Gamepage::Set_window_to_the_default()
                sheep10->Farmer_pushbutton_setenable10();
                sheep10->Timer10_Stop();
                sheep10->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_Sheep10;
 
            } else if (buttonAtPos->objectName() == "Cow") {
 
@@ -12959,7 +13112,7 @@ void Gamepage::Set_window_to_the_default()
                cow10->Farmer_pushbutton_setenable10();
                cow10->Timer10_Stop();
                cow10->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_cow10;
 
            } else if (buttonAtPos->objectName() == "Wheat") {
 
@@ -12972,7 +13125,7 @@ void Gamepage::Set_window_to_the_default()
                wheat10->Farmer_pushbutton_setenable10();
                wheat10->Timer10_Stop();
                wheat10->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_wheat10;
 
            } else if (buttonAtPos->objectName() == "Barley") {
 
@@ -12985,7 +13138,7 @@ void Gamepage::Set_window_to_the_default()
                barley10->Farmer_pushbutton_setenable10();
                barley10->Timer10_Stop();
                barley10->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_barley10;
 
            }
         }
@@ -12993,27 +13146,27 @@ void Gamepage::Set_window_to_the_default()
     if(ui->the_product_of_chicken_pushButton_10->isVisible()){
 
         ch10->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_ch10;
     }
     if(ui->the_product_of_sheep_pushButton_10->isVisible()){
 
         sheep10->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_Sheep10;
     }
     if(ui->the_product_of_cow_pushButton_10->isVisible()){
 
         cow10->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_cow10;
     }
     if(ui->the_product_of_wheat_pushButton_10->isVisible()){
 
         wheat10->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_wheat10;
     }
     if(ui->the_product_of_barley_pushButton_10->isVisible()){
 
         barley10->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_barley10;
     }
 
     if(ui->Cancel_11->isVisible()){
@@ -13035,7 +13188,7 @@ void Gamepage::Set_window_to_the_default()
                ch11->Farmer_pushbutton_setenable11();
                ch11->Timer11_Stop();
                ch11->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_ch11;
 
            } else if (buttonAtPos->objectName() == "Sheep") {
 
@@ -13048,7 +13201,7 @@ void Gamepage::Set_window_to_the_default()
                sheep11->Farmer_pushbutton_setenable11();
                sheep11->Timer11_Stop();
                sheep11->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_Sheep11;
 
            } else if (buttonAtPos->objectName() == "Cow") {
 
@@ -13061,7 +13214,7 @@ void Gamepage::Set_window_to_the_default()
                cow11->Farmer_pushbutton_setenable11();
                cow11->Timer11_Stop();
                cow11->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_cow11;
 
            } else if (buttonAtPos->objectName() == "Wheat") {
 
@@ -13074,7 +13227,7 @@ void Gamepage::Set_window_to_the_default()
                wheat11->Farmer_pushbutton_setenable11();
                wheat11->Timer11_Stop();
                wheat11->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_wheat11;
 
            } else if (buttonAtPos->objectName() == "Barley") {
 
@@ -13087,7 +13240,7 @@ void Gamepage::Set_window_to_the_default()
                barley11->Farmer_pushbutton_setenable11();
                barley11->Timer11_Stop();
                barley11->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_barley11;
 
            }
         }
@@ -13095,27 +13248,27 @@ void Gamepage::Set_window_to_the_default()
     if(ui->the_product_of_chicken_pushButton_11->isVisible()){
 
         ch11->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_ch11;
     }
     if(ui->the_product_of_sheep_pushButton_11->isVisible()){
 
         sheep11->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_Sheep11;
     }
     if(ui->the_product_of_cow_pushButton_11->isVisible()){
 
         cow11->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_cow11;
     }
     if(ui->the_product_of_wheat_pushButton_11->isVisible()){
 
         wheat11->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_wheat11;
     }
     if(ui->the_product_of_barley_pushButton_11->isVisible()){
 
         barley11->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_barley11;
     }
 
     if(ui->Cancel_12->isVisible()){
@@ -13137,7 +13290,7 @@ void Gamepage::Set_window_to_the_default()
                ch12->Farmer_pushbutton_setenable12();
                ch12->Timer12_Stop();
                ch12->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_ch12;
 
            } else if (buttonAtPos->objectName() == "Sheep") {
 
@@ -13150,7 +13303,7 @@ void Gamepage::Set_window_to_the_default()
                sheep12->Farmer_pushbutton_setenable12();
                sheep12->Timer12_Stop();
                sheep12->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_Sheep12;
 
            } else if (buttonAtPos->objectName() == "Cow") {
 
@@ -13163,7 +13316,7 @@ void Gamepage::Set_window_to_the_default()
                cow12->Farmer_pushbutton_setenable12();
                cow12->Timer12_Stop();
                cow12->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_cow12;
 
            } else if (buttonAtPos->objectName() == "Wheat") {
 
@@ -13176,7 +13329,7 @@ void Gamepage::Set_window_to_the_default()
                wheat12->Farmer_pushbutton_setenable12();
                wheat12->Timer12_Stop();
                wheat12->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_wheat12;
 
            } else if (buttonAtPos->objectName() == "Barley") {
 
@@ -13189,7 +13342,7 @@ void Gamepage::Set_window_to_the_default()
                barley12->Farmer_pushbutton_setenable12();
                barley12->Timer12_Stop();
                barley12->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_barley12;
 
            }
         }
@@ -13197,27 +13350,27 @@ void Gamepage::Set_window_to_the_default()
     if(ui->the_product_of_chicken_pushButton_12->isVisible()){
 
         ch12->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_ch12;
     }
     if(ui->the_product_of_sheep_pushButton_12->isVisible()){
 
         sheep12->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_Sheep12;
     }
     if(ui->the_product_of_cow_pushButton_12->isVisible()){
 
         cow12->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_cow12;
     }
     if(ui->the_product_of_wheat_pushButton_12->isVisible()){
 
         wheat12->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_wheat12;
     }
     if(ui->the_product_of_barley_pushButton_12->isVisible()){
 
         barley12->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_barley12;
     }
 
     if(ui->Cancel_13->isVisible()){
@@ -13239,7 +13392,7 @@ void Gamepage::Set_window_to_the_default()
                ch13->Farmer_pushbutton_setenable13();
                ch13->Timer13_Stop();
                ch13->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_ch13;
 
            } else if (buttonAtPos->objectName() == "Sheep") {
 
@@ -13252,7 +13405,7 @@ void Gamepage::Set_window_to_the_default()
                sheep13->Farmer_pushbutton_setenable13();
                sheep13->Timer13_Stop();
                sheep13->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_Sheep13;
 
            } else if (buttonAtPos->objectName() == "Cow") {
 
@@ -13265,7 +13418,7 @@ void Gamepage::Set_window_to_the_default()
                cow13->Farmer_pushbutton_setenable13();
                cow13->Timer13_Stop();
                cow13->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_cow13;
 
            } else if (buttonAtPos->objectName() == "Wheat") {
 
@@ -13278,7 +13431,7 @@ void Gamepage::Set_window_to_the_default()
                wheat13->Farmer_pushbutton_setenable13();
                wheat13->Timer13_Stop();
                wheat13->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_wheat13;
 
            } else if (buttonAtPos->objectName() == "Barley") {
 
@@ -13291,7 +13444,7 @@ void Gamepage::Set_window_to_the_default()
                barley13->Farmer_pushbutton_setenable13();
                barley13->Timer13_Stop();
                barley13->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_barley13;
 
            }
         }
@@ -13299,27 +13452,27 @@ void Gamepage::Set_window_to_the_default()
     if(ui->the_product_of_chicken_pushButton_13->isVisible()){
 
         ch13->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_ch13;
     }
     if(ui->the_product_of_sheep_pushButton_13->isVisible()){
 
         sheep13->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_Sheep13;
     }
     if(ui->the_product_of_cow_pushButton_13->isVisible()){
 
         cow13->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_cow13;
     }
     if(ui->the_product_of_wheat_pushButton_13->isVisible()){
 
         wheat13->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_wheat13;
     }
     if(ui->the_product_of_barley_pushButton_13->isVisible()){
 
         barley13->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_barley13;
     }
 
     if(ui->Cancel_14->isVisible()){
@@ -13341,7 +13494,7 @@ void Gamepage::Set_window_to_the_default()
                ch14->Farmer_pushbutton_setenable14();
                ch14->Timer14_Stop();
                ch14->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_ch14;
 
            } else if (buttonAtPos->objectName() == "Sheep") {
 
@@ -13354,7 +13507,7 @@ void Gamepage::Set_window_to_the_default()
                sheep14->Farmer_pushbutton_setenable14();
                sheep14->Timer14_Stop();
                sheep14->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_Sheep14;
 
            } else if (buttonAtPos->objectName() == "Cow") {
 
@@ -13367,7 +13520,7 @@ void Gamepage::Set_window_to_the_default()
                cow14->Farmer_pushbutton_setenable14();
                cow14->Timer14_Stop();
                cow14->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_cow14;
 
            } else if (buttonAtPos->objectName() == "Wheat") {
 
@@ -13380,7 +13533,7 @@ void Gamepage::Set_window_to_the_default()
                wheat14->Farmer_pushbutton_setenable14();
                wheat14->Timer14_Stop();
                wheat14->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_wheat14;
 
            } else if (buttonAtPos->objectName() == "Barley") {
 
@@ -13393,7 +13546,7 @@ void Gamepage::Set_window_to_the_default()
                barley14->Farmer_pushbutton_setenable14();
                barley14->Timer14_Stop();
                barley14->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_barley14;
 
            }
         }
@@ -13401,27 +13554,27 @@ void Gamepage::Set_window_to_the_default()
     if(ui->the_product_of_chicken_pushButton_14->isVisible()){
 
         ch14->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_ch14;
     }
     if(ui->the_product_of_sheep_pushButton_14->isVisible()){
 
         sheep14->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_Sheep14;
     }
     if(ui->the_product_of_cow_pushButton_14->isVisible()){
 
         cow14->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_cow14;
     }
     if(ui->the_product_of_wheat_pushButton_14->isVisible()){
 
         wheat14->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_wheat14;
     }
     if(ui->the_product_of_barley_pushButton_14->isVisible()){
 
         barley14->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_barley14;
     }
 
     if(ui->Cancel_15->isVisible()){
@@ -13443,7 +13596,7 @@ void Gamepage::Set_window_to_the_default()
                ch15->Farmer_pushbutton_setenable15();
                ch15->Timer15_Stop();
                ch15->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_ch15;
 
            } else if (buttonAtPos->objectName() == "Sheep") {
 
@@ -13456,7 +13609,7 @@ void Gamepage::Set_window_to_the_default()
                sheep15->Farmer_pushbutton_setenable15();
                sheep15->Timer15_Stop();
                sheep15->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_Sheep15;
 
            } else if (buttonAtPos->objectName() == "Cow") {
 
@@ -13469,7 +13622,7 @@ void Gamepage::Set_window_to_the_default()
                cow15->Farmer_pushbutton_setenable15();
                cow15->Timer15_Stop();
                cow15->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_cow15;
 
            } else if (buttonAtPos->objectName() == "Wheat") {
 
@@ -13482,7 +13635,7 @@ void Gamepage::Set_window_to_the_default()
                wheat15->Farmer_pushbutton_setenable15();
                wheat15->Timer15_Stop();
                wheat15->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_wheat15;
 
            } else if (buttonAtPos->objectName() == "Barley") {
 
@@ -13495,7 +13648,7 @@ void Gamepage::Set_window_to_the_default()
                barley15->Farmer_pushbutton_setenable15();
                barley15->Timer15_Stop();
                barley15->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_barley15;
 
            }
         }
@@ -13503,27 +13656,27 @@ void Gamepage::Set_window_to_the_default()
     if(ui->the_product_of_chicken_pushButton_15->isVisible()){
 
         ch15->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_ch15;
     }
     if(ui->the_product_of_sheep_pushButton_15->isVisible()){
 
         sheep15->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_Sheep15;
     }
     if(ui->the_product_of_cow_pushButton_15->isVisible()){
 
         cow15->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_cow15;
     }
     if(ui->the_product_of_wheat_pushButton_15->isVisible()){
 
         wheat15->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_wheat15;
     }
     if(ui->the_product_of_barley_pushButton_15->isVisible()){
 
         barley15->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_barley15;
     }
 
     if(ui->Cancel_16->isVisible()){
@@ -13545,7 +13698,7 @@ void Gamepage::Set_window_to_the_default()
                ch16->Farmer_pushbutton_setenable16();
                ch16->Timer16_Stop();
                ch16->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_ch16;
 
            } else if (buttonAtPos->objectName() == "Sheep") {
 
@@ -13558,7 +13711,7 @@ void Gamepage::Set_window_to_the_default()
                sheep16->Farmer_pushbutton_setenable16();
                sheep16->Timer16_Stop();
                sheep16->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_Sheep16;
 
            } else if (buttonAtPos->objectName() == "Cow") {
 
@@ -13571,7 +13724,7 @@ void Gamepage::Set_window_to_the_default()
                cow16->Farmer_pushbutton_setenable16();
                cow16->Timer16_Stop();
                cow16->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_cow16;
 
            } else if (buttonAtPos->objectName() == "Wheat") {
 
@@ -13584,7 +13737,7 @@ void Gamepage::Set_window_to_the_default()
                wheat16->Farmer_pushbutton_setenable16();
                wheat16->Timer16_Stop();
                wheat16->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_wheat16;
 
            } else if (buttonAtPos->objectName() == "Barley") {
 
@@ -13597,7 +13750,7 @@ void Gamepage::Set_window_to_the_default()
                barley16->Farmer_pushbutton_setenable16();
                barley16->Timer16_Stop();
                barley16->TimerDelay_Stop();
-               delete buttonAtPos2_ch1;
+               delete buttonAtPos2_barley16;
 
            }
         }
@@ -13605,27 +13758,27 @@ void Gamepage::Set_window_to_the_default()
     if(ui->the_product_of_chicken_pushButton_16->isVisible()){
 
         ch16->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_ch16;
     }
     if(ui->the_product_of_sheep_pushButton_16->isVisible()){
 
         sheep16->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_Sheep16;
     }
     if(ui->the_product_of_cow_pushButton_16->isVisible()){
 
         cow16->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_cow16;
     }
     if(ui->the_product_of_wheat_pushButton_16->isVisible()){
 
         wheat16->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_wheat16;
     }
     if(ui->the_product_of_barley_pushButton_16->isVisible()){
 
         barley16->TimerDelay_Stop();
-        delete buttonAtPos2_ch1;
+        delete buttonAtPos2_barley16;
     }
 
 
@@ -13660,6 +13813,8 @@ void Gamepage::Set_window_to_the_default()
     Hide_Farms();
 
     ui->groupBox->hide();
+
+    ui->Results->hide();
 
     Hide_decrease_label();
     F1_Having_Farmer=0, F1_Having_Animals_or_Seeds=0;

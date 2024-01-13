@@ -11,6 +11,7 @@
 #include "cow.h"
 #include "wheat.h"
 #include "barley.h"
+#include "QSqlDatabase"
 
 extern Chicken * ch1; extern Sheep * sheep1; extern Cow * cow1; extern Wheat * wheat1; extern Barley * barley1;
 extern Chicken * ch2; extern Sheep * sheep2; extern Cow * cow2; extern Wheat * wheat2; extern Barley * barley2;
@@ -44,7 +45,11 @@ public:
 private slots:
     void on_Shop_pushButton_clicked();
 
-    void updateCountdown();
+    void Timer();
+
+    void Timer_2();
+
+    void For_Repeated();
 
     void Set_window_to_the_default();
 
@@ -221,6 +226,8 @@ private slots:
 private:
     Ui::Gamepage *ui;
 
+    QSqlDatabase database;
+
     //Fn_Which_Of_Animals_or_Seeds=0 -> home or kill
     //Fn_Which_Of_Animals_or_Seeds=1 -> chicken
     //Fn_Which_Of_Animals_or_Seeds=2 -> sheep
@@ -260,6 +267,8 @@ private:
     int F14_Which_Of_Animals_or_Seeds=0;
     int F15_Which_Of_Animals_or_Seeds=0;
     int F16_Which_Of_Animals_or_Seeds=0;
+
+    bool timerFinished = false;
 };
 
 #endif // GAMEPAGE_H
