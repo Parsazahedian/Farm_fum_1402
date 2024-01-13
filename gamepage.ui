@@ -126,8 +126,11 @@
        <height>61</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/Grass2.jpg);</string>
+     </property>
      <property name="text">
-      <string>new farm</string>
+      <string/>
      </property>
     </widget>
    </widget>
@@ -213,10 +216,10 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 255);</string>
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/Grass2.jpg);background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
-     <string>13</string>
+     <string/>
     </property>
    </widget>
    <widget class="QLabel" name="label_14">
@@ -229,10 +232,10 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 255);</string>
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/Grass2.jpg);background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
-     <string>14</string>
+     <string/>
     </property>
    </widget>
    <widget class="QLabel" name="label_15">
@@ -245,10 +248,10 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 255);</string>
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/Grass2.jpg);background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
-     <string>15</string>
+     <string/>
     </property>
    </widget>
    <widget class="QLabel" name="label_16">
@@ -261,10 +264,10 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 255);</string>
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/Grass2.jpg);background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
-     <string>16</string>
+     <string/>
     </property>
    </widget>
    <widget class="QLabel" name="label_9">
@@ -277,10 +280,10 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 255);</string>
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/Grass2.jpg);background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
-     <string>9</string>
+     <string/>
     </property>
    </widget>
    <widget class="QLabel" name="label_10">
@@ -293,10 +296,10 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 255);</string>
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/Grass2.jpg);background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
-     <string>10</string>
+     <string/>
     </property>
    </widget>
    <widget class="QLabel" name="label_11">
@@ -309,10 +312,10 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 255);</string>
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/Grass2.jpg);background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
-     <string>11</string>
+     <string/>
     </property>
    </widget>
    <widget class="QLabel" name="label_12">
@@ -325,10 +328,10 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 255);</string>
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/Grass2.jpg);background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
-     <string>12</string>
+     <string/>
     </property>
    </widget>
    <widget class="QLabel" name="label_5">
@@ -341,10 +344,10 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 255);</string>
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/Grass2.jpg);background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
-     <string>5</string>
+     <string/>
     </property>
    </widget>
    <widget class="QLabel" name="label_1">
@@ -357,10 +360,11 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 255);</string>
+     <string notr="true">background-color: rgb(255, 255, 255);
+border-image: url(:/Farm.images/C:/Users/i/Downloads/Grass2.jpg);</string>
     </property>
     <property name="text">
-     <string>1</string>
+     <string/>
     </property>
    </widget>
    <widget class="QLabel" name="label_6">
@@ -373,10 +377,10 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 255);</string>
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/Grass2.jpg);background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
-     <string>6</string>
+     <string/>
     </property>
    </widget>
    <widget class="QLabel" name="label_7">
@@ -389,10 +393,10 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 255);</string>
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/Grass2.jpg);background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
-     <string>7</string>
+     <string/>
     </property>
    </widget>
    <widget class="QLabel" name="label_8">
@@ -405,10 +409,10 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 255);</string>
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/Grass2.jpg);background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
-     <string>8</string>
+     <string/>
     </property>
    </widget>
    <widget class="QLabel" name="label_2">
@@ -421,10 +425,10 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 255);</string>
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/Grass2.jpg);background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
-     <string>2</string>
+     <string/>
     </property>
    </widget>
    <widget class="QLabel" name="label_3">
@@ -437,10 +441,10 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 255);</string>
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/Grass2.jpg);background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
-     <string>3</string>
+     <string/>
     </property>
    </widget>
    <widget class="QLabel" name="label_4">
@@ -453,10 +457,10 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 255);</string>
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/Grass2.jpg);background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
-     <string>4</string>
+     <string/>
     </property>
    </widget>
    <widget class="QLabel" name="label_Animals">
@@ -1016,8 +1020,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/egg.png);</string>
+    </property>
     <property name="text">
-     <string>1</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_sheep_pushButton">
@@ -1029,8 +1036,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/sheep-milk.png);</string>
+    </property>
     <property name="text">
-     <string>2</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_cow_pushButton">
@@ -1042,8 +1052,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/milk-bottle.png);</string>
+    </property>
     <property name="text">
-     <string>3</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_wheat_pushButton">
@@ -1055,8 +1068,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/bag_of_wheat.png);</string>
+    </property>
     <property name="text">
-     <string>4</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_barley_pushButton">
@@ -1068,8 +1084,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/bag_of_barley.png);</string>
+    </property>
     <property name="text">
-     <string>5</string>
+     <string/>
     </property>
    </widget>
    <widget class="QLabel" name="timer_label_2">
@@ -1321,8 +1340,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/egg.png);</string>
+    </property>
     <property name="text">
-     <string>1</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_chicken_pushButton_3">
@@ -1334,8 +1356,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/egg.png);</string>
+    </property>
     <property name="text">
-     <string>1</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_chicken_pushButton_4">
@@ -1347,8 +1372,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/egg.png);</string>
+    </property>
     <property name="text">
-     <string>1</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_chicken_pushButton_5">
@@ -1360,8 +1388,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/egg.png);</string>
+    </property>
     <property name="text">
-     <string>1</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_chicken_pushButton_6">
@@ -1373,8 +1404,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/egg.png);</string>
+    </property>
     <property name="text">
-     <string>1</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_chicken_pushButton_7">
@@ -1386,8 +1420,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/egg.png);</string>
+    </property>
     <property name="text">
-     <string>1</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_chicken_pushButton_8">
@@ -1399,8 +1436,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/egg.png);</string>
+    </property>
     <property name="text">
-     <string>1</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_chicken_pushButton_9">
@@ -1412,8 +1452,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/egg.png);</string>
+    </property>
     <property name="text">
-     <string>1</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_chicken_pushButton_10">
@@ -1425,8 +1468,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/egg.png);</string>
+    </property>
     <property name="text">
-     <string>1</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_chicken_pushButton_11">
@@ -1438,8 +1484,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/egg.png);</string>
+    </property>
     <property name="text">
-     <string>1</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_chicken_pushButton_12">
@@ -1451,8 +1500,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/egg.png);</string>
+    </property>
     <property name="text">
-     <string>1</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_chicken_pushButton_13">
@@ -1464,8 +1516,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/egg.png);</string>
+    </property>
     <property name="text">
-     <string>1</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_chicken_pushButton_14">
@@ -1477,8 +1532,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/egg.png);</string>
+    </property>
     <property name="text">
-     <string>1</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_chicken_pushButton_15">
@@ -1490,8 +1548,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/egg.png);</string>
+    </property>
     <property name="text">
-     <string>1</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_chicken_pushButton_16">
@@ -1503,8 +1564,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/egg.png);</string>
+    </property>
     <property name="text">
-     <string>1</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_sheep_pushButton_2">
@@ -1516,8 +1580,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/sheep-milk.png);</string>
+    </property>
     <property name="text">
-     <string>2</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_sheep_pushButton_3">
@@ -1529,8 +1596,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/sheep-milk.png);</string>
+    </property>
     <property name="text">
-     <string>2</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_sheep_pushButton_4">
@@ -1542,8 +1612,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/sheep-milk.png);</string>
+    </property>
     <property name="text">
-     <string>2</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_sheep_pushButton_5">
@@ -1555,8 +1628,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/sheep-milk.png);</string>
+    </property>
     <property name="text">
-     <string>2</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_sheep_pushButton_6">
@@ -1568,8 +1644,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/sheep-milk.png);</string>
+    </property>
     <property name="text">
-     <string>2</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_sheep_pushButton_7">
@@ -1581,8 +1660,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/sheep-milk.png);</string>
+    </property>
     <property name="text">
-     <string>2</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_sheep_pushButton_8">
@@ -1594,8 +1676,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/sheep-milk.png);</string>
+    </property>
     <property name="text">
-     <string>2</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_sheep_pushButton_9">
@@ -1607,8 +1692,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/sheep-milk.png);</string>
+    </property>
     <property name="text">
-     <string>2</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_sheep_pushButton_10">
@@ -1620,8 +1708,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/sheep-milk.png);</string>
+    </property>
     <property name="text">
-     <string>2</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_sheep_pushButton_11">
@@ -1633,8 +1724,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/sheep-milk.png);</string>
+    </property>
     <property name="text">
-     <string>2</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_sheep_pushButton_12">
@@ -1646,8 +1740,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/sheep-milk.png);</string>
+    </property>
     <property name="text">
-     <string>2</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_sheep_pushButton_13">
@@ -1659,8 +1756,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/sheep-milk.png);</string>
+    </property>
     <property name="text">
-     <string>2</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_sheep_pushButton_14">
@@ -1672,8 +1772,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/sheep-milk.png);</string>
+    </property>
     <property name="text">
-     <string>2</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_sheep_pushButton_15">
@@ -1685,8 +1788,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/sheep-milk.png);</string>
+    </property>
     <property name="text">
-     <string>2</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_sheep_pushButton_16">
@@ -1698,8 +1804,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/sheep-milk.png);</string>
+    </property>
     <property name="text">
-     <string>2</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_cow_pushButton_2">
@@ -1711,8 +1820,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/milk-bottle.png);</string>
+    </property>
     <property name="text">
-     <string>3</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_cow_pushButton_3">
@@ -1724,8 +1836,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/milk-bottle.png);</string>
+    </property>
     <property name="text">
-     <string>3</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_cow_pushButton_4">
@@ -1737,8 +1852,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/milk-bottle.png);</string>
+    </property>
     <property name="text">
-     <string>3</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_cow_pushButton_5">
@@ -1750,8 +1868,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/milk-bottle.png);</string>
+    </property>
     <property name="text">
-     <string>3</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_cow_pushButton_6">
@@ -1763,8 +1884,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/milk-bottle.png);</string>
+    </property>
     <property name="text">
-     <string>3</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_cow_pushButton_7">
@@ -1776,8 +1900,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/milk-bottle.png);</string>
+    </property>
     <property name="text">
-     <string>3</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_cow_pushButton_8">
@@ -1789,8 +1916,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/milk-bottle.png);</string>
+    </property>
     <property name="text">
-     <string>3</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_cow_pushButton_9">
@@ -1802,8 +1932,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/milk-bottle.png);</string>
+    </property>
     <property name="text">
-     <string>3</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_cow_pushButton_10">
@@ -1815,8 +1948,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/milk-bottle.png);</string>
+    </property>
     <property name="text">
-     <string>3</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_cow_pushButton_11">
@@ -1828,8 +1964,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/milk-bottle.png);</string>
+    </property>
     <property name="text">
-     <string>3</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_cow_pushButton_12">
@@ -1841,8 +1980,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/milk-bottle.png);</string>
+    </property>
     <property name="text">
-     <string>3</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_cow_pushButton_13">
@@ -1854,8 +1996,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/milk-bottle.png);</string>
+    </property>
     <property name="text">
-     <string>3</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_cow_pushButton_14">
@@ -1867,8 +2012,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/milk-bottle.png);</string>
+    </property>
     <property name="text">
-     <string>3</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_cow_pushButton_15">
@@ -1880,8 +2028,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/milk-bottle.png);</string>
+    </property>
     <property name="text">
-     <string>3</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_cow_pushButton_16">
@@ -1893,8 +2044,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/milk-bottle.png);</string>
+    </property>
     <property name="text">
-     <string>3</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_wheat_pushButton_2">
@@ -1906,8 +2060,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/bag_of_wheat.png);</string>
+    </property>
     <property name="text">
-     <string>4</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_wheat_pushButton_3">
@@ -1919,8 +2076,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/bag_of_wheat.png);</string>
+    </property>
     <property name="text">
-     <string>4</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_wheat_pushButton_4">
@@ -1932,8 +2092,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/bag_of_wheat.png);</string>
+    </property>
     <property name="text">
-     <string>4</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_wheat_pushButton_5">
@@ -1945,8 +2108,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/bag_of_wheat.png);</string>
+    </property>
     <property name="text">
-     <string>4</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_wheat_pushButton_6">
@@ -1958,8 +2124,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/bag_of_wheat.png);</string>
+    </property>
     <property name="text">
-     <string>4</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_wheat_pushButton_7">
@@ -1971,8 +2140,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/bag_of_wheat.png);</string>
+    </property>
     <property name="text">
-     <string>4</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_wheat_pushButton_8">
@@ -1984,8 +2156,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/bag_of_wheat.png);</string>
+    </property>
     <property name="text">
-     <string>4</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_wheat_pushButton_9">
@@ -1997,8 +2172,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/bag_of_wheat.png);</string>
+    </property>
     <property name="text">
-     <string>4</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_wheat_pushButton_10">
@@ -2010,8 +2188,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/bag_of_wheat.png);</string>
+    </property>
     <property name="text">
-     <string>4</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_wheat_pushButton_11">
@@ -2023,8 +2204,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/bag_of_wheat.png);</string>
+    </property>
     <property name="text">
-     <string>4</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_wheat_pushButton_12">
@@ -2036,8 +2220,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/bag_of_wheat.png);</string>
+    </property>
     <property name="text">
-     <string>4</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_wheat_pushButton_13">
@@ -2049,8 +2236,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/bag_of_wheat.png);</string>
+    </property>
     <property name="text">
-     <string>4</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_wheat_pushButton_14">
@@ -2062,8 +2252,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/bag_of_wheat.png);</string>
+    </property>
     <property name="text">
-     <string>4</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_wheat_pushButton_15">
@@ -2075,8 +2268,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/bag_of_wheat.png);</string>
+    </property>
     <property name="text">
-     <string>4</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_wheat_pushButton_16">
@@ -2088,8 +2284,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/bag_of_wheat.png);</string>
+    </property>
     <property name="text">
-     <string>4</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_barley_pushButton_2">
@@ -2101,8 +2300,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/bag_of_barley.png);</string>
+    </property>
     <property name="text">
-     <string>5</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_barley_pushButton_3">
@@ -2114,8 +2316,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/bag_of_barley.png);</string>
+    </property>
     <property name="text">
-     <string>5</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_barley_pushButton_4">
@@ -2127,8 +2332,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/bag_of_barley.png);</string>
+    </property>
     <property name="text">
-     <string>5</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_barley_pushButton_5">
@@ -2140,8 +2348,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/bag_of_barley.png);</string>
+    </property>
     <property name="text">
-     <string>5</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_barley_pushButton_6">
@@ -2153,8 +2364,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/bag_of_barley.png);</string>
+    </property>
     <property name="text">
-     <string>5</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_barley_pushButton_7">
@@ -2166,8 +2380,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/bag_of_barley.png);</string>
+    </property>
     <property name="text">
-     <string>5</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_barley_pushButton_8">
@@ -2179,8 +2396,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/bag_of_barley.png);</string>
+    </property>
     <property name="text">
-     <string>5</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_barley_pushButton_9">
@@ -2192,8 +2412,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/bag_of_barley.png);</string>
+    </property>
     <property name="text">
-     <string>5</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_barley_pushButton_10">
@@ -2205,8 +2428,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/bag_of_barley.png);</string>
+    </property>
     <property name="text">
-     <string>5</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_barley_pushButton_11">
@@ -2218,8 +2444,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/bag_of_barley.png);</string>
+    </property>
     <property name="text">
-     <string>5</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_barley_pushButton_12">
@@ -2231,8 +2460,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/bag_of_barley.png);</string>
+    </property>
     <property name="text">
-     <string>5</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_barley_pushButton_13">
@@ -2244,8 +2476,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/bag_of_barley.png);</string>
+    </property>
     <property name="text">
-     <string>5</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_barley_pushButton_14">
@@ -2257,8 +2492,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/bag_of_barley.png);</string>
+    </property>
     <property name="text">
-     <string>5</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_barley_pushButton_15">
@@ -2270,8 +2508,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/bag_of_barley.png);</string>
+    </property>
     <property name="text">
-     <string>5</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="the_product_of_barley_pushButton_16">
@@ -2283,8 +2524,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/bag_of_barley.png);</string>
+    </property>
     <property name="text">
-     <string>5</string>
+     <string/>
     </property>
    </widget>
    <widget class="QLabel" name="decrease_point_label">
@@ -2658,8 +2902,8 @@
    <widget class="QGroupBox" name="Results">
     <property name="geometry">
      <rect>
-      <x>190</x>
-      <y>310</y>
+      <x>140</x>
+      <y>470</y>
       <width>411</width>
       <height>501</height>
      </rect>

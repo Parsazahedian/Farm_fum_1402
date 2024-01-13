@@ -29,4 +29,27 @@
         <file>C:/Users/i/Downloads/back12.jpg</file>
         <file>C:/Users/i/Downloads/businessman_3331911.png</file>
     </qresource>
+    <qresource prefix="/Farm.images">
+        <file>C:/Users/i/Downloads/Grass2.jpg</file>
+        <file>C:/Users/i/Downloads/house.png</file>
+        <file>C:/Users/i/Downloads/seeds.png</file>
+        <file>C:/Users/i/Downloads/barn.png</file>
+        <file>C:/Users/i/Downloads/wheat (1).png</file>
+        <file>C:/Users/i/Downloads/bag_of_wheat.png</file>
+        <file>C:/Users/i/Downloads/barley.png</file>
+        <file>C:/Users/i/Downloads/bag_of_barley.png</file>
+        <file>C:/Users/i/Downloads/stopwatch.png</file>
+        <file>C:/Users/i/Downloads/hourglass.png</file>
+        <file>C:/Users/i/Downloads/coins.png</file>
+        <file>C:/Users/i/Downloads/dollar.png</file>
+        <file>C:/Users/i/Downloads/shop.png</file>
+        <file>C:/Users/i/Downloads/farmer (1).png</file>
+        <file>C:/Users/i/Downloads/farmer.png</file>
+        <file>C:/Users/i/Downloads/milk-bottle.png</file>
+        <file>C:/Users/i/Downloads/sheep-milk.png</file>
+        <file>C:/Users/i/Downloads/egg.png</file>
+        <file>C:/Users/i/Downloads/hen.png</file>
+        <file>C:/Users/i/Downloads/sheep.png</file>
+        <file>C:/Users/i/Downloads/cow.png</file>
+    </qresource>
 </RCC>
