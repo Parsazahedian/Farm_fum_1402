@@ -67,6 +67,14 @@ Gamepage::Gamepage(QWidget *parent) :
     Number_of_Players = query.value("Number_of_players").toInt();
     }
 
+//    foreach(QObject *child, this->children()) {
+//       QPushButton *button = qobject_cast<QPushButton *>(child);
+//       if(button) {
+//           // If the child is a QPushButton, set its cursor to a pointing hand
+//           button->setCursor(QCursor(Qt::PointingHandCursor));
+//       }
+//    }
+
     Move_the_product_of_Animals_and_seeds_pushButton();
 
     Hide_the_product_of_Animals_and_seeds_pushButton();
@@ -80,6 +88,8 @@ Gamepage::Gamepage(QWidget *parent) :
     Hide_Farms();
 
     Default_farmer();
+
+    setCursorForAllButtons(this);
 
     setMinimumSize(1908,978);
     setMaximumSize(1908,978);
@@ -109,6 +119,20 @@ Gamepage::~Gamepage()
     delete Timer_for_timer_label_2;
 }
 
+void Gamepage::setCursorForAllButtons(QWidget *widget) {
+   QList<QPushButton*> buttons = widget->findChildren<QPushButton*>();
+   for (auto *child : qAsConst(buttons)) {
+       child->setCursor(QCursor(Qt::PointingHandCursor));
+   }
+
+   QList<QWidget*> childrenWidgets = widget->findChildren<QWidget*>();
+   for (auto *child : qAsConst(childrenWidgets)) {
+       setCursorForAllButtons(child);
+   }
+}
+
+
+
 void Gamepage::on_Shop_pushButton_clicked()
 {
     if(ui->groupBox->isVisible()){
@@ -137,6 +161,7 @@ void Gamepage::Timer()
        ui->label_Time->setText(QString("%1:%2").arg(minutes, 1, 10, QChar('0')).arg(seconds, 2, 10, QChar('0')));
    } else {
        Timer_for_timer_label->stop();
+       ui->label_Time->setStyleSheet("QLabel { color: Black; }");
        QSqlQuery b;
        b.exec("SELECT Username FROM Game_Players WHERE Number = '"+QString::number(player_number)+"' ");
        player_number++;
@@ -213,6 +238,7 @@ void Gamepage::Timer_2()
         ui->label_Time->setText(QString("%1:%2").arg(minutes, 1, 10, QChar('0')).arg(seconds, 2, 10, QChar('0')));
     } else {
         Timer_for_timer_label_2->stop();
+        ui->label_Time->setStyleSheet("QLabel { color: Black; }");
         remainingTime = 12;
         QSqlQuery v;
         v.exec("SELECT Username FROM Game_Players WHERE Number = '"+QString::number(player_number)+"' ");
@@ -341,6 +367,7 @@ void Gamepage::on_Chicken_pushButton_clicked()
               msgBox.addButton(button, i == 18 ? QMessageBox::RejectRole : QMessageBox::AcceptRole);
               buttonMap[button] = i;
 
+              setCursorForAllButtons(this);
             //  button->setMinimumSize(56, 40);
                button->setMinimumSize(40, 40);
 
@@ -982,6 +1009,8 @@ void Gamepage::on_Chicken_pushButton_clicked()
 
     clearLayout(ui->verticalLayout_2);
     Get_info();
+
+    setCursorForAllButtons(this);
 }
 
 void Gamepage::on_Sheep_pushButton_clicked()

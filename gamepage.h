@@ -51,6 +51,8 @@ private slots:
 
     void For_Repeated();
 
+    void setCursorForAllButtons(QWidget *widget);
+
     void Set_window_to_the_default();
 
     void Delete_all_created_pushbuttos(QWidget* parent, const QString& name);
