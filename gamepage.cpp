@@ -147,7 +147,7 @@ void Gamepage::on_Shop_pushButton_clicked()
 
 void Gamepage::Timer()
 {
-   static int remainingTime = 80; // Start at 3 minutes
+   static int remainingTime = 11; // Start at 3 minutes
 
    if (remainingTime > 0) {
        --remainingTime;
