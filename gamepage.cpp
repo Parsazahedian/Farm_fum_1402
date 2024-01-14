@@ -78,14 +78,16 @@ Gamepage::Gamepage(QWidget *parent) :
 
     Hide_Farms();
 
+   // ui->centralwidget->setStyleSheet("background-color: rgb(255, 255, 255);");
+
     Hide_label_of_timers();
 
     Default_farmer();
 
     setCursorForAllButtons(this);
 
-    setMinimumSize(1908,978);
-    setMaximumSize(1908,978);
+    setMinimumSize(1908,987);
+    setMaximumSize(1908,987);
 
     ui->groupBox->hide();
 
@@ -138,7 +140,7 @@ void Gamepage::on_Shop_pushButton_clicked()
 
 void Gamepage::Timer()
 {
-   static int remainingTime = 60; // Start at 3 minutes
+   static int remainingTime = 6; // Start at 3 minutes
 
    if (remainingTime > 0) {
        --remainingTime;
@@ -162,6 +164,7 @@ void Gamepage::Timer()
            username = b.value(0).toString();
        }
 
+       Get_info();
        QMessageBox::information(this, "point",""+username+" your score = "+QString::number(score)+" ");
 
        QSqlQuery query;
@@ -190,8 +193,8 @@ void Gamepage::Timer()
            ui->tableView->setModel(proxyModel);
            ui->Results->show();
            QPropertyAnimation *animation1 = new QPropertyAnimation(ui->Results, "geometry", this);
-           animation1->setStartValue(QRect(750, -900, ui->Results->geometry().width(), ui->Results->geometry().height()));
-           animation1->setEndValue(QRect(750, 200, ui->Results->geometry().width(), ui->Results->geometry().height()));
+           animation1->setStartValue(QRect(613, -800, ui->Results->geometry().width(), ui->Results->geometry().height()));
+           animation1->setEndValue(QRect(613, 70, ui->Results->geometry().width(), ui->Results->geometry().height()));
            animation1->setEasingCurve(QEasingCurve::Type::InOutBounce);
            animation1->setDuration(5000);
            animation1->start();
@@ -215,7 +218,7 @@ void Gamepage::Timer()
 
 void Gamepage::Timer_2()
 {
-    static int remainingTime = 60; // Start at 3 minutes
+    static int remainingTime = 6; // Start at 3 minutes
 
     if (remainingTime > 0) {
         --remainingTime;
@@ -230,7 +233,7 @@ void Gamepage::Timer_2()
     } else {
         Timer_for_timer_label_2->stop();
         ui->label_Time->setStyleSheet("QLabel { color: Black; }");
-        remainingTime = 12;
+        remainingTime = 6;
         QSqlQuery v;
         v.exec("SELECT Username FROM Game_Players WHERE Number = '"+QString::number(player_number)+"' ");
         player_number++;
@@ -239,6 +242,7 @@ void Gamepage::Timer_2()
 
             Username = v.value(0).toString();
         }
+        Get_info();
         QMessageBox::information(this, "point",""+Username+" your score = "+QString::number(score)+" ");
 
         QSqlQuery query;
@@ -264,8 +268,8 @@ void Gamepage::Timer_2()
             ui->tableView->setModel(proxyModel);
             ui->Results->show();
             QPropertyAnimation *animation1 = new QPropertyAnimation(ui->Results, "geometry", this);
-            animation1->setStartValue(QRect(750, -900, ui->Results->geometry().width(), ui->Results->geometry().height()));
-            animation1->setEndValue(QRect(750, 200, ui->Results->geometry().width(), ui->Results->geometry().height()));
+            animation1->setStartValue(QRect(613, -800, ui->Results->geometry().width(), ui->Results->geometry().height()));
+            animation1->setEndValue(QRect(613, 80, ui->Results->geometry().width(), ui->Results->geometry().height()));
             animation1->setEasingCurve(QEasingCurve::Type::InOutBounce);
             animation1->setDuration(5000);
             animation1->start();
@@ -1668,6 +1672,8 @@ void Gamepage::on_Sheep_pushButton_clicked()
     delete sh;
     clearLayout(ui->verticalLayout_2);
     Get_info();
+
+    setCursorForAllButtons(this);
 }
 
 void Gamepage::on_Cow_pushButton_clicked()
@@ -2338,6 +2344,8 @@ void Gamepage::on_Cow_pushButton_clicked()
     delete co;
     clearLayout(ui->verticalLayout_2);
     Get_info();
+
+    setCursorForAllButtons(this);
 }
 
 void Gamepage::on_Wheat_pushButton_clicked()
@@ -2995,6 +3003,8 @@ void Gamepage::on_Wheat_pushButton_clicked()
     delete wh;
     clearLayout(ui->verticalLayout_2);
     Get_info();
+
+    setCursorForAllButtons(this);
 }
 
 void Gamepage::on_Barley_pushButton_clicked()
@@ -3653,6 +3663,8 @@ void Gamepage::on_Barley_pushButton_clicked()
     delete br;
     clearLayout(ui->verticalLayout_2);
     Get_info();
+
+    setCursorForAllButtons(this);
 }
 
 void Gamepage::on_Farmer_pushButton_clicked()
@@ -4289,6 +4301,8 @@ void Gamepage::on_Farmer_pushButton_clicked()
     delete fr;
     clearLayout(ui->verticalLayout_2);
     Get_info();
+
+    setCursorForAllButtons(this);
 }
 
 void Gamepage::on_New_farm_pushButton_clicked()
