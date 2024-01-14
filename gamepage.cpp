@@ -22,9 +22,6 @@ QTimer* Timer_for_timer_label;
 QTimer* Timer_for_timer_label_2;
 
 int Number_of_Players;
-
-
-
 int player_number=1;
 
 int score=10, number_of_farmers=1, number_of_Free_farmers=1;
@@ -121,7 +118,8 @@ Gamepage::~Gamepage()
     delete Timer_for_timer_label_2;
 }
 
-void Gamepage::setCursorForAllButtons(QWidget *widget) {
+void Gamepage::setCursorForAllButtons(QWidget *widget)
+{
    QList<QPushButton*> buttons = widget->findChildren<QPushButton*>();
    for (auto *child : qAsConst(buttons)) {
        child->setCursor(QCursor(Qt::PointingHandCursor));
@@ -147,7 +145,7 @@ void Gamepage::on_Shop_pushButton_clicked()
 
 void Gamepage::Timer()
 {
-   static int remainingTime = 15; // Start at 3 minutes
+   static int remainingTime = 180; // Start at 3 minutes
 
    if (remainingTime > 0) {
        --remainingTime;
@@ -234,7 +232,7 @@ void Gamepage::Timer()
 
 void Gamepage::Timer_2()
 {
-    static int remainingTime = 15; // Start at 3 minutes
+    static int remainingTime = 180; // Start at 3 minutes
 
     if (remainingTime > 0) {
         --remainingTime;
@@ -249,7 +247,7 @@ void Gamepage::Timer_2()
     } else {
         Timer_for_timer_label_2->stop();
         ui->label_Time->setStyleSheet("QLabel { color: Black; background-color: white;}");
-        remainingTime = 15;
+        remainingTime = 180;
         QSqlQuery v;
         v.exec("SELECT Username FROM Game_Players WHERE Number = '"+QString::number(player_number)+"' ");
         player_number++;
@@ -325,7 +323,6 @@ void Gamepage::For_Repeated()
         backmusic_Base_2 = new QMediaPlayer();
         backmusic_Base_2->setMedia(QUrl("C:/Users/i/Downloads/Base_music.mp3"));
         backmusic_Base_2->play();
-
 
         QSqlQuery v;
         v.exec("SELECT Username FROM Game_Players WHERE Number = '"+QString::number(player_number)+"' ");
