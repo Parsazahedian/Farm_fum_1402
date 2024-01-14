@@ -99,8 +99,6 @@ Gamepage::Gamepage(QWidget *parent) :
 
     Hide_decrease_label();
 
-    qDebug()<<"Number_Of_Players = "<<Number_of_Players;
-
     ui->label_Time->setText("3:00");
 
     ui->label_Score->setText( "Score : " + QString::number(score));
@@ -398,7 +396,7 @@ void Gamepage::on_Chicken_pushButton_clicked()
               buttonMap[button] = i;
 
               setCursorForAllButtons(this);
-            //  button->setMinimumSize(56, 40);
+
                button->setMinimumSize(40, 40);
 
                if(i==1){
@@ -764,7 +762,6 @@ void Gamepage::on_Chicken_pushButton_clicked()
               }
             }
 
-        // clazy:exclude:connect-3arg-lambda
             QObject *context = this;
             QObject::connect(&msgBox, &QMessageBox::finished, context,[&](){
 
@@ -1082,7 +1079,6 @@ void Gamepage::on_Sheep_pushButton_clicked()
               msgBox.addButton(button, i == 18 ? QMessageBox::RejectRole : QMessageBox::AcceptRole);
               buttonMap[button] = i;
 
-            //  button->setMinimumSize(56, 40);
                button->setMinimumSize(40, 40);
 
                if(i==1){
@@ -1448,7 +1444,7 @@ void Gamepage::on_Sheep_pushButton_clicked()
                   button->setStyleSheet("color: rgb(255, 0, 0);font-weight: bold;");
               }
             }
-        // clazy:exclude:connect-3arg-lambda
+
             QObject *context = this;
             QObject::connect(&msgBox, &QMessageBox::finished, context,[&](){
                QAbstractButton* clickedButton = msgBox.clickedButton();
@@ -1756,7 +1752,6 @@ void Gamepage::on_Cow_pushButton_clicked()
               msgBox.addButton(button, i == 18 ? QMessageBox::RejectRole : QMessageBox::AcceptRole);
               buttonMap[button] = i;
 
-            //  button->setMinimumSize(56, 40);
                button->setMinimumSize(40, 40);
 
                if(i==1){
@@ -2121,7 +2116,7 @@ void Gamepage::on_Cow_pushButton_clicked()
                   button->setStyleSheet("color: rgb(255, 0, 0);font-weight: bold;");
               }
             }
-        // clazy:exclude:connect-3arg-lambda
+
             QObject *context = this;
             QObject::connect(&msgBox, &QMessageBox::finished, context,[&](){
 
@@ -2435,7 +2430,6 @@ void Gamepage::on_Wheat_pushButton_clicked()
               msgBox.addButton(button, i == 17 ? QMessageBox::RejectRole : QMessageBox::AcceptRole);
               buttonMap[button] = i;
 
-            //  button->setMinimumSize(56, 40);
                button->setMinimumSize(40, 40);
 
                if(i==1){
@@ -2794,7 +2788,7 @@ void Gamepage::on_Wheat_pushButton_clicked()
               }
 
             }
-        // clazy:exclude:connect-3arg-lambda
+
             QObject *context = this;
             QObject::connect(&msgBox, &QMessageBox::finished, context,[&](){
                QAbstractButton* clickedButton = msgBox.clickedButton();
@@ -3098,7 +3092,6 @@ void Gamepage::on_Barley_pushButton_clicked()
               msgBox.addButton(button, i == 17 ? QMessageBox::RejectRole : QMessageBox::AcceptRole);
               buttonMap[button] = i;
 
-            //  button->setMinimumSize(56, 40);
                button->setMinimumSize(40, 40);
 
                if(i==1){
@@ -3459,7 +3452,7 @@ void Gamepage::on_Barley_pushButton_clicked()
               }
 
             }
-        // clazy:exclude:connect-3arg-lambda
+
             QObject *context = this;
             QObject::connect(&msgBox, &QMessageBox::finished, context,[&](){
                QAbstractButton* clickedButton = msgBox.clickedButton();
@@ -3763,8 +3756,6 @@ void Gamepage::on_Farmer_pushButton_clicked()
 
             msgBox.setIconPixmap(QPixmap("C:/Users/i/Downloads/farmer.png"));
 
-
-
             // Add custom buttons
             QHash<QAbstractButton*, int> buttonMap;
             for (int i = 1; i <= 17; ++i) {
@@ -3772,7 +3763,6 @@ void Gamepage::on_Farmer_pushButton_clicked()
               msgBox.addButton(button, i == 17 ? QMessageBox::RejectRole : QMessageBox::AcceptRole);
               buttonMap[button] = i;
 
-            //  button->setMinimumSize(56, 40);
                button->setMinimumSize(40, 40);
 
                if(i==1){
@@ -4100,7 +4090,7 @@ void Gamepage::on_Farmer_pushButton_clicked()
               }
 
             }
-        // clazy:exclude:connect-3arg-lambda
+
             QObject *context = this;
             QObject::connect(&msgBox, &QMessageBox::finished, context,[&](){
                QAbstractButton* clickedButton = msgBox.clickedButton();
@@ -4137,7 +4127,6 @@ void Gamepage::on_Farmer_pushButton_clicked()
 
                        break;
                    case 3:
-                       // Perform action for Button 2
 
                        if(F3_Having_Farmer==0){
 
@@ -4150,8 +4139,7 @@ void Gamepage::on_Farmer_pushButton_clicked()
                        Get_info();
 
                        break;
-                   case 4:
-                       // Perform action for Button 2
+                   case 4:                
 
                        if(F4_Having_Farmer==0){
 
@@ -4165,7 +4153,6 @@ void Gamepage::on_Farmer_pushButton_clicked()
 
                        break;
                    case 5:
-                       // Perform action for Button 2
 
                        if(F5_Having_Farmer==0){
 
@@ -4179,7 +4166,6 @@ void Gamepage::on_Farmer_pushButton_clicked()
 
                        break;
                    case 6:
-                       // Perform action for Button 2
 
                        if(F6_Having_Farmer==0){
 
@@ -4194,7 +4180,6 @@ void Gamepage::on_Farmer_pushButton_clicked()
 
                        break;
                    case 7:
-                       // Perform action for Button 2
 
                        if(F7_Having_Farmer==0){
 
@@ -4208,7 +4193,6 @@ void Gamepage::on_Farmer_pushButton_clicked()
 
                        break;
                    case 8:
-                       // Perform action for Button 2
 
                        if(F8_Having_Farmer==0){
 
@@ -4222,7 +4206,6 @@ void Gamepage::on_Farmer_pushButton_clicked()
 
                        break;
                    case 9:
-                       // Perform action for Button 2
 
                        if(F9_Having_Farmer==0){
 
@@ -4236,7 +4219,6 @@ void Gamepage::on_Farmer_pushButton_clicked()
 
                        break;
                    case 10:
-                       // Perform action for Button 2
 
                        if(F10_Having_Farmer==0){
 
@@ -4250,7 +4232,6 @@ void Gamepage::on_Farmer_pushButton_clicked()
 
                        break;
                    case 11:
-                       // Perform action for Button 2
 
                        if(F11_Having_Farmer==0){
 
@@ -4263,7 +4244,6 @@ void Gamepage::on_Farmer_pushButton_clicked()
 
                        break;
                    case 12:
-                       // Perform action for Button 2
 
                        if(F12_Having_Farmer==0){
 
@@ -4277,7 +4257,6 @@ void Gamepage::on_Farmer_pushButton_clicked()
 
                        break;
                    case 13:
-                       // Perform action for Button 2
 
                        if(F13_Having_Farmer==0){
 
@@ -4291,7 +4270,6 @@ void Gamepage::on_Farmer_pushButton_clicked()
 
                        break;
                    case 14:
-                       // Perform action for Button 2
 
                        if(F14_Having_Farmer==0){
 
@@ -4305,7 +4283,6 @@ void Gamepage::on_Farmer_pushButton_clicked()
 
                        break;
                    case 15:
-                       // Perform action for Button 2
 
                        if(F15_Having_Farmer==0){
 
@@ -4320,7 +4297,6 @@ void Gamepage::on_Farmer_pushButton_clicked()
 
                        break;
                    case 16:
-                       // Perform action for Button 2
 
                        if(F16_Having_Farmer==0){
 
@@ -4485,7 +4461,7 @@ bool Gamepage::check(QPoint pos)
     for (QList<QPushButton*>::iterator it = buttons.begin(); it != buttons.end(); ++it) {
          QPushButton* button = *it;
        if (button->geometry().contains(pos)) {
-           // Perform your action here va hast
+           // Yes there is
            return false;
        }
     }
@@ -4860,6 +4836,7 @@ QPushButton * Gamepage::check2(QPoint pos)
     QList<QPushButton*> constButtons = qAsConst(buttons);
        for (QPushButton* button : constButtons) {
            if (button->geometry().contains(pos)) {
+               //return thats pushbutton
                return button;
            }
        }
@@ -5681,7 +5658,7 @@ void Gamepage::on_the_product_of_chicken_pushButton_clicked()
         ui->decrease_point_label->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
 
     Get_info();
@@ -5699,7 +5676,7 @@ void Gamepage::on_the_product_of_sheep_pushButton_clicked()
         ui->decrease_point_label->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -5716,7 +5693,7 @@ void Gamepage::on_the_product_of_cow_pushButton_clicked()
         ui->decrease_point_label->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -5747,7 +5724,7 @@ void Gamepage::on_the_product_of_wheat_pushButton_clicked()
         ui->decrease_point_label->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -5778,14 +5755,13 @@ void Gamepage::on_the_product_of_barley_pushButton_clicked()
         ui->decrease_point_label->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
 
 void Gamepage::Move_the_product_of_Animals_and_seeds_pushButton()
 {
-
     ui->the_product_of_chicken_pushButton->move(160, 140);
     ui->the_product_of_sheep_pushButton->move(160, 140);
     ui->the_product_of_cow_pushButton->move(160, 140);
@@ -6999,7 +6975,7 @@ void Gamepage::on_the_product_of_chicken_pushButton_2_clicked()
         ui->decrease_point_label_2->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -7016,7 +6992,7 @@ void Gamepage::on_the_product_of_sheep_pushButton_2_clicked()
         ui->decrease_point_label_2->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -7033,7 +7009,7 @@ void Gamepage::on_the_product_of_cow_pushButton_2_clicked()
         ui->decrease_point_label_2->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -7064,7 +7040,7 @@ void Gamepage::on_the_product_of_wheat_pushButton_2_clicked()
         ui->decrease_point_label_2->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -7095,7 +7071,7 @@ void Gamepage::on_the_product_of_barley_pushButton_2_clicked()
         ui->decrease_point_label_2->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -7379,7 +7355,7 @@ void Gamepage::on_the_product_of_chicken_pushButton_3_clicked()
         ui->decrease_point_label_3->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -7396,7 +7372,7 @@ void Gamepage::on_the_product_of_sheep_pushButton_3_clicked()
         ui->decrease_point_label_3->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -7413,7 +7389,7 @@ void Gamepage::on_the_product_of_cow_pushButton_3_clicked()
         ui->decrease_point_label_3->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -7444,7 +7420,7 @@ void Gamepage::on_the_product_of_wheat_pushButton_3_clicked()
         ui->decrease_point_label_3->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -7475,7 +7451,7 @@ void Gamepage::on_the_product_of_barley_pushButton_3_clicked()
         ui->decrease_point_label_3->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -7759,7 +7735,7 @@ void Gamepage::on_the_product_of_chicken_pushButton_4_clicked()
         ui->decrease_point_label_4->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -7776,7 +7752,7 @@ void Gamepage::on_the_product_of_sheep_pushButton_4_clicked()
         ui->decrease_point_label_4->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -7793,7 +7769,7 @@ void Gamepage::on_the_product_of_cow_pushButton_4_clicked()
         ui->decrease_point_label_4->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -7824,7 +7800,7 @@ void Gamepage::on_the_product_of_wheat_pushButton_4_clicked()
         ui->decrease_point_label_4->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -7855,7 +7831,7 @@ void Gamepage::on_the_product_of_barley_pushButton_4_clicked()
         ui->decrease_point_label_4->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -8139,7 +8115,7 @@ void Gamepage::on_the_product_of_chicken_pushButton_5_clicked()
         ui->decrease_point_label_5->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -8156,7 +8132,7 @@ void Gamepage::on_the_product_of_sheep_pushButton_5_clicked()
         ui->decrease_point_label_5->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -8173,7 +8149,7 @@ void Gamepage::on_the_product_of_cow_pushButton_5_clicked()
         ui->decrease_point_label_5->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -8204,7 +8180,7 @@ void Gamepage::on_the_product_of_wheat_pushButton_5_clicked()
         ui->decrease_point_label_5->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -8235,7 +8211,7 @@ void Gamepage::on_the_product_of_barley_pushButton_5_clicked()
         ui->decrease_point_label_5->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -8518,7 +8494,7 @@ void Gamepage::on_the_product_of_chicken_pushButton_6_clicked()
         ui->decrease_point_label_6->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -8535,7 +8511,7 @@ void Gamepage::on_the_product_of_sheep_pushButton_6_clicked()
         ui->decrease_point_label_6->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -8552,7 +8528,7 @@ void Gamepage::on_the_product_of_cow_pushButton_6_clicked()
         ui->decrease_point_label_6->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -8583,7 +8559,7 @@ void Gamepage::on_the_product_of_wheat_pushButton_6_clicked()
         ui->decrease_point_label_6->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -8614,7 +8590,7 @@ void Gamepage::on_the_product_of_barley_pushButton_6_clicked()
         ui->decrease_point_label_6->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -8898,7 +8874,7 @@ void Gamepage::on_the_product_of_chicken_pushButton_7_clicked()
         ui->decrease_point_label_7->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -8915,7 +8891,7 @@ void Gamepage::on_the_product_of_sheep_pushButton_7_clicked()
         ui->decrease_point_label_7->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -8932,7 +8908,7 @@ void Gamepage::on_the_product_of_cow_pushButton_7_clicked()
         ui->decrease_point_label_7->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -8963,7 +8939,7 @@ void Gamepage::on_the_product_of_wheat_pushButton_7_clicked()
         ui->decrease_point_label_7->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -8994,7 +8970,7 @@ void Gamepage::on_the_product_of_barley_pushButton_7_clicked()
         ui->decrease_point_label_7->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -9278,7 +9254,7 @@ void Gamepage::on_the_product_of_chicken_pushButton_8_clicked()
         ui->decrease_point_label_8->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -9295,7 +9271,7 @@ void Gamepage::on_the_product_of_sheep_pushButton_8_clicked()
         ui->decrease_point_label_8->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -9312,7 +9288,7 @@ void Gamepage::on_the_product_of_cow_pushButton_8_clicked()
         ui->decrease_point_label_8->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -9343,7 +9319,7 @@ void Gamepage::on_the_product_of_wheat_pushButton_8_clicked()
         ui->decrease_point_label_8->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -9374,7 +9350,7 @@ void Gamepage::on_the_product_of_barley_pushButton_8_clicked()
         ui->decrease_point_label_8->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -9658,7 +9634,7 @@ void Gamepage::on_the_product_of_chicken_pushButton_9_clicked()
         ui->decrease_point_label_9->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -9675,7 +9651,7 @@ void Gamepage::on_the_product_of_sheep_pushButton_9_clicked()
         ui->decrease_point_label_9->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -9692,7 +9668,7 @@ void Gamepage::on_the_product_of_cow_pushButton_9_clicked()
         ui->decrease_point_label_9->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -9723,7 +9699,7 @@ void Gamepage::on_the_product_of_wheat_pushButton_9_clicked()
         ui->decrease_point_label_9->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -9754,7 +9730,7 @@ void Gamepage::on_the_product_of_barley_pushButton_9_clicked()
         ui->decrease_point_label_9->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -10038,7 +10014,7 @@ void Gamepage::on_the_product_of_chicken_pushButton_10_clicked()
         ui->decrease_point_label_10->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -10055,7 +10031,7 @@ void Gamepage::on_the_product_of_sheep_pushButton_10_clicked()
         ui->decrease_point_label_10->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -10072,7 +10048,7 @@ void Gamepage::on_the_product_of_cow_pushButton_10_clicked()
         ui->decrease_point_label_10->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -10103,7 +10079,7 @@ void Gamepage::on_the_product_of_wheat_pushButton_10_clicked()
         ui->decrease_point_label_10->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -10134,7 +10110,7 @@ void Gamepage::on_the_product_of_barley_pushButton_10_clicked()
         ui->decrease_point_label_10->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -10417,7 +10393,7 @@ void Gamepage::on_the_product_of_chicken_pushButton_11_clicked()
         ui->decrease_point_label_11->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -10433,7 +10409,7 @@ void Gamepage::on_the_product_of_sheep_pushButton_11_clicked()
         Get_info();
         ui->decrease_point_label_11->hide();
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -10450,7 +10426,7 @@ void Gamepage::on_the_product_of_cow_pushButton_11_clicked()
         ui->decrease_point_label_11->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -10481,7 +10457,7 @@ void Gamepage::on_the_product_of_wheat_pushButton_11_clicked()
         ui->decrease_point_label_11->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -10512,7 +10488,7 @@ void Gamepage::on_the_product_of_barley_pushButton_11_clicked()
         ui->decrease_point_label_11->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -10795,7 +10771,7 @@ void Gamepage::on_the_product_of_chicken_pushButton_12_clicked()
         ui->decrease_point_label_12->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -10812,7 +10788,7 @@ void Gamepage::on_the_product_of_sheep_pushButton_12_clicked()
         ui->decrease_point_label_12->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -10829,7 +10805,7 @@ void Gamepage::on_the_product_of_cow_pushButton_12_clicked()
         ui->decrease_point_label_12->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -10860,7 +10836,7 @@ void Gamepage::on_the_product_of_wheat_pushButton_12_clicked()
         ui->decrease_point_label_12->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -10891,7 +10867,7 @@ void Gamepage::on_the_product_of_barley_pushButton_12_clicked()
         ui->decrease_point_label_12->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -11174,7 +11150,7 @@ void Gamepage::on_the_product_of_chicken_pushButton_13_clicked()
         ui->decrease_point_label_13->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -11191,7 +11167,7 @@ void Gamepage::on_the_product_of_sheep_pushButton_13_clicked()
         ui->decrease_point_label_13->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -11208,7 +11184,7 @@ void Gamepage::on_the_product_of_cow_pushButton_13_clicked()
         ui->decrease_point_label_13->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -11239,7 +11215,7 @@ void Gamepage::on_the_product_of_wheat_pushButton_13_clicked()
         ui->decrease_point_label_13->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -11270,7 +11246,7 @@ void Gamepage::on_the_product_of_barley_pushButton_13_clicked()
         ui->decrease_point_label_13->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -11553,7 +11529,7 @@ void Gamepage::on_the_product_of_chicken_pushButton_14_clicked()
         ui->decrease_point_label_14->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -11570,7 +11546,7 @@ void Gamepage::on_the_product_of_sheep_pushButton_14_clicked()
         ui->decrease_point_label_14->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -11588,7 +11564,7 @@ void Gamepage::on_the_product_of_cow_pushButton_14_clicked()
 
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -11619,7 +11595,7 @@ void Gamepage::on_the_product_of_wheat_pushButton_14_clicked()
         ui->decrease_point_label_14->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -11650,7 +11626,7 @@ void Gamepage::on_the_product_of_barley_pushButton_14_clicked()
         ui->decrease_point_label_14->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -11933,7 +11909,7 @@ void Gamepage::on_the_product_of_chicken_pushButton_15_clicked()
         ui->decrease_point_label_15->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -11950,7 +11926,7 @@ void Gamepage::on_the_product_of_sheep_pushButton_15_clicked()
         ui->decrease_point_label_15->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -11967,7 +11943,7 @@ void Gamepage::on_the_product_of_cow_pushButton_15_clicked()
         ui->decrease_point_label_15->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -11998,7 +11974,7 @@ void Gamepage::on_the_product_of_wheat_pushButton_15_clicked()
         ui->decrease_point_label_15->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -12029,7 +12005,7 @@ void Gamepage::on_the_product_of_barley_pushButton_15_clicked()
         ui->decrease_point_label_15->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -12312,7 +12288,7 @@ void Gamepage::on_the_product_of_chicken_pushButton_16_clicked()
         ui->decrease_point_label_16->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -12329,7 +12305,7 @@ void Gamepage::on_the_product_of_sheep_pushButton_16_clicked()
         ui->decrease_point_label_16->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -12346,7 +12322,7 @@ void Gamepage::on_the_product_of_cow_pushButton_16_clicked()
         ui->decrease_point_label_16->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -12377,7 +12353,7 @@ void Gamepage::on_the_product_of_wheat_pushButton_16_clicked()
         ui->decrease_point_label_16->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }
@@ -12408,7 +12384,7 @@ void Gamepage::on_the_product_of_barley_pushButton_16_clicked()
         ui->decrease_point_label_16->hide();
     }else{
 
-        QMessageBox::warning(this, "sdsad", "no free farmer to collect");
+        QMessageBox::warning(this, "Sorry", "You do not have Free Farmer to collect this!");
     }
     Get_info();
 }

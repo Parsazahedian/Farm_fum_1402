@@ -275,8 +275,6 @@ private:
     int F15_Which_Of_Animals_or_Seeds=0;
     int F16_Which_Of_Animals_or_Seeds=0;
 
-    bool timerFinished = false;
-
     QMediaPlayer * backmusic_chicken;
     QMediaPlayer * backmusic_sheep;
     QMediaPlayer * backmusic_cow;
@@ -284,7 +282,7 @@ private:
     QMediaPlayer * backmusic_Seeds;
     QMediaPlayer * backmusic_NewFarm;
     QMediaPlayer * backmusic_Base;
-QMediaPlayer * backmusic_Base_2;
+    QMediaPlayer * backmusic_Base_2;
     QMediaPlayer * backmusic_Result;
 };
 

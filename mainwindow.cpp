@@ -86,7 +86,6 @@ MainWindow::MainWindow(QWidget *parent)
     query.exec("SELECT * FROM ResumeGame");
     if (query.next()) {
        int isGameStarted = query.value("isStarted").toInt();
-        qDebug() << "Resume game" << isGameStarted;
 
         if(isGameStarted==0){
 
@@ -95,7 +94,6 @@ MainWindow::MainWindow(QWidget *parent)
 
         }else if(isGameStarted==1){
 
-            qDebug() << "az ghabl thabtnam karde";
             ui->pushButton_2->show();
             ui->pushButton->show();
         }
@@ -123,7 +121,7 @@ void MainWindow::on_pushButton_clicked()
 
 void MainWindow::on_pushButton_2_clicked()
 {
-    qDebug() << "vorod be edame bazi ghabli";
+
     Gamepage *p = new Gamepage;
     p->setWindowTitle("Farm Managment");
     p->setWindowIcon(QIcon("C:/Users/i/Downloads/businessman_3331911.png"));
