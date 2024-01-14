@@ -310,7 +310,7 @@ void Login_or_SignUp_page::on_Login_of_LoginGroupbox_clicked()
         }
 
         QMessageBox msgBox(p);
-        msgBox.setWindowTitle("Transfer to ...");
+        msgBox.setWindowTitle("Wellcome");
         msgBox.setText(""+s+" Are You Ready to Start?");
         msgBox.setStandardButtons(QMessageBox::Yes);
         int ret = msgBox.exec();
@@ -600,7 +600,7 @@ void Login_or_SignUp_page::on_SignUp_of_Signup_clicked()
            }
 
            QMessageBox msgBox(p);
-           msgBox.setWindowTitle("Transfer to ...");
+           msgBox.setWindowTitle("Welcome");
            msgBox.setText(""+s+" Are You Ready to Start?");
            msgBox.setStandardButtons(QMessageBox::Yes);
            int ret = msgBox.exec();

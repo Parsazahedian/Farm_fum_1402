@@ -74,6 +74,8 @@ Gamepage::Gamepage(QWidget *parent) :
 
     Hide_Start_pushbuttuns();
 
+    Hide_Feilds_number_label();
+
     Hide_Cancel_pushbuttons();
 
     Hide_Farms();
@@ -140,7 +142,7 @@ void Gamepage::on_Shop_pushButton_clicked()
 
 void Gamepage::Timer()
 {
-   static int remainingTime = 6; // Start at 3 minutes
+   static int remainingTime = 180; // Start at 3 minutes
 
    if (remainingTime > 0) {
        --remainingTime;
@@ -155,6 +157,7 @@ void Gamepage::Timer()
    } else {
        Timer_for_timer_label->stop();
        ui->label_Time->setStyleSheet("QLabel { color: Black; }");
+       ui->label_Time->setStyleSheet("background-color: rgb(255, 255, 255);");
        QSqlQuery b;
        b.exec("SELECT Username FROM Game_Players WHERE Number = '"+QString::number(player_number)+"' ");
        player_number++;
@@ -165,7 +168,7 @@ void Gamepage::Timer()
        }
 
        Get_info();
-       QMessageBox::information(this, "point",""+username+" your score = "+QString::number(score)+" ");
+       QMessageBox::information(this, "Point",""+username+" your score = "+QString::number(score)+" ");
 
        QSqlQuery query;
            query.prepare("UPDATE Game_Players SET Score = :score WHERE Username = :username");
@@ -206,9 +209,12 @@ void Gamepage::Timer()
            QSqlQuery q;
            q.exec("UPDATE ResumeGame SET isStarted = '"+z+"' ");
 
+           Set_window_to_the_default();
+           ui->Results->show();
 
        }else{
 
+           Set_window_to_the_default();
            For_Repeated();
 
        }
@@ -218,7 +224,7 @@ void Gamepage::Timer()
 
 void Gamepage::Timer_2()
 {
-    static int remainingTime = 6; // Start at 3 minutes
+    static int remainingTime = 180; // Start at 3 minutes
 
     if (remainingTime > 0) {
         --remainingTime;
@@ -233,7 +239,8 @@ void Gamepage::Timer_2()
     } else {
         Timer_for_timer_label_2->stop();
         ui->label_Time->setStyleSheet("QLabel { color: Black; }");
-        remainingTime = 6;
+        ui->label_Time->setStyleSheet("background-color: rgb(255, 255, 255);");
+        remainingTime = 180;
         QSqlQuery v;
         v.exec("SELECT Username FROM Game_Players WHERE Number = '"+QString::number(player_number)+"' ");
         player_number++;
@@ -243,7 +250,7 @@ void Gamepage::Timer_2()
             Username = v.value(0).toString();
         }
         Get_info();
-        QMessageBox::information(this, "point",""+Username+" your score = "+QString::number(score)+" ");
+        QMessageBox::information(this, "Point",""+Username+" your score = "+QString::number(score)+" ");
 
         QSqlQuery query;
             query.prepare("UPDATE Game_Players SET Score = :score WHERE Username = :username");
@@ -281,8 +288,12 @@ void Gamepage::Timer_2()
             QSqlQuery q;
             q.exec("UPDATE ResumeGame SET isStarted = '"+z+"' ");
 
+            Set_window_to_the_default();
+            ui->Results->show();
+
         }else{
 
+            Set_window_to_the_default();
             For_Repeated();
 
         }
@@ -302,7 +313,7 @@ void Gamepage::For_Repeated()
         }
 
         QMessageBox msgBox(this);
-        msgBox.setWindowTitle("hi");
+        msgBox.setWindowTitle("Wellcome");
         msgBox.setText(""+Username+" Are You Ready to Start?");
         msgBox.setStandardButtons(QMessageBox::Yes);
         int ret = msgBox.exec();
@@ -344,15 +355,15 @@ void Gamepage::on_Chicken_pushButton_clicked()
         ch->pushButton->setObjectName("Chicken");
 
         connect(ch->pushButton, &QPushButton::clicked, this, [this, ch](){ QMessageBox msgBox;
-            msgBox.setText("chicken""<ul>""<li>""@gmail.com""</li>" "<li>""@email.com""</li>" "<li>""@mail.um.ac""</li>""</ul>");
+            msgBox.setText("Chicken""<ul>""<li>""Purchase price = 3""</li>" "<li>""Price of meat = 2""</li>" "<li>""Product Collection Point = 3""</li>" "<li>""Product production time = 20""</li>" "<li>""Product Collection Delay Time = every 5 second decrease 1 point from product""</li>""</ul>");
             msgBox.setWindowFlags(msgBox.windowFlags() | Qt::WindowSystemMenuHint);
 
             msgBox.setWindowTitle("Transfer to ...");
 
             // Set the icon
-            msgBox.setWindowIcon(QIcon("C:/Users/i/Downloads/iran.png"));
+            msgBox.setWindowIcon(QIcon("C:/Users/i/Downloads/Grass2.jpg"));
 
-            msgBox.setIconPixmap(QPixmap("C:/Users/i/Downloads/iran.png"));
+            msgBox.setIconPixmap(QPixmap("C:/Users/i/Downloads/hen.png"));
 
 
             // Add custom buttons
@@ -716,14 +727,16 @@ void Gamepage::on_Chicken_pushButton_clicked()
 
               if(i==17){
 
-                  button->setText("home");
+                  button->setText("Home");
                   button->setMinimumSize(60,40);
+                  button->setStyleSheet("color:  rgb(255, 197, 62);font-weight: bold;");
               }
 
               if(i==18){
 
                button->setMinimumSize(50,40);
                   button->setText("Kill");
+                  button->setStyleSheet("color: rgb(255, 0, 0);font-weight: bold;");
               }
             }
 
@@ -998,7 +1011,8 @@ void Gamepage::on_Chicken_pushButton_clicked()
     }else{
 
         clearLayout(ui->verticalLayout_2);
-        QMessageBox::warning(this,"ops", "you do nut have enogh gold");
+
+        QMessageBox::warning(this, "Sorry", "You do not have enough Gold to buy this item!");
     }
     delete chicken;
 
@@ -1023,15 +1037,15 @@ void Gamepage::on_Sheep_pushButton_clicked()
         sheep->pushButton->setObjectName("Sheep");
 
         connect(sheep->pushButton, &QPushButton::clicked, this, [this, sheep](){ QMessageBox msgBox;
-            msgBox.setText("chicken""<ul>""<li>""@gmail.com""</li>" "<li>""@email.com""</li>" "<li>""@mail.um.ac""</li>""</ul>");
+            msgBox.setText("Sheep""<ul>""<li>""Purchase price = 5""</li>" "<li>""Price of meat = 4""</li>" "<li>""Product Collection Point = 3""</li>" "<li>""Product production time = 15""</li>" "<li>""Product Collection Delay Time = every 4 second decrease 1 point from product""</li>""</ul>");
             msgBox.setWindowFlags(msgBox.windowFlags() | Qt::WindowSystemMenuHint);
 
             msgBox.setWindowTitle("Transfer to ...");
 
             // Set the icon
-            msgBox.setWindowIcon(QIcon("C:/Users/i/Downloads/iran.png"));
+            msgBox.setWindowIcon(QIcon("C:/Users/i/Downloads/Grass2.jpg"));
 
-            msgBox.setIconPixmap(QPixmap("C:/Users/i/Downloads/iran.png"));
+            msgBox.setIconPixmap(QPixmap("C:/Users/i/Downloads/sheep.png"));
 
             // Add custom buttons
             QHash<QAbstractButton*, int> buttonMap;
@@ -1394,14 +1408,16 @@ void Gamepage::on_Sheep_pushButton_clicked()
 
               if(i==17){
 
-                  button->setText("home");
+                  button->setText("Home");
                   button->setMinimumSize(60,40);
+                  button->setStyleSheet("color:  rgb(255, 197, 62);font-weight: bold;");
               }
 
               if(i==18){
 
                button->setMinimumSize(50,40);
                   button->setText("Kill");
+                  button->setStyleSheet("color: rgb(255, 0, 0);font-weight: bold;");
               }
             }
         // clazy:exclude:connect-3arg-lambda
@@ -1666,7 +1682,7 @@ void Gamepage::on_Sheep_pushButton_clicked()
     }else{
 
         clearLayout(ui->verticalLayout_2);
-        QMessageBox::warning(this, "ops", "reeeeeeeeee");
+        QMessageBox::warning(this, "Sorry", "You do not have enough Gold to buy this item!");
     }
 
     delete sh;
@@ -1691,15 +1707,15 @@ void Gamepage::on_Cow_pushButton_clicked()
         cow->pushButton->setObjectName("Cow");
 
         connect(cow->pushButton, &QPushButton::clicked, this, [this, cow](){ QMessageBox msgBox;
-            msgBox.setText("chicken""<ul>""<li>""@gmail.com""</li>" "<li>""@email.com""</li>" "<li>""@mail.um.ac""</li>""</ul>");
+            msgBox.setText("Cow""<ul>""<li>""Purchase price = 7""</li>" "<li>""Price of meat = 6""</li>" "<li>""Product Collection Point = 5""</li>" "<li>""Product production time = 20""</li>" "<li>""Product Collection Delay Time = every 3 second decrease 1 point from product""</li>""</ul>");
             msgBox.setWindowFlags(msgBox.windowFlags() | Qt::WindowSystemMenuHint);
 
             msgBox.setWindowTitle("Transfer to ...");
 
             // Set the icon
-            msgBox.setWindowIcon(QIcon("C:/Users/i/Downloads/iran.png"));
+            msgBox.setWindowIcon(QIcon("C:/Users/i/Downloads/Grass2.jpg"));
 
-            msgBox.setIconPixmap(QPixmap("C:/Users/i/Downloads/iran.png"));
+            msgBox.setIconPixmap(QPixmap("C:/Users/i/Downloads/cow.png"));
 
             // Add custom buttons
             QHash<QAbstractButton*, int> buttonMap;
@@ -2061,14 +2077,16 @@ void Gamepage::on_Cow_pushButton_clicked()
 
               if(i==17){
 
-                  button->setText("home");
+                  button->setText("Home");
                   button->setMinimumSize(60,40);
+                  button->setStyleSheet("color:  rgb(255, 197, 62);font-weight: bold;");
               }
 
               if(i==18){
 
                button->setMinimumSize(50,40);
                   button->setText("Kill");
+                  button->setStyleSheet("color: rgb(255, 0, 0);font-weight: bold;");
               }
             }
         // clazy:exclude:connect-3arg-lambda
@@ -2337,7 +2355,7 @@ void Gamepage::on_Cow_pushButton_clicked()
     }else{
 
         clearLayout(ui->verticalLayout_2);
-        QMessageBox::warning(this, "ops", "sssddsddas");
+        QMessageBox::warning(this, "Sorry", "You do not have enough Gold to buy this item!");
 
     }
 
@@ -2364,15 +2382,15 @@ void Gamepage::on_Wheat_pushButton_clicked()
         wheat->pushButton->setObjectName("Wheat");
 
         connect(wheat->pushButton, &QPushButton::clicked, this, [this, wheat](){ QMessageBox msgBox;
-            msgBox.setText("chicken""<ul>""<li>""@gmail.com""</li>" "<li>""@email.com""</li>" "<li>""@mail.um.ac""</li>""</ul>");
+            msgBox.setText("Wheat""<ul>""<li>""Purchase price = 2""</li>" "<li>""Product Collection Point = 3""</li>" "<li>""Product production time = 25""</li>" "<li>""Product Collection Delay Time = every 12 second decrease 1 point from product""</li>""</ul>");
             msgBox.setWindowFlags(msgBox.windowFlags() | Qt::WindowSystemMenuHint);
 
             msgBox.setWindowTitle("Transfer to ...");
 
             // Set the icon
-            msgBox.setWindowIcon(QIcon("C:/Users/i/Downloads/iran.png"));
+            msgBox.setWindowIcon(QIcon("C:/Users/i/Downloads/Grass2.jpg"));
 
-            msgBox.setIconPixmap(QPixmap("C:/Users/i/Downloads/iran.png"));
+            msgBox.setIconPixmap(QPixmap("C:/Users/i/Downloads/wheat (1).png"));
 
             // Add custom buttons
             QHash<QAbstractButton*, int> buttonMap;
@@ -2734,8 +2752,9 @@ void Gamepage::on_Wheat_pushButton_clicked()
 
               if(i==17){
 
-                  button->setText("home");
+                  button->setText("Home");
                   button->setMinimumSize(60,40);
+                  button->setStyleSheet("color:  rgb(255, 197, 62);font-weight: bold;");
               }
 
             }
@@ -2996,7 +3015,7 @@ void Gamepage::on_Wheat_pushButton_clicked()
     }else{
 
         clearLayout(ui->verticalLayout_2);
-        QMessageBox::warning(this, "dssd", "asddsdsadsads");
+        QMessageBox::warning(this, "Sorry", "You do not have enough Gold to buy this item!");
 
     }
 
@@ -3022,15 +3041,15 @@ void Gamepage::on_Barley_pushButton_clicked()
         barley->pushButton->setObjectName("Barley");
 
         connect(barley->pushButton, &QPushButton::clicked, this, [this, barley](){ QMessageBox msgBox;
-            msgBox.setText("chicken""<ul>""<li>""@gmail.com""</li>" "<li>""@email.com""</li>" "<li>""@mail.um.ac""</li>""</ul>");
+            msgBox.setText("Barley""<ul>""<li>""Purchase price = 2""</li>" "<li>""Product Collection Point = 2""</li>" "<li>""Product production time = 20""</li>" "<li>""Product Collection Delay Time = every 10 second decrease 1 point from product""</li>""</ul>");
             msgBox.setWindowFlags(msgBox.windowFlags() | Qt::WindowSystemMenuHint);
 
             msgBox.setWindowTitle("Transfer to ...");
 
             // Set the icon
-            msgBox.setWindowIcon(QIcon("C:/Users/i/Downloads/iran.png"));
+            msgBox.setWindowIcon(QIcon("C:/Users/i/Downloads/Grass2.jpg"));
 
-            msgBox.setIconPixmap(QPixmap("C:/Users/i/Downloads/iran.png"));
+            msgBox.setIconPixmap(QPixmap("C:/Users/i/Downloads/barley.png"));
 
             // Add custom buttons
             QHash<QAbstractButton*, int> buttonMap;
@@ -3394,8 +3413,9 @@ void Gamepage::on_Barley_pushButton_clicked()
 
               if(i==17){
 
-                  button->setText("home");
+                  button->setText("Home");
                   button->setMinimumSize(60,40);
+                  button->setStyleSheet("color:  rgb(255, 197, 62);font-weight: bold;");
               }
 
             }
@@ -3656,7 +3676,7 @@ void Gamepage::on_Barley_pushButton_clicked()
     }else{
 
         clearLayout(ui->verticalLayout_2);
-        QMessageBox::warning(this, "weew", "sddddddd");
+        QMessageBox::warning(this, "Sorry", "You do not have enough Gold to buy this item!");
     }
 
 
@@ -3689,15 +3709,15 @@ void Gamepage::on_Farmer_pushButton_clicked()
         ui->number_of_Farmers_label ->setText( QString::number(number_of_Free_farmers) + " / " + QString::number(number_of_farmers));
 
         connect(farmer->pushButton, &QPushButton::clicked, this, [this, farmer](){ QMessageBox msgBox;
-            msgBox.setText("chicken""<ul>""<li>""@gmail.com""</li>" "<li>""@email.com""</li>" "<li>""@mail.um.ac""</li>""</ul>");
+            msgBox.setText("Farmer""<ul>""<li>""Purchase price = 5""</li>" "<li>""Farmer Status = Free""</li>" "</ul>");
             msgBox.setWindowFlags(msgBox.windowFlags() | Qt::WindowSystemMenuHint);
 
             msgBox.setWindowTitle("Transfer to ...");
 
             // Set the icon
-            msgBox.setWindowIcon(QIcon("C:/Users/i/Downloads/iran.png"));
+            msgBox.setWindowIcon(QIcon("C:/Users/i/Downloads/Grass2.jpg"));
 
-            msgBox.setIconPixmap(QPixmap("C:/Users/i/Downloads/iran.png"));
+            msgBox.setIconPixmap(QPixmap("C:/Users/i/Downloads/farmer.png"));
 
 
 
@@ -4029,8 +4049,9 @@ void Gamepage::on_Farmer_pushButton_clicked()
 
               if(i==17){
 
-                  button->setText("home");
+                  button->setText("Home");
                   button->setMinimumSize(60,40);
+                  button->setStyleSheet("color:  rgb(255, 197, 62);font-weight: bold;");
 
               }
 
@@ -4295,7 +4316,7 @@ void Gamepage::on_Farmer_pushButton_clicked()
     }else{
 
         clearLayout(ui->verticalLayout_2);
-        QMessageBox::warning(this, "ssdasda", "ddsdsdds");
+        QMessageBox::warning(this, "Sorry", "You do not have enough Gold to buy this item!");
     }
 
     delete fr;
@@ -4323,69 +4344,84 @@ void Gamepage::on_New_farm_pushButton_clicked()
             if(ui->label_2->isHidden()){
 
                 ui->label_2->show();
+                ui->Feild_2->show();
 
             }else if(ui->label_2->isVisible() && ui->label_3->isHidden()){
 
                 ui->label_3->show();
+                ui->Feild_3->show();
 
             }else if(ui->label_3->isVisible() && ui->label_4->isHidden()){
 
                 ui->label_4->show();
+                ui->Feild_4->show();
 
             }else if(ui->label_4->isVisible() && ui->label_5->isHidden()){
 
                 ui->label_5->show();
+                ui->Feild_5->show();
 
             }else if(ui->label_5->isVisible() && ui->label_6->isHidden()){
 
                 ui->label_6->show();
+                ui->Feild_6->show();
 
             }else if(ui->label_6->isVisible() && ui->label_7->isHidden()){
 
                 ui->label_7->show();
+                ui->Feild_7->show();
 
             }else if(ui->label_7->isVisible() && ui->label_8->isHidden()){
 
                 ui->label_8->show();
+                ui->Feild_8->show();
 
             }else if(ui->label_8->isVisible() && ui->label_9->isHidden()){
 
                 ui->label_9->show();
+                ui->Feild_9->show();
 
             }else if(ui->label_9->isVisible() && ui->label_10->isHidden()){
 
                 ui->label_10->show();
+                ui->Feild_10->show();
 
             }else if(ui->label_10->isVisible() && ui->label_11->isHidden()){
 
                 ui->label_11->show();
+                ui->Feild_11->show();
 
             }else if(ui->label_11->isVisible() && ui->label_12->isHidden()){
 
                 ui->label_12->show();
+                ui->Feild_12->show();
 
             }else if(ui->label_12->isVisible() && ui->label_13->isHidden()){
 
                 ui->label_13->show();
+                ui->Feild_13->show();
 
             }else if(ui->label_13->isVisible() && ui->label_14->isHidden()){
 
                 ui->label_14->show();
+                ui->Feild_14->show();
 
             }else if(ui->label_14->isVisible() && ui->label_15->isHidden()){
 
                 ui->label_15->show();
+                ui->Feild_15->show();
 
             }else if(ui->label_15->isVisible() && ui->label_16->isHidden()){
 
                 ui->label_16->show();
+                ui->Feild_16->show();
             }
 
             Get_info();
         }else{
 
             clearLayout(ui->verticalLayout_2);
-            QMessageBox::warning(this, "sasas", "nadarim");
+            QMessageBox::warning(this, "Sorry", "You do not have enough Gold to buy this item!");
             Get_info();
         }
         Get_info();
@@ -5986,6 +6022,25 @@ void Gamepage::Hide_Farms()
 
 }
 
+void Gamepage::Hide_Feilds_number_label()
+{
+    ui->Feild_2->hide();
+    ui->Feild_3->hide();
+    ui->Feild_4->hide();
+    ui->Feild_5->hide();
+    ui->Feild_6->hide();
+    ui->Feild_7->hide();
+    ui->Feild_8->hide();
+    ui->Feild_9->hide();
+    ui->Feild_10->hide();
+    ui->Feild_11->hide();
+    ui->Feild_12->hide();
+    ui->Feild_13->hide();
+    ui->Feild_14->hide();
+    ui->Feild_15->hide();
+    ui->Feild_16->hide();
+}
+
 void Gamepage::Hide_decrease_label()
 {
     ui->decrease_point_label->hide();
@@ -6013,15 +6068,15 @@ void Gamepage::Default_farmer()
     farmer->pushButton->setObjectName("Farmer");
 
     connect(farmer->pushButton, &QPushButton::clicked, this, [this, farmer](){ QMessageBox msgBox;
-        msgBox.setText("chicken""<ul>""<li>""@gmail.com""</li>" "<li>""@email.com""</li>" "<li>""@mail.um.ac""</li>""</ul>");
+        msgBox.setText("Farmer""<ul>""<li>""Purchase price = 5""</li>" "<li>""Farmer Status = Free""</li>" "</ul>");
         msgBox.setWindowFlags(msgBox.windowFlags() | Qt::WindowSystemMenuHint);
 
         msgBox.setWindowTitle("Transfer to ...");
 
         // Set the icon
-        msgBox.setWindowIcon(QIcon("C:/Users/i/Downloads/iran.png"));
+        msgBox.setWindowIcon(QIcon("C:/Users/i/Downloads/Grass2.jpg"));
 
-        msgBox.setIconPixmap(QPixmap("C:/Users/i/Downloads/iran.png"));
+        msgBox.setIconPixmap(QPixmap("C:/Users/i/Downloads/farmer.png"));
 
 
 
@@ -13977,6 +14032,8 @@ void Gamepage::Set_window_to_the_default()
     Hide_Cancel_pushbuttons();
 
     Hide_Farms();
+
+    Hide_Feilds_number_label();
 
     Hide_label_of_timers();
 

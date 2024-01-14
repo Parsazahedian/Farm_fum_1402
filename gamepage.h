@@ -95,6 +95,8 @@ private slots:
 
     void Hide_Farms();
 
+    void Hide_Feilds_number_label();
+
     void Hide_decrease_label();
 
     void Default_farmer();

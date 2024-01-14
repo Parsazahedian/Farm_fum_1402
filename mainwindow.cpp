@@ -140,7 +140,7 @@ void MainWindow::on_pushButton_2_clicked()
     }
 
     QMessageBox msgBox(p);
-    msgBox.setWindowTitle("Transfer to ...");
+    msgBox.setWindowTitle("Wellcome");
     msgBox.setText(""+s+" Are You Ready to Start?");
     msgBox.setStandardButtons(QMessageBox::Yes);
     int ret = msgBox.exec();
