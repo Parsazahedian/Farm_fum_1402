@@ -12,6 +12,7 @@
 #include "wheat.h"
 #include "barley.h"
 #include "QSqlDatabase"
+#include "QMediaPlayer"
 
 extern Chicken * ch1; extern Sheep * sheep1; extern Cow * cow1; extern Wheat * wheat1; extern Barley * barley1;
 extern Chicken * ch2; extern Sheep * sheep2; extern Cow * cow2; extern Wheat * wheat2; extern Barley * barley2;
@@ -275,6 +276,16 @@ private:
     int F16_Which_Of_Animals_or_Seeds=0;
 
     bool timerFinished = false;
+
+    QMediaPlayer * backmusic_chicken;
+    QMediaPlayer * backmusic_sheep;
+    QMediaPlayer * backmusic_cow;
+    QMediaPlayer * backmusic_Farmer;
+    QMediaPlayer * backmusic_Seeds;
+    QMediaPlayer * backmusic_NewFarm;
+    QMediaPlayer * backmusic_Base;
+QMediaPlayer * backmusic_Base_2;
+    QMediaPlayer * backmusic_Result;
 };
 
 #endif // GAMEPAGE_H

@@ -3643,6 +3643,7 @@ border-image: url(:/Farm.images/C:/Users/i/Downloads/house.png);</string>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(255, 255, 255);
+
 </string>
     </property>
     <property name="text">

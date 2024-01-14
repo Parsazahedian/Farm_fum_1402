@@ -16,11 +16,14 @@
 #include "QThread"
 #include "QSqlError"
 #include "QSortFilterProxyModel"
+#include "QMediaPlayer"
 
 QTimer* Timer_for_timer_label;
 QTimer* Timer_for_timer_label_2;
 
 int Number_of_Players;
+
+
 
 int player_number=1;
 
@@ -78,9 +81,11 @@ Gamepage::Gamepage(QWidget *parent) :
 
     Hide_Cancel_pushbuttons();
 
-    Hide_Farms();
+    backmusic_Base = new QMediaPlayer();
+    backmusic_Base->setMedia(QUrl("C:/Users/i/Downloads/Base_music.mp3"));
+    backmusic_Base->play();
 
-   // ui->centralwidget->setStyleSheet("background-color: rgb(255, 255, 255);");
+    Hide_Farms();
 
     Hide_label_of_timers();
 
@@ -142,7 +147,7 @@ void Gamepage::on_Shop_pushButton_clicked()
 
 void Gamepage::Timer()
 {
-   static int remainingTime = 180; // Start at 3 minutes
+   static int remainingTime = 15; // Start at 3 minutes
 
    if (remainingTime > 0) {
        --remainingTime;
@@ -150,14 +155,13 @@ void Gamepage::Timer()
        int seconds = remainingTime % 60;
 
        if (remainingTime == 10) {
-                ui->label_Time->setStyleSheet("QLabel { color: red; }");
+                ui->label_Time->setStyleSheet("QLabel { color: red;background-color: white; }");
             }
 
        ui->label_Time->setText(QString("%1:%2").arg(minutes, 1, 10, QChar('0')).arg(seconds, 2, 10, QChar('0')));
    } else {
        Timer_for_timer_label->stop();
-       ui->label_Time->setStyleSheet("QLabel { color: Black; }");
-       ui->label_Time->setStyleSheet("background-color: rgb(255, 255, 255);");
+       ui->label_Time->setStyleSheet("QLabel { color: Black; background-color: white; }");
        QSqlQuery b;
        b.exec("SELECT Username FROM Game_Players WHERE Number = '"+QString::number(player_number)+"' ");
        player_number++;
@@ -169,6 +173,8 @@ void Gamepage::Timer()
 
        Get_info();
        QMessageBox::information(this, "Point",""+username+" your score = "+QString::number(score)+" ");
+
+       backmusic_Base->stop();
 
        QSqlQuery query;
            query.prepare("UPDATE Game_Players SET Score = :score WHERE Username = :username");
@@ -183,6 +189,10 @@ void Gamepage::Timer()
        Number_of_Players--;
 
        if(Number_of_Players==0){
+
+           backmusic_Result = new QMediaPlayer();
+           backmusic_Result->setMedia(QUrl("C:/Users/i/Downloads/Results.mp3"));
+           backmusic_Result->play();
 
            qDebug()<<"finished";
            QSqlQueryModel* model = new QSqlQueryModel(this);
@@ -224,7 +234,7 @@ void Gamepage::Timer()
 
 void Gamepage::Timer_2()
 {
-    static int remainingTime = 180; // Start at 3 minutes
+    static int remainingTime = 15; // Start at 3 minutes
 
     if (remainingTime > 0) {
         --remainingTime;
@@ -232,15 +242,14 @@ void Gamepage::Timer_2()
         int seconds = remainingTime % 60;
 
         if (remainingTime == 10) {
-                 ui->label_Time->setStyleSheet("QLabel { color: red; }");
+                 ui->label_Time->setStyleSheet("QLabel { color: red; background-color: white;}");
              }
 
         ui->label_Time->setText(QString("%1:%2").arg(minutes, 1, 10, QChar('0')).arg(seconds, 2, 10, QChar('0')));
     } else {
         Timer_for_timer_label_2->stop();
-        ui->label_Time->setStyleSheet("QLabel { color: Black; }");
-        ui->label_Time->setStyleSheet("background-color: rgb(255, 255, 255);");
-        remainingTime = 180;
+        ui->label_Time->setStyleSheet("QLabel { color: Black; background-color: white;}");
+        remainingTime = 15;
         QSqlQuery v;
         v.exec("SELECT Username FROM Game_Players WHERE Number = '"+QString::number(player_number)+"' ");
         player_number++;
@@ -252,6 +261,8 @@ void Gamepage::Timer_2()
         Get_info();
         QMessageBox::information(this, "Point",""+Username+" your score = "+QString::number(score)+" ");
 
+        backmusic_Base_2->stop();
+
         QSqlQuery query;
             query.prepare("UPDATE Game_Players SET Score = :score WHERE Username = :username");
             query.bindValue(":score", score);
@@ -262,6 +273,13 @@ void Gamepage::Timer_2()
 
         Set_window_to_the_default();
         if(Number_of_Players==0){
+
+
+          //  backmusic_Base_2->stop();
+
+            backmusic_Result = new QMediaPlayer();
+            backmusic_Result->setMedia(QUrl("C:/Users/i/Downloads/Results.mp3"));
+            backmusic_Result->play();
 
             qDebug()<<"finished";
             QSqlQueryModel* model = new QSqlQueryModel(this);
@@ -303,6 +321,11 @@ void Gamepage::Timer_2()
 void Gamepage::For_Repeated()
 {
     if(Number_of_Players > 0){
+
+        backmusic_Base_2 = new QMediaPlayer();
+        backmusic_Base_2->setMedia(QUrl("C:/Users/i/Downloads/Base_music.mp3"));
+        backmusic_Base_2->play();
+
 
         QSqlQuery v;
         v.exec("SELECT Username FROM Game_Players WHERE Number = '"+QString::number(player_number)+"' ");
@@ -351,6 +374,10 @@ void Gamepage::on_Chicken_pushButton_clicked()
         ui->label_Score->setText( "Score : " + QString::number(score));
 
         Chicken * ch = new Chicken(ui->Animals_verticalLayout);
+
+        backmusic_chicken = new QMediaPlayer();
+        backmusic_chicken->setMedia(QUrl("C:/Users/i/Downloads/chicken.voice.mp3"));
+        backmusic_chicken->play();
 
         ch->pushButton->setObjectName("Chicken");
 
@@ -1034,6 +1061,10 @@ void Gamepage::on_Sheep_pushButton_clicked()
 
         Sheep * sheep = new Sheep(ui->Animals_verticalLayout);
 
+        backmusic_sheep = new QMediaPlayer();
+        backmusic_sheep->setMedia(QUrl("C:/Users/i/Downloads/sheep.voice.mp3"));
+        backmusic_sheep->play();
+
         sheep->pushButton->setObjectName("Sheep");
 
         connect(sheep->pushButton, &QPushButton::clicked, this, [this, sheep](){ QMessageBox msgBox;
@@ -1703,6 +1734,10 @@ void Gamepage::on_Cow_pushButton_clicked()
         ui->label_Score->setText( "Score : " + QString::number(score));
 
         Cow * cow = new Cow(ui->Animals_verticalLayout);
+
+        backmusic_cow = new QMediaPlayer();
+        backmusic_cow->setMedia(QUrl("C:/Users/i/Downloads/cow.voice.mp3"));
+        backmusic_cow->play();
 
         cow->pushButton->setObjectName("Cow");
 
@@ -2379,6 +2414,10 @@ void Gamepage::on_Wheat_pushButton_clicked()
 
         Wheat * wheat = new Wheat(ui->Seeds_verticalLayout);
 
+        backmusic_Seeds = new QMediaPlayer();
+        backmusic_Seeds->setMedia(QUrl("C:/Users/i/Downloads/Seeds.voice.mp3"));
+        backmusic_Seeds->play();
+
         wheat->pushButton->setObjectName("Wheat");
 
         connect(wheat->pushButton, &QPushButton::clicked, this, [this, wheat](){ QMessageBox msgBox;
@@ -3037,6 +3076,10 @@ void Gamepage::on_Barley_pushButton_clicked()
         ui->label_Score->setText( "Score : " + QString::number(score));
 
         Barley * barley = new Barley(ui->Seeds_verticalLayout);
+
+        backmusic_Seeds = new QMediaPlayer();
+        backmusic_Seeds->setMedia(QUrl("C:/Users/i/Downloads/Seeds.voice.mp3"));
+        backmusic_Seeds->play();
 
         barley->pushButton->setObjectName("Barley");
 
@@ -3700,6 +3743,10 @@ void Gamepage::on_Farmer_pushButton_clicked()
 
         Farmer * farmer = new Farmer(ui->Farmer_verticalLayout);
 
+        backmusic_Farmer = new QMediaPlayer();
+        backmusic_Farmer->setMedia(QUrl("C:/Users/i/Downloads/Farmer.voice.mp3"));
+        backmusic_Farmer->play();
+
         farmer->pushButton->setObjectName("Farmer");
 
         number_of_farmers++;
@@ -4340,6 +4387,10 @@ void Gamepage::on_New_farm_pushButton_clicked()
             score = score - 3;
 
             ui->label_Score->setText( "Score : " + QString::number(score));
+
+            backmusic_NewFarm = new QMediaPlayer();
+            backmusic_NewFarm->setMedia(QUrl("C:/Users/i/Downloads/Newfarm.mp3"));
+            backmusic_NewFarm->play();
 
             if(ui->label_2->isHidden()){
 
@@ -6078,8 +6129,6 @@ void Gamepage::Default_farmer()
 
         msgBox.setIconPixmap(QPixmap("C:/Users/i/Downloads/farmer.png"));
 
-
-
         // Add custom buttons
         QHash<QAbstractButton*, int> buttonMap;
         for (int i = 1; i <= 17; ++i) {
@@ -6408,8 +6457,9 @@ void Gamepage::Default_farmer()
 
           if(i==17){
 
-              button->setText("home");
+              button->setText("Home");
               button->setMinimumSize(60,40);
+              button->setStyleSheet("color:  rgb(255, 197, 62);font-weight: bold;");
 
           }
 
@@ -14044,6 +14094,14 @@ void Gamepage::Set_window_to_the_default()
     Hide_decrease_label();
 
     setCursorForAllButtons(this);
+
+//    backmusic_Base->stop();
+//    backmusic_Result->stop();
+
+//    backmusic_Base = new QMediaPlayer();
+//    backmusic_Base->setMedia(QUrl("C:/Users/i/Downloads/Base_music.mp3"));
+//    backmusic_Base->play();
+
     F1_Having_Farmer=0, F1_Having_Animals_or_Seeds=0;
     F2_Having_Farmer=0, F2_Having_Animals_or_Seeds=0;
     F3_Having_Farmer=0, F3_Having_Animals_or_Seeds=0;
