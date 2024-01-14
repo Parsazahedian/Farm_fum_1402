@@ -43,6 +43,8 @@ public:
 
     void SetTimerLabel(QLabel* label);
 
+    void Set_label_of_timers(QLabel* label);
+
     void Set_Farmer_status_Label(QLabel* label);
 
     void Timer_Stop();
@@ -124,6 +126,8 @@ private:
     QLabel * TimerLabel;
 
     QLabel * TimerLabel2;
+
+    QLabel * Label_of_timer;
 
     QLabel * Farmers_status_label;
 

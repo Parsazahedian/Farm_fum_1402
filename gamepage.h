@@ -85,6 +85,8 @@ private slots:
 
     void Hide_the_product_of_Animals_and_seeds_pushButton();
 
+    void Hide_label_of_timers();
+
     void Hide_Timer_labels();
 
     void Hide_Start_pushbuttuns();

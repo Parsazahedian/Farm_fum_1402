@@ -56,7 +56,6 @@ Gamepage::Gamepage(QWidget *parent) :
 {
     ui->setupUi(this);
 
-  //  QSqlDatabase database;
     database=QSqlDatabase::addDatabase("QSQLITE");
     database.setDatabaseName("e:\\schema2.db");
     database.open();
@@ -66,14 +65,6 @@ Gamepage::Gamepage(QWidget *parent) :
     if (query.next()) {
     Number_of_Players = query.value("Number_of_players").toInt();
     }
-
-//    foreach(QObject *child, this->children()) {
-//       QPushButton *button = qobject_cast<QPushButton *>(child);
-//       if(button) {
-//           // If the child is a QPushButton, set its cursor to a pointing hand
-//           button->setCursor(QCursor(Qt::PointingHandCursor));
-//       }
-//    }
 
     Move_the_product_of_Animals_and_seeds_pushButton();
 
@@ -86,6 +77,8 @@ Gamepage::Gamepage(QWidget *parent) :
     Hide_Cancel_pushbuttons();
 
     Hide_Farms();
+
+    Hide_label_of_timers();
 
     Default_farmer();
 
@@ -131,8 +124,6 @@ void Gamepage::setCursorForAllButtons(QWidget *widget) {
    }
 }
 
-
-
 void Gamepage::on_Shop_pushButton_clicked()
 {
     if(ui->groupBox->isVisible()){
@@ -147,7 +138,7 @@ void Gamepage::on_Shop_pushButton_clicked()
 
 void Gamepage::Timer()
 {
-   static int remainingTime = 11; // Start at 3 minutes
+   static int remainingTime = 60; // Start at 3 minutes
 
    if (remainingTime > 0) {
        --remainingTime;
@@ -224,7 +215,7 @@ void Gamepage::Timer()
 
 void Gamepage::Timer_2()
 {
-    static int remainingTime = 12; // Start at 3 minutes
+    static int remainingTime = 60; // Start at 3 minutes
 
     if (remainingTime > 0) {
         --remainingTime;
@@ -5305,6 +5296,7 @@ void Gamepage::on_Start_clicked()
     ui->Start->hide();
     ui->Cancel->show();
     ui->timer_label->show();
+    ui->label_of_timer_1->show();
 
     QPoint Pos(150, 180);
 
@@ -5322,6 +5314,7 @@ void Gamepage::on_Start_clicked()
 
        if (buttonAtPos->objectName() == "Chicken") {
            ch1->SetTimerLabel(ui->timer_label);
+           ch1->Set_label_of_timers(ui->label_of_timer_1);
            ch1->Set_Product_Pushbutton(ui->the_product_of_chicken_pushButton);
            ch1->Set_Cancel_Pushbutton(ui->Cancel);
            ch1->Set_Start_Pushbutton(ui->Start);
@@ -5346,6 +5339,7 @@ void Gamepage::on_Start_clicked()
 
        } else if (buttonAtPos->objectName() == "Sheep") {
            sheep1->SetTimerLabel(ui->timer_label);
+           sheep1->Set_label_of_timers(ui->label_of_timer_1);
            sheep1->Set_Product_Pushbutton(ui->the_product_of_sheep_pushButton);
            sheep1->Set_Cancel_Pushbutton(ui->Cancel);
            sheep1->Set_Start_Pushbutton(ui->Start);
@@ -5370,6 +5364,7 @@ void Gamepage::on_Start_clicked()
 
        } else if (buttonAtPos->objectName() == "Cow") {
            cow1->SetTimerLabel(ui->timer_label);
+           cow1->Set_label_of_timers(ui->label_of_timer_1);
            cow1->Set_Product_Pushbutton(ui->the_product_of_cow_pushButton);
            cow1->Set_Cancel_Pushbutton(ui->Cancel);
            cow1->Set_Start_Pushbutton(ui->Start);
@@ -5394,6 +5389,7 @@ void Gamepage::on_Start_clicked()
 
        } else if (buttonAtPos->objectName() == "Wheat") {
            wheat1->SetTimerLabel(ui->timer_label);
+           wheat1->Set_label_of_timers(ui->label_of_timer_1);
            wheat1->Set_Product_Pushbutton(ui->the_product_of_wheat_pushButton);
            wheat1->Set_Cancel_Pushbutton(ui->Cancel);
            wheat1->Set_Start_Pushbutton(ui->Start);
@@ -5418,6 +5414,7 @@ void Gamepage::on_Start_clicked()
 
        } else if (buttonAtPos->objectName() == "Barley") {
            barley1->SetTimerLabel(ui->timer_label);
+           barley1->Set_label_of_timers(ui->label_of_timer_1);
            barley1->Set_Product_Pushbutton(ui->the_product_of_barley_pushButton);
            barley1->Set_Cancel_Pushbutton(ui->Cancel);
            barley1->Set_Start_Pushbutton(ui->Start);
@@ -5500,6 +5497,7 @@ void Gamepage::on_Cancel_clicked()
     ui->Start->show();
 
     ui->timer_label->hide();
+    ui->label_of_timer_1->hide();
 
     QPoint Pos(150, 180);
 
@@ -5871,6 +5869,26 @@ void Gamepage::Hide_the_product_of_Animals_and_seeds_pushButton()
     ui->the_product_of_cow_pushButton_16->hide();
     ui->the_product_of_wheat_pushButton_16->hide();
     ui->the_product_of_barley_pushButton_16->hide();
+}
+
+void Gamepage::Hide_label_of_timers()
+{
+    ui->label_of_timer_1->hide();
+    ui->label_of_timer_2->hide();
+    ui->label_of_timer_3->hide();
+    ui->label_of_timer_4->hide();
+    ui->label_of_timer_5->hide();
+    ui->label_of_timer_6->hide();
+    ui->label_of_timer_7->hide();
+    ui->label_of_timer_8->hide();
+    ui->label_of_timer_9->hide();
+    ui->label_of_timer_10->hide();
+    ui->label_of_timer_11->hide();
+    ui->label_of_timer_12->hide();
+    ui->label_of_timer_13->hide();
+    ui->label_of_timer_14->hide();
+    ui->label_of_timer_15->hide();
+    ui->label_of_timer_16->hide();
 }
 
 void Gamepage::Hide_Timer_labels()
@@ -6595,6 +6613,7 @@ void Gamepage::on_Start_2_clicked()
     ui->Start_2->hide();
     ui->Cancel_2->show();
     ui->timer_label_2->show();
+    ui->label_of_timer_2->show();
 
     QPoint Pos(540, 180);
 
@@ -6612,6 +6631,7 @@ void Gamepage::on_Start_2_clicked()
 
        if (buttonAtPos->objectName() == "Chicken") {
            ch2->SetTimerLabel(ui->timer_label_2);
+           ch2->Set_label_of_timers(ui->label_of_timer_2);
            ch2->Set_Product_Pushbutton(ui->the_product_of_chicken_pushButton_2);
            ch2->Set_Cancel_Pushbutton(ui->Cancel_2);
            ch2->Set_Start_Pushbutton(ui->Start_2);
@@ -6636,6 +6656,7 @@ void Gamepage::on_Start_2_clicked()
 
        } else if (buttonAtPos->objectName() == "Sheep") {
            sheep2->SetTimerLabel(ui->timer_label_2);
+           sheep2->Set_label_of_timers(ui->label_of_timer_2);
            sheep2->Set_Product_Pushbutton(ui->the_product_of_sheep_pushButton_2);
            sheep2->Set_Cancel_Pushbutton(ui->Cancel_2);
            sheep2->Set_Start_Pushbutton(ui->Start_2);
@@ -6660,6 +6681,7 @@ void Gamepage::on_Start_2_clicked()
 
        } else if (buttonAtPos->objectName() == "Cow") {
            cow2->SetTimerLabel(ui->timer_label_2);
+           cow2->Set_label_of_timers(ui->label_of_timer_2);
            cow2->Set_Product_Pushbutton(ui->the_product_of_cow_pushButton_2);
            cow2->Set_Cancel_Pushbutton(ui->Cancel_2);
            cow2->Set_Start_Pushbutton(ui->Start_2);
@@ -6685,6 +6707,7 @@ void Gamepage::on_Start_2_clicked()
 
        } else if (buttonAtPos->objectName() == "Wheat") {
            wheat2->SetTimerLabel(ui->timer_label_2);
+           wheat2->Set_label_of_timers(ui->label_of_timer_2);
            wheat2->Set_Product_Pushbutton(ui->the_product_of_wheat_pushButton_2);
            wheat2->Set_Cancel_Pushbutton(ui->Cancel_2);
            wheat2->Set_Start_Pushbutton(ui->Start_2);
@@ -6709,6 +6732,7 @@ void Gamepage::on_Start_2_clicked()
 
        } else if (buttonAtPos->objectName() == "Barley") {
            barley2->SetTimerLabel(ui->timer_label_2);
+           barley2->Set_label_of_timers(ui->label_of_timer_2);
            barley2->Set_Product_Pushbutton(ui->the_product_of_barley_pushButton_2);
            barley2->Set_Cancel_Pushbutton(ui->Cancel_2);
            barley2->Set_Start_Pushbutton(ui->Start_2);
@@ -6773,6 +6797,7 @@ void Gamepage::on_Cancel_2_clicked()
     ui->Start_2->show();
 
     ui->timer_label_2->hide();
+    ui->label_of_timer_2->hide();
 
     QPoint Pos(540, 180);
 
@@ -6969,6 +6994,7 @@ void Gamepage::on_Start_3_clicked()
     ui->Start_3->hide();
     ui->Cancel_3->show();
     ui->timer_label_3->show();
+    ui->label_of_timer_3->show();
 
     QPoint Pos(1260, 180);
 
@@ -6986,6 +7012,7 @@ void Gamepage::on_Start_3_clicked()
 
        if (buttonAtPos->objectName() == "Chicken") {
            ch3->SetTimerLabel(ui->timer_label_3);
+           ch3->Set_label_of_timers(ui->label_of_timer_3);
            ch3->Set_Product_Pushbutton(ui->the_product_of_chicken_pushButton_3);
            ch3->Set_Cancel_Pushbutton(ui->Cancel_3);
            ch3->Set_Start_Pushbutton(ui->Start_3);
@@ -7010,6 +7037,7 @@ void Gamepage::on_Start_3_clicked()
 
        } else if (buttonAtPos->objectName() == "Sheep") {
            sheep3->SetTimerLabel(ui->timer_label_3);
+           sheep3->Set_label_of_timers(ui->label_of_timer_3);
            sheep3->Set_Product_Pushbutton(ui->the_product_of_sheep_pushButton_3);
            sheep3->Set_Cancel_Pushbutton(ui->Cancel_3);
            sheep3->Set_Start_Pushbutton(ui->Start_3);
@@ -7034,6 +7062,7 @@ void Gamepage::on_Start_3_clicked()
 
        } else if (buttonAtPos->objectName() == "Cow") {
            cow3->SetTimerLabel(ui->timer_label_3);
+           cow3->Set_label_of_timers(ui->label_of_timer_3);
            cow3->Set_Product_Pushbutton(ui->the_product_of_cow_pushButton_3);
            cow3->Set_Cancel_Pushbutton(ui->Cancel_3);
            cow3->Set_Start_Pushbutton(ui->Start_3);
@@ -7058,6 +7087,7 @@ void Gamepage::on_Start_3_clicked()
 
        } else if (buttonAtPos->objectName() == "Wheat") {
            wheat3->SetTimerLabel(ui->timer_label_3);
+           wheat3->Set_label_of_timers(ui->label_of_timer_3);
            wheat3->Set_Product_Pushbutton(ui->the_product_of_wheat_pushButton_3);
            wheat3->Set_Cancel_Pushbutton(ui->Cancel_3);
            wheat3->Set_Start_Pushbutton(ui->Start_3);
@@ -7082,6 +7112,7 @@ void Gamepage::on_Start_3_clicked()
 
        } else if (buttonAtPos->objectName() == "Barley") {
            barley3->SetTimerLabel(ui->timer_label_3);
+           barley3->Set_label_of_timers(ui->label_of_timer_3);
            barley3->Set_Product_Pushbutton(ui->the_product_of_barley_pushButton_3);
            barley3->Set_Cancel_Pushbutton(ui->Cancel_3);
            barley3->Set_Start_Pushbutton(ui->Start_3);
@@ -7146,6 +7177,7 @@ void Gamepage::on_Cancel_3_clicked()
     ui->Start_3->show();
 
     ui->timer_label_3->hide();
+    ui->label_of_timer_3->hide();
 
     QPoint Pos(1260, 180);
 
@@ -7342,6 +7374,7 @@ void Gamepage::on_Start_4_clicked()
     ui->Start_4->hide();
     ui->Cancel_4->show();
     ui->timer_label_4->show();
+    ui->label_of_timer_4->show();
 
     QPoint Pos(1650, 180);
 
@@ -7359,6 +7392,7 @@ void Gamepage::on_Start_4_clicked()
 
        if (buttonAtPos->objectName() == "Chicken") {
            ch4->SetTimerLabel(ui->timer_label_4);
+           ch4->Set_label_of_timers(ui->label_of_timer_4);
            ch4->Set_Product_Pushbutton(ui->the_product_of_chicken_pushButton_4);
            ch4->Set_Cancel_Pushbutton(ui->Cancel_4);
            ch4->Set_Start_Pushbutton(ui->Start_4);
@@ -7383,6 +7417,7 @@ void Gamepage::on_Start_4_clicked()
 
        } else if (buttonAtPos->objectName() == "Sheep") {
            sheep4->SetTimerLabel(ui->timer_label_4);
+           sheep4->Set_label_of_timers(ui->label_of_timer_4);
            sheep4->Set_Product_Pushbutton(ui->the_product_of_sheep_pushButton_4);
            sheep4->Set_Cancel_Pushbutton(ui->Cancel_4);
            sheep4->Set_Start_Pushbutton(ui->Start_4);
@@ -7407,6 +7442,7 @@ void Gamepage::on_Start_4_clicked()
 
        } else if (buttonAtPos->objectName() == "Cow") {
            cow4->SetTimerLabel(ui->timer_label_4);
+           cow4->Set_label_of_timers(ui->label_of_timer_4);
            cow4->Set_Product_Pushbutton(ui->the_product_of_cow_pushButton_4);
            cow4->Set_Cancel_Pushbutton(ui->Cancel_4);
            cow4->Set_Start_Pushbutton(ui->Start_4);
@@ -7431,6 +7467,7 @@ void Gamepage::on_Start_4_clicked()
 
        } else if (buttonAtPos->objectName() == "Wheat") {
            wheat4->SetTimerLabel(ui->timer_label_4);
+           wheat4->Set_label_of_timers(ui->label_of_timer_4);
            wheat4->Set_Product_Pushbutton(ui->the_product_of_wheat_pushButton_4);
            wheat4->Set_Cancel_Pushbutton(ui->Cancel_4);
            wheat4->Set_Start_Pushbutton(ui->Start_4);
@@ -7455,6 +7492,7 @@ void Gamepage::on_Start_4_clicked()
 
        } else if (buttonAtPos->objectName() == "Barley") {
            barley4->SetTimerLabel(ui->timer_label_4);
+           barley4->Set_label_of_timers(ui->label_of_timer_4);
            barley4->Set_Product_Pushbutton(ui->the_product_of_barley_pushButton_4);
            barley4->Set_Cancel_Pushbutton(ui->Cancel_4);
            barley4->Set_Start_Pushbutton(ui->Start_4);
@@ -7519,6 +7557,7 @@ void Gamepage::on_Cancel_4_clicked()
     ui->Start_4->show();
 
     ui->timer_label_4->hide();
+    ui->label_of_timer_4->hide();
 
     QPoint Pos(1650, 180);
 
@@ -7715,6 +7754,7 @@ void Gamepage::on_Start_5_clicked()
     ui->Start_5->hide();
     ui->Cancel_5->show();
     ui->timer_label_5->show();
+    ui->label_of_timer_5->show();
 
     QPoint Pos(150, 410);
 
@@ -7732,6 +7772,7 @@ void Gamepage::on_Start_5_clicked()
 
        if (buttonAtPos->objectName() == "Chicken") {
            ch5->SetTimerLabel(ui->timer_label_5);
+           ch5->Set_label_of_timers(ui->label_of_timer_5);
            ch5->Set_Product_Pushbutton(ui->the_product_of_chicken_pushButton_5);
            ch5->Set_Cancel_Pushbutton(ui->Cancel_5);
            ch5->Set_Start_Pushbutton(ui->Start_5);
@@ -7756,6 +7797,7 @@ void Gamepage::on_Start_5_clicked()
 
        } else if (buttonAtPos->objectName() == "Sheep") {
            sheep5->SetTimerLabel(ui->timer_label_5);
+           sheep5->Set_label_of_timers(ui->label_of_timer_5);
            sheep5->Set_Product_Pushbutton(ui->the_product_of_sheep_pushButton_5);
            sheep5->Set_Cancel_Pushbutton(ui->Cancel_5);
            sheep5->Set_Start_Pushbutton(ui->Start_5);
@@ -7780,6 +7822,7 @@ void Gamepage::on_Start_5_clicked()
 
        } else if (buttonAtPos->objectName() == "Cow") {
            cow5->SetTimerLabel(ui->timer_label_5);
+           cow5->Set_label_of_timers(ui->label_of_timer_5);
            cow5->Set_Product_Pushbutton(ui->the_product_of_cow_pushButton_5);
            cow5->Set_Cancel_Pushbutton(ui->Cancel_5);
            cow5->Set_Start_Pushbutton(ui->Start_5);
@@ -7804,6 +7847,7 @@ void Gamepage::on_Start_5_clicked()
 
        } else if (buttonAtPos->objectName() == "Wheat") {
            wheat5->SetTimerLabel(ui->timer_label_5);
+           wheat5->Set_label_of_timers(ui->label_of_timer_5);
            wheat5->Set_Product_Pushbutton(ui->the_product_of_wheat_pushButton_5);
            wheat5->Set_Cancel_Pushbutton(ui->Cancel_5);
            wheat5->Set_Start_Pushbutton(ui->Start_5);
@@ -7828,6 +7872,7 @@ void Gamepage::on_Start_5_clicked()
 
        } else if (buttonAtPos->objectName() == "Barley") {
            barley5->SetTimerLabel(ui->timer_label_5);
+           barley5->Set_label_of_timers(ui->label_of_timer_5);
            barley5->Set_Product_Pushbutton(ui->the_product_of_barley_pushButton_5);
            barley5->Set_Cancel_Pushbutton(ui->Cancel_5);
            barley5->Set_Start_Pushbutton(ui->Start_5);
@@ -7892,6 +7937,7 @@ void Gamepage::on_Cancel_5_clicked()
     ui->Start_5->show();
 
     ui->timer_label_5->hide();
+    ui->label_of_timer_5->hide();
 
     QPoint Pos(150, 410);
 
@@ -8087,6 +8133,7 @@ void Gamepage::on_Start_6_clicked()
     ui->Start_6->hide();
     ui->Cancel_6->show();
     ui->timer_label_6->show();
+    ui->label_of_timer_6->show();
 
     QPoint Pos(540, 410);
 
@@ -8104,6 +8151,7 @@ void Gamepage::on_Start_6_clicked()
 
        if (buttonAtPos->objectName() == "Chicken") {
            ch6->SetTimerLabel(ui->timer_label_6);
+           ch6->Set_label_of_timers(ui->label_of_timer_6);
            ch6->Set_Product_Pushbutton(ui->the_product_of_chicken_pushButton_6);
            ch6->Set_Cancel_Pushbutton(ui->Cancel_6);
            ch6->Set_Start_Pushbutton(ui->Start_6);
@@ -8128,6 +8176,7 @@ void Gamepage::on_Start_6_clicked()
 
        } else if (buttonAtPos->objectName() == "Sheep") {
            sheep6->SetTimerLabel(ui->timer_label_6);
+           sheep6->Set_label_of_timers(ui->label_of_timer_6);
            sheep6->Set_Product_Pushbutton(ui->the_product_of_sheep_pushButton_6);
            sheep6->Set_Cancel_Pushbutton(ui->Cancel_6);
            sheep6->Set_Start_Pushbutton(ui->Start_6);
@@ -8152,6 +8201,7 @@ void Gamepage::on_Start_6_clicked()
 
        } else if (buttonAtPos->objectName() == "Cow") {
            cow6->SetTimerLabel(ui->timer_label_6);
+           cow6->Set_label_of_timers(ui->label_of_timer_6);
            cow6->Set_Product_Pushbutton(ui->the_product_of_cow_pushButton_6);
            cow6->Set_Cancel_Pushbutton(ui->Cancel_6);
            cow6->Set_Start_Pushbutton(ui->Start_6);
@@ -8176,6 +8226,7 @@ void Gamepage::on_Start_6_clicked()
 
        } else if (buttonAtPos->objectName() == "Wheat") {
            wheat6->SetTimerLabel(ui->timer_label_6);
+           wheat6->Set_label_of_timers(ui->label_of_timer_6);
            wheat6->Set_Product_Pushbutton(ui->the_product_of_wheat_pushButton_6);
            wheat6->Set_Cancel_Pushbutton(ui->Cancel_6);
            wheat6->Set_Start_Pushbutton(ui->Start_6);
@@ -8200,6 +8251,7 @@ void Gamepage::on_Start_6_clicked()
 
        } else if (buttonAtPos->objectName() == "Barley") {
            barley6->SetTimerLabel(ui->timer_label_6);
+           barley6->Set_label_of_timers(ui->label_of_timer_6);
            barley6->Set_Product_Pushbutton(ui->the_product_of_barley_pushButton_6);
            barley6->Set_Cancel_Pushbutton(ui->Cancel_6);
            barley6->Set_Start_Pushbutton(ui->Start_6);
@@ -8264,6 +8316,7 @@ void Gamepage::on_Cancel_6_clicked()
     ui->Start_6->show();
 
     ui->timer_label_6->hide();
+    ui->label_of_timer_6->hide();
 
     QPoint Pos(540, 410);
 
@@ -8460,6 +8513,7 @@ void Gamepage::on_Start_7_clicked()
     ui->Start_7->hide();
     ui->Cancel_7->show();
     ui->timer_label_7->show();
+    ui->label_of_timer_7->show();
 
     QPoint Pos(1260, 410);
 
@@ -8477,6 +8531,7 @@ void Gamepage::on_Start_7_clicked()
 
        if (buttonAtPos->objectName() == "Chicken") {
            ch7->SetTimerLabel(ui->timer_label_7);
+           ch7->Set_label_of_timers(ui->label_of_timer_7);
            ch7->Set_Product_Pushbutton(ui->the_product_of_chicken_pushButton_7);
            ch7->Set_Cancel_Pushbutton(ui->Cancel_7);
            ch7->Set_Start_Pushbutton(ui->Start_7);
@@ -8501,6 +8556,7 @@ void Gamepage::on_Start_7_clicked()
 
        } else if (buttonAtPos->objectName() == "Sheep") {
            sheep7->SetTimerLabel(ui->timer_label_7);
+           sheep7->Set_label_of_timers(ui->label_of_timer_7);
            sheep7->Set_Product_Pushbutton(ui->the_product_of_sheep_pushButton_7);
            sheep7->Set_Cancel_Pushbutton(ui->Cancel_7);
            sheep7->Set_Start_Pushbutton(ui->Start_7);
@@ -8525,6 +8581,7 @@ void Gamepage::on_Start_7_clicked()
 
        } else if (buttonAtPos->objectName() == "Cow") {
            cow7->SetTimerLabel(ui->timer_label_7);
+           cow7->Set_label_of_timers(ui->label_of_timer_7);
            cow7->Set_Product_Pushbutton(ui->the_product_of_cow_pushButton_7);
            cow7->Set_Cancel_Pushbutton(ui->Cancel_7);
            cow7->Set_Start_Pushbutton(ui->Start_7);
@@ -8549,6 +8606,7 @@ void Gamepage::on_Start_7_clicked()
 
        } else if (buttonAtPos->objectName() == "Wheat") {
            wheat7->SetTimerLabel(ui->timer_label_7);
+           wheat7->Set_label_of_timers(ui->label_of_timer_7);
            wheat7->Set_Product_Pushbutton(ui->the_product_of_wheat_pushButton_7);
            wheat7->Set_Cancel_Pushbutton(ui->Cancel_7);
            wheat7->Set_Start_Pushbutton(ui->Start_7);
@@ -8573,6 +8631,7 @@ void Gamepage::on_Start_7_clicked()
 
        } else if (buttonAtPos->objectName() == "Barley") {
            barley7->SetTimerLabel(ui->timer_label_7);
+           barley7->Set_label_of_timers(ui->label_of_timer_7);
            barley7->Set_Product_Pushbutton(ui->the_product_of_barley_pushButton_7);
            barley7->Set_Cancel_Pushbutton(ui->Cancel_7);
            barley7->Set_Start_Pushbutton(ui->Start_7);
@@ -8637,6 +8696,7 @@ void Gamepage::on_Cancel_7_clicked()
     ui->Start_7->show();
 
     ui->timer_label_7->hide();
+    ui->label_of_timer_7->hide();
 
     QPoint Pos(1260, 410);
 
@@ -8833,6 +8893,7 @@ void Gamepage::on_Start_8_clicked()
     ui->Start_8->hide();
     ui->Cancel_8->show();
     ui->timer_label_8->show();
+    ui->label_of_timer_8->show();
 
     QPoint Pos(1650, 410);
 
@@ -8850,6 +8911,7 @@ void Gamepage::on_Start_8_clicked()
 
        if (buttonAtPos->objectName() == "Chicken") {
            ch8->SetTimerLabel(ui->timer_label_8);
+           ch8->Set_label_of_timers(ui->label_of_timer_8);
            ch8->Set_Product_Pushbutton(ui->the_product_of_chicken_pushButton_8);
            ch8->Set_Cancel_Pushbutton(ui->Cancel_8);
            ch8->Set_Start_Pushbutton(ui->Start_8);
@@ -8874,6 +8936,7 @@ void Gamepage::on_Start_8_clicked()
 
        } else if (buttonAtPos->objectName() == "Sheep") {
            sheep8->SetTimerLabel(ui->timer_label_8);
+           sheep8->Set_label_of_timers(ui->label_of_timer_8);
            sheep8->Set_Product_Pushbutton(ui->the_product_of_sheep_pushButton_8);
            sheep8->Set_Cancel_Pushbutton(ui->Cancel_8);
            sheep8->Set_Start_Pushbutton(ui->Start_8);
@@ -8898,6 +8961,7 @@ void Gamepage::on_Start_8_clicked()
 
        } else if (buttonAtPos->objectName() == "Cow") {
            cow8->SetTimerLabel(ui->timer_label_8);
+           cow8->Set_label_of_timers(ui->label_of_timer_8);
            cow8->Set_Product_Pushbutton(ui->the_product_of_cow_pushButton_8);
            cow8->Set_Cancel_Pushbutton(ui->Cancel_8);
            cow8->Set_Start_Pushbutton(ui->Start_8);
@@ -8922,6 +8986,7 @@ void Gamepage::on_Start_8_clicked()
 
        } else if (buttonAtPos->objectName() == "Wheat") {
            wheat8->SetTimerLabel(ui->timer_label_8);
+           wheat8->Set_label_of_timers(ui->label_of_timer_8);
            wheat8->Set_Product_Pushbutton(ui->the_product_of_wheat_pushButton_8);
            wheat8->Set_Cancel_Pushbutton(ui->Cancel_8);
            wheat8->Set_Start_Pushbutton(ui->Start_8);
@@ -8946,6 +9011,7 @@ void Gamepage::on_Start_8_clicked()
 
        } else if (buttonAtPos->objectName() == "Barley") {
            barley8->SetTimerLabel(ui->timer_label_8);
+           barley8->Set_label_of_timers(ui->label_of_timer_8);
            barley8->Set_Product_Pushbutton(ui->the_product_of_barley_pushButton_8);
            barley8->Set_Cancel_Pushbutton(ui->Cancel_8);
            barley8->Set_Start_Pushbutton(ui->Start_8);
@@ -9010,6 +9076,7 @@ void Gamepage::on_Cancel_8_clicked()
     ui->Start_8->show();
 
     ui->timer_label_8->hide();
+    ui->label_of_timer_8->hide();
 
     QPoint Pos(1650, 410);
 
@@ -9206,6 +9273,7 @@ void Gamepage::on_Start_9_clicked()
     ui->Start_9->hide();
     ui->Cancel_9->show();
     ui->timer_label_9->show();
+    ui->label_of_timer_9->show();
 
     QPoint Pos(150, 640);
 
@@ -9223,6 +9291,7 @@ void Gamepage::on_Start_9_clicked()
 
        if (buttonAtPos->objectName() == "Chicken") {
            ch9->SetTimerLabel(ui->timer_label_9);
+           ch9->Set_label_of_timers(ui->label_of_timer_9);
            ch9->Set_Product_Pushbutton(ui->the_product_of_chicken_pushButton_9);
            ch9->Set_Cancel_Pushbutton(ui->Cancel_9);
            ch9->Set_Start_Pushbutton(ui->Start_9);
@@ -9247,6 +9316,7 @@ void Gamepage::on_Start_9_clicked()
 
        } else if (buttonAtPos->objectName() == "Sheep") {
            sheep9->SetTimerLabel(ui->timer_label_9);
+           sheep9->Set_label_of_timers(ui->label_of_timer_9);
            sheep9->Set_Product_Pushbutton(ui->the_product_of_sheep_pushButton_9);
            sheep9->Set_Cancel_Pushbutton(ui->Cancel_9);
            sheep9->Set_Start_Pushbutton(ui->Start_9);
@@ -9271,6 +9341,7 @@ void Gamepage::on_Start_9_clicked()
 
        } else if (buttonAtPos->objectName() == "Cow") {
            cow9->SetTimerLabel(ui->timer_label_9);
+           cow9->Set_label_of_timers(ui->label_of_timer_9);
            cow9->Set_Product_Pushbutton(ui->the_product_of_cow_pushButton_9);
            cow9->Set_Cancel_Pushbutton(ui->Cancel_9);
            cow9->Set_Start_Pushbutton(ui->Start_9);
@@ -9295,6 +9366,7 @@ void Gamepage::on_Start_9_clicked()
 
        } else if (buttonAtPos->objectName() == "Wheat") {
            wheat9->SetTimerLabel(ui->timer_label_9);
+           wheat9->Set_label_of_timers(ui->label_of_timer_9);
            wheat9->Set_Product_Pushbutton(ui->the_product_of_wheat_pushButton_9);
            wheat9->Set_Cancel_Pushbutton(ui->Cancel_9);
            wheat9->Set_Start_Pushbutton(ui->Start_9);
@@ -9319,6 +9391,7 @@ void Gamepage::on_Start_9_clicked()
 
        } else if (buttonAtPos->objectName() == "Barley") {
            barley9->SetTimerLabel(ui->timer_label_9);
+           barley9->Set_label_of_timers(ui->label_of_timer_9);
            barley9->Set_Product_Pushbutton(ui->the_product_of_barley_pushButton_9);
            barley9->Set_Cancel_Pushbutton(ui->Cancel_9);
            barley9->Set_Start_Pushbutton(ui->Start_9);
@@ -9383,6 +9456,7 @@ void Gamepage::on_Cancel_9_clicked()
     ui->Start_9->show();
 
     ui->timer_label_9->hide();
+    ui->label_of_timer_9->hide();
 
     QPoint Pos(150, 640);
 
@@ -9579,6 +9653,7 @@ void Gamepage::on_Start_10_clicked()
     ui->Start_10->hide();
     ui->Cancel_10->show();
     ui->timer_label_10->show();
+    ui->label_of_timer_10->show();
 
     QPoint Pos(540, 640);
 
@@ -9596,6 +9671,7 @@ void Gamepage::on_Start_10_clicked()
 
        if (buttonAtPos->objectName() == "Chicken") {
            ch10->SetTimerLabel(ui->timer_label_10);
+           ch10->Set_label_of_timers(ui->label_of_timer_10);
            ch10->Set_Product_Pushbutton(ui->the_product_of_chicken_pushButton_10);
            ch10->Set_Cancel_Pushbutton(ui->Cancel_10);
            ch10->Set_Start_Pushbutton(ui->Start_10);
@@ -9620,6 +9696,7 @@ void Gamepage::on_Start_10_clicked()
 
        } else if (buttonAtPos->objectName() == "Sheep") {
            sheep10->SetTimerLabel(ui->timer_label_10);
+           sheep10->Set_label_of_timers(ui->label_of_timer_10);
            sheep10->Set_Product_Pushbutton(ui->the_product_of_sheep_pushButton_10);
            sheep10->Set_Cancel_Pushbutton(ui->Cancel_10);
            sheep10->Set_Start_Pushbutton(ui->Start_10);
@@ -9644,6 +9721,7 @@ void Gamepage::on_Start_10_clicked()
 
        } else if (buttonAtPos->objectName() == "Cow") {
            cow10->SetTimerLabel(ui->timer_label_10);
+           cow10->Set_label_of_timers(ui->label_of_timer_10);
            cow10->Set_Product_Pushbutton(ui->the_product_of_cow_pushButton_10);
            cow10->Set_Cancel_Pushbutton(ui->Cancel_10);
            cow10->Set_Start_Pushbutton(ui->Start_10);
@@ -9668,6 +9746,7 @@ void Gamepage::on_Start_10_clicked()
 
        } else if (buttonAtPos->objectName() == "Wheat") {
            wheat10->SetTimerLabel(ui->timer_label_10);
+           wheat10->Set_label_of_timers(ui->label_of_timer_10);
            wheat10->Set_Product_Pushbutton(ui->the_product_of_wheat_pushButton_10);
            wheat10->Set_Cancel_Pushbutton(ui->Cancel_10);
            wheat10->Set_Start_Pushbutton(ui->Start_10);
@@ -9692,6 +9771,7 @@ void Gamepage::on_Start_10_clicked()
 
        } else if (buttonAtPos->objectName() == "Barley") {
            barley10->SetTimerLabel(ui->timer_label_10);
+           barley10->Set_label_of_timers(ui->label_of_timer_10);
            barley10->Set_Product_Pushbutton(ui->the_product_of_barley_pushButton_10);
            barley10->Set_Cancel_Pushbutton(ui->Cancel_10);
            barley10->Set_Start_Pushbutton(ui->Start_10);
@@ -9756,6 +9836,7 @@ void Gamepage::on_Cancel_10_clicked()
     ui->Start_10->show();
 
     ui->timer_label_10->hide();
+    ui->label_of_timer_10->hide();
 
     QPoint Pos(540, 640);
 
@@ -9951,6 +10032,7 @@ void Gamepage::on_Start_11_clicked()
     ui->Start_11->hide();
     ui->Cancel_11->show();
     ui->timer_label_11->show();
+    ui->label_of_timer_11->show();
 
     QPoint Pos(1260, 640);
 
@@ -9968,6 +10050,7 @@ void Gamepage::on_Start_11_clicked()
 
        if (buttonAtPos->objectName() == "Chicken") {
            ch11->SetTimerLabel(ui->timer_label_11);
+           ch11->Set_label_of_timers(ui->label_of_timer_11);
            ch11->Set_Product_Pushbutton(ui->the_product_of_chicken_pushButton_11);
            ch11->Set_Cancel_Pushbutton(ui->Cancel_11);
            ch11->Set_Start_Pushbutton(ui->Start_11);
@@ -9992,6 +10075,7 @@ void Gamepage::on_Start_11_clicked()
 
        } else if (buttonAtPos->objectName() == "Sheep") {
            sheep11->SetTimerLabel(ui->timer_label_11);
+           sheep11->Set_label_of_timers(ui->label_of_timer_11);
            sheep11->Set_Product_Pushbutton(ui->the_product_of_sheep_pushButton_11);
            sheep11->Set_Cancel_Pushbutton(ui->Cancel_11);
            sheep11->Set_Start_Pushbutton(ui->Start_11);
@@ -10016,6 +10100,7 @@ void Gamepage::on_Start_11_clicked()
 
        } else if (buttonAtPos->objectName() == "Cow") {
            cow11->SetTimerLabel(ui->timer_label_11);
+           cow11->Set_label_of_timers(ui->label_of_timer_11);
            cow11->Set_Product_Pushbutton(ui->the_product_of_cow_pushButton_11);
            cow11->Set_Cancel_Pushbutton(ui->Cancel_11);
            cow11->Set_Start_Pushbutton(ui->Start_11);
@@ -10040,6 +10125,7 @@ void Gamepage::on_Start_11_clicked()
 
        } else if (buttonAtPos->objectName() == "Wheat") {
            wheat11->SetTimerLabel(ui->timer_label_11);
+           wheat11->Set_label_of_timers(ui->label_of_timer_11);
            wheat11->Set_Product_Pushbutton(ui->the_product_of_wheat_pushButton_11);
            wheat11->Set_Cancel_Pushbutton(ui->Cancel_11);
            wheat11->Set_Start_Pushbutton(ui->Start_11);
@@ -10064,6 +10150,7 @@ void Gamepage::on_Start_11_clicked()
 
        } else if (buttonAtPos->objectName() == "Barley") {
            barley11->SetTimerLabel(ui->timer_label_11);
+           barley11->Set_label_of_timers(ui->label_of_timer_11);
            barley11->Set_Product_Pushbutton(ui->the_product_of_barley_pushButton_11);
            barley11->Set_Cancel_Pushbutton(ui->Cancel_11);
            barley11->Set_Start_Pushbutton(ui->Start_11);
@@ -10128,6 +10215,7 @@ void Gamepage::on_Cancel_11_clicked()
     ui->Start_11->show();
 
     ui->timer_label_11->hide();
+    ui->label_of_timer_11->hide();
 
     QPoint Pos(1260, 640);
 
@@ -10322,6 +10410,7 @@ void Gamepage::on_Start_12_clicked()
     ui->Start_12->hide();
     ui->Cancel_12->show();
     ui->timer_label_12->show();
+    ui->label_of_timer_12->show();
 
     QPoint Pos(1650, 640);
 
@@ -10339,6 +10428,7 @@ void Gamepage::on_Start_12_clicked()
 
        if (buttonAtPos->objectName() == "Chicken") {
            ch12->SetTimerLabel(ui->timer_label_12);
+           ch12->Set_label_of_timers(ui->label_of_timer_12);
            ch12->Set_Product_Pushbutton(ui->the_product_of_chicken_pushButton_12);
            ch12->Set_Cancel_Pushbutton(ui->Cancel_12);
            ch12->Set_Start_Pushbutton(ui->Start_12);
@@ -10363,6 +10453,7 @@ void Gamepage::on_Start_12_clicked()
 
        } else if (buttonAtPos->objectName() == "Sheep") {
            sheep12->SetTimerLabel(ui->timer_label_12);
+           sheep12->Set_label_of_timers(ui->label_of_timer_12);
            sheep12->Set_Product_Pushbutton(ui->the_product_of_sheep_pushButton_12);
            sheep12->Set_Cancel_Pushbutton(ui->Cancel_12);
            sheep12->Set_Start_Pushbutton(ui->Start_12);
@@ -10387,6 +10478,7 @@ void Gamepage::on_Start_12_clicked()
 
        } else if (buttonAtPos->objectName() == "Cow") {
            cow12->SetTimerLabel(ui->timer_label_12);
+           cow12->Set_label_of_timers(ui->label_of_timer_12);
            cow12->Set_Product_Pushbutton(ui->the_product_of_cow_pushButton_12);
            cow12->Set_Cancel_Pushbutton(ui->Cancel_12);
            cow12->Set_Start_Pushbutton(ui->Start_12);
@@ -10411,6 +10503,7 @@ void Gamepage::on_Start_12_clicked()
 
        } else if (buttonAtPos->objectName() == "Wheat") {
            wheat12->SetTimerLabel(ui->timer_label_12);
+           wheat12->Set_label_of_timers(ui->label_of_timer_12);
            wheat12->Set_Product_Pushbutton(ui->the_product_of_wheat_pushButton_12);
            wheat12->Set_Cancel_Pushbutton(ui->Cancel_12);
            wheat12->Set_Start_Pushbutton(ui->Start_12);
@@ -10435,6 +10528,7 @@ void Gamepage::on_Start_12_clicked()
 
        } else if (buttonAtPos->objectName() == "Barley") {
            barley12->SetTimerLabel(ui->timer_label_12);
+           barley12->Set_label_of_timers(ui->label_of_timer_12);
            barley12->Set_Product_Pushbutton(ui->the_product_of_barley_pushButton_12);
            barley12->Set_Cancel_Pushbutton(ui->Cancel_12);
            barley12->Set_Start_Pushbutton(ui->Start_12);
@@ -10499,6 +10593,7 @@ void Gamepage::on_Cancel_12_clicked()
     ui->Start_12->show();
 
     ui->timer_label_12->hide();
+    ui->label_of_timer_12->hide();
 
     QPoint Pos(1650, 640);
 
@@ -10694,6 +10789,7 @@ void Gamepage::on_Start_13_clicked()
     ui->Start_13->hide();
     ui->Cancel_13->show();
     ui->timer_label_13->show();
+    ui->label_of_timer_13->show();
 
     QPoint Pos(150, 870);
 
@@ -10711,6 +10807,7 @@ void Gamepage::on_Start_13_clicked()
 
        if (buttonAtPos->objectName() == "Chicken") {
            ch13->SetTimerLabel(ui->timer_label_13);
+           ch13->Set_label_of_timers(ui->label_of_timer_13);
            ch13->Set_Product_Pushbutton(ui->the_product_of_chicken_pushButton_13);
            ch13->Set_Cancel_Pushbutton(ui->Cancel_13);
            ch13->Set_Start_Pushbutton(ui->Start_13);
@@ -10735,6 +10832,7 @@ void Gamepage::on_Start_13_clicked()
 
        } else if (buttonAtPos->objectName() == "Sheep") {
            sheep13->SetTimerLabel(ui->timer_label_13);
+           sheep13->Set_label_of_timers(ui->label_of_timer_13);
            sheep13->Set_Product_Pushbutton(ui->the_product_of_sheep_pushButton_13);
            sheep13->Set_Cancel_Pushbutton(ui->Cancel_13);
            sheep13->Set_Start_Pushbutton(ui->Start_13);
@@ -10759,6 +10857,7 @@ void Gamepage::on_Start_13_clicked()
 
        } else if (buttonAtPos->objectName() == "Cow") {
            cow13->SetTimerLabel(ui->timer_label_13);
+           cow13->Set_label_of_timers(ui->label_of_timer_13);
            cow13->Set_Product_Pushbutton(ui->the_product_of_cow_pushButton_13);
            cow13->Set_Cancel_Pushbutton(ui->Cancel_13);
            cow13->Set_Start_Pushbutton(ui->Start_13);
@@ -10783,6 +10882,7 @@ void Gamepage::on_Start_13_clicked()
 
        } else if (buttonAtPos->objectName() == "Wheat") {
            wheat13->SetTimerLabel(ui->timer_label_13);
+           wheat13->Set_label_of_timers(ui->label_of_timer_13);
            wheat13->Set_Product_Pushbutton(ui->the_product_of_wheat_pushButton_13);
            wheat13->Set_Cancel_Pushbutton(ui->Cancel_13);
            wheat13->Set_Start_Pushbutton(ui->Start_13);
@@ -10807,6 +10907,7 @@ void Gamepage::on_Start_13_clicked()
 
        } else if (buttonAtPos->objectName() == "Barley") {
            barley13->SetTimerLabel(ui->timer_label_13);
+           barley13->Set_label_of_timers(ui->label_of_timer_13);
            barley13->Set_Product_Pushbutton(ui->the_product_of_barley_pushButton_13);
            barley13->Set_Cancel_Pushbutton(ui->Cancel_13);
            barley13->Set_Start_Pushbutton(ui->Start_13);
@@ -10871,6 +10972,7 @@ void Gamepage::on_Cancel_13_clicked()
     ui->Start_13->show();
 
     ui->timer_label_13->hide();
+    ui->label_of_timer_13->hide();
 
     QPoint Pos(150, 870);
 
@@ -11066,6 +11168,7 @@ void Gamepage::on_Start_14_clicked()
     ui->Start_14->hide();
     ui->Cancel_14->show();
     ui->timer_label_14->show();
+    ui->label_of_timer_14->show();
 
     QPoint Pos(540, 870);
 
@@ -11083,6 +11186,7 @@ void Gamepage::on_Start_14_clicked()
 
        if (buttonAtPos->objectName() == "Chicken") {
            ch14->SetTimerLabel(ui->timer_label_14);
+           ch14->Set_label_of_timers(ui->label_of_timer_14);
            ch14->Set_Product_Pushbutton(ui->the_product_of_chicken_pushButton_14);
            ch14->Set_Cancel_Pushbutton(ui->Cancel_14);
            ch14->Set_Start_Pushbutton(ui->Start_14);
@@ -11107,6 +11211,7 @@ void Gamepage::on_Start_14_clicked()
 
        } else if (buttonAtPos->objectName() == "Sheep") {
            sheep14->SetTimerLabel(ui->timer_label_14);
+           sheep14->Set_label_of_timers(ui->label_of_timer_14);
            sheep14->Set_Product_Pushbutton(ui->the_product_of_sheep_pushButton_14);
            sheep14->Set_Cancel_Pushbutton(ui->Cancel_14);
            sheep14->Set_Start_Pushbutton(ui->Start_14);
@@ -11131,6 +11236,7 @@ void Gamepage::on_Start_14_clicked()
 
        } else if (buttonAtPos->objectName() == "Cow") {
            cow14->SetTimerLabel(ui->timer_label_14);
+           cow14->Set_label_of_timers(ui->label_of_timer_14);
            cow14->Set_Product_Pushbutton(ui->the_product_of_cow_pushButton_14);
            cow14->Set_Cancel_Pushbutton(ui->Cancel_14);
            cow14->Set_Start_Pushbutton(ui->Start_14);
@@ -11155,6 +11261,7 @@ void Gamepage::on_Start_14_clicked()
 
        } else if (buttonAtPos->objectName() == "Wheat") {
            wheat14->SetTimerLabel(ui->timer_label_14);
+           wheat14->Set_label_of_timers(ui->label_of_timer_14);
            wheat14->Set_Product_Pushbutton(ui->the_product_of_wheat_pushButton_14);
            wheat14->Set_Cancel_Pushbutton(ui->Cancel_14);
            wheat14->Set_Start_Pushbutton(ui->Start_14);
@@ -11179,6 +11286,7 @@ void Gamepage::on_Start_14_clicked()
 
        } else if (buttonAtPos->objectName() == "Barley") {
            barley14->SetTimerLabel(ui->timer_label_14);
+           barley14->Set_label_of_timers(ui->label_of_timer_14);
            barley14->Set_Product_Pushbutton(ui->the_product_of_barley_pushButton_14);
            barley14->Set_Cancel_Pushbutton(ui->Cancel_14);
            barley14->Set_Start_Pushbutton(ui->Start_14);
@@ -11243,6 +11351,7 @@ void Gamepage::on_Cancel_14_clicked()
     ui->Start_14->show();
 
     ui->timer_label_14->hide();
+    ui->label_of_timer_14->hide();
 
     QPoint Pos(540, 870);
 
@@ -11439,6 +11548,7 @@ void Gamepage::on_Start_15_clicked()
     ui->Start_15->hide();
     ui->Cancel_15->show();
     ui->timer_label_15->show();
+    ui->label_of_timer_15->show();
 
     QPoint Pos(1260, 870);
 
@@ -11456,6 +11566,7 @@ void Gamepage::on_Start_15_clicked()
 
        if (buttonAtPos->objectName() == "Chicken") {
            ch15->SetTimerLabel(ui->timer_label_15);
+           ch15->Set_label_of_timers(ui->label_of_timer_15);
            ch15->Set_Product_Pushbutton(ui->the_product_of_chicken_pushButton_15);
            ch15->Set_Cancel_Pushbutton(ui->Cancel_15);
            ch15->Set_Start_Pushbutton(ui->Start_15);
@@ -11480,6 +11591,7 @@ void Gamepage::on_Start_15_clicked()
 
        } else if (buttonAtPos->objectName() == "Sheep") {
            sheep15->SetTimerLabel(ui->timer_label_15);
+           sheep15->Set_label_of_timers(ui->label_of_timer_15);
            sheep15->Set_Product_Pushbutton(ui->the_product_of_sheep_pushButton_15);
            sheep15->Set_Cancel_Pushbutton(ui->Cancel_15);
            sheep15->Set_Start_Pushbutton(ui->Start_15);
@@ -11504,6 +11616,7 @@ void Gamepage::on_Start_15_clicked()
 
        } else if (buttonAtPos->objectName() == "Cow") {
            cow15->SetTimerLabel(ui->timer_label_15);
+           cow15->Set_label_of_timers(ui->label_of_timer_15);
            cow15->Set_Product_Pushbutton(ui->the_product_of_cow_pushButton_15);
            cow15->Set_Cancel_Pushbutton(ui->Cancel_15);
            cow15->Set_Start_Pushbutton(ui->Start_15);
@@ -11528,6 +11641,7 @@ void Gamepage::on_Start_15_clicked()
 
        } else if (buttonAtPos->objectName() == "Wheat") {
            wheat15->SetTimerLabel(ui->timer_label_15);
+           wheat15->Set_label_of_timers(ui->label_of_timer_15);
            wheat15->Set_Product_Pushbutton(ui->the_product_of_wheat_pushButton_15);
            wheat15->Set_Cancel_Pushbutton(ui->Cancel_15);
            wheat15->Set_Start_Pushbutton(ui->Start_15);
@@ -11552,6 +11666,7 @@ void Gamepage::on_Start_15_clicked()
 
        } else if (buttonAtPos->objectName() == "Barley") {
            barley15->SetTimerLabel(ui->timer_label_15);
+           barley15->Set_label_of_timers(ui->label_of_timer_15);
            barley15->Set_Product_Pushbutton(ui->the_product_of_barley_pushButton_15);
            barley15->Set_Cancel_Pushbutton(ui->Cancel_15);
            barley15->Set_Start_Pushbutton(ui->Start_15);
@@ -11616,6 +11731,7 @@ void Gamepage::on_Cancel_15_clicked()
     ui->Start_15->show();
 
     ui->timer_label_15->hide();
+    ui->label_of_timer_15->hide();
 
     QPoint Pos(1260, 870);
 
@@ -11811,6 +11927,7 @@ void Gamepage::on_Start_16_clicked()
     ui->Start_16->hide();
     ui->Cancel_16->show();
     ui->timer_label_16->show();
+    ui->label_of_timer_16->show();
 
     QPoint Pos(1650, 870);
 
@@ -11828,6 +11945,7 @@ void Gamepage::on_Start_16_clicked()
 
        if (buttonAtPos->objectName() == "Chicken") {
            ch16->SetTimerLabel(ui->timer_label_16);
+           ch16->Set_label_of_timers(ui->label_of_timer_16);
            ch16->Set_Product_Pushbutton(ui->the_product_of_chicken_pushButton_16);
            ch16->Set_Cancel_Pushbutton(ui->Cancel_16);
            ch16->Set_Start_Pushbutton(ui->Start_16);
@@ -11852,6 +11970,7 @@ void Gamepage::on_Start_16_clicked()
 
        } else if (buttonAtPos->objectName() == "Sheep") {
            sheep16->SetTimerLabel(ui->timer_label_16);
+           sheep16->Set_label_of_timers(ui->label_of_timer_16);
            sheep16->Set_Product_Pushbutton(ui->the_product_of_sheep_pushButton_16);
            sheep16->Set_Cancel_Pushbutton(ui->Cancel_16);
            sheep16->Set_Start_Pushbutton(ui->Start_16);
@@ -11876,6 +11995,7 @@ void Gamepage::on_Start_16_clicked()
 
        } else if (buttonAtPos->objectName() == "Cow") {
            cow16->SetTimerLabel(ui->timer_label_16);
+           cow16->Set_label_of_timers(ui->label_of_timer_16);
            cow16->Set_Product_Pushbutton(ui->the_product_of_cow_pushButton_16);
            cow16->Set_Cancel_Pushbutton(ui->Cancel_16);
            cow16->Set_Start_Pushbutton(ui->Start_16);
@@ -11900,6 +12020,7 @@ void Gamepage::on_Start_16_clicked()
 
        } else if (buttonAtPos->objectName() == "Wheat") {
            wheat16->SetTimerLabel(ui->timer_label_16);
+           wheat16->Set_label_of_timers(ui->label_of_timer_16);
            wheat16->Set_Product_Pushbutton(ui->the_product_of_wheat_pushButton_16);
            wheat16->Set_Cancel_Pushbutton(ui->Cancel_16);
            wheat16->Set_Start_Pushbutton(ui->Start_16);
@@ -11924,6 +12045,7 @@ void Gamepage::on_Start_16_clicked()
 
        } else if (buttonAtPos->objectName() == "Barley") {
            barley16->SetTimerLabel(ui->timer_label_16);
+           barley16->Set_label_of_timers(ui->label_of_timer_16);
            barley16->Set_Product_Pushbutton(ui->the_product_of_barley_pushButton_16);
            barley16->Set_Cancel_Pushbutton(ui->Cancel_16);
            barley16->Set_Start_Pushbutton(ui->Start_16);
@@ -11988,6 +12110,7 @@ void Gamepage::on_Cancel_16_clicked()
     ui->Start_16->show();
 
     ui->timer_label_16->hide();
+    ui->label_of_timer_16->hide();
 
     QPoint Pos(1650, 870);
 
@@ -13840,6 +13963,8 @@ void Gamepage::Set_window_to_the_default()
     Hide_Cancel_pushbuttons();
 
     Hide_Farms();
+
+    Hide_label_of_timers();
 
     ui->groupBox->hide();
 

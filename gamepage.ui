@@ -832,7 +832,7 @@ border-image: url(:/Farm.images/C:/Users/i/Downloads/house.png);</string>
    <widget class="QLabel" name="label_Time">
     <property name="geometry">
      <rect>
-      <x>240</x>
+      <x>250</x>
       <y>10</y>
       <width>51</width>
       <height>41</height>
@@ -1269,14 +1269,22 @@ border-image: url(:/Farm.images/C:/Users/i/Downloads/house.png);</string>
    <widget class="QLabel" name="timer_label">
     <property name="geometry">
      <rect>
-      <x>210</x>
-      <y>120</y>
+      <x>176</x>
+      <y>140</y>
       <width>51</width>
       <height>31</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 127);</string>
+     <string notr="true">color: rgb(255, 255, 255);
+</string>
     </property>
     <property name="text">
      <string/>
@@ -1376,14 +1384,22 @@ border-image: url(:/Farm.images/C:/Users/i/Downloads/house.png);</string>
    <widget class="QLabel" name="timer_label_2">
     <property name="geometry">
      <rect>
-      <x>600</x>
-      <y>120</y>
+      <x>566</x>
+      <y>140</y>
       <width>51</width>
       <height>31</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 127);</string>
+     <string notr="true">color: rgb(255, 255, 255);
+</string>
     </property>
     <property name="text">
      <string/>
@@ -1392,14 +1408,22 @@ border-image: url(:/Farm.images/C:/Users/i/Downloads/house.png);</string>
    <widget class="QLabel" name="timer_label_3">
     <property name="geometry">
      <rect>
-      <x>1320</x>
-      <y>120</y>
+      <x>1286</x>
+      <y>140</y>
       <width>51</width>
       <height>31</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 127);</string>
+     <string notr="true">color: rgb(255, 255, 255);
+</string>
     </property>
     <property name="text">
      <string/>
@@ -1408,14 +1432,22 @@ border-image: url(:/Farm.images/C:/Users/i/Downloads/house.png);</string>
    <widget class="QLabel" name="timer_label_4">
     <property name="geometry">
      <rect>
-      <x>1710</x>
-      <y>120</y>
+      <x>1676</x>
+      <y>140</y>
       <width>51</width>
       <height>31</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 127);</string>
+     <string notr="true">color: rgb(255, 255, 255);
+</string>
     </property>
     <property name="text">
      <string/>
@@ -1424,14 +1456,22 @@ border-image: url(:/Farm.images/C:/Users/i/Downloads/house.png);</string>
    <widget class="QLabel" name="timer_label_5">
     <property name="geometry">
      <rect>
-      <x>210</x>
-      <y>350</y>
+      <x>176</x>
+      <y>370</y>
       <width>51</width>
       <height>31</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 127);</string>
+     <string notr="true">color: rgb(255, 255, 255);
+</string>
     </property>
     <property name="text">
      <string/>
@@ -1440,14 +1480,22 @@ border-image: url(:/Farm.images/C:/Users/i/Downloads/house.png);</string>
    <widget class="QLabel" name="timer_label_6">
     <property name="geometry">
      <rect>
-      <x>600</x>
-      <y>350</y>
+      <x>566</x>
+      <y>370</y>
       <width>51</width>
       <height>31</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 127);</string>
+     <string notr="true">color: rgb(255, 255, 255);
+</string>
     </property>
     <property name="text">
      <string/>
@@ -1456,14 +1504,22 @@ border-image: url(:/Farm.images/C:/Users/i/Downloads/house.png);</string>
    <widget class="QLabel" name="timer_label_7">
     <property name="geometry">
      <rect>
-      <x>1320</x>
-      <y>350</y>
+      <x>1286</x>
+      <y>370</y>
       <width>51</width>
       <height>31</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 127);</string>
+     <string notr="true">color: rgb(255, 255, 255);
+</string>
     </property>
     <property name="text">
      <string/>
@@ -1472,14 +1528,22 @@ border-image: url(:/Farm.images/C:/Users/i/Downloads/house.png);</string>
    <widget class="QLabel" name="timer_label_8">
     <property name="geometry">
      <rect>
-      <x>1710</x>
-      <y>350</y>
+      <x>1676</x>
+      <y>370</y>
       <width>51</width>
       <height>31</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 127);</string>
+     <string notr="true">color: rgb(255, 255, 255);
+</string>
     </property>
     <property name="text">
      <string/>
@@ -1488,14 +1552,22 @@ border-image: url(:/Farm.images/C:/Users/i/Downloads/house.png);</string>
    <widget class="QLabel" name="timer_label_9">
     <property name="geometry">
      <rect>
-      <x>210</x>
-      <y>580</y>
+      <x>176</x>
+      <y>600</y>
       <width>51</width>
       <height>31</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 127);</string>
+     <string notr="true">color: rgb(255, 255, 255);
+</string>
     </property>
     <property name="text">
      <string/>
@@ -1504,14 +1576,22 @@ border-image: url(:/Farm.images/C:/Users/i/Downloads/house.png);</string>
    <widget class="QLabel" name="timer_label_10">
     <property name="geometry">
      <rect>
-      <x>600</x>
-      <y>580</y>
+      <x>566</x>
+      <y>600</y>
       <width>51</width>
       <height>31</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 127);</string>
+     <string notr="true">color: rgb(255, 255, 255);
+</string>
     </property>
     <property name="text">
      <string/>
@@ -1520,14 +1600,22 @@ border-image: url(:/Farm.images/C:/Users/i/Downloads/house.png);</string>
    <widget class="QLabel" name="timer_label_11">
     <property name="geometry">
      <rect>
-      <x>1320</x>
-      <y>580</y>
+      <x>1286</x>
+      <y>600</y>
       <width>51</width>
       <height>31</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 127);</string>
+     <string notr="true">color: rgb(255, 255, 255);
+</string>
     </property>
     <property name="text">
      <string/>
@@ -1536,14 +1624,22 @@ border-image: url(:/Farm.images/C:/Users/i/Downloads/house.png);</string>
    <widget class="QLabel" name="timer_label_12">
     <property name="geometry">
      <rect>
-      <x>1710</x>
-      <y>580</y>
+      <x>1676</x>
+      <y>600</y>
       <width>51</width>
       <height>31</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 127);</string>
+     <string notr="true">color: rgb(255, 255, 255);
+</string>
     </property>
     <property name="text">
      <string/>
@@ -1552,14 +1648,22 @@ border-image: url(:/Farm.images/C:/Users/i/Downloads/house.png);</string>
    <widget class="QLabel" name="timer_label_13">
     <property name="geometry">
      <rect>
-      <x>210</x>
-      <y>810</y>
+      <x>176</x>
+      <y>830</y>
       <width>51</width>
       <height>31</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 127);</string>
+     <string notr="true">color: rgb(255, 255, 255);
+</string>
     </property>
     <property name="text">
      <string/>
@@ -1568,14 +1672,22 @@ border-image: url(:/Farm.images/C:/Users/i/Downloads/house.png);</string>
    <widget class="QLabel" name="timer_label_14">
     <property name="geometry">
      <rect>
-      <x>600</x>
-      <y>810</y>
+      <x>566</x>
+      <y>830</y>
       <width>51</width>
       <height>31</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 127);</string>
+     <string notr="true">color: rgb(255, 255, 255);
+</string>
     </property>
     <property name="text">
      <string/>
@@ -1584,14 +1696,22 @@ border-image: url(:/Farm.images/C:/Users/i/Downloads/house.png);</string>
    <widget class="QLabel" name="timer_label_15">
     <property name="geometry">
      <rect>
-      <x>1320</x>
-      <y>810</y>
+      <x>1286</x>
+      <y>830</y>
       <width>51</width>
       <height>31</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 127);</string>
+     <string notr="true">color: rgb(255, 255, 255);
+</string>
     </property>
     <property name="text">
      <string/>
@@ -1600,14 +1720,22 @@ border-image: url(:/Farm.images/C:/Users/i/Downloads/house.png);</string>
    <widget class="QLabel" name="timer_label_16">
     <property name="geometry">
      <rect>
-      <x>1710</x>
-      <y>810</y>
+      <x>1676</x>
+      <y>830</y>
       <width>51</width>
       <height>31</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 127);</string>
+     <string notr="true">color: rgb(255, 255, 255);
+</string>
     </property>
     <property name="text">
      <string/>
@@ -2816,7 +2944,7 @@ border-image: url(:/Farm.images/C:/Users/i/Downloads/house.png);</string>
    <widget class="QLabel" name="decrease_point_label">
     <property name="geometry">
      <rect>
-      <x>170</x>
+      <x>167</x>
       <y>120</y>
       <width>31</width>
       <height>31</height>
@@ -2824,7 +2952,9 @@ border-image: url(:/Farm.images/C:/Users/i/Downloads/house.png);</string>
     </property>
     <property name="font">
      <font>
-      <pointsize>10</pointsize>
+      <pointsize>11</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
      </font>
     </property>
     <property name="styleSheet">
@@ -2837,7 +2967,7 @@ border-image: url(:/Farm.images/C:/Users/i/Downloads/house.png);</string>
    <widget class="QLabel" name="decrease_point_label_2">
     <property name="geometry">
      <rect>
-      <x>560</x>
+      <x>557</x>
       <y>120</y>
       <width>31</width>
       <height>31</height>
@@ -2845,7 +2975,9 @@ border-image: url(:/Farm.images/C:/Users/i/Downloads/house.png);</string>
     </property>
     <property name="font">
      <font>
-      <pointsize>10</pointsize>
+      <pointsize>11</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
      </font>
     </property>
     <property name="styleSheet">
@@ -2858,7 +2990,7 @@ border-image: url(:/Farm.images/C:/Users/i/Downloads/house.png);</string>
    <widget class="QLabel" name="decrease_point_label_3">
     <property name="geometry">
      <rect>
-      <x>1280</x>
+      <x>1277</x>
       <y>120</y>
       <width>31</width>
       <height>31</height>
@@ -2866,7 +2998,9 @@ border-image: url(:/Farm.images/C:/Users/i/Downloads/house.png);</string>
     </property>
     <property name="font">
      <font>
-      <pointsize>10</pointsize>
+      <pointsize>11</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
      </font>
     </property>
     <property name="styleSheet">
@@ -2879,7 +3013,7 @@ border-image: url(:/Farm.images/C:/Users/i/Downloads/house.png);</string>
    <widget class="QLabel" name="decrease_point_label_4">
     <property name="geometry">
      <rect>
-      <x>1670</x>
+      <x>1667</x>
       <y>120</y>
       <width>31</width>
       <height>31</height>
@@ -2887,7 +3021,9 @@ border-image: url(:/Farm.images/C:/Users/i/Downloads/house.png);</string>
     </property>
     <property name="font">
      <font>
-      <pointsize>10</pointsize>
+      <pointsize>11</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
      </font>
     </property>
     <property name="styleSheet">
@@ -2900,7 +3036,7 @@ border-image: url(:/Farm.images/C:/Users/i/Downloads/house.png);</string>
    <widget class="QLabel" name="decrease_point_label_5">
     <property name="geometry">
      <rect>
-      <x>170</x>
+      <x>167</x>
       <y>350</y>
       <width>31</width>
       <height>31</height>
@@ -2908,7 +3044,9 @@ border-image: url(:/Farm.images/C:/Users/i/Downloads/house.png);</string>
     </property>
     <property name="font">
      <font>
-      <pointsize>10</pointsize>
+      <pointsize>11</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
      </font>
     </property>
     <property name="styleSheet">
@@ -2921,7 +3059,7 @@ border-image: url(:/Farm.images/C:/Users/i/Downloads/house.png);</string>
    <widget class="QLabel" name="decrease_point_label_6">
     <property name="geometry">
      <rect>
-      <x>560</x>
+      <x>557</x>
       <y>350</y>
       <width>31</width>
       <height>31</height>
@@ -2929,7 +3067,9 @@ border-image: url(:/Farm.images/C:/Users/i/Downloads/house.png);</string>
     </property>
     <property name="font">
      <font>
-      <pointsize>10</pointsize>
+      <pointsize>11</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
      </font>
     </property>
     <property name="styleSheet">
@@ -2942,7 +3082,7 @@ border-image: url(:/Farm.images/C:/Users/i/Downloads/house.png);</string>
    <widget class="QLabel" name="decrease_point_label_7">
     <property name="geometry">
      <rect>
-      <x>1280</x>
+      <x>1277</x>
       <y>350</y>
       <width>31</width>
       <height>31</height>
@@ -2950,7 +3090,9 @@ border-image: url(:/Farm.images/C:/Users/i/Downloads/house.png);</string>
     </property>
     <property name="font">
      <font>
-      <pointsize>10</pointsize>
+      <pointsize>11</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
      </font>
     </property>
     <property name="styleSheet">
@@ -2963,7 +3105,7 @@ border-image: url(:/Farm.images/C:/Users/i/Downloads/house.png);</string>
    <widget class="QLabel" name="decrease_point_label_8">
     <property name="geometry">
      <rect>
-      <x>1670</x>
+      <x>1667</x>
       <y>350</y>
       <width>31</width>
       <height>31</height>
@@ -2971,7 +3113,9 @@ border-image: url(:/Farm.images/C:/Users/i/Downloads/house.png);</string>
     </property>
     <property name="font">
      <font>
-      <pointsize>10</pointsize>
+      <pointsize>11</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
      </font>
     </property>
     <property name="styleSheet">
@@ -2984,7 +3128,7 @@ border-image: url(:/Farm.images/C:/Users/i/Downloads/house.png);</string>
    <widget class="QLabel" name="decrease_point_label_9">
     <property name="geometry">
      <rect>
-      <x>170</x>
+      <x>167</x>
       <y>580</y>
       <width>31</width>
       <height>31</height>
@@ -2992,7 +3136,9 @@ border-image: url(:/Farm.images/C:/Users/i/Downloads/house.png);</string>
     </property>
     <property name="font">
      <font>
-      <pointsize>10</pointsize>
+      <pointsize>11</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
      </font>
     </property>
     <property name="styleSheet">
@@ -3005,7 +3151,7 @@ border-image: url(:/Farm.images/C:/Users/i/Downloads/house.png);</string>
    <widget class="QLabel" name="decrease_point_label_10">
     <property name="geometry">
      <rect>
-      <x>560</x>
+      <x>557</x>
       <y>580</y>
       <width>31</width>
       <height>31</height>
@@ -3013,7 +3159,9 @@ border-image: url(:/Farm.images/C:/Users/i/Downloads/house.png);</string>
     </property>
     <property name="font">
      <font>
-      <pointsize>10</pointsize>
+      <pointsize>11</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
      </font>
     </property>
     <property name="styleSheet">
@@ -3026,7 +3174,7 @@ border-image: url(:/Farm.images/C:/Users/i/Downloads/house.png);</string>
    <widget class="QLabel" name="decrease_point_label_11">
     <property name="geometry">
      <rect>
-      <x>1280</x>
+      <x>1277</x>
       <y>580</y>
       <width>31</width>
       <height>31</height>
@@ -3034,7 +3182,9 @@ border-image: url(:/Farm.images/C:/Users/i/Downloads/house.png);</string>
     </property>
     <property name="font">
      <font>
-      <pointsize>10</pointsize>
+      <pointsize>11</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
      </font>
     </property>
     <property name="styleSheet">
@@ -3047,7 +3197,7 @@ border-image: url(:/Farm.images/C:/Users/i/Downloads/house.png);</string>
    <widget class="QLabel" name="decrease_point_label_12">
     <property name="geometry">
      <rect>
-      <x>1670</x>
+      <x>1667</x>
       <y>580</y>
       <width>31</width>
       <height>31</height>
@@ -3055,7 +3205,9 @@ border-image: url(:/Farm.images/C:/Users/i/Downloads/house.png);</string>
     </property>
     <property name="font">
      <font>
-      <pointsize>10</pointsize>
+      <pointsize>11</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
      </font>
     </property>
     <property name="styleSheet">
@@ -3068,7 +3220,7 @@ border-image: url(:/Farm.images/C:/Users/i/Downloads/house.png);</string>
    <widget class="QLabel" name="decrease_point_label_13">
     <property name="geometry">
      <rect>
-      <x>170</x>
+      <x>167</x>
       <y>810</y>
       <width>31</width>
       <height>31</height>
@@ -3076,7 +3228,9 @@ border-image: url(:/Farm.images/C:/Users/i/Downloads/house.png);</string>
     </property>
     <property name="font">
      <font>
-      <pointsize>10</pointsize>
+      <pointsize>11</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
      </font>
     </property>
     <property name="styleSheet">
@@ -3089,7 +3243,7 @@ border-image: url(:/Farm.images/C:/Users/i/Downloads/house.png);</string>
    <widget class="QLabel" name="decrease_point_label_14">
     <property name="geometry">
      <rect>
-      <x>560</x>
+      <x>557</x>
       <y>810</y>
       <width>31</width>
       <height>31</height>
@@ -3097,7 +3251,9 @@ border-image: url(:/Farm.images/C:/Users/i/Downloads/house.png);</string>
     </property>
     <property name="font">
      <font>
-      <pointsize>10</pointsize>
+      <pointsize>11</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
      </font>
     </property>
     <property name="styleSheet">
@@ -3110,7 +3266,7 @@ border-image: url(:/Farm.images/C:/Users/i/Downloads/house.png);</string>
    <widget class="QLabel" name="decrease_point_label_15">
     <property name="geometry">
      <rect>
-      <x>1280</x>
+      <x>1277</x>
       <y>810</y>
       <width>31</width>
       <height>31</height>
@@ -3118,7 +3274,9 @@ border-image: url(:/Farm.images/C:/Users/i/Downloads/house.png);</string>
     </property>
     <property name="font">
      <font>
-      <pointsize>10</pointsize>
+      <pointsize>11</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
      </font>
     </property>
     <property name="styleSheet">
@@ -3131,7 +3289,7 @@ border-image: url(:/Farm.images/C:/Users/i/Downloads/house.png);</string>
    <widget class="QLabel" name="decrease_point_label_16">
     <property name="geometry">
      <rect>
-      <x>1670</x>
+      <x>1667</x>
       <y>810</y>
       <width>31</width>
       <height>31</height>
@@ -3139,7 +3297,9 @@ border-image: url(:/Farm.images/C:/Users/i/Downloads/house.png);</string>
     </property>
     <property name="font">
      <font>
-      <pointsize>10</pointsize>
+      <pointsize>11</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
      </font>
     </property>
     <property name="styleSheet">
@@ -3184,8 +3344,8 @@ border-image: url(:/Farm.images/C:/Users/i/Downloads/house.png);</string>
    <widget class="QGroupBox" name="Results">
     <property name="geometry">
      <rect>
-      <x>140</x>
-      <y>470</y>
+      <x>100</x>
+      <y>240</y>
       <width>411</width>
       <height>501</height>
      </rect>
@@ -3268,7 +3428,7 @@ border-image: url(:/Farm.images/C:/Users/i/Downloads/house.png);</string>
    <widget class="QLabel" name="label_19">
     <property name="geometry">
      <rect>
-      <x>190</x>
+      <x>200</x>
       <y>10</y>
       <width>51</width>
       <height>41</height>
@@ -3276,6 +3436,262 @@ border-image: url(:/Farm.images/C:/Users/i/Downloads/house.png);</string>
     </property>
     <property name="styleSheet">
      <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/stopwatch.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_of_timer_1">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>140</y>
+      <width>41</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/stopwatch (1).png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_of_timer_2">
+    <property name="geometry">
+     <rect>
+      <x>520</x>
+      <y>140</y>
+      <width>41</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/stopwatch (1).png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_of_timer_3">
+    <property name="geometry">
+     <rect>
+      <x>1240</x>
+      <y>140</y>
+      <width>41</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/stopwatch (1).png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_of_timer_4">
+    <property name="geometry">
+     <rect>
+      <x>1630</x>
+      <y>140</y>
+      <width>41</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/stopwatch (1).png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_of_timer_5">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>370</y>
+      <width>41</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/stopwatch (1).png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_of_timer_6">
+    <property name="geometry">
+     <rect>
+      <x>520</x>
+      <y>370</y>
+      <width>41</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/stopwatch (1).png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_of_timer_7">
+    <property name="geometry">
+     <rect>
+      <x>1240</x>
+      <y>370</y>
+      <width>41</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/stopwatch (1).png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_of_timer_8">
+    <property name="geometry">
+     <rect>
+      <x>1630</x>
+      <y>370</y>
+      <width>41</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/stopwatch (1).png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_of_timer_9">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>600</y>
+      <width>41</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/stopwatch (1).png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_of_timer_10">
+    <property name="geometry">
+     <rect>
+      <x>520</x>
+      <y>600</y>
+      <width>41</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/stopwatch (1).png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_of_timer_11">
+    <property name="geometry">
+     <rect>
+      <x>1240</x>
+      <y>600</y>
+      <width>41</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/stopwatch (1).png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_of_timer_12">
+    <property name="geometry">
+     <rect>
+      <x>1630</x>
+      <y>600</y>
+      <width>41</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/stopwatch (1).png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_of_timer_13">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>830</y>
+      <width>41</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/stopwatch (1).png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_of_timer_14">
+    <property name="geometry">
+     <rect>
+      <x>520</x>
+      <y>830</y>
+      <width>41</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/stopwatch (1).png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_of_timer_15">
+    <property name="geometry">
+     <rect>
+      <x>1240</x>
+      <y>830</y>
+      <width>41</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/stopwatch (1).png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_of_timer_16">
+    <property name="geometry">
+     <rect>
+      <x>1630</x>
+      <y>830</y>
+      <width>41</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Farm.images/C:/Users/i/Downloads/stopwatch (1).png);</string>
     </property>
     <property name="text">
      <string/>

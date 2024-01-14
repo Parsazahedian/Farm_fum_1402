@@ -38,6 +38,7 @@ void Animals::TurnTimerOn()
         Product_Pushbutton->show();
         Product_Collection_Delay_time_for_score();
         TimerLabel->hide();
+        Label_of_timer->hide();
         Cancel_Pushbutton->hide();
         Animals_or_Seeds_Pushbutton->setEnabled(true);
         Farmer_Pushbutton1->setEnabled(true);
@@ -64,6 +65,7 @@ void Animals::TurnTimerOn2()
         Product_Pushbutton->show();
         Product_Collection_Delay_time_for_score();
         TimerLabel->hide();
+        Label_of_timer->hide();
         Cancel_Pushbutton->hide();
         Animals_or_Seeds_Pushbutton->setEnabled(true);
         Farmer_Pushbutton2->setEnabled(true);
@@ -89,6 +91,7 @@ void Animals::TurnTimerOn3()
         Product_Pushbutton->show();
         Product_Collection_Delay_time_for_score();
         TimerLabel->hide();
+        Label_of_timer->hide();
         Cancel_Pushbutton->hide();
         Animals_or_Seeds_Pushbutton->setEnabled(true);
         Farmer_Pushbutton3->setEnabled(true);
@@ -114,6 +117,7 @@ void Animals::TurnTimerOn4()
         Product_Pushbutton->show();
         Product_Collection_Delay_time_for_score();
         TimerLabel->hide();
+        Label_of_timer->hide();
         Cancel_Pushbutton->hide();
         Animals_or_Seeds_Pushbutton->setEnabled(true);
         Farmer_Pushbutton4->setEnabled(true);
@@ -139,6 +143,7 @@ void Animals::TurnTimerOn5()
         Product_Pushbutton->show();
         Product_Collection_Delay_time_for_score();
         TimerLabel->hide();
+        Label_of_timer->hide();
         Cancel_Pushbutton->hide();
         Animals_or_Seeds_Pushbutton->setEnabled(true);
         Farmer_Pushbutton5->setEnabled(true);
@@ -164,6 +169,7 @@ void Animals::TurnTimerOn6()
         Product_Pushbutton->show();
         Product_Collection_Delay_time_for_score();
         TimerLabel->hide();
+        Label_of_timer->hide();
         Cancel_Pushbutton->hide();
         Animals_or_Seeds_Pushbutton->setEnabled(true);
         Farmer_Pushbutton6->setEnabled(true);
@@ -189,6 +195,7 @@ void Animals::TurnTimerOn7()
         Product_Pushbutton->show();
         Product_Collection_Delay_time_for_score();
         TimerLabel->hide();
+        Label_of_timer->hide();
         Cancel_Pushbutton->hide();
         Animals_or_Seeds_Pushbutton->setEnabled(true);
         Farmer_Pushbutton7->setEnabled(true);
@@ -214,6 +221,7 @@ void Animals::TurnTimerOn8()
         Product_Pushbutton->show();
         Product_Collection_Delay_time_for_score();
         TimerLabel->hide();
+        Label_of_timer->hide();
         Cancel_Pushbutton->hide();
         Animals_or_Seeds_Pushbutton->setEnabled(true);
         Farmer_Pushbutton8->setEnabled(true);
@@ -239,6 +247,7 @@ void Animals::TurnTimerOn9()
         Product_Pushbutton->show();
         Product_Collection_Delay_time_for_score();
         TimerLabel->hide();
+        Label_of_timer->hide();
         Cancel_Pushbutton->hide();
         Animals_or_Seeds_Pushbutton->setEnabled(true);
         Farmer_Pushbutton9->setEnabled(true);
@@ -264,6 +273,7 @@ void Animals::TurnTimerOn10()
         Product_Pushbutton->show();
         Product_Collection_Delay_time_for_score();
         TimerLabel->hide();
+        Label_of_timer->hide();
         Cancel_Pushbutton->hide();
         Animals_or_Seeds_Pushbutton->setEnabled(true);
         Farmer_Pushbutton10->setEnabled(true);
@@ -289,6 +299,7 @@ void Animals::TurnTimerOn11()
         Product_Pushbutton->show();
         Product_Collection_Delay_time_for_score();
         TimerLabel->hide();
+        Label_of_timer->hide();
         Cancel_Pushbutton->hide();
         Animals_or_Seeds_Pushbutton->setEnabled(true);
         Farmer_Pushbutton11->setEnabled(true);
@@ -314,6 +325,7 @@ void Animals::TurnTimerOn12()
         Product_Pushbutton->show();
         Product_Collection_Delay_time_for_score();
         TimerLabel->hide();
+        Label_of_timer->hide();
         Cancel_Pushbutton->hide();
         Animals_or_Seeds_Pushbutton->setEnabled(true);
         Farmer_Pushbutton12->setEnabled(true);
@@ -339,6 +351,7 @@ void Animals::TurnTimerOn13()
         Product_Pushbutton->show();
         Product_Collection_Delay_time_for_score();
         TimerLabel->hide();
+        Label_of_timer->hide();
         Cancel_Pushbutton->hide();
         Animals_or_Seeds_Pushbutton->setEnabled(true);
         Farmer_Pushbutton13->setEnabled(true);
@@ -364,6 +377,7 @@ void Animals::TurnTimerOn14()
         Product_Pushbutton->show();
         Product_Collection_Delay_time_for_score();
         TimerLabel->hide();
+        Label_of_timer->hide();
         Cancel_Pushbutton->hide();
         Animals_or_Seeds_Pushbutton->setEnabled(true);
         Farmer_Pushbutton14->setEnabled(true);
@@ -389,6 +403,7 @@ void Animals::TurnTimerOn15()
         Product_Pushbutton->show();
         Product_Collection_Delay_time_for_score();
         TimerLabel->hide();
+        Label_of_timer->hide();
         Cancel_Pushbutton->hide();
         Animals_or_Seeds_Pushbutton->setEnabled(true);
         Farmer_Pushbutton15->setEnabled(true);
@@ -414,6 +429,7 @@ void Animals::TurnTimerOn16()
         Product_Pushbutton->show();
         Product_Collection_Delay_time_for_score();
         TimerLabel->hide();
+        Label_of_timer->hide();
         Cancel_Pushbutton->hide();
         Animals_or_Seeds_Pushbutton->setEnabled(true);
         Farmer_Pushbutton16->setEnabled(true);
@@ -434,6 +450,11 @@ void Animals::TurnTimerOn16()
 void Animals::SetTimerLabel(QLabel *label)
 {
     TimerLabel = label;
+}
+
+void Animals::Set_label_of_timers(QLabel *label)
+{
+    Label_of_timer = label;
 }
 
 void Animals::Set_Farmer_status_Label(QLabel *label)
