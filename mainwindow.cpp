@@ -9,7 +9,11 @@
 #include "QIntValidator"
 #include "QSequentialAnimationGroup"
 #include "QPropertyAnimation"
+#include "gamepage.h"
+#include "QMessageBox"
 
+extern int score;
+extern QTimer* Timer_for_timer_label;
 extern MainWindow* mainWindowPtr;
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -82,7 +86,6 @@ MainWindow::MainWindow(QWidget *parent)
     query.exec("SELECT * FROM ResumeGame");
     if (query.next()) {
        int isGameStarted = query.value("isStarted").toInt();
-        qDebug() << "Resume game" << isGameStarted;
 
         if(isGameStarted==0){
 
@@ -91,7 +94,6 @@ MainWindow::MainWindow(QWidget *parent)
 
         }else if(isGameStarted==1){
 
-            qDebug() << "az ghabl thabtnam karde";
             ui->pushButton_2->show();
             ui->pushButton->show();
         }
@@ -107,6 +109,9 @@ void MainWindow::on_pushButton_clicked()
 {
     ui->pushButton_3->show();
     ui->lineEdit->show();
+    QSqlQuery query_3;
+    query_3.exec("DELETE FROM Game_Players");
+
     QString a="0";
     QSqlQuery q;
     q.exec("UPDATE ResumeGame SET isStarted = '"+a+"' ");
@@ -116,8 +121,32 @@ void MainWindow::on_pushButton_clicked()
 
 void MainWindow::on_pushButton_2_clicked()
 {
-    qDebug() << "vorod be edame bazi ghabli";
+
+    Gamepage *p = new Gamepage;
+    p->setWindowTitle("Farm Managment");
+    p->setWindowIcon(QIcon("C:/Users/i/Downloads/businessman_3331911.png"));
+    p->show();
+    backmusic1->stop();
     mainWindowPtr->close();
+
+    QSqlQuery b;
+    b.exec("SELECT Username FROM Game_Players WHERE Number = '"+QString::number(1)+"' ");
+    QString s;
+    if(b.first()){
+
+        s = b.value(0).toString();
+    }
+
+    QMessageBox msgBox(p);
+    msgBox.setWindowTitle("Wellcome");
+    msgBox.setText(""+s+" Are You Ready to Start?");
+    msgBox.setStandardButtons(QMessageBox::Yes);
+    int ret = msgBox.exec();
+
+    if (ret == QMessageBox::Yes) {
+       Timer_for_timer_label->start(1000);
+    }
+
 }
 
 void MainWindow::on_pushButton_3_clicked()

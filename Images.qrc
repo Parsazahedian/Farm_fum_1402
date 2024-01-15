@@ -22,11 +22,51 @@
         <file>C:/Users/i/Downloads/music_biiansu_septuan_biiansu_longs_cinematic_drones_textures_023.mp3</file>
         <file>C:/Users/i/Downloads/PM_BlurryDreams_123_252.mp3</file>
         <file>C:/Users/i/Downloads/music_dave_miles_movement_003.mp3</file>
+        <file>C:/Users/i/Downloads/cow.voice.mp3</file>
+        <file>C:/Users/i/Downloads/chicken.voice.mp3</file>
+        <file>C:/Users/i/Downloads/sheep.voice.mp3</file>
+        <file>C:/Users/i/Downloads/Seeds.voice.mp3</file>
+        <file>C:/Users/i/Downloads/Newfarm.mp3</file>
+        <file>C:/Users/i/Downloads/Farmer.voice.mp3</file>
+        <file>C:/Users/i/Downloads/Results.mp3</file>
+        <file>C:/Users/i/Downloads/Base_music.mp3</file>
     </qresource>
     <qresource prefix="/backgrounds">
         <file>C:/Users/i/Downloads/back4.jpg</file>
         <file>C:/Users/i/Downloads/back9.webp</file>
         <file>C:/Users/i/Downloads/back12.jpg</file>
         <file>C:/Users/i/Downloads/businessman_3331911.png</file>
+    </qresource>
+    <qresource prefix="/Farm.images">
+        <file>C:/Users/i/Downloads/Grass2.jpg</file>
+        <file>C:/Users/i/Downloads/house.png</file>
+        <file>C:/Users/i/Downloads/seeds.png</file>
+        <file>C:/Users/i/Downloads/barn.png</file>
+        <file>C:/Users/i/Downloads/wheat (1).png</file>
+        <file>C:/Users/i/Downloads/bag_of_wheat.png</file>
+        <file>C:/Users/i/Downloads/barley.png</file>
+        <file>C:/Users/i/Downloads/bag_of_barley.png</file>
+        <file>C:/Users/i/Downloads/stopwatch.png</file>
+        <file>C:/Users/i/Downloads/hourglass.png</file>
+        <file>C:/Users/i/Downloads/coins.png</file>
+        <file>C:/Users/i/Downloads/dollar.png</file>
+        <file>C:/Users/i/Downloads/shop.png</file>
+        <file>C:/Users/i/Downloads/farmer (1).png</file>
+        <file>C:/Users/i/Downloads/farmer.png</file>
+        <file>C:/Users/i/Downloads/milk-bottle.png</file>
+        <file>C:/Users/i/Downloads/sheep-milk.png</file>
+        <file>C:/Users/i/Downloads/egg.png</file>
+        <file>C:/Users/i/Downloads/hen.png</file>
+        <file>C:/Users/i/Downloads/sheep.png</file>
+        <file>C:/Users/i/Downloads/cow.png</file>
+        <file>C:/Users/i/Downloads/stopwatch (1).png</file>
+        <file>C:/Users/i/Downloads/badge.png</file>
+        <file>C:/Users/i/Downloads/the-end.png</file>
+        <file>C:/Users/i/Downloads/result.jpg</file>
+        <file>C:/Users/i/Downloads/images (3).jpg</file>
+        <file>C:/Users/i/Downloads/images (2).jpg</file>
+        <file>C:/Users/i/Downloads/images (1).jpg</file>
+        <file>C:/Users/i/Downloads/images (4).jpg</file>
+        <file>C:/Users/i/Downloads/download.jpg</file>
     </qresource>
 </RCC>

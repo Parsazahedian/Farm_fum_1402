@@ -2,7 +2,7 @@
 #include <QApplication>
 
 MainWindow* mainWindowPtr = nullptr;
-
+int Score;
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);

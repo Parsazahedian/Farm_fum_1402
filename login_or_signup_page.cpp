@@ -19,8 +19,11 @@
 #include "QMediaPlayer"
 #include "QSequentialAnimationGroup"
 #include "QPropertyAnimation"
+#include "gamepage.h"
 using namespace std;
 
+extern int score;
+extern QTimer* Timer_for_timer_label;
 QString cap="";
 int Number_Of_Players;
 int Number_of_Successful_Players_in_registration=0;
@@ -227,6 +230,9 @@ void Login_or_SignUp_page::on_Login_of_LoginGroupbox_clicked()
                          Number_of_Successful_Players_in_registration++;
                          Number_Of_Players--;
                          Successful_login_or_SignUp->play();
+                         QSqlQuery q;
+                         QString NumberOfPlayer = QString::number(i);
+                         q.exec("INSERT INTO Game_Players (Username, Number) VALUES ('"+LoginUsernameTxt+"', '"+NumberOfPlayer+"')");
                          QMessageBox::information(this,"Wellcom", "Player "+QString::number(i)+" your login was successful", "Gg");
                          ui->lineEdit->setText("");
                          ui->lineEdit_2->setText("");
@@ -284,10 +290,32 @@ void Login_or_SignUp_page::on_Login_of_LoginGroupbox_clicked()
         QSqlQuery q;
         q.exec("UPDATE ResumeGame SET isStarted = '"+b+"' ");
         ui->groupBox->hide();
-        qDebug() << "Number_of_Successful_Players_in_registration in login  " <<Number_of_Successful_Players_in_registration ;
-        qDebug() << "vorod be bazi login";
+        Gamepage *p = new Gamepage;
+        p->setWindowTitle("Farm Managment");
+        p->setWindowIcon(QIcon("C:/Users/i/Downloads/businessman_3331911.png"));
+        p->show();
+        backmusic2->pause();
+        Successful_login_or_SignUp->pause();
         this->close();
         closeMainWindow();
+
+        QSqlQuery c;
+        c.exec("SELECT Username FROM Game_Players WHERE Number = '"+QString::number(1)+"' ");
+        QString s;
+        if(c.first()){
+
+            s = c.value(0).toString();
+        }
+
+        QMessageBox msgBox(p);
+        msgBox.setWindowTitle("Wellcome");
+        msgBox.setText(""+s+" Are You Ready to Start?");
+        msgBox.setStandardButtons(QMessageBox::Yes);
+        int ret = msgBox.exec();
+
+        if (ret == QMessageBox::Yes) {
+           Timer_for_timer_label->start(1000);
+        }
     }
 }
 
@@ -493,7 +521,11 @@ void Login_or_SignUp_page::on_SignUp_of_Signup_clicked()
                  QMessageBox::warning(this,"Oops"," "+playerLasterror+" has already exist","Choose another that!");
               }
           }
-          if(p==1){            
+          if(p==1){
+
+              QSqlQuery q;
+              QString NumberOfPlayer = QString::number(i);
+              q.exec("INSERT INTO Game_Players (Username, Number) VALUES ('"+SignUpUsernameTxt+"', '"+NumberOfPlayer+"')");
               Number_of_Successful_Players_in_registration++;
               ui->lineEdit_3->setText("");
               ui->lineEdit_4->setText("");
@@ -531,6 +563,7 @@ void Login_or_SignUp_page::on_SignUp_of_Signup_clicked()
               ui->label_4->setText(cap);
               Successful_login_or_SignUp->play();
               QMessageBox::information(this,"Wellcom", "Player "+QString::number(i)+" your SignUp was successful", "Gg");
+
               i++;
               ui->Login_For_Player_i->setText("Login for Player "+QString::number(i)+" ");
               ui->SignUp_For_Player_i->setText("SIgnUp for Player "+QString::number(i)+" ");
@@ -545,10 +578,32 @@ void Login_or_SignUp_page::on_SignUp_of_Signup_clicked()
            QSqlQuery q;
            q.exec("UPDATE ResumeGame SET isStarted = '"+c+"' ");
            ui->groupBox->hide();
-           qDebug() << "Number_of_Successful_Players_in_registration in Signup  " <<Number_of_Successful_Players_in_registration ;
-           qDebug() << "vorod be bazi Sign up";
+           Gamepage *p = new Gamepage;
+           p->setWindowTitle("Farm Managment");
+           p->setWindowIcon(QIcon("C:/Users/i/Downloads/businessman_3331911.png"));
+           p->show();
+           backmusic2->pause();
+           Successful_login_or_SignUp->pause();
            this->close();
            closeMainWindow();
+
+           QSqlQuery v;
+           v.exec("SELECT Username FROM Game_Players WHERE Number = '"+QString::number(1)+"' ");
+           QString s;
+           if(v.first()){
+
+               s = v.value(0).toString();
+           }
+
+           QMessageBox msgBox(p);
+           msgBox.setWindowTitle("Welcome");
+           msgBox.setText(""+s+" Are You Ready to Start?");
+           msgBox.setStandardButtons(QMessageBox::Yes);
+           int ret = msgBox.exec();
+
+           if (ret == QMessageBox::Yes) {
+              Timer_for_timer_label->start(1000);
+           }
        }
 }
 
